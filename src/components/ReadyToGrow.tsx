@@ -48,6 +48,7 @@ export function ReadyToGrow() {
   const sectionRef = useRef<HTMLElement>(null);
   const stickyWrapRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [stickyProgress, setStickyProgress] = useState(0);
 
   useEffect(() => {
@@ -66,6 +67,14 @@ export function ReadyToGrow() {
 
     observer.observe(element);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const updateViewport = () => setIsMobile(window.innerWidth < 768);
+
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
   }, []);
 
   useEffect(() => {
@@ -99,17 +108,17 @@ export function ReadyToGrow() {
 
   const imageProgress = Math.min(1, stickyProgress / 0.24);
   const exitProgress = phaseProgress(stickyProgress, 0.985, 1);
-  const imageWidth = 68 + imageProgress * 32 - exitProgress * 6;
+  const imageWidth = isMobile ? 100 : 68 + imageProgress * 32 - exitProgress * 6;
   const imageHeight = 64 + imageProgress * 36 - exitProgress * 10;
-  const framePadding = 24 * (1 - imageProgress) + 24 * exitProgress;
-  const frameRadius = 24 * (1 - imageProgress) + 24 * exitProgress;
+  const framePadding = isMobile ? 0 : 24 * (1 - imageProgress) + 24 * exitProgress;
+  const frameRadius = isMobile ? 16 : 24 * (1 - imageProgress) + 24 * exitProgress;
   const introIn = phaseProgress(stickyProgress, 0.38, 0.46);
   const introOut = phaseProgress(stickyProgress, 0.54, 0.64);
-  const introOpacity = introIn * (1 - introOut);
-  const introTranslateY = 36 * (1 - introIn) - 120 * introOut;
+  const introOpacity = isMobile ? 1 : introIn * (1 - introOut);
+  const introTranslateY = isMobile ? 0 : 36 * (1 - introIn) - 120 * introOut;
   const overlayLift = phaseProgress(stickyProgress, 0.62, 0.76);
-  const mainOverlayOpacity = 0.7 - overlayLift * 0.28;
-  const ctaIn = phaseProgress(stickyProgress, 0.92, 0.955);
+  const mainOverlayOpacity = isMobile ? 0.64 : 0.7 - overlayLift * 0.28;
+  const ctaIn = isMobile ? 1 : phaseProgress(stickyProgress, 0.92, 0.955);
 
   const hotspotStyle = (index: number) => {
     const hotspotIn = phaseProgress(stickyProgress, 0.64 + index * 0.04, 0.72 + index * 0.04);
@@ -137,7 +146,7 @@ export function ReadyToGrow() {
                 key={index}
                 className="mr-10 flex flex-none items-center gap-10 max-[479px]:mr-6 max-[479px]:gap-6"
               >
-                <h2 className="m-0 font-sans text-[clamp(4.75rem,12vw,13rem)] font-medium leading-[1.05] tracking-[-0.035em] text-primary">
+                <h2 className="m-0 font-sans text-[clamp(4.75rem,12vw,13rem)] font-medium leading-[1.05] tracking-[-0.035em] text-primary max-[479px]:text-[3.5rem]">
                   Paruošta augti
                 </h2>
                 <span className="mt-5 size-6 flex-none rounded-full bg-accent max-[767px]:size-4 max-[479px]:mt-3 max-[479px]:size-3" />
@@ -153,10 +162,10 @@ export function ReadyToGrow() {
           style={{ padding: `${framePadding}px` }}
         >
           <div
-            className="relative overflow-hidden bg-primary max-[767px]:min-h-[900px] max-[767px]:w-full max-[479px]:min-h-[820px]"
+            className="relative overflow-hidden bg-primary max-[767px]:min-h-[820px] max-[767px]:w-full max-[479px]:min-h-[760px]"
             style={{
               width: `${imageWidth}%`,
-              height: `${imageHeight}vh`,
+              height: isMobile ? "auto" : `${imageHeight}vh`,
               borderRadius: `${frameRadius}px`,
             }}
           >
@@ -242,7 +251,7 @@ export function ReadyToGrow() {
             </span>
           </button>
 
-          <div className="pointer-events-none absolute inset-x-5 top-[340px] hidden grid-cols-2 gap-4 max-[767px]:grid max-[479px]:top-[350px]">
+          <div className="pointer-events-none absolute inset-x-5 top-[330px] hidden grid-cols-2 gap-4 max-[767px]:grid max-[479px]:top-[320px] max-[479px]:grid-cols-1">
             {infrastructureStats.map(({ value, label, title, Icon }, index) => (
               <div
                 key={`mobile-${label}`}
@@ -277,7 +286,7 @@ export function ReadyToGrow() {
             className="absolute bottom-12 left-1/2 z-[3] flex w-[min(660px,calc(100%-2rem))] justify-center opacity-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] max-[767px]:inset-x-5 max-[767px]:bottom-8 max-[767px]:w-auto"
             style={{
               opacity: ctaIn,
-              transform: `translate(-50%, ${120 * (1 - ctaIn)}px)`,
+              transform: isMobile ? `translateY(${28 * (1 - ctaIn)}px)` : `translate(-50%, ${120 * (1 - ctaIn)}px)`,
               transitionDelay: ctaIn > 0 ? "80ms" : "0ms",
             }}
           >
