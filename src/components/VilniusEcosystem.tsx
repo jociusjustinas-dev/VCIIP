@@ -1,0 +1,137 @@
+import { useState } from "react";
+import modernOfficeImage from "../assets/images/modern-office-work.png";
+import vilniusImage from "../assets/images/vilnius.webp";
+import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
+import { ParallaxImage } from "./ParallaxImage";
+
+const tabs = [
+  {
+    label: "Miestas mieste",
+    image: modernOfficeImage,
+    intro:
+      "VCIIP – ne izoliuota pramoninė zona, o gyva aplinka, kurioje patogu dirbti, mokytis ir ilsėtis.",
+    items: [
+      "Privati tarptautinė mokykla ir darželis",
+      "Restoranai ir maitinimo vietos",
+      "Viešosios ir žaliosios erdvės",
+      "Technologijų vystymo centras",
+      "Konferencijų ir susitikimų erdvės",
+      "Tvaraus transporto infrastruktūra",
+    ],
+  },
+  {
+    label: "Kodėl Vilnius",
+    image: vilniusImage,
+    intro:
+      "Vilnius – viena patraukliausių vietų Baltijos regione inovatyviam verslui kurtis ir augti.",
+    items: [
+      "Stiprus talentų rezervas gyvybės mokslų ir technologijų srityse",
+      "Patogus susisiekimas ir prieiga prie ES rinkos",
+      "Auganti mokslo, verslo ir inovacijų ekosistema",
+      "Kompaktiškas, žalias ir tarptautiniam verslui patrauklus miestas",
+    ],
+  },
+  {
+    label: "Miestas ir valstybė",
+    image: vciipOverviewImage,
+    intro:
+      "VCIIP suderintas su miesto ir valstybės plėtros kryptimis, todėl investuotojai čia gauna ne tik infrastruktūrą, bet ir ilgalaikę partnerystę.",
+    items: [
+      "Valstybei svarbaus ekonomikos projekto statusas",
+      "Suderinamumas su Vilniaus miesto ir valstybės plėtros planais",
+      "Patikimas operatorius – VšĮ „Northtown Vilnius“",
+    ],
+  },
+];
+
+export function VilniusEcosystem() {
+  const [activeTab, setActiveTab] = useState(0);
+  const tab = tabs[activeTab];
+
+  return (
+    <section id="ekosistema-vilniuje" className="relative bg-white p-2">
+      <div className="relative overflow-hidden rounded-2xl bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
+        <div className="site-container px-6 max-[479px]:px-4">
+          <div className="mx-auto mb-14 flex max-w-5xl flex-col items-center gap-7 text-center max-[767px]:items-start max-[767px]:text-left" data-reveal-group>
+            <p className="eyebrow reveal-item text-primary/62">VCIIP aplinka</p>
+            <h2 className="section-heading reveal-item max-w-4xl">
+              <span className="heading-highlight">Inovacijų ekosistema,</span>
+              <br />
+              integruota į Vilniaus miestą.
+            </h2>
+            <p className="reveal-item m-0 max-w-3xl text-xl font-medium leading-[150%] text-muted max-[479px]:text-base">
+              VCIIP vystoma kaip teritorija, kurioje infrastruktūra, paslaugos, miesto
+              ryšiai ir viešojo sektoriaus palaikymas veikia kaip viena sistema.
+            </p>
+          </div>
+
+          <div className="reveal-item mb-16 flex justify-center max-[767px]:mb-10 max-[767px]:justify-start">
+            <div
+              className="flex max-w-full gap-1 overflow-x-auto rounded-full bg-background p-1 [scrollbar-width:none] max-[479px]:w-full [&::-webkit-scrollbar]:hidden"
+              role="tablist"
+              aria-label="Ekosistema Vilniuje"
+            >
+              {tabs.map((item, index) => {
+                const isActive = activeTab === index;
+
+                return (
+                  <button
+                    key={item.label}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setActiveTab(index)}
+                    className={`flex-none rounded-full px-8 py-4 text-left text-lg font-medium leading-none transition-colors duration-300 outline-none max-[767px]:px-6 max-[479px]:px-5 max-[479px]:text-base ${
+                      isActive
+                        ? "bg-primary text-white"
+                        : "text-primary/62 hover:bg-primary/8 hover:text-primary"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(360px,1fr)] max-[767px]:grid-cols-1 max-[479px]:gap-6" data-reveal-group>
+            <div className="reveal-item flex min-h-[500px] flex-col justify-between gap-14 rounded-2xl bg-[linear-gradient(90deg,rgba(0,255,187,0.2),rgba(0,255,187,0.04))] p-10 max-[991px]:min-h-0 max-[767px]:p-8 max-[479px]:gap-8 max-[479px]:p-6">
+              <div className="flex max-w-3xl flex-col gap-7">
+                <p className="m-0 font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-primary/52">
+                  {String(activeTab + 1).padStart(2, "0")}
+                </p>
+                <h3 className="m-0 text-[42px] font-medium leading-[1.05] tracking-[-0.03em] text-primary max-[767px]:text-[34px] max-[479px]:text-[30px]">
+                  {tab.label}
+                </h3>
+                <p className="m-0 text-[24px] font-medium leading-[1.28] tracking-[-0.02em] text-primary/78 max-[767px]:text-xl max-[479px]:text-lg">
+                  {tab.intro}
+                </p>
+              </div>
+
+              <ul className="m-0 grid list-none grid-cols-2 gap-x-10 p-0 max-[991px]:grid-cols-1">
+                {tab.items.map((item) => (
+                  <li
+                    key={item}
+                    className="border-t border-dashed border-primary/22 py-4 text-lg font-medium leading-[140%] text-muted max-[479px]:text-base"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="reveal-item relative min-h-[500px] overflow-hidden rounded-2xl bg-primary max-[991px]:min-h-[420px] max-[767px]:order-first max-[767px]:min-h-[360px] max-[479px]:min-h-[280px]" data-reveal="scale">
+              <ParallaxImage
+                src={tab.image}
+                alt=""
+                className="absolute inset-0 h-full w-full"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,50,58,0.04),rgba(20,50,58,0.34))]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
