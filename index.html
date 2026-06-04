@@ -12,5 +12,22 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.Userback = window.Userback || {};
+      Userback.access_token = "A-u7DXOWwakMf0zBb8lrXzJMDVP";
+      Userback.user_data = {
+        id: "123456",
+        info: {
+          name: "someone",
+          email: "someone@example.com",
+        },
+      };
+      (function (d) {
+        var s = d.createElement("script");
+        s.async = true;
+        s.src = "https://static.userback.io/widget/v1.js";
+        (d.head || d.body).appendChild(s);
+      })(document);
+    </script>
   </body>
 </html>
