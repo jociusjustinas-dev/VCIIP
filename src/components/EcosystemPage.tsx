@@ -1,8 +1,7 @@
-import ecosystemBioImage from "../assets/images/ecosystem-bio.jpeg";
-import { bioEnvironmentContent } from "../content/ecosystem";
+import { bioTabsContent } from "../content/ecosystem";
 import { EcosystemHero } from "./EcosystemHero";
 import { EcosystemMarquee } from "./EcosystemMarquee";
-import { FeatureAccordionSection } from "./FeatureAccordionSection";
+import { FeatureTabsSection } from "./FeatureTabsSection";
 import { InvestorInquiry } from "./InvestorInquiry";
 import { ProofStats } from "./ProofStats";
 
@@ -14,7 +13,7 @@ export function EcosystemPage() {
         <ProofStats />
       </div>
       <EcosystemMarquee />
-      <FeatureAccordionSection {...bioEnvironmentContent} imageSrc={ecosystemBioImage} />
+      <FeatureTabsSection {...bioTabsContent} />
       <InvestorInquiry />
     </main>
   );
