@@ -17,7 +17,7 @@ function App() {
       <SmoothScroll />
       <ScrollReveal />
       <Navigation variant={isLegacyGreenPage ? "bio" : "tech"} />
-      <StrategyBadge active={isStrategyPage} />
+      {!isLegacyGreenPage && <StrategyBadge active={isStrategyPage} />}
       {isStrategyPage ? (
         <StrategyPage />
       ) : isLegacyGreenPage ? (
