@@ -1,0 +1,131 @@
+import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+
+import { ParallaxImage } from "./ParallaxImage";
+
+type CtaLink = {
+  label: string;
+  href: string;
+};
+
+type FeatureSplitHighlightsSectionProps = {
+  id: string;
+  eyebrow: string;
+  titleHighlight: string;
+  titleRest: string;
+  intro: string;
+  highlights: string[];
+  note: string;
+  primaryCta: CtaLink;
+  secondaryCta: CtaLink;
+  imageSrc: string;
+};
+
+export function FeatureSplitHighlightsSection({
+  id,
+  eyebrow,
+  titleHighlight,
+  titleRest,
+  intro,
+  highlights,
+  note,
+  primaryCta,
+  secondaryCta,
+  imageSrc,
+}: FeatureSplitHighlightsSectionProps) {
+  const [primaryHovered, setPrimaryHovered] = useState(false);
+
+  return (
+    <section id={id} className="relative bg-white p-2">
+      <div className="relative overflow-hidden rounded-2xl bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
+        <div className="site-container px-6 max-[479px]:px-4">
+          <div
+            className="mb-16 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)] max-[991px]:mb-12"
+            data-reveal-group
+          >
+            <div className="flex flex-col items-start gap-7">
+              <div className="h-0 w-full border-b border-dashed border-primary/45" />
+              <p className="eyebrow reveal-item text-primary/62">{eyebrow}</p>
+              <h2 className="section-heading reveal-item max-w-4xl">
+                <span className="heading-highlight">{titleHighlight}</span>
+                <br />
+                {titleRest}
+              </h2>
+            </div>
+
+            <p className="reveal-item m-0 max-w-xl justify-self-end text-xl font-medium leading-[150%] text-muted max-[479px]:text-base">
+              {intro}
+            </p>
+          </div>
+
+          <div
+            className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(460px,0.78fr)] lg:gap-16"
+            data-reveal-group
+          >
+            <div className="reveal-item flex flex-col justify-between gap-10">
+              <ul className="m-0 grid list-none gap-0 p-0">
+                {highlights.map((item) => (
+                  <li
+                    key={item}
+                    className="border-t border-dashed border-primary/22 py-4 text-lg font-medium leading-[140%] text-primary max-[479px]:text-base"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col gap-8">
+                <p className="m-0 max-w-lg text-sm font-medium leading-[150%] text-muted">
+                  {note}
+                </p>
+
+                <div className="flex flex-wrap gap-3 max-[479px]:flex-col">
+                  <a
+                    href={primaryCta.href}
+                    className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
+                    onMouseEnter={() => setPrimaryHovered(true)}
+                    onMouseLeave={() => setPrimaryHovered(false)}
+                  >
+                    <span className="h-5 overflow-hidden py-px">
+                      <span
+                        className="flex flex-col transition-transform duration-200 ease-out"
+                        style={{ transform: primaryHovered ? "translateY(-50%)" : "translateY(0%)" }}
+                      >
+                        {[primaryCta.label, primaryCta.label].map((label, index) => (
+                          <span key={index} className="flex h-5 items-center gap-2">
+                            {label}
+                            <ArrowUpRight size={16} aria-hidden="true" />
+                          </span>
+                        ))}
+                      </span>
+                    </span>
+                  </a>
+
+                  <a
+                    href={secondaryCta.href}
+                    className="inline-flex min-h-12 w-fit items-center justify-center rounded-full border border-primary/18 px-5 py-3 text-base font-semibold leading-none text-primary transition hover:border-accent hover:text-accent"
+                  >
+                    {secondaryCta.label}
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className="reveal-item relative min-h-[520px] overflow-hidden rounded-2xl bg-primary max-[991px]:min-h-[420px] max-[767px]:min-h-[360px] max-[479px]:min-h-[280px]"
+              data-reveal="scale"
+            >
+              <ParallaxImage
+                src={imageSrc}
+                alt=""
+                className="absolute inset-0 h-full w-full"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

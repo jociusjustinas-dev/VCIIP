@@ -1,4 +1,5 @@
 import ecosystemBioImage from "../assets/images/ecosystem-bio.jpeg";
+import ecosystemTechImage from "../assets/images/ecosystem-tech.jpg";
 import modernOfficeImage from "../assets/images/modern-office-work.png";
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 
@@ -51,4 +52,29 @@ export const bioTabsContent = {
       image: vciipOverviewImage,
     },
   ],
+};
+
+export const bioGrowthContent = {
+  id: "bio-pletra",
+  eyebrow: "VCIIP BIO",
+  titleHighlight: "Aplinka",
+  titleRest: "tolimesnei plėtrai.",
+  intro:
+    "VCIIP BIO teritorijoje planuojama tolimesnė gyvybės mokslų infrastruktūros ir ekosistemos plėtra, sudaranti galimybes organizacijų augimui vienoje teritorijoje.",
+  highlights: [
+    "Galimybės tolimesnei plėtrai",
+    "Integracija į esamą ekosistemą",
+    "Planuojama infrastruktūros plėtra",
+    "Ilgalaikė teritorijos vystymo kryptis",
+  ],
+  note: "Dalis infrastruktūros ir teritorijos vystoma etapais kartu su VCIIP plėtra.",
+  primaryCta: {
+    label: "Susisiekti dėl galimybių",
+    href: "#kontaktai",
+  },
+  secondaryCta: {
+    label: "Peržiūrėti TECH teritoriją",
+    href: "/#sklypai",
+  },
+  imageSrc: ecosystemTechImage,
 };
