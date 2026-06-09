@@ -14,7 +14,7 @@ const fields = {
   stage: ["Vertiname galimybes", "Ieškome teritorijos", "Planuojame plėtrą", "Kita"],
 };
 
-export function InvestorInquiry() {
+export function InvestorInquiry({ showEyebrow = true }: { showEyebrow?: boolean }) {
   const [formState, setFormState] = useState<FormState>("idle");
   const [interest, setInterest] = useState("");
   const [stage, setStage] = useState("");
@@ -31,7 +31,7 @@ export function InvestorInquiry() {
           <div className="grid gap-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(560px,1fr)] lg:gap-24" data-reveal-group>
             <div className="flex flex-col justify-between gap-16">
               <div className="reveal-item flex max-w-2xl flex-col gap-7">
-                <p className="eyebrow text-white">Pradėkime pokalbį</p>
+                {showEyebrow && <p className="eyebrow text-white">Pradėkime pokalbį</p>}
                 <h2 className="section-heading max-w-3xl text-white">
                   Papasakokite apie savo planus
                 </h2>

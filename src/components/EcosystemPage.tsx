@@ -16,7 +16,7 @@ export function EcosystemPage() {
       <EcosystemMarquee />
       <FeatureTabsSection {...bioTabsContent} />
       <FeatureSplitHighlightsSection {...bioGrowthContent} />
-      <InvestorInquiry />
+      <InvestorInquiry showEyebrow={false} />
     </main>
   );
 }
