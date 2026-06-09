@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-import ecosystemBioImage from "../assets/images/ecosystem-bio.jpeg";
-import { ParallaxImage } from "./ParallaxImage";
+const ecosystemHeroVideoSrc =
+  "https://cdn.prod.website-files.com/671f57636f0070068c1dc89c%2F6721479b87a477f27f4f5107_Tubes-transcode.mp4";
 
 export function EcosystemHero() {
   const [headingVisible, setHeadingVisible] = useState(false);
@@ -94,13 +94,16 @@ export function EcosystemHero() {
             className="reveal-item relative h-[min(560px,calc(100svh-11rem))] overflow-hidden rounded-2xl bg-primary max-[991px]:mt-2 max-[991px]:h-[min(420px,calc(100svh-10rem))] max-[479px]:h-[min(280px,calc(100svh-9rem))]"
             data-reveal="scale"
           >
-            <ParallaxImage
-              src={ecosystemBioImage}
-              alt=""
-              className="absolute inset-0 h-full w-full"
-              loading="eager"
-              strength={48}
-            />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover"
+              aria-hidden="true"
+            >
+              <source src={ecosystemHeroVideoSrc} type="video/mp4" />
+            </video>
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,transparent),color-mix(in_srgb,var(--color-primary)_28%,transparent))]" />
           </div>
         </div>
