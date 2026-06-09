@@ -30,10 +30,10 @@ export function EcosystemHero() {
   return (
     <section
       id="ekosistema-hero"
-      className="relative overflow-hidden bg-white pb-16 pt-28 max-[991px]:pb-12 max-[991px]:pt-24 max-[479px]:pb-10 max-[479px]:pt-20"
+      className="relative overflow-hidden bg-white pb-8 pt-32 max-[991px]:pb-8 max-[991px]:pt-28 max-[479px]:pb-6 max-[479px]:pt-24"
     >
       <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
-        <div className="grid items-center gap-8 lg:grid-cols-2 max-[991px]:grid-cols-1">
+        <div className="grid items-start gap-8 lg:grid-cols-2 max-[991px]:grid-cols-1">
           <div className="relative z-[2] flex flex-col items-start gap-6" data-reveal-group>
             <p className="eyebrow reveal-item text-primary/72">VCIIP BIO</p>
 
@@ -91,7 +91,7 @@ export function EcosystemHero() {
           </div>
 
           <div
-            className="reveal-item relative h-[min(560px,calc(100svh-11rem))] overflow-hidden rounded-2xl bg-primary max-[991px]:mt-2 max-[991px]:h-[min(420px,calc(100svh-10rem))] max-[479px]:h-[min(280px,calc(100svh-9rem))]"
+            className="reveal-item relative h-[min(520px,calc(100svh-12rem))] overflow-hidden rounded-2xl bg-primary max-[991px]:mt-0 max-[991px]:h-[min(400px,calc(100svh-11rem))] max-[479px]:h-[min(280px,calc(100svh-10rem))]"
             data-reveal="scale"
           >
             <video
