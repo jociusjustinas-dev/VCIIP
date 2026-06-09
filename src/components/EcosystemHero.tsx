@@ -33,15 +33,6 @@ export function EcosystemHero() {
       className="relative overflow-hidden bg-white pb-16 pt-28 max-[991px]:pb-12 max-[991px]:pt-24 max-[479px]:pb-10 max-[479px]:pt-20"
     >
       <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
-        <div
-          className="pointer-events-none absolute rounded-full border border-dashed border-primary/30 outline outline-1 outline-dashed outline-primary/30 max-[991px]:size-[640px] max-[991px]:-left-[86px] max-[991px]:-top-[206px] max-[479px]:size-[360px] max-[479px]:-left-[110px] max-[479px]:-top-[104px] size-[1024px] -left-[240px] -top-[540px]"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute left-[45%] top-[60%] hidden size-64 rounded-full border border-dashed border-primary/30 max-[991px]:hidden"
-          aria-hidden="true"
-        />
-
         <div className="grid items-center gap-8 lg:grid-cols-2 max-[991px]:grid-cols-1">
           <div className="relative z-[2] flex flex-col items-start gap-6" data-reveal-group>
             <p className="eyebrow reveal-item text-primary/72">VCIIP BIO</p>
