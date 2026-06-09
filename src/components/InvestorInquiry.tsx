@@ -155,7 +155,7 @@ export function InvestorInquiry() {
                   <div className="flex flex-col gap-4">
                     <button
                       type="submit"
-                      className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-accent px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-primary hover:text-white"
+                      className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
                     >
                       <span className="h-5 overflow-hidden py-px">
                         <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
@@ -257,7 +257,7 @@ function CustomSelect({
                 }}
                 className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-semibold leading-[1.2] transition-colors duration-200 ${
                   selected
-                    ? "bg-accent text-primary"
+                    ? "bg-accent text-white"
                     : "text-primary/72 hover:bg-background hover:text-primary"
                 }`}
               >

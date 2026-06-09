@@ -33,7 +33,7 @@ export function StrategyPage() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="rounded-xl px-3 py-2 text-sm font-semibold leading-[130%] text-primary/62 transition hover:bg-accent hover:text-primary"
+                    className="rounded-xl px-3 py-2 text-sm font-semibold leading-[130%] text-primary/62 transition hover:bg-accent hover:text-white"
                   >
                     {link.label}
                   </a>

@@ -65,10 +65,10 @@ export function WhyInvestors() {
                         className="group flex w-full items-center gap-5 rounded-2xl px-5 py-5 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:gap-4 max-[479px]:px-4"
                       >
                         <span
-                          className={`flex size-11 shrink-0 items-center justify-center rounded-full border font-mono text-xs font-bold text-primary transition-colors duration-300 group-hover:border-accent group-hover:bg-accent ${
+                          className={`flex size-11 shrink-0 items-center justify-center rounded-full border font-mono text-xs font-bold transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white ${
                             isOpen
-                              ? "border-accent bg-accent"
-                              : "border-primary/18 bg-white"
+                              ? "border-accent bg-accent text-white"
+                              : "border-primary/18 bg-white text-primary"
                           }`}
                         >
                           {String(index + 1).padStart(2, "0")}

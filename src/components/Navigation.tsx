@@ -44,14 +44,14 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
         menuText: "text-white hover:bg-white/10",
         iconText: "text-white",
         logo: logos.light,
-        cta: "bg-white text-primary hover:bg-accent hover:text-primary",
+        cta: "bg-white text-primary hover:bg-accent hover:text-white",
       }
     : {
         border: "border-primary/28",
         menuText: "text-primary hover:bg-white",
         iconText: "text-primary",
         logo: logos.dark,
-        cta: "bg-primary text-white hover:bg-accent hover:text-primary",
+        cta: "bg-primary text-white hover:bg-accent hover:text-white",
       };
 
   const stickyTone = {
@@ -59,7 +59,7 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
     menuText: "text-primary hover:bg-primary/6",
     iconText: "text-primary",
     logo: logos.dark,
-    cta: "bg-primary text-white hover:bg-accent hover:text-primary",
+    cta: "bg-primary text-white hover:bg-accent hover:text-white",
   };
 
   const renderNavBar = (

@@ -293,7 +293,7 @@ export function ReadyToGrow() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#sklypai"
-                className="group inline-flex min-h-14 w-fit items-center justify-center overflow-hidden rounded-full bg-accent px-7 py-4 text-lg font-semibold leading-none text-primary transition hover:bg-white max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
+                className="group inline-flex min-h-14 w-fit items-center justify-center overflow-hidden rounded-full bg-accent px-7 py-4 text-lg font-semibold leading-none text-white transition hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
               >
                 <span className="h-5 overflow-hidden py-px">
                   <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">

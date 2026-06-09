@@ -109,7 +109,7 @@ export function Hero() {
               <div className="reveal-item flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#kontaktai"
-                  className="relative flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent"
+                  className="relative flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent hover:text-white"
                   onMouseEnter={() => setBtnHovered(true)}
                   onMouseLeave={() => setBtnHovered(false)}
                 >
@@ -155,7 +155,7 @@ export function Hero() {
           >
             <button
               type="button"
-              className="absolute right-3 top-3 z-10 grid size-10 place-items-center rounded-full bg-white text-primary transition hover:bg-accent"
+              className="absolute right-3 top-3 z-10 grid size-10 place-items-center rounded-full bg-white text-primary transition hover:bg-accent hover:text-white"
               onClick={() => setVideoOpen(false)}
               aria-label="Uždaryti video"
             >
