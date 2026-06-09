@@ -40,11 +40,15 @@ export function FeatureSplitHighlightsSection({
       <div className="relative overflow-hidden rounded-2xl bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
         <div className="site-container px-6 max-[479px]:px-4">
           <div
+            className="reveal-item mb-16 h-0 w-full border-b border-dashed border-primary/45 max-[991px]:mb-12"
+            data-reveal="fade"
+          />
+
+          <div
             className="mb-16 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)] max-[991px]:mb-12"
             data-reveal-group
           >
             <div className="flex flex-col items-start gap-7">
-              <div className="h-0 w-full border-b border-dashed border-primary/45" />
               <p className="eyebrow reveal-item text-primary/62">{eyebrow}</p>
               <h2 className="section-heading reveal-item max-w-4xl">
                 <span className="heading-highlight">{titleHighlight}</span>
