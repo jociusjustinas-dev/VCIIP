@@ -1,15 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
-import logoDark from "../assets/logos/logo-dark.svg";
-import logoLight from "../assets/logos/logo-light.svg";
+import bioLogo from "../assets/logos/bio.svg";
+import bioLogoWhite from "../assets/logos/bio-white.svg";
+import techLogo from "../assets/logos/tech.svg";
+import techLogoWhite from "../assets/logos/tech-white.svg";
 import { navItems } from "../content/site";
 
-export function Navigation() {
+type BrandVariant = "bio" | "tech";
+
+export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
   const [stickyVisible, setStickyVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const logos = variant === "bio"
+    ? { dark: bioLogo, light: bioLogoWhite, alt: "VCIIP BIO" }
+    : { dark: techLogo, light: techLogoWhite, alt: "VCIIP TECH" };
 
   useEffect(() => {
     const updateTheme = () => {
@@ -36,14 +43,14 @@ export function Navigation() {
         border: "border-white/28",
         menuText: "text-white hover:bg-white/10",
         iconText: "text-white",
-        logo: logoLight,
+        logo: logos.light,
         cta: "bg-white text-primary hover:bg-accent hover:text-primary",
       }
     : {
         border: "border-primary/28",
         menuText: "text-primary hover:bg-white",
         iconText: "text-primary",
-        logo: logoDark,
+        logo: logos.dark,
         cta: "bg-primary text-white hover:bg-accent hover:text-primary",
       };
 
@@ -51,7 +58,7 @@ export function Navigation() {
     border: "border-primary/14",
     menuText: "text-primary hover:bg-primary/6",
     iconText: "text-primary",
-    logo: logoDark,
+    logo: logos.dark,
     cta: "bg-primary text-white hover:bg-accent hover:text-primary",
   };
 
@@ -77,13 +84,11 @@ export function Navigation() {
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
-          <a href="#" className="flex h-9 items-center" aria-label="VCIIP pradinis puslapis">
+          <a href="#" className="flex h-9 items-center" aria-label={`${logos.alt} pradinis puslapis`}>
             <img
               src={tone.logo}
-              alt="VCIIP"
+              alt={logos.alt}
               className="h-8 w-auto transition-opacity"
-              width="193"
-              height="63"
             />
           </a>
 
@@ -184,8 +189,8 @@ export function Navigation() {
       {mobileMenuOpen && (
         <div className="pointer-events-auto fixed inset-x-0 top-0 z-[997] hidden max-h-[89svh] overflow-auto bg-white px-6 pb-6 pt-28 shadow-2xl shadow-primary/16 max-[991px]:block max-[479px]:px-4">
           <div className="absolute inset-x-0 top-0 flex items-center justify-between border-y border-primary/16 bg-background px-6 py-3 max-[479px]:px-4">
-            <div>
-              <p className="text-base font-bold leading-[150%] text-primary">VCIIP</p>
+            <div className="flex flex-col gap-2">
+              <img src={logos.dark} alt={logos.alt} className="h-8 w-auto" />
               <a className="text-sm font-semibold leading-[142%] text-primary underline" href="#kontaktai">
                 Pradėti pokalbį
               </a>

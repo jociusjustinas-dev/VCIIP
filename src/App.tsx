@@ -15,14 +15,14 @@ function App() {
     <div className={isLegacyGreenPage ? "legacy-green-page" : undefined}>
       <SmoothScroll />
       <ScrollReveal />
-      <Navigation />
+      <Navigation variant={isLegacyGreenPage ? "bio" : "tech"} />
       <StrategyBadge active={isStrategyPage} />
       {isStrategyPage ? (
         <StrategyPage />
       ) : (
         <HomePage />
       )}
-      <Footer />
+      <Footer variant={isLegacyGreenPage ? "bio" : "tech"} />
     </div>
   );
 }
