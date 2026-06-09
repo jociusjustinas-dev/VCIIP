@@ -3,7 +3,6 @@ import { EcosystemHero } from "./EcosystemHero";
 import { EcosystemMarquee } from "./EcosystemMarquee";
 import { FeatureSplitHighlightsSection } from "./FeatureSplitHighlightsSection";
 import { FeatureTabsSection } from "./FeatureTabsSection";
-import { InvestorInquiry } from "./InvestorInquiry";
 import { ProofStats } from "./ProofStats";
 
 export function EcosystemPage() {
@@ -16,7 +15,6 @@ export function EcosystemPage() {
       <EcosystemMarquee />
       <FeatureTabsSection {...bioTabsContent} />
       <FeatureSplitHighlightsSection {...bioGrowthContent} />
-      <InvestorInquiry showEyebrow={false} />
     </main>
   );
 }
