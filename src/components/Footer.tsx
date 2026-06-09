@@ -4,7 +4,7 @@ import techLogo from "../assets/logos/tech.svg";
 
 const footerNavigation = [
   { label: "Apie VCIIP", href: "#apie" },
-  { label: "Ekosistema", href: "#ekosistema" },
+  { label: "VCIIP Bio", href: "/ekosistema" },
   { label: "Investavimo procesas", href: "#kaip-isikurti" },
   { label: "Laisvi sklypai", href: "#sklypai" },
   { label: "Kontaktai", href: "#investuotojo-uzklausa" },
