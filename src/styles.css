@@ -47,49 +47,13 @@
 
 @layer components {
   .legacy-green-page {
-    --color-foreground: #14323a;
-    --color-primary: #14323a;
-    --color-primary-soft: #1b424b;
-    --color-accent: #00ffbb;
-    --color-accent-soft: #b7ffeb;
-    --color-accent-wash: #e6fff8;
+    --color-foreground: #202147;
+    --color-primary: #202147;
+    --color-primary-soft: #2b2c62;
+    --color-accent: #00bdae;
+    --color-accent-soft: #c7f5f0;
+    --color-accent-wash: #e9fbf9;
     --color-muted: #5a7176;
-  }
-
-  .legacy-green-page .heading-highlight {
-    background: linear-gradient(
-      90deg,
-      rgb(0 255 187 / 34%) 0%,
-      rgb(0 255 187 / 16%) 46%,
-      rgb(0 255 187 / 0%) 100%
-    );
-  }
-
-  .legacy-green-page .heading-highlight-animated::before {
-    background: linear-gradient(
-      90deg,
-      rgb(0 255 187 / 38%) 0%,
-      rgb(0 255 187 / 20%) 46%,
-      rgb(0 255 187 / 0%) 100%
-    );
-  }
-
-  .legacy-green-page .availability-badge {
-    border-color: rgb(0 255 187 / 34%);
-    background: rgb(0 255 187 / 16%);
-  }
-
-  .legacy-green-page .availability-badge-dark {
-    background: rgb(0 255 187 / 22%);
-  }
-
-  .legacy-green-page .availability-badge::before {
-    animation-name: availability-pulse-legacy-green;
-    box-shadow: 0 0 0 0 rgb(0 255 187 / 44%);
-  }
-
-  .legacy-green-page .form-field:focus {
-    box-shadow: 0 0 0 3px rgb(0 255 187 / 22%);
   }
 
   .site-container {
@@ -449,20 +413,6 @@
 
   100% {
     box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 0%, transparent);
-  }
-}
-
-@keyframes availability-pulse-legacy-green {
-  0% {
-    box-shadow: 0 0 0 0 rgb(0 255 187 / 46%);
-  }
-
-  72% {
-    box-shadow: 0 0 0 0.55rem rgb(0 255 187 / 0%);
-  }
-
-  100% {
-    box-shadow: 0 0 0 0 rgb(0 255 187 / 0%);
   }
 }
 
