@@ -26,7 +26,7 @@ export function WhyInvestors() {
       <div className="relative overflow-hidden rounded-2xl bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
         <div className="site-container px-6 max-[479px]:px-4">
           <div className="grid items-stretch gap-16 lg:grid-cols-[minmax(0,0.92fr)_minmax(460px,0.78fr)] lg:gap-24">
-            <div className="flex flex-col gap-14">
+            <div className="flex min-w-0 w-full flex-col gap-14">
               <div className="flex flex-col gap-8" data-reveal-group>
                 <div className="h-0 w-full border-b border-dashed border-primary/45" />
                 <p className="eyebrow reveal-item text-primary/62">
@@ -45,24 +45,24 @@ export function WhyInvestors() {
                 </div>
               </div>
 
-              <div className="reveal-item flex flex-col gap-3 overflow-visible">
+              <div className="reveal-item flex w-full flex-col gap-3">
                 {investorReasons.map((item, index) => {
                   const isOpen = openIndex === index;
 
                   return (
                     <article
                       key={item.title}
-                      className={`rounded-2xl border transition-all duration-300 ${
+                      className={`group w-full rounded-2xl border transition-all duration-300 ${
                         isOpen
                           ? "border-primary/12 bg-white shadow-[0_24px_70px_color-mix(in_srgb,var(--color-primary)_12%,transparent)]"
-                          : "border-transparent hover:bg-white"
+                          : "border-transparent hover:border-primary/12 hover:bg-white hover:shadow-[0_24px_70px_color-mix(in_srgb,var(--color-primary)_12%,transparent)]"
                       }`}
                     >
                       <button
                         type="button"
                         aria-expanded={isOpen}
                         onClick={() => setOpenIndex(index)}
-                        className="group flex w-full items-center gap-5 rounded-2xl px-5 py-5 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:gap-4 max-[479px]:px-4"
+                        className="flex w-full items-center gap-5 px-5 py-5 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:gap-4 max-[479px]:px-4"
                       >
                         <span
                           className={`flex size-11 shrink-0 items-center justify-center rounded-full border font-mono text-xs font-bold transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white ${
