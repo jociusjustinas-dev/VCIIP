@@ -46,6 +46,10 @@
 }
 
 @layer components {
+  .color-study-page {
+    /* Isolated wrapper for the duplicated homepage at /spalvingumas. */
+  }
+
   .site-container {
     width: min(100% - 2rem, 1800px);
     margin-inline: auto;
