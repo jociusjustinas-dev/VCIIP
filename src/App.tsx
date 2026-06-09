@@ -1,3 +1,4 @@
+import { EcosystemPage } from "./components/EcosystemPage";
 import { Footer } from "./components/Footer";
 import { HomePage } from "./components/HomePage";
 import { Navigation } from "./components/Navigation";
@@ -19,6 +20,8 @@ function App() {
       <StrategyBadge active={isStrategyPage} />
       {isStrategyPage ? (
         <StrategyPage />
+      ) : isLegacyGreenPage ? (
+        <EcosystemPage />
       ) : (
         <HomePage />
       )}

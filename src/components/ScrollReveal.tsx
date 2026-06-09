@@ -45,7 +45,7 @@ export function ScrollReveal() {
     );
 
     items.forEach((item) => {
-      const isHeroItem = item.closest("#investuotojui");
+      const isHeroItem = item.closest("#investuotojui") || item.closest("#ekosistema-hero");
 
       if (isHeroItem) {
         item.classList.add("is-visible");
