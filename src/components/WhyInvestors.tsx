@@ -54,7 +54,7 @@ export function WhyInvestors() {
                       key={item.title}
                       className={`rounded-2xl border transition-all duration-300 ${
                         isOpen
-                          ? "border-primary/12 bg-white shadow-[0_24px_70px_rgba(20,50,58,0.12)]"
+                          ? "border-primary/12 bg-white shadow-[0_24px_70px_color-mix(in_srgb,var(--color-primary)_12%,transparent)]"
                           : "border-transparent hover:bg-white"
                       }`}
                     >
@@ -107,7 +107,7 @@ export function WhyInvestors() {
                 className="absolute inset-0 h-full w-full"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,50,58,0.06),rgba(20,50,58,0.46))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_6%,transparent),color-mix(in_srgb,var(--color-primary)_46%,transparent))]" />
               <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(circle_at_50%_100%,color-mix(in_srgb,var(--color-accent)_20%,transparent),color-mix(in_srgb,var(--color-primary)_0%,transparent)_62%)]" />
             </div>
           </div>

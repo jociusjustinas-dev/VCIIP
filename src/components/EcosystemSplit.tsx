@@ -71,7 +71,7 @@ export function EcosystemSplit() {
                   className="h-[640px] w-full max-[991px]:h-[500px] max-[767px]:h-[400px] max-[479px]:h-[250px]"
                   loading="lazy"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(20,50,58,0.04),rgba(20,50,58,0.34))]" />
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]" />
               </div>
             </div>
           </div>
@@ -85,7 +85,7 @@ export function EcosystemSplit() {
                   className="h-[640px] w-full max-[991px]:h-[500px] max-[767px]:h-[400px] max-[479px]:h-[250px]"
                   loading="lazy"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(20,50,58,0.02),rgba(20,50,58,0.3))]" />
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_2%,transparent),color-mix(in_srgb,var(--color-primary)_30%,transparent))]" />
               </div>
             </div>
 

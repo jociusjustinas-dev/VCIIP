@@ -63,7 +63,7 @@ export function Navigation() {
       <div
         className={`relative mx-auto flex items-center justify-between border-b py-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           options.sticky
-            ? `rounded-b-2xl border-solid bg-white/78 px-5 shadow-[0_18px_54px_rgba(20,50,58,0.12)] backdrop-blur-xl ${tone.border}`
+            ? `rounded-b-2xl border-solid bg-white/78 px-5 shadow-[0_18px_54px_color-mix(in_srgb,var(--color-primary)_12%,transparent)] backdrop-blur-xl ${tone.border}`
             : `border-dashed ${tone.border}`
         } ${options.hidden ? "-translate-y-4 opacity-0" : "translate-y-0 opacity-100"}`}
       >

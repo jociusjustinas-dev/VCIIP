@@ -62,7 +62,7 @@ export function SettleProcess() {
                 loading="eager"
                 decoding="async"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,50,58,0.02),rgba(20,50,58,0.34))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_2%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]" />
             </div>
 
             <div className="reveal-item border-t border-dashed border-primary/18" data-reveal="fade">

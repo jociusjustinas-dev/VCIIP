@@ -127,7 +127,7 @@ export function VilniusEcosystem() {
                 className="absolute inset-0 h-full w-full"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,50,58,0.04),rgba(20,50,58,0.34))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]" />
             </div>
           </div>
         </div>

@@ -9,10 +9,10 @@ import { StrategyPage } from "./components/StrategyPage";
 function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "");
   const isStrategyPage = currentPath === "/strategija";
-  const isColorStudyPage = currentPath === "/spalvingumas";
+  const isLegacyGreenPage = currentPath === "/ekosistema";
 
   return (
-    <div className={isColorStudyPage ? "color-study-page" : undefined}>
+    <div className={isLegacyGreenPage ? "legacy-green-page" : undefined}>
       <SmoothScroll />
       <ScrollReveal />
       <Navigation />
@@ -20,7 +20,7 @@ function App() {
       {isStrategyPage ? (
         <StrategyPage />
       ) : (
-        <HomePage variant={isColorStudyPage} />
+        <HomePage />
       )}
       <Footer />
     </div>

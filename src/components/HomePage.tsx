@@ -8,9 +8,9 @@ import { SettleProcess } from "./SettleProcess";
 import { VilniusEcosystem } from "./VilniusEcosystem";
 import { WhyInvestors } from "./WhyInvestors";
 
-export function HomePage({ variant = false }: { variant?: boolean }) {
+export function HomePage() {
   return (
-    <main className={variant ? "color-study-page" : undefined}>
+    <main>
       <Hero />
       <ProofStats />
       <EcosystemSplit />

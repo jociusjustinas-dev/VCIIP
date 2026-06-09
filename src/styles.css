@@ -10,12 +10,12 @@
     "LT Superior Mono", "Geist Mono", "SFMono-Regular", Consolas, ui-monospace, monospace;
 
   --color-background: #f6f5f3;
-  --color-foreground: #14323a;
-  --color-primary: #14323a;
-  --color-primary-soft: #1b424b;
-  --color-accent: #00ffbb;
-  --color-accent-soft: #b7ffeb;
-  --color-accent-wash: #e6fff8;
+  --color-foreground: #202147;
+  --color-primary: #202147;
+  --color-primary-soft: #2b2c62;
+  --color-accent: #00bdae;
+  --color-accent-soft: #c7f5f0;
+  --color-accent-wash: #e9fbf9;
   --color-white: #ffffff;
   --color-border: #d9e2df;
   --color-muted: #5a7176;
@@ -46,50 +46,50 @@
 }
 
 @layer components {
-  .color-study-page {
-    --color-foreground: #212248;
-    --color-primary: #212248;
-    --color-primary-soft: #2c2d62;
-    --color-accent: #6c8dfd;
-    --color-accent-soft: #d8e1ff;
-    --color-accent-wash: #eef2ff;
-    --color-muted: #626886;
+  .legacy-green-page {
+    --color-foreground: #14323a;
+    --color-primary: #14323a;
+    --color-primary-soft: #1b424b;
+    --color-accent: #00ffbb;
+    --color-accent-soft: #b7ffeb;
+    --color-accent-wash: #e6fff8;
+    --color-muted: #5a7176;
   }
 
-  .color-study-page .heading-highlight {
+  .legacy-green-page .heading-highlight {
     background: linear-gradient(
       90deg,
-      rgb(108 141 253 / 34%) 0%,
-      rgb(108 141 253 / 16%) 46%,
-      rgb(108 141 253 / 0%) 100%
+      rgb(0 255 187 / 34%) 0%,
+      rgb(0 255 187 / 16%) 46%,
+      rgb(0 255 187 / 0%) 100%
     );
   }
 
-  .color-study-page .heading-highlight-animated::before {
+  .legacy-green-page .heading-highlight-animated::before {
     background: linear-gradient(
       90deg,
-      rgb(108 141 253 / 38%) 0%,
-      rgb(108 141 253 / 20%) 46%,
-      rgb(108 141 253 / 0%) 100%
+      rgb(0 255 187 / 38%) 0%,
+      rgb(0 255 187 / 20%) 46%,
+      rgb(0 255 187 / 0%) 100%
     );
   }
 
-  .color-study-page .availability-badge {
-    border-color: rgb(108 141 253 / 34%);
-    background: rgb(108 141 253 / 16%);
+  .legacy-green-page .availability-badge {
+    border-color: rgb(0 255 187 / 34%);
+    background: rgb(0 255 187 / 16%);
   }
 
-  .color-study-page .availability-badge-dark {
-    background: rgb(108 141 253 / 22%);
+  .legacy-green-page .availability-badge-dark {
+    background: rgb(0 255 187 / 22%);
   }
 
-  .color-study-page .availability-badge::before {
-    animation-name: availability-pulse-color-study;
-    box-shadow: 0 0 0 0 rgb(108 141 253 / 44%);
+  .legacy-green-page .availability-badge::before {
+    animation-name: availability-pulse-legacy-green;
+    box-shadow: 0 0 0 0 rgb(0 255 187 / 44%);
   }
 
-  .color-study-page .form-field:focus {
-    box-shadow: 0 0 0 3px rgb(108 141 253 / 22%);
+  .legacy-green-page .form-field:focus {
+    box-shadow: 0 0 0 3px rgb(0 255 187 / 22%);
   }
 
   .site-container {
@@ -150,9 +150,9 @@
     border-radius: 999px;
     background: linear-gradient(
       90deg,
-      rgb(0 255 187 / 34%) 0%,
-      rgb(0 255 187 / 16%) 46%,
-      rgb(0 255 187 / 0%) 100%
+      rgb(0 189 174 / 34%) 0%,
+      rgb(0 189 174 / 16%) 46%,
+      rgb(0 189 174 / 0%) 100%
     );
     padding: 0.28rem 0.55rem 0.28rem 0.9rem;
     transition:
@@ -183,9 +183,9 @@
     border-radius: inherit;
     background: linear-gradient(
       90deg,
-      rgb(0 255 187 / 38%) 0%,
-      rgb(0 255 187 / 20%) 46%,
-      rgb(0 255 187 / 0%) 100%
+      rgb(0 189 174 / 38%) 0%,
+      rgb(0 189 174 / 20%) 46%,
+      rgb(0 189 174 / 0%) 100%
     );
     filter: blur(6px);
     opacity: 0;
@@ -249,9 +249,9 @@
     width: fit-content;
     align-items: center;
     gap: 0.45rem;
-    border: 1px solid rgb(0 255 187 / 34%);
+    border: 1px solid rgb(0 189 174 / 34%);
     border-radius: 999px;
-    background: rgb(0 255 187 / 16%);
+    background: rgb(0 189 174 / 16%);
     color: var(--color-accent);
     font-family: var(--font-mono);
     font-size: 0.66rem;
@@ -268,13 +268,13 @@
     height: 0.44rem;
     border-radius: 999px;
     background: var(--color-accent);
-    box-shadow: 0 0 0 0 rgb(0 255 187 / 44%);
+    box-shadow: 0 0 0 0 rgb(0 189 174 / 44%);
     animation: availability-pulse 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   }
 
   .availability-badge-dark {
     border-color: rgb(20 50 58 / 18%);
-    background: rgb(0 255 187 / 22%);
+    background: rgb(0 189 174 / 22%);
     color: var(--color-primary);
   }
 
@@ -304,7 +304,7 @@
   .form-field:focus {
     border-color: var(--color-primary);
     background: var(--color-white);
-    box-shadow: 0 0 0 3px rgb(0 255 187 / 22%);
+    box-shadow: 0 0 0 3px rgb(0 189 174 / 22%);
   }
 
   .reveal-item {
@@ -434,6 +434,20 @@
 
 @keyframes availability-pulse {
   0% {
+    box-shadow: 0 0 0 0 rgb(0 189 174 / 46%);
+  }
+
+  72% {
+    box-shadow: 0 0 0 0.55rem rgb(0 189 174 / 0%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(0 189 174 / 0%);
+  }
+}
+
+@keyframes availability-pulse-legacy-green {
+  0% {
     box-shadow: 0 0 0 0 rgb(0 255 187 / 46%);
   }
 
@@ -443,20 +457,6 @@
 
   100% {
     box-shadow: 0 0 0 0 rgb(0 255 187 / 0%);
-  }
-}
-
-@keyframes availability-pulse-color-study {
-  0% {
-    box-shadow: 0 0 0 0 rgb(108 141 253 / 46%);
-  }
-
-  72% {
-    box-shadow: 0 0 0 0.55rem rgb(108 141 253 / 0%);
-  }
-
-  100% {
-    box-shadow: 0 0 0 0 rgb(108 141 253 / 0%);
   }
 }
 

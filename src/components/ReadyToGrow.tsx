@@ -176,7 +176,7 @@ export function ReadyToGrow() {
             loading="lazy"
           />
           <div
-            className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,50,58,0.44),rgba(20,50,58,0.28)_42%,rgba(20,50,58,0.78))]"
+            className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_44%,transparent),color-mix(in_srgb,var(--color-primary)_28%,transparent)_42%,color-mix(in_srgb,var(--color-primary)_78%,transparent))]"
             style={{ opacity: mainOverlayOpacity }}
           />
           <div
