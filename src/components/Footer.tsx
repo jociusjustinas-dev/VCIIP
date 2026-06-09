@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import bioLogo from "../assets/logos/bio.svg";
+import logoDark from "../assets/logos/logo-dark.svg";
 import techLogo from "../assets/logos/tech.svg";
 
 const footerNavigation = [
@@ -16,11 +17,13 @@ const partnerLinks = [
   { label: "Vilniaus miesto savivaldybė", href: "https://vilnius.lt/" },
 ];
 
-type BrandVariant = "bio" | "tech";
+type BrandVariant = "bio" | "tech" | "vciip";
 
-export function Footer({ variant = "tech" }: { variant?: BrandVariant }) {
-  const logo = variant === "bio" ? bioLogo : techLogo;
-  const logoAlt = variant === "bio" ? "VCIIP BIO" : "VCIIP TECH";
+export function Footer({ variant = "vciip" }: { variant?: BrandVariant }) {
+  const logo =
+    variant === "bio" ? bioLogo : variant === "tech" ? techLogo : logoDark;
+  const logoAlt =
+    variant === "bio" ? "VCIIP BIO" : variant === "tech" ? "VCIIP TECH" : "VCIIP";
 
   return (
     <footer className="relative bg-white p-2">

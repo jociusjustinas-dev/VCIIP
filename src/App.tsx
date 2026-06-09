@@ -11,12 +11,13 @@ function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "");
   const isStrategyPage = currentPath === "/strategija";
   const isLegacyGreenPage = currentPath === "/ekosistema";
+  const brandVariant = isLegacyGreenPage ? "bio" : "vciip";
 
   return (
     <div className={isLegacyGreenPage ? "legacy-green-page" : undefined}>
       <SmoothScroll />
       <ScrollReveal />
-      <Navigation variant={isLegacyGreenPage ? "bio" : "tech"} />
+      <Navigation variant={brandVariant} />
       {!isLegacyGreenPage && <StrategyBadge active={isStrategyPage} />}
       {isStrategyPage ? (
         <StrategyPage />
@@ -25,7 +26,7 @@ function App() {
       ) : (
         <HomePage />
       )}
-      <Footer variant={isLegacyGreenPage ? "bio" : "tech"} />
+      <Footer variant={brandVariant} />
     </div>
   );
 }

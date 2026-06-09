@@ -3,20 +3,29 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 
 import bioLogo from "../assets/logos/bio.svg";
 import bioLogoWhite from "../assets/logos/bio-white.svg";
+import logoDark from "../assets/logos/logo-dark.svg";
+import logoLight from "../assets/logos/logo-light.svg";
 import techLogo from "../assets/logos/tech.svg";
 import techLogoWhite from "../assets/logos/tech-white.svg";
 import { navItems } from "../content/site";
 
-type BrandVariant = "bio" | "tech";
+type BrandVariant = "bio" | "tech" | "vciip";
 
-export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
+const brandLogos: Record<
+  BrandVariant,
+  { dark: string; light: string; alt: string }
+> = {
+  vciip: { dark: logoDark, light: logoLight, alt: "VCIIP" },
+  bio: { dark: bioLogo, light: bioLogoWhite, alt: "VCIIP BIO" },
+  tech: { dark: techLogo, light: techLogoWhite, alt: "VCIIP TECH" },
+};
+
+export function Navigation({ variant = "vciip" }: { variant?: BrandVariant }) {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
   const [stickyVisible, setStickyVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
-  const logos = variant === "bio"
-    ? { dark: bioLogo, light: bioLogoWhite, alt: "VCIIP BIO" }
-    : { dark: techLogo, light: techLogoWhite, alt: "VCIIP TECH" };
+  const logos = brandLogos[variant];
 
   useEffect(() => {
     const updateTheme = () => {
