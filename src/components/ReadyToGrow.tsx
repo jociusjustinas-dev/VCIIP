@@ -180,7 +180,7 @@ export function ReadyToGrow() {
             style={{ opacity: mainOverlayOpacity }}
           />
           <div
-            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,255,187,0.16),rgba(20,50,58,0)_48%)]"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,color-mix(in_srgb,var(--color-accent)_16%,transparent),color-mix(in_srgb,var(--color-primary)_0%,transparent)_48%)]"
             style={{ opacity: 1 - overlayLift * 0.45 }}
           />
 

@@ -47,7 +47,49 @@
 
 @layer components {
   .color-study-page {
-    /* Isolated wrapper for the duplicated homepage at /spalvingumas. */
+    --color-foreground: #212248;
+    --color-primary: #212248;
+    --color-primary-soft: #2c2d62;
+    --color-accent: #6c8dfd;
+    --color-accent-soft: #d8e1ff;
+    --color-accent-wash: #eef2ff;
+    --color-muted: #626886;
+  }
+
+  .color-study-page .heading-highlight {
+    background: linear-gradient(
+      90deg,
+      rgb(108 141 253 / 34%) 0%,
+      rgb(108 141 253 / 16%) 46%,
+      rgb(108 141 253 / 0%) 100%
+    );
+  }
+
+  .color-study-page .heading-highlight-animated::before {
+    background: linear-gradient(
+      90deg,
+      rgb(108 141 253 / 38%) 0%,
+      rgb(108 141 253 / 20%) 46%,
+      rgb(108 141 253 / 0%) 100%
+    );
+  }
+
+  .color-study-page .availability-badge {
+    border-color: rgb(108 141 253 / 34%);
+    background: rgb(108 141 253 / 16%);
+  }
+
+  .color-study-page .availability-badge-dark {
+    background: rgb(108 141 253 / 22%);
+  }
+
+  .color-study-page .availability-badge::before {
+    animation-name: availability-pulse-color-study;
+    box-shadow: 0 0 0 0 rgb(108 141 253 / 44%);
+  }
+
+  .color-study-page .form-field:focus {
+    box-shadow: 0 0 0 3px rgb(108 141 253 / 22%);
   }
 
   .site-container {
@@ -401,6 +443,20 @@
 
   100% {
     box-shadow: 0 0 0 0 rgb(0 255 187 / 0%);
+  }
+}
+
+@keyframes availability-pulse-color-study {
+  0% {
+    box-shadow: 0 0 0 0 rgb(108 141 253 / 46%);
+  }
+
+  72% {
+    box-shadow: 0 0 0 0.55rem rgb(108 141 253 / 0%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(108 141 253 / 0%);
   }
 }
 

@@ -108,7 +108,7 @@ export function WhyInvestors() {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,50,58,0.06),rgba(20,50,58,0.46))]" />
-              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(circle_at_50%_100%,rgba(0,255,187,0.2),rgba(20,50,58,0)_62%)]" />
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(circle_at_50%_100%,color-mix(in_srgb,var(--color-accent)_20%,transparent),color-mix(in_srgb,var(--color-primary)_0%,transparent)_62%)]" />
             </div>
           </div>
         </div>

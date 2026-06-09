@@ -95,7 +95,7 @@ export function VilniusEcosystem() {
           </div>
 
           <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(360px,1fr)] max-[767px]:grid-cols-1 max-[479px]:gap-6" data-reveal-group>
-            <div className="reveal-item flex min-h-[500px] flex-col justify-between gap-14 rounded-2xl bg-[linear-gradient(90deg,rgba(0,255,187,0.2),rgba(0,255,187,0.04))] p-10 max-[991px]:min-h-0 max-[767px]:p-8 max-[479px]:gap-8 max-[479px]:p-6">
+            <div className="reveal-item flex min-h-[500px] flex-col justify-between gap-14 rounded-2xl bg-[linear-gradient(90deg,color-mix(in_srgb,var(--color-accent)_20%,transparent),color-mix(in_srgb,var(--color-accent)_4%,transparent))] p-10 max-[991px]:min-h-0 max-[767px]:p-8 max-[479px]:gap-8 max-[479px]:p-6">
               <div className="flex max-w-3xl flex-col gap-7">
                 <p className="m-0 font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-primary/52">
                   {String(activeTab + 1).padStart(2, "0")}

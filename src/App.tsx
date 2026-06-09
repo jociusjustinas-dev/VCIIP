@@ -12,7 +12,7 @@ function App() {
   const isColorStudyPage = currentPath === "/spalvingumas";
 
   return (
-    <>
+    <div className={isColorStudyPage ? "color-study-page" : undefined}>
       <SmoothScroll />
       <ScrollReveal />
       <Navigation />
@@ -23,7 +23,7 @@ function App() {
         <HomePage variant={isColorStudyPage} />
       )}
       <Footer />
-    </>
+    </div>
   );
 }
 
