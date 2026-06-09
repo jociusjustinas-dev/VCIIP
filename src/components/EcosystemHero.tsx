@@ -54,7 +54,7 @@ export function EcosystemHero() {
               </h1>
             </div>
 
-            <p className="reveal-item m-0 max-w-xl text-xl font-medium leading-[150%] text-muted max-[479px]:text-base">
+            <p className="reveal-item m-0 max-w-xl text-base font-medium leading-[150%] text-muted">
               VCIIP BIO teritorijoje jau šiandien veikia gyvybės mokslų, tyrimų ir inovacijų
               organizacijos, formuojančios vieną stipriausių ekosistemų regione.
             </p>
