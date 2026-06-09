@@ -84,7 +84,7 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
-          <a href="#" className="flex h-9 items-center" aria-label={`${logos.alt} pradinis puslapis`}>
+          <a href="/" className="flex h-9 items-center" aria-label={`${logos.alt} pradinis puslapis`}>
             <img
               src={tone.logo}
               alt={logos.alt}
@@ -190,7 +190,9 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
         <div className="pointer-events-auto fixed inset-x-0 top-0 z-[997] hidden max-h-[89svh] overflow-auto bg-white px-6 pb-6 pt-28 shadow-2xl shadow-primary/16 max-[991px]:block max-[479px]:px-4">
           <div className="absolute inset-x-0 top-0 flex items-center justify-between border-y border-primary/16 bg-background px-6 py-3 max-[479px]:px-4">
             <div className="flex flex-col gap-2">
-              <img src={logos.dark} alt={logos.alt} className="h-8 w-auto" />
+              <a href="/" aria-label={`${logos.alt} pradinis puslapis`} className="inline-flex w-fit">
+                <img src={logos.dark} alt={logos.alt} className="h-8 w-auto" />
+              </a>
               <a className="text-sm font-semibold leading-[142%] text-primary underline" href="#kontaktai">
                 Pradėti pokalbį
               </a>
@@ -200,7 +202,7 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
             </div>
           </div>
 
-          <a className="block text-base font-bold leading-[150%] text-primary" href="#">
+          <a className="block text-base font-bold leading-[150%] text-primary" href="/">
             VCIIP
           </a>
 

@@ -1,5 +1,5 @@
 export const navItems = [
-  { label: "Ekosistema", href: "#ekosistema" },
+  { label: "Ekosistema", href: "/ekosistema" },
   { label: "Lokacija", href: "#lokacija" },
   { label: "Sklypai", href: "#sklypai" },
   { label: "Operatorius", href: "#procesas" },
