@@ -103,7 +103,9 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
                 {item.label === "Sklypai" && (
                   <span
                     className={`availability-badge text-[0.55rem] ${
-                      options.sticky || !onDarkSurface ? "availability-badge-dark" : ""
+                      options.sticky || !onDarkSurface
+                        ? "availability-badge-dark"
+                        : "availability-badge-on-dark"
                     }`}
                   >
                     Prieinama dabar
