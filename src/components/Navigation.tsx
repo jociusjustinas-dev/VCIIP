@@ -74,15 +74,15 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
   ) => (
     <div className="site-container px-6 max-[479px]:px-4">
       <div
-        className={`relative mx-auto flex items-center justify-between border-b py-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`relative mx-auto flex items-center justify-between gap-3 border-b py-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] max-[991px]:gap-2 max-[991px]:py-3 ${
           options.sticky
             ? `rounded-b-2xl border-solid bg-white/78 px-5 shadow-[0_18px_54px_color-mix(in_srgb,var(--color-primary)_12%,transparent)] backdrop-blur-xl ${tone.border}`
             : `border-dashed ${tone.border}`
         } ${options.hidden ? "-translate-y-4 opacity-0" : "translate-y-0 opacity-100"}`}
       >
-        <div className="flex items-center gap-12 max-[991px]:gap-4">
+        <div className="flex min-w-0 flex-1 items-center gap-12 max-[991px]:gap-2.5">
           <button
-            className={`hidden items-center border-0 bg-transparent p-0 transition-colors max-[991px]:flex ${tone.iconText}`}
+            className={`hidden shrink-0 items-center border-0 bg-transparent p-0 transition-colors max-[991px]:flex ${tone.iconText}`}
             onClick={() => setMobileMenuOpen((value) => !value)}
             aria-expanded={mobileMenuOpen}
             aria-label="Atidaryti navigaciją"
@@ -90,11 +90,15 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
-          <a href="/" className="flex h-9 items-center" aria-label={`${logos.alt} pradinis puslapis`}>
+          <a
+            href="/"
+            className="flex min-w-0 items-center max-[991px]:max-w-[min(100%,10.5rem)] max-[479px]:max-w-[min(100%,8.75rem)]"
+            aria-label={`${logos.alt} pradinis puslapis`}
+          >
             <img
               src={tone.logo}
               alt={logos.alt}
-              className="h-8 w-auto transition-opacity"
+              className="h-8 w-auto max-w-full object-contain object-left transition-opacity max-[991px]:h-7 max-[479px]:h-[1.625rem]"
             />
           </a>
 
@@ -122,7 +126,7 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
           </nav>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-2 max-[479px]:gap-1.5">
           <div
             className={`hidden items-center rounded-full border p-1 max-[991px]:hidden sm:flex ${
               options.sticky || !onDarkSurface
@@ -155,10 +159,11 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
           </div>
 
           <a
-            className={`group inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 text-base font-semibold leading-none transition ${tone.cta}`}
+            className={`group inline-flex min-h-12 shrink-0 items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 text-base font-semibold leading-none transition max-[991px]:min-h-10 max-[991px]:px-3.5 max-[991px]:py-2 max-[991px]:text-sm max-[479px]:min-h-9 max-[479px]:px-3 ${tone.cta}`}
             href="#kontaktai"
+            aria-label="Susisiekti"
           >
-            <span className="h-5 overflow-hidden py-px">
+            <span className="h-5 overflow-hidden py-px max-[400px]:hidden">
               <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
                 {["Susisiekti", "Susisiekti"].map((label, index) => (
                   <span key={index} className="flex h-5 items-center gap-2">
@@ -168,6 +173,7 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
                 ))}
               </span>
             </span>
+            <ArrowUpRight size={18} className="hidden max-[400px]:block" aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -195,24 +201,28 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
       </div>
 
       {mobileMenuOpen && (
-        <div className="pointer-events-auto fixed inset-x-0 top-0 z-[997] hidden max-h-[89svh] overflow-auto bg-white px-6 pb-6 pt-28 shadow-2xl shadow-primary/16 max-[991px]:block max-[479px]:px-4">
-          <div className="absolute inset-x-0 top-0 flex items-center justify-between border-y border-primary/16 bg-background px-6 py-3 max-[479px]:px-4">
-            <div className="flex flex-col gap-2">
-              <a href="/" aria-label={`${logos.alt} pradinis puslapis`} className="inline-flex w-fit">
-                <img src={logos.dark} alt={logos.alt} className="h-8 w-auto" />
+        <div className="pointer-events-auto fixed inset-x-0 top-0 z-[997] hidden max-h-[89svh] overflow-auto bg-white px-6 pb-6 pt-[4.75rem] shadow-2xl shadow-primary/16 max-[991px]:block max-[479px]:px-4 max-[479px]:pt-[4.5rem]">
+          <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 border-y border-primary/16 bg-background px-6 py-3 max-[479px]:gap-2 max-[479px]:px-4">
+            <a href="/" aria-label={`${logos.alt} pradinis puslapis`} className="inline-flex min-w-0 max-w-[min(100%,10rem)]">
+              <img src={logos.dark} alt={logos.alt} className="h-7 w-auto max-w-full object-contain object-left max-[479px]:h-[1.625rem]" />
+            </a>
+            <div className="flex shrink-0 items-center gap-2">
+              <a
+                className="inline-flex min-h-9 items-center justify-center rounded-full bg-primary px-3.5 py-2 text-sm font-semibold leading-none text-white"
+                href="#kontaktai"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Susisiekti
               </a>
-              <a className="text-sm font-semibold leading-[142%] text-primary underline" href="#kontaktai">
-                Pradėti pokalbį
-              </a>
-            </div>
-            <div className="grid h-16 w-28 place-items-center rounded-md bg-primary text-accent">
-              <span className="font-mono text-xs font-black uppercase tracking-[0.08em]">Vilnius</span>
+              <button
+                className="inline-flex size-9 items-center justify-center rounded-full border border-primary/14 text-primary"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Uždaryti navigaciją"
+              >
+                <X size={18} />
+              </button>
             </div>
           </div>
-
-          <a className="block text-base font-bold leading-[150%] text-primary" href="/">
-            VCIIP
-          </a>
 
           <div className="my-5 h-px w-full bg-primary/16" />
 
@@ -220,7 +230,8 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
             <a
               key={item.href}
               href={item.href}
-              className="flex items-center justify-between gap-3 py-1 text-base font-bold leading-[150%] text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between gap-3 py-2.5 text-base font-bold leading-[150%] text-primary"
             >
               <span>{item.label}</span>
               {item.label === "Sklypai" && (
