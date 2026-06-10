@@ -99,7 +99,7 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
           </a>
 
           <nav className="flex items-center gap-1 max-[991px]:hidden" aria-label="Pagrindinė navigacija">
-            {navItems.slice(0, 5).map((item) => (
+            {navItems.slice(0, 4).map((item) => (
               <a
                 key={item.href}
                 className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${tone.menuText}`}
@@ -216,7 +216,7 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
 
           <div className="my-5 h-px w-full bg-primary/16" />
 
-          {navItems.slice(0, 5).map((item) => (
+          {navItems.slice(0, 4).map((item) => (
             <a
               key={item.href}
               href={item.href}

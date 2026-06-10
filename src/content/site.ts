@@ -1,9 +1,8 @@
 export const navItems = [
   { label: "VCIIP Bio", href: "/ekosistema" },
-  { label: "Lokacija", href: "#lokacija" },
+  { label: "Kodėl Vilnius", href: "#lokacija" },
   { label: "Sklypai", href: "#sklypai" },
   { label: "Operatorius", href: "#procesas" },
-  { label: "Apie", href: "#apie" },
   { label: "Kontaktai", href: "#kontaktai" },
 ];
 

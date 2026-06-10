@@ -3,8 +3,8 @@ import bioLogo from "../assets/logos/bio.svg";
 import techLogo from "../assets/logos/tech.svg";
 
 const footerNavigation = [
-  { label: "Apie VCIIP", href: "#apie" },
   { label: "VCIIP Bio", href: "/ekosistema" },
+  { label: "Kodėl Vilnius", href: "#lokacija" },
   { label: "Investavimo procesas", href: "#kaip-isikurti" },
   { label: "Laisvi sklypai", href: "#sklypai" },
   { label: "Kontaktai", href: "#investuotojo-uzklausa" },
