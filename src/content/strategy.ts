@@ -149,31 +149,31 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "paragraph",
-    "text": "VCIIP BIO (Vismaliukai) veikia kaip gyvybės mokslų ir inovacijų ekosistemos reprezentacinė dalis. Čia svarbiausi elementai – jau veikianti aplinka, mokslinis patikimumas, partnerystės ir bendradarbiavimo tinklas. BIO puslapio tikslas – stiprinti pasitikėjimą ir parodyti, kad VCIIP ekosistema jau egzistuoja."
+    "text": "Homepage veikia kaip pagrindinis VCIIP TECH ir investavimo landing page. Čia komunikuojama infrastruktūra, prieinami sklypai, inžineriniai pajėgumai, operatoriaus pagalba ir investavimo galimybės pažangios gamybos bei technologijų įmonėms."
   },
   {
     "type": "paragraph",
-    "text": "VCIIP TECH (Liepkalnis) yra pagrindinė investicinė ir konversijos kryptis. Čia komunikuojama infrastruktūra, prieinami sklypai, inžineriniai pajėgumai ir plėtros galimybės pažangios gamybos bei technologijų įmonėms."
+    "text": "VCIIP BIO (Vismaliukai) veikia kaip atskiras gyvybės mokslų ir inovacijų ekosistemos landing page. BIO puslapio tikslas – stiprinti pasitikėjimą, parodyti jau veikiančią ekosistemą, partnerystes, mokslinį potencialą ir ilgalaikę inovacijų aplinką."
   },
   {
     "type": "paragraph",
-    "text": "Todėl svetainės architektūroje:"
+    "text": "Tokia struktūra leidžia:"
   },
   {
     "type": "list",
-    "text": "VCIIP TECH tampa pagrindiniu investavimo puslapiu;"
+    "text": "išlaikyti vieną stiprų investicinį landing page;"
   },
   {
     "type": "list",
-    "text": "VCIIP BIO veikia kaip atskiras gyvybės mokslų ekosistemos landingas;"
+    "text": "aiškiai atskirti TECH ir BIO vaidmenis;"
   },
   {
     "type": "list",
-    "text": "Homepage išlaiko bendrą VCIIP pozicionavimą ir nukreipia į abi kryptis pagal lankytojo poreikį."
+    "text": "sumažinti navigacijos sudėtingumą;"
   },
   {
-    "type": "paragraph",
-    "text": "Tokia struktūra leidžia aiškiau komunikuoti skirtingus teritorijų vaidmenis, sumažina navigacijos neaiškumą ir suteikia daugiau aiškumo investuotojams."
+    "type": "list",
+    "text": "išvengti dubliuojamo turinio tarp homepage ir TECH puslapio."
   },
   {
     "type": "h2",
@@ -253,7 +253,7 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "paragraph",
-    "text": "Svetainę sudaro 8 puslapiai (Scope of Work numato iki 10). Limitas naudingas – disciplinuoja struktūrą."
+    "text": "Svetainę sudaro 7 puslapiai (Scope of Work numato iki 10). Limitas naudingas – disciplinuoja struktūrą."
   },
   {
     "type": "h2",
@@ -261,7 +261,7 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "paragraph",
-    "text": "Struktūra remiasi aiškiai atskirtais puslapiais BIO ir TECH kryptims, be gilios hierarchijos ar submeniu."
+    "text": "Struktūra remiasi plokščia hierarchija be submeniu. Homepage atlieka TECH investicinio landing page vaidmenį; BIO – atskiras credibility sluoksnis."
   },
   {
     "type": "table",
@@ -275,50 +275,44 @@ export const strategyItems: StrategyItem[] = [
       [
         "Pradžia",
         "/",
-        "Visi investuotojai",
-        "Bendras VCIIP pozicionavimas ir nukreipimas į BIO arba TECH"
-      ],
-      [
-        "VCIIP TECH",
-        "/tech/",
         "TECH investuotojai",
-        "Pagrindinis investavimo ir konversijos puslapis"
+        "Pagrindinis investicinis landing page"
       ],
       [
         "VCIIP BIO",
         "/bio/",
         "Gyvybės mokslų organizacijos",
-        "Ekosistemos, partnerysčių ir gyvybės mokslų aplinkos pristatymas"
+        "Gyvybės mokslų ekosistemos landing page"
       ],
       [
-        "Lokacija",
-        "/lokacija/",
+        "Kodėl Vilnius",
+        "/kodel-vilnius/",
         "Užsienio sprendimų priėmėjas",
-        "Kodėl Vilnius ir kodėl ši vieta"
+        "Kodėl Vilnius ir ši lokacija tinkama inovacijoms"
       ],
       [
-        "Sklypai",
+        "Prieinami sklypai",
         "/sklypai/",
         "TECH investuotojai",
-        "Prieinamų sklypų ir infrastruktūros peržiūra"
+        "Availability ir infrastruktūros informacija"
       ],
       [
         "Operatorius",
         "/operatorius/",
         "Investuotojas",
-        "Investavimo procesas ir operatoriaus pagalba"
+        "Operatoriaus vaidmuo ir pagalba investuotojui"
       ],
       [
-        "Apie",
-        "/apie/",
-        "Stakeholderiai ir partneriai",
-        "Misija, statusas ir projekto kontekstas"
+        "Kaip įsikurti",
+        "/kaip-isikurti/",
+        "Investuotojas",
+        "Detalus investavimo ir įsikūrimo procesas"
       ],
       [
         "Kontaktai",
         "/kontaktai/",
         "Konvertuojantis lankytojas",
-        "Kontaktų forma ir tiesioginis kontaktas"
+        "Kontaktų forma ir tiesioginiai kontaktai"
       ]
     ]
   },
@@ -337,12 +331,7 @@ export const strategyItems: StrategyItem[] = [
       [
         "Pradžia",
         "Vilniaus inovacijų pramonės parkas",
-        "Susisiekti / VCIIP TECH / VCIIP BIO"
-      ],
-      [
-        "VCIIP TECH",
-        "Infrastruktūra ir investavimo galimybės",
-        "Susisiekti / Prieinami sklypai"
+        "Prieinami sklypai / Susisiekti"
       ],
       [
         "VCIIP BIO",
@@ -350,8 +339,8 @@ export const strategyItems: StrategyItem[] = [
         "Tapti dalimi"
       ],
       [
-        "Lokacija",
-        "Vieta mieste",
+        "Kodėl Vilnius",
+        "Kodėl Vilnius",
         "Susisiekti"
       ],
       [
@@ -365,9 +354,9 @@ export const strategyItems: StrategyItem[] = [
         "Pradėti pokalbį"
       ],
       [
-        "Apie",
-        "Apie VCIIP",
-        "—"
+        "Kaip įsikurti",
+        "Kaip įsikurti VCIIP",
+        "Susisiekti"
       ],
       [
         "Kontaktai",
@@ -386,15 +375,11 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "list",
-    "text": "VCIIP TECH;"
-  },
-  {
-    "type": "list",
     "text": "VCIIP BIO;"
   },
   {
     "type": "list",
-    "text": "Lokacija;"
+    "text": "Kodėl Vilnius;"
   },
   {
     "type": "list",
@@ -402,19 +387,15 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "list",
-    "text": "Apie;"
-  },
-  {
-    "type": "list",
-    "text": "„Prieinami sklypai“ kaip CTA mygtukas, vedantis į /sklypai/;"
-  },
-  {
-    "type": "list",
-    "text": "„Susisiekti“ kaip pagrindinis CTA arba secondary CTA pagal dizaino hierarchiją."
+    "text": "Kaip įsikurti."
   },
   {
     "type": "paragraph",
-    "text": "Atskiros „Prieinama dabar“ nuorodos navigacijoje nenaudojamos – tai dubliuotų „Sklypai“ puslapį ir availability informaciją. Prieinamumas komunikuojamas per CTA, ne kaip atskiras navigacijos elementas."
+    "text": "Primary CTA: „Prieinami sklypai“ (veda į /sklypai/). Secondary CTA: „Susisiekti“."
+  },
+  {
+    "type": "paragraph",
+    "text": "Navigacijoje nenaudojama: atskiras VCIIP TECH puslapis, „Sklypai“ kaip nav item, „Prieinama dabar“ kaip nav item, „Apie“ kaip nav item. „Apie“ informacija integruojama homepage, operatoriaus puslapyje ir footer’yje."
   },
   {
     "type": "h3",
@@ -422,15 +403,19 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "list",
-    "text": "VCIIP TECH;"
-  },
-  {
-    "type": "list",
     "text": "VCIIP BIO;"
   },
   {
     "type": "list",
-    "text": "Lokacija;"
+    "text": "Kodėl Vilnius;"
+  },
+  {
+    "type": "list",
+    "text": "Prieinami sklypai;"
+  },
+  {
+    "type": "list",
+    "text": "Kaip įsikurti;"
   },
   {
     "type": "list",
@@ -438,19 +423,23 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "list",
-    "text": "Apie;"
-  },
-  {
-    "type": "list",
-    "text": "Kontaktai;"
-  },
-  {
-    "type": "list",
-    "text": "Prieinami sklypai."
+    "text": "Kontaktai."
   },
   {
     "type": "h2",
     "text": "2.2. Struktūros sprendimų pagrindimas"
+  },
+  {
+    "type": "h3",
+    "text": "Homepage kaip pagrindinis investicinis landing page"
+  },
+  {
+    "type": "paragraph",
+    "text": "Homepage tampa pagrindiniu investiciniu landing page, orientuotu į infrastruktūrą, availability, investavimo galimybes, operatoriaus pagalbą, ecosystem proof ir konversiją į kontaktą. Atskiro VCIIP TECH puslapio nereikia – TECH komunikacija koncentruojama homepage, todėl išvengiama dubliuojamo turinio ir navigacijos sudėtingumo."
+  },
+  {
+    "type": "paragraph",
+    "text": "VCIIP BIO puslapis veikia kaip papildomas credibility / ecosystem layer: jau veikianti aplinka, partnerystės, mokslinis potencialas. BIO nekonkuruoja su homepage, o stiprina pasitikėjimą investuotojams, svarstantiems TECH kryptį."
   },
   {
     "type": "h3",
@@ -470,11 +459,19 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "h3",
-    "text": "Timeline – „Apie“ puslapyje, nuslopintas"
+    "text": "„Kaip įsikurti“ kaip atskiras puslapis"
   },
   {
     "type": "paragraph",
-    "text": "Timeline investuotojams neaktualus, bet yra stakeholderių reikalavimas. Sprendimas: kompaktiška juosta „Apie“ puslapio apačioje."
+    "text": "Investavimo procesas komunikuojamas homepage santraukoje, bet detalus 4 žingsnių aprašymas, kontekstas ir pagalba pateikiami atskirame /kaip-isikurti/ puslapyje. Tai sumažina homepage apkrovą ir suteikia investuotojui aiškų atskirą kelią, kai reikia giliau suprasti procesą."
+  },
+  {
+    "type": "h3",
+    "text": "„Apie“ informacija be atskiro puslapio"
+  },
+  {
+    "type": "paragraph",
+    "text": "Atskiro „Apie“ puslapio pagrindinėje navigacijoje nėra. Misija, statusas, projekto kontekstas ir timeline integruojami homepage (patikimumo signalai), operatoriaus puslapyje (institucinis kontekstas) ir footer’yje (trumpas aprašymas, partnerių nuorodos)."
   },
   {
     "type": "h3",
@@ -482,7 +479,15 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "list",
-    "text": "„Prieinama dabar“ kaip atskiras navigacijos elementas – availability rodoma per „Prieinami sklypai“ CTA ir /sklypai/ puslapį."
+    "text": "Atskiras VCIIP TECH puslapis – TECH logika koncentruojama homepage."
+  },
+  {
+    "type": "list",
+    "text": "„Sklypai“ ir „Prieinama dabar“ kaip atskiri navigacijos elementai – availability rodoma per „Prieinami sklypai“ primary CTA ir /sklypai/ puslapį."
+  },
+  {
+    "type": "list",
+    "text": "„Apie“ kaip atskiras navigacijos puslapis – informacija integruojama kitur."
   },
   {
     "type": "list",
@@ -494,7 +499,7 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "paragraph",
-    "text": "Vienas didžiausių investuotojo skausmų – neaiškus ir ilgas procesas. Todėl procesas komunikuojamas aiškiai, keturiais žingsniais, tiek „Operatorius“ puslapyje, tiek atskira sekcija namų puslapyje."
+    "text": "Vienas didžiausių investuotojo skausmų – neaiškus ir ilgas procesas. Todėl procesas komunikuojamas aiškiai, keturiais žingsniais: homepage santraukoje, atskirame „Kaip įsikurti“ puslapyje ir „Operatorius“ puslapyje."
   },
   {
     "type": "h2",
@@ -540,15 +545,11 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "list",
-    "text": "Pradžia: bendras VCIIP pozicionavimas ir ekosistemos patikimumas;"
+    "text": "Homepage: VCIIP pozicionavimas, infrastruktūra ir investavimo galimybės;"
   },
   {
     "type": "list",
-    "text": "VCIIP BIO: ekosistemos, partnerių ir gyvybės mokslų aplinkos įrodymas;"
-  },
-  {
-    "type": "list",
-    "text": "VCIIP TECH: infrastruktūros, pajėgumų ir investavimo galimybių pristatymas;"
+    "text": "BIO: ekosistemos, partnerių ir gyvybės mokslų aplinkos įrodymas;"
   },
   {
     "type": "list",
@@ -556,11 +557,15 @@ export const strategyItems: StrategyItem[] = [
   },
   {
     "type": "list",
-    "text": "Operatorius: investavimo proceso aiškumas ir pagalba;"
+    "text": "Kaip įsikurti: aiškus investavimo procesas ir žingsniai;"
   },
   {
     "type": "list",
-    "text": "Kontaktas: užklausa arba tiesioginis kontaktas su operatoriumi."
+    "text": "Operatorius: pagalba ir partnerystė;"
+  },
+  {
+    "type": "list",
+    "text": "Kontaktas: užklausa arba tiesioginis kontaktas."
   },
   {
     "type": "h1",
@@ -587,7 +592,11 @@ export const strategyItems: StrategyItem[] = [
       ],
       [
         "location_select",
-        "Perėjimas į VCIIP BIO arba VCIIP TECH puslapius"
+        "Perėjimas į VCIIP BIO puslapį"
+      ],
+      [
+        "process_page_view",
+        "„Kaip įsikurti“ puslapio peržiūros"
       ],
       [
         "availability_view",
