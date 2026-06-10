@@ -11,7 +11,7 @@ function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "");
   const isStrategyPage = currentPath === "/strategija";
   const isLegacyGreenPage = currentPath === "/ekosistema";
-  const brandVariant = isLegacyGreenPage ? "bio" : "vciip";
+  const brandVariant = isLegacyGreenPage ? "bio" : "tech";
 
   return (
     <div className={isLegacyGreenPage ? "legacy-green-page" : undefined}>
