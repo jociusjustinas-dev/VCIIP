@@ -1,3 +1,5 @@
+import { ArrowUpRight } from "lucide-react";
+
 import processWarmRoomImage from "../assets/images/process-warm-room.png";
 
 const settleSteps = [
@@ -88,6 +90,24 @@ export function SettleProcess() {
                   </div>
                 </article>
               ))}
+
+              <div className="pt-10">
+                <a
+                  href="#kontaktai"
+                  className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent hover:text-white"
+                >
+                  <span className="h-5 overflow-hidden py-px">
+                    <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
+                      {["Sužinokite daugiau", "Sužinokite daugiau"].map((label, index) => (
+                        <span key={index} className="flex h-5 items-center gap-2">
+                          {label}
+                          <ArrowUpRight size={16} aria-hidden="true" />
+                        </span>
+                      ))}
+                    </span>
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
