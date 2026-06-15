@@ -10,6 +10,7 @@ import techLogo from "../assets/logos/tech.svg";
 import techLogoWhite from "../assets/logos/tech-white.svg";
 import {
   bioNavGroup,
+  getHubHref,
   resolveNavHref,
   sharedNavItems,
   techNavGroup,
@@ -41,6 +42,11 @@ export function Navigation({ variant = "vciip" }: { variant?: BrandVariant }) {
   const [mobileExpanded, setMobileExpanded] = useState<"bio" | "tech" | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const logos = brandLogos[variant];
+  const hubHref = getHubHref(variant);
+  const contactHref = resolveNavHref(
+    variant === "bio" ? "/ekosistema" : variant === "tech" ? "/tech" : "/",
+    "investuotojo-uzklausa",
+  );
 
   useEffect(() => {
     const updateTheme = () => {
@@ -132,7 +138,7 @@ export function Navigation({ variant = "vciip" }: { variant?: BrandVariant }) {
           </button>
 
           <a
-            href="/"
+            href={hubHref}
             className="flex min-w-0 items-center max-[991px]:max-w-[min(100%,10.5rem)] max-[479px]:max-w-[min(100%,8.75rem)]"
             aria-label={`${logos.alt} pradinis puslapis`}
           >
@@ -187,7 +193,7 @@ export function Navigation({ variant = "vciip" }: { variant?: BrandVariant }) {
 
           <a
             className={`group inline-flex min-h-12 shrink-0 items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 text-base font-semibold leading-none transition max-[991px]:min-h-10 max-[991px]:px-3.5 max-[991px]:py-2 max-[991px]:text-sm max-[479px]:min-h-9 max-[479px]:px-3 ${tone.cta}`}
-            href={resolveNavHref("/", "investuotojo-uzklausa")}
+            href={contactHref}
             aria-label="Susisiekti"
           >
             <span className="h-5 overflow-hidden py-px max-[400px]:hidden">
@@ -220,13 +226,13 @@ export function Navigation({ variant = "vciip" }: { variant?: BrandVariant }) {
       {mobileMenuOpen && (
         <div className="pointer-events-auto fixed inset-x-0 top-0 z-[997] hidden max-h-[89svh] overflow-auto bg-white px-6 pb-6 pt-[4.75rem] shadow-2xl shadow-primary/16 max-[991px]:block max-[479px]:px-4 max-[479px]:pt-[4.5rem]">
           <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 border-y border-primary/16 bg-background px-6 py-3 max-[479px]:gap-2 max-[479px]:px-4">
-            <a href="/" aria-label="VCIIP pradinis puslapis" className="inline-flex min-w-0 max-w-[min(100%,10rem)]">
+            <a href={hubHref} aria-label="VCIIP pradinis puslapis" className="inline-flex min-w-0 max-w-[min(100%,10rem)]">
               <img src={logos.dark} alt={logos.alt} className="h-7 w-auto max-w-full object-contain object-left max-[479px]:h-[1.625rem]" />
             </a>
             <div className="flex shrink-0 items-center gap-2">
               <a
                 className="inline-flex min-h-9 items-center justify-center rounded-full bg-primary px-3.5 py-2 text-sm font-semibold leading-none text-white"
-                href={resolveNavHref("/", "investuotojo-uzklausa")}
+                href={contactHref}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Susisiekti

@@ -7,13 +7,21 @@ import { ScrollReveal } from "./components/ScrollReveal";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { StrategyBadge } from "./components/StrategyBadge";
 import { StrategyPage } from "./components/StrategyPage";
+import { TechPage } from "./components/TechPage";
 
 function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "");
   const isStrategyPage = currentPath === "/strategija";
   const isHomePage = currentPath === "";
+  const isTechPage = currentPath === "/tech";
   const isBioPage = currentPath === "/ekosistema" || currentPath === "/bio";
-  const brandVariant: "vciip" | "bio" | "tech" = isBioPage ? "bio" : isHomePage ? "vciip" : "tech";
+  const brandVariant: "vciip" | "bio" | "tech" = isBioPage
+    ? "bio"
+    : isTechPage
+      ? "tech"
+      : isHomePage
+        ? "vciip"
+        : "tech";
 
   return (
     <div className={isBioPage ? "legacy-green-page" : undefined}>
@@ -26,6 +34,8 @@ function App() {
         <StrategyPage />
       ) : isBioPage ? (
         <EcosystemPage />
+      ) : isTechPage ? (
+        <TechPage />
       ) : (
         <HomePage />
       )}

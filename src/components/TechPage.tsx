@@ -1,5 +1,5 @@
 import { InvestmentLandingPage } from "./InvestmentLandingPage";
 
-export function HomePage() {
+export function TechPage() {
   return <InvestmentLandingPage />;
 }

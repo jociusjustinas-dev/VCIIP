@@ -25,7 +25,7 @@ export const bioNavGroup: NavGroup = {
 export const techNavGroup: NavGroup = {
   id: "tech",
   label: "VCIIP Tech",
-  pageHref: "/",
+  pageHref: "/tech",
   items: [
     { label: "Apie VCIIP Tech", href: "apie-vciip-tech" },
     { label: "Sklypai", href: "sklypai" },
@@ -38,6 +38,12 @@ export const sharedNavItems: NavLink[] = [
   { label: "Kodėl Vilnius", href: "/kodel-vilnius/" },
   { label: "Apie VCIIP", href: "/apie-vciip/" },
 ];
+
+export function getHubHref(variant: "vciip" | "bio" | "tech") {
+  if (variant === "bio") return "/ekosistema";
+  if (variant === "tech") return "/tech";
+  return "/";
+}
 
 export function resolveNavHref(pageHref: string, anchor: string) {
   if (anchor.startsWith("/") || anchor.startsWith("#")) return anchor;

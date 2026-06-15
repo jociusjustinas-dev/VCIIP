@@ -3,6 +3,7 @@ import bioLogo from "../assets/logos/bio.svg";
 import vciipLogo from "../assets/logos/logo-dark.svg";
 import techLogo from "../assets/logos/tech.svg";
 import type { BrandVariant } from "./Navigation";
+import { getHubHref } from "../content/site";
 
 const footerNavigation = [
   { label: "VCIIP Bio", href: "/ekosistema" },
@@ -28,6 +29,7 @@ const brandLogos: Record<FooterBrandVariant, { src: string; alt: string }> = {
 
 export function Footer({ variant = "vciip" }: { variant?: FooterBrandVariant }) {
   const logo = brandLogos[variant];
+  const hubHref = getHubHref(variant);
 
   return (
     <footer className="relative bg-white p-2">
@@ -35,7 +37,7 @@ export function Footer({ variant = "vciip" }: { variant?: FooterBrandVariant }) 
         <div className="site-container">
           <div className="grid gap-12 border-b border-dashed border-primary/12 pb-14 lg:grid-cols-[minmax(260px,1.15fr)_0.72fr_0.9fr_0.82fr]" data-reveal-group>
             <div className="reveal-item flex max-w-md flex-col gap-8">
-              <a href="#" aria-label="VCIIP" className="inline-flex w-fit">
+              <a href={hubHref} aria-label={logo.alt} className="inline-flex w-fit">
                 <img src={logo.src} alt={logo.alt} className="h-11 w-auto" />
               </a>
               <p className="m-0 text-base font-medium leading-[150%] text-muted">
