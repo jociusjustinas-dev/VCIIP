@@ -14,6 +14,7 @@ import { getBrandVariantFromPath, getHubHrefFromPath } from "./content/site";
 
 function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+  const isHomePage = currentPath === "/";
   const isStrategyPage = currentPath === "/strategija";
   const isTechHub = currentPath === "/tech";
   const isBioHub = currentPath === "/ekosistema" || currentPath === "/bio";
@@ -21,13 +22,18 @@ function App() {
   const isApieVciipPage = currentPath === "/apie-vciip";
   const brandVariant = getBrandVariantFromPath(currentPath);
   const hubHref = getHubHrefFromPath(currentPath);
+  const pageThemeClass = isBioHub
+    ? "legacy-green-page"
+    : isHomePage
+      ? "index-navy-page"
+      : undefined;
 
   return (
-    <div className={isBioHub ? "legacy-green-page" : undefined}>
+    <div className={pageThemeClass}>
       <SmoothScroll />
       <HashScroll pathname={currentPath} />
       <ScrollReveal />
-      <Navigation variant={brandVariant} hubHref={hubHref} />
+      <Navigation variant={brandVariant} hubHref={hubHref} navyMonochrome={isHomePage} />
       {!isBioHub && <StrategyBadge active={isStrategyPage} />}
       {isStrategyPage ? (
         <StrategyPage />
@@ -42,7 +48,7 @@ function App() {
       ) : (
         <HomePage />
       )}
-      <Footer variant={brandVariant} hubHref={hubHref} />
+      <Footer variant={brandVariant} hubHref={hubHref} navyMonochrome={isHomePage} />
     </div>
   );
 }
