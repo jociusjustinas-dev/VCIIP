@@ -156,7 +156,7 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
           </a>
 
           <nav
-            className="flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto max-[991px]:hidden"
+            className="flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto overflow-y-visible max-[991px]:hidden"
             aria-label="Pagrindinė navigacija"
           >
             {renderNavItems(tone, { sticky: options.sticky })}
@@ -349,50 +349,63 @@ function NavDropdown({
   onOpen: () => void;
   onClose: () => void;
 }) {
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleOpen = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    onOpen();
+  };
+
+  const handleClose = () => {
+    closeTimeoutRef.current = setTimeout(onClose, 120);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    };
+  }, []);
+
   return (
-    <div className="relative shrink-0" onMouseEnter={onOpen} onMouseLeave={onClose}>
-      <div className={`flex items-center rounded-full transition ${tone.menuText}`}>
-        <a
-          href={group.pageHref}
-          className="rounded-full px-3 py-1.5 text-sm font-semibold leading-[150%]"
-        >
-          {group.label}
-        </a>
-        <button
-          type="button"
-          className="rounded-full px-1 py-1.5"
-          onClick={() => (isOpen ? onClose() : onOpen())}
-          aria-expanded={isOpen}
-          aria-haspopup="true"
-          aria-label={`${group.label} meniu`}
-        >
-          <ChevronDown
-            size={14}
-            className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
-            aria-hidden="true"
-          />
-        </button>
-      </div>
+    <div className="relative shrink-0" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
+      <a
+        href={group.pageHref}
+        className={`inline-flex items-center gap-0.5 rounded-full px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${tone.menuText}`}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+      >
+        {group.label}
+        <ChevronDown
+          size={14}
+          className={`shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          aria-hidden="true"
+        />
+      </a>
 
       {isOpen && (
-        <div
-          className={`absolute left-0 top-[calc(100%+0.35rem)] z-[50] min-w-[13.5rem] overflow-hidden rounded-2xl border p-1.5 shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_18%,transparent)] ${
-            isLight ? "border-primary/12 bg-white/95" : "border-white/16 bg-primary/95"
-          } backdrop-blur-xl`}
-        >
-          {group.items.map((item) => (
-            <a
-              key={item.href}
-              href={resolveNavHref(group.pageHref, item.href)}
-              className={`block rounded-xl px-3 py-2.5 text-sm font-semibold leading-[140%] transition ${
-                isLight
-                  ? "text-primary/72 hover:bg-primary/6 hover:text-primary"
-                  : "text-white/88 hover:bg-white/10 hover:text-white"
-              }`}
-            >
-              {item.label}
-            </a>
-          ))}
+        <div className="absolute left-0 top-full z-[50] pt-1.5">
+          <div
+            className={`min-w-[13.5rem] overflow-hidden rounded-2xl border p-1.5 shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_18%,transparent)] ${
+              isLight ? "border-primary/12 bg-white/95" : "border-white/16 bg-primary/95"
+            } backdrop-blur-xl`}
+          >
+            {group.items.map((item) => (
+              <a
+                key={item.href}
+                href={resolveNavHref(group.pageHref, item.href)}
+                className={`block rounded-xl px-3 py-2.5 text-sm font-semibold leading-[140%] transition ${
+                  isLight
+                    ? "text-primary/72 hover:bg-primary/6 hover:text-primary"
+                    : "text-white/88 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
       )}
     </div>
