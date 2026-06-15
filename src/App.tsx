@@ -12,7 +12,7 @@ function App() {
   const isStrategyPage = currentPath === "/strategija";
   const isBioPage = currentPath === "/ekosistema" || currentPath === "/bio";
   const brandVariant = isBioPage ? "bio" : "tech";
-  const pageContext: NavPageContext = isBioPage ? "bio" : isStrategyPage ? "other" : "tech";
+  const pageContext: NavPageContext = isBioPage ? "bio" : "other";
 
   return (
     <div className={isBioPage ? "legacy-green-page" : undefined}>

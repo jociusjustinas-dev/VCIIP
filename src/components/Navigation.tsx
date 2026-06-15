@@ -45,7 +45,7 @@ export function Navigation({
   const navRef = useRef<HTMLDivElement>(null);
   const logos = brandLogos[variant];
 
-  const activeGroupId = pageContext === "bio" ? "bio" : pageContext === "tech" ? "tech" : null;
+  const activeGroupId = pageContext === "bio" ? "bio" : null;
 
   useEffect(() => {
     const updateTheme = () => {
