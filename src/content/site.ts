@@ -1,11 +1,48 @@
-export const navItems = [
-  { label: "VCIIP Bio", href: "/ekosistema" },
-  { label: "Kodėl Vilnius", href: "#lokacija" },
-  { label: "Sklypai", href: "#sklypai" },
-  { label: "Kaip įsikurti", href: "#kaip-isikurti" },
-  { label: "Operatorius", href: "#procesas" },
-  { label: "Kontaktai", href: "#kontaktai" },
+export type NavLink = {
+  label: string;
+  href: string;
+};
+
+export type NavGroup = {
+  id: "bio" | "tech";
+  label: string;
+  pageHref: string;
+  items: NavLink[];
+};
+
+export const bioNavGroup: NavGroup = {
+  id: "bio",
+  label: "VCIIP Bio",
+  pageHref: "/ekosistema",
+  items: [
+    { label: "Apie VCIIP Bio", href: "apie-vciip-bio" },
+    { label: "Lokacija", href: "lokacija" },
+    { label: "Patalpos nuomai", href: "patalpos-nuomai" },
+    { label: "Kaip įsikurti", href: "kaip-isikurti" },
+  ],
+};
+
+export const techNavGroup: NavGroup = {
+  id: "tech",
+  label: "VCIIP Tech",
+  pageHref: "/",
+  items: [
+    { label: "Apie VCIIP Tech", href: "apie-vciip-tech" },
+    { label: "Sklypai", href: "sklypai" },
+    { label: "Lokacija", href: "lokacija" },
+    { label: "Kaip įsikurti", href: "kaip-isikurti" },
+  ],
+};
+
+export const sharedNavItems: NavLink[] = [
+  { label: "Kodėl Vilnius", href: "kodel-vilnius" },
+  { label: "Apie VCIIP", href: "apie-vciip" },
 ];
+
+export function resolveNavHref(pageHref: string, anchor: string) {
+  if (anchor.startsWith("/") || anchor.startsWith("#")) return anchor;
+  return `${pageHref}#${anchor}`;
+}
 
 export const stats = [
   { value: "200 mln. €", label: "pritraukta investicijų" },

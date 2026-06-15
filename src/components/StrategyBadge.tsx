@@ -10,7 +10,7 @@ export function StrategyBadge({ active = false }: { active?: boolean }) {
     }
 
     const updateVisibility = () => {
-      const hero = document.getElementById("investuotojui");
+      const hero = document.getElementById("apie-vciip-tech");
       if (!hero) {
         setVisible(window.scrollY < window.innerHeight * 0.75);
         return;

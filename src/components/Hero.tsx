@@ -40,7 +40,7 @@ export function Hero() {
   }, [videoOpen]);
 
   return (
-    <section id="investuotojui" ref={sectionRef} className="relative bg-white p-2 text-white">
+    <section id="apie-vciip-tech" ref={sectionRef} className="relative bg-white p-2 text-white">
       <div
         data-nav-theme="dark"
         className="relative z-[1] flex min-h-[calc(100svh-16px)] flex-col overflow-hidden rounded-2xl pb-14 pt-32"

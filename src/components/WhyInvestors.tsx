@@ -19,7 +19,7 @@ const investorReasons = [
 export function WhyInvestors() {
   return (
     <FeatureAccordionSection
-      id="kodel-vciip"
+      id="apie-vciip"
       eyebrow="Kodėl VCIIP"
       titleHighlight="Kodėl investuotojai"
       titleRest="renkasi VCIIP"

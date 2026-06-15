@@ -5,7 +5,7 @@ import { ParallaxImage } from "./ParallaxImage";
 
 export function EcosystemSplit() {
   return (
-    <section className="relative bg-white p-2">
+    <section className="relative bg-white p-2" id="lokacija">
       <div className="relative overflow-hidden rounded-2xl bg-primary py-20 text-white max-[991px]:py-16 max-[479px]:py-12">
         <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
           <div className="mb-20 flex flex-col gap-12 px-4 max-[767px]:px-0 max-[479px]:mb-12" data-reveal-group>

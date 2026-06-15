@@ -45,7 +45,8 @@ export function ScrollReveal() {
     );
 
     items.forEach((item) => {
-      const isHeroItem = item.closest("#investuotojui") || item.closest("#ekosistema-hero");
+      const isHeroItem =
+        item.closest("#apie-vciip-tech") || item.closest("#ekosistema-hero");
 
       if (isHeroItem) {
         item.classList.add("is-visible");

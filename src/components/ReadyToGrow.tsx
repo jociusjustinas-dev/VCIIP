@@ -133,7 +133,7 @@ export function ReadyToGrow() {
   };
 
   return (
-    <section ref={sectionRef} id="paruoshta-augti" className="relative bg-white pt-24 max-[991px]:pt-16 max-[479px]:pt-12">
+    <section ref={sectionRef} id="sklypai" className="relative bg-white pt-24 max-[991px]:pt-16 max-[479px]:pt-12">
       <div className="mb-12 overflow-hidden pb-8 pt-4 max-[479px]:mb-8 max-[479px]:pb-5">
         <div
           className={`flex w-max transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
