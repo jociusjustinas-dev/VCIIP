@@ -4,4 +4,14 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    host: "0.0.0.0",
+    port: 5174,
+    strictPort: false,
+  },
+  preview: {
+    host: "0.0.0.0",
+    port: 4174,
+    strictPort: false,
+  },
 });
