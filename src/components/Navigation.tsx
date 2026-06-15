@@ -218,15 +218,16 @@ export function Navigation({
           </div>
 
           <a
-            className={`hidden min-h-12 shrink-0 items-center justify-center rounded-full bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary min-[992px]:inline-flex`}
+            className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-full bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary max-[991px]:min-h-10 max-[991px]:px-3.5 max-[991px]:py-2 max-[991px]:text-sm max-[479px]:min-h-9 max-[479px]:px-3"
             href={resolveNavHref("/", "sklypai")}
             aria-label="Prieinami sklypai"
           >
-            Prieinami sklypai
+            <span className="max-[479px]:hidden">Prieinami sklypai</span>
+            <span className="hidden max-[479px]:inline">Sklypai</span>
           </a>
 
           <a
-            className={`group inline-flex min-h-12 shrink-0 items-center justify-center gap-2 overflow-hidden rounded-full border px-5 py-3 text-base font-semibold leading-none transition max-[991px]:min-h-10 max-[991px]:px-3.5 max-[991px]:py-2 max-[991px]:text-sm max-[479px]:min-h-9 max-[479px]:px-3 ${
+            className={`group hidden min-h-12 shrink-0 items-center justify-center gap-2 overflow-hidden rounded-full border px-5 py-3 text-base font-semibold leading-none transition min-[992px]:inline-flex ${
               options.sticky || !onDarkSurface
                 ? "border-primary/18 bg-white text-primary hover:bg-primary hover:text-white"
                 : "border-white/32 bg-transparent text-white hover:bg-white hover:text-primary"
