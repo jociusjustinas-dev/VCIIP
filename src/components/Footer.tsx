@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import bioLogo from "../assets/logos/bio.svg";
+import vciipLogo from "../assets/logos/logo-dark.svg";
 import techLogo from "../assets/logos/tech.svg";
+import type { BrandVariant } from "./Navigation";
 
 const footerNavigation = [
   { label: "VCIIP Bio", href: "/ekosistema" },
@@ -16,11 +18,16 @@ const partnerLinks = [
   { label: "Vilniaus miesto savivaldybė", href: "https://vilnius.lt/" },
 ];
 
-type BrandVariant = "bio" | "tech";
+type FooterBrandVariant = BrandVariant;
 
-export function Footer({ variant = "tech" }: { variant?: BrandVariant }) {
-  const logo = variant === "bio" ? bioLogo : techLogo;
-  const logoAlt = variant === "bio" ? "VCIIP BIO" : "VCIIP TECH";
+const brandLogos: Record<FooterBrandVariant, { src: string; alt: string }> = {
+  vciip: { src: vciipLogo, alt: "VCIIP" },
+  bio: { src: bioLogo, alt: "VCIIP BIO" },
+  tech: { src: techLogo, alt: "VCIIP TECH" },
+};
+
+export function Footer({ variant = "vciip" }: { variant?: FooterBrandVariant }) {
+  const logo = brandLogos[variant];
 
   return (
     <footer className="relative bg-white p-2">
@@ -29,7 +36,7 @@ export function Footer({ variant = "tech" }: { variant?: BrandVariant }) {
           <div className="grid gap-12 border-b border-dashed border-primary/12 pb-14 lg:grid-cols-[minmax(260px,1.15fr)_0.72fr_0.9fr_0.82fr]" data-reveal-group>
             <div className="reveal-item flex max-w-md flex-col gap-8">
               <a href="#" aria-label="VCIIP" className="inline-flex w-fit">
-                <img src={logo} alt={logoAlt} className="h-11 w-auto" />
+                <img src={logo.src} alt={logo.alt} className="h-11 w-auto" />
               </a>
               <p className="m-0 text-base font-medium leading-[150%] text-muted">
                 Vilniaus miesto inovacijų ir pramonės parkas, vystomas aukštos pridėtinės

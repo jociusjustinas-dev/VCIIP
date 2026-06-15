@@ -4,6 +4,8 @@ import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 
 import bioLogo from "../assets/logos/bio.svg";
 import bioLogoWhite from "../assets/logos/bio-white.svg";
+import vciipLogo from "../assets/logos/logo-dark.svg";
+import vciipLogoWhite from "../assets/logos/logo-light.svg";
 import techLogo from "../assets/logos/tech.svg";
 import techLogoWhite from "../assets/logos/tech-white.svg";
 import {
@@ -16,9 +18,7 @@ import {
 } from "../content/site";
 import { scrollToHash } from "../utils/scrollToSection";
 
-export type NavPageContext = "tech" | "bio" | "other";
-
-type BrandVariant = "bio" | "tech";
+export type BrandVariant = "vciip" | "bio" | "tech";
 
 type NavTone = {
   border: string;
@@ -29,11 +29,12 @@ type NavTone = {
 };
 
 const brandLogos: Record<BrandVariant, { dark: string; light: string; alt: string }> = {
+  vciip: { dark: vciipLogo, light: vciipLogoWhite, alt: "VCIIP" },
   bio: { dark: bioLogo, light: bioLogoWhite, alt: "VCIIP BIO" },
   tech: { dark: techLogo, light: techLogoWhite, alt: "VCIIP TECH" },
 };
 
-export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
+export function Navigation({ variant = "vciip" }: { variant?: BrandVariant }) {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
   const [stickyVisible, setStickyVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

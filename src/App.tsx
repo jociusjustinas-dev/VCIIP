@@ -11,8 +11,9 @@ import { StrategyPage } from "./components/StrategyPage";
 function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "");
   const isStrategyPage = currentPath === "/strategija";
+  const isHomePage = currentPath === "";
   const isBioPage = currentPath === "/ekosistema" || currentPath === "/bio";
-  const brandVariant = isBioPage ? "bio" : "tech";
+  const brandVariant: "vciip" | "bio" | "tech" = isBioPage ? "bio" : isHomePage ? "vciip" : "tech";
 
   return (
     <div className={isBioPage ? "legacy-green-page" : undefined}>
