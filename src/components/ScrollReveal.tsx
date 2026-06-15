@@ -46,7 +46,7 @@ export function ScrollReveal() {
 
     items.forEach((item) => {
       const isHeroItem =
-        item.closest("#apie-vciip-tech") || item.closest("#ekosistema-hero");
+        item.closest("#apie-vciip-tech") || item.closest("#apie-vciip-bio");
 
       if (isHeroItem) {
         item.classList.add("is-visible");

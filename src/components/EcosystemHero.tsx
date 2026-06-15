@@ -29,7 +29,7 @@ export function EcosystemHero() {
 
   return (
     <section
-      id="ekosistema-hero"
+      id="apie-vciip-bio"
       className="relative overflow-hidden bg-white pb-8 pt-32 max-[991px]:pb-8 max-[991px]:pt-28 max-[479px]:pb-6 max-[479px]:pt-24"
     >
       <div className="site-container relative z-[2] px-6 max-[479px]:px-4">

@@ -1,5 +1,6 @@
 import { EcosystemPage } from "./components/EcosystemPage";
 import { Footer } from "./components/Footer";
+import { HashScroll } from "./components/HashScroll";
 import { HomePage } from "./components/HomePage";
 import { Navigation } from "./components/Navigation";
 import { ScrollReveal } from "./components/ScrollReveal";
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className={isBioPage ? "legacy-green-page" : undefined}>
       <SmoothScroll />
+      <HashScroll pathname={currentPath} />
       <ScrollReveal />
       <Navigation variant={brandVariant} />
       {!isBioPage && <StrategyBadge active={isStrategyPage} />}

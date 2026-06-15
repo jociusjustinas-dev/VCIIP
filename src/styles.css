@@ -43,6 +43,10 @@
     color: inherit;
     text-decoration: none;
   }
+
+  [id] {
+    scroll-margin-top: 6rem;
+  }
 }
 
 @layer components {

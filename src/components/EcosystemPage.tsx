@@ -4,17 +4,19 @@ import { EcosystemMarquee } from "./EcosystemMarquee";
 import { FeatureSplitHighlightsSection } from "./FeatureSplitHighlightsSection";
 import { FeatureTabsSection } from "./FeatureTabsSection";
 import { ProofStats } from "./ProofStats";
+import { SettleProcess } from "./SettleProcess";
 
 export function EcosystemPage() {
   return (
     <main>
       <EcosystemHero />
-      <div id="ekosistema-turinys">
+      <section id="lokacija" className="relative bg-white">
         <ProofStats />
-      </div>
+      </section>
       <EcosystemMarquee />
       <FeatureTabsSection {...bioTabsContent} />
       <FeatureSplitHighlightsSection {...bioGrowthContent} />
+      <SettleProcess />
     </main>
   );
 }

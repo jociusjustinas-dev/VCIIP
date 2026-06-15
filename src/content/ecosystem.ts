@@ -4,7 +4,7 @@ import modernOfficeImage from "../assets/images/modern-office-work.png";
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 
 export const bioTabsContent = {
-  id: "bio-aplinka",
+  id: "patalpos-nuomai",
   eyebrow: "VCIIP BIO",
   titleHighlight: "Gyvybės mokslams",
   titleRest: "pritaikyta aplinka.",

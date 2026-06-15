@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 
@@ -14,6 +14,7 @@ import {
   type NavGroup,
   type NavLink,
 } from "../content/site";
+import { scrollToHash } from "../utils/scrollToSection";
 
 export type NavPageContext = "tech" | "bio" | "other";
 
@@ -88,45 +89,36 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
     cta: "bg-primary text-white hover:bg-accent hover:text-white",
   };
 
-  const renderNavItems = (tone: NavTone, options: { sticky?: boolean } = {}) => {
-    const isLightDropdown = options.sticky || !onDarkSurface;
+  const renderNavItems = (tone: NavTone, options: { sticky?: boolean } = {}) => (
+    <>
+      {[bioNavGroup, techNavGroup].map((group) => (
+        <NavDropdown key={group.id} group={group} tone={tone} />
+      ))}
 
-    return (
-      <>
-        {[bioNavGroup, techNavGroup].map((group) => (
-          <NavDropdown
-            key={group.id}
-            group={group}
-            tone={tone}
-            isLight={isLightDropdown}
-          />
-        ))}
+      {sharedNavItems.map((item) => (
+        <NavAnchor
+          key={item.href}
+          href={item.href}
+          className={tone.menuText}
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          {item.label}
+        </NavAnchor>
+      ))}
+    </>
+  );
 
-        {sharedNavItems.map((item) => (
-          <NavAnchor
-            key={item.href}
-            href={item.href}
-            className={tone.menuText}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            {item.label}
-          </NavAnchor>
-        ))}
-      </>
-    );
-  };
+  const activeTone = stickyVisible ? stickyTone : navTone;
+  const activeSticky = stickyVisible;
 
-  const renderNavBar = (
-    tone: NavTone,
-    options: { sticky?: boolean; hidden?: boolean } = {},
-  ) => (
+  const renderNavBar = (tone: NavTone, options: { sticky?: boolean } = {}) => (
     <div className="site-container px-6 max-[479px]:px-4">
       <div
         className={`relative mx-auto flex items-center justify-between gap-3 border-b py-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] max-[991px]:gap-2 max-[991px]:py-3 ${
           options.sticky
             ? `rounded-b-2xl border-solid bg-white/78 px-5 shadow-[0_18px_54px_color-mix(in_srgb,var(--color-primary)_12%,transparent)] backdrop-blur-xl ${tone.border}`
             : `border-dashed ${tone.border}`
-        } ${options.hidden ? "-translate-y-4 opacity-0" : "translate-y-0 opacity-100"}`}
+        }`}
       >
         <div className="flex min-w-0 flex-1 items-center gap-12 max-[991px]:gap-2.5">
           <button
@@ -215,23 +207,13 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
   );
 
   return (
-    <div ref={navRef} className="pointer-events-none fixed inset-x-0 top-0 z-[999] w-full">
+    <div ref={navRef} className="pointer-events-auto fixed inset-x-0 top-0 z-[999] w-full">
       <div
-        className={`absolute inset-x-0 top-2 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] max-[479px]:top-3 ${
-          stickyVisible ? "-translate-y-5 opacity-0" : "translate-y-0 opacity-100"
-        } ${stickyVisible ? "pointer-events-none" : "pointer-events-auto"}`}
-        aria-hidden={stickyVisible}
+        className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          stickyVisible ? "translate-y-0" : "translate-y-2 max-[479px]:translate-y-3"
+        }`}
       >
-        {renderNavBar(navTone, { hidden: stickyVisible })}
-      </div>
-
-      <div
-        className={`absolute inset-x-0 top-0 transition-all delay-100 duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          stickyVisible ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
-        } ${stickyVisible ? "pointer-events-auto" : "pointer-events-none"}`}
-        aria-hidden={!stickyVisible}
-      >
-        {renderNavBar(stickyTone, { sticky: true, hidden: !stickyVisible })}
+        {renderNavBar(activeTone, { sticky: activeSticky })}
       </div>
 
       {mobileMenuOpen && (
@@ -334,42 +316,64 @@ function NavAnchor({
 function NavDropdown({
   group,
   tone,
-  isLight,
 }: {
   group: NavGroup;
   tone: NavTone;
-  isLight: boolean;
 }) {
   const [open, setOpen] = useState(false);
-  const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
-  const triggerRef = useRef<HTMLAnchorElement>(null);
+  const [menuPosition, setMenuPosition] = useState<{ top: number; left: number; width: number } | null>(
+    null,
+  );
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const updateMenuPosition = () => {
-    const rect = triggerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-
-    setMenuPosition({
-      top: rect.bottom + 6,
-      left: rect.left,
-    });
-  };
-
-  const handleOpen = () => {
+  const clearCloseTimeout = () => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
       closeTimeoutRef.current = null;
     }
+  };
 
+  const updateMenuPosition = () => {
+    const rect = triggerRef.current?.getBoundingClientRect();
+    if (!rect) return null;
+
+    const next = {
+      top: rect.bottom + 4,
+      left: rect.left,
+      width: Math.max(rect.width, 216),
+    };
+
+    setMenuPosition(next);
+    return next;
+  };
+
+  const handleOpen = () => {
+    clearCloseTimeout();
     updateMenuPosition();
     setOpen(true);
   };
 
   const handleClose = () => {
-    closeTimeoutRef.current = setTimeout(() => setOpen(false), 150);
+    clearCloseTimeout();
+    closeTimeoutRef.current = setTimeout(() => {
+      setOpen(false);
+      setMenuPosition(null);
+    }, 180);
   };
 
-  useEffect(() => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    clearCloseTimeout();
+
+    if (open) return;
+
+    updateMenuPosition();
+    setOpen(true);
+  };
+
+  useLayoutEffect(() => {
     if (!open) return;
 
     updateMenuPosition();
@@ -385,26 +389,62 @@ function NavDropdown({
   }, [open]);
 
   useEffect(() => {
-    return () => {
-      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    if (!open) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as Node;
+      if (triggerRef.current?.contains(target) || menuRef.current?.contains(target)) return;
+      setOpen(false);
+      setMenuPosition(null);
     };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        setMenuPosition(null);
+      }
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    return () => clearCloseTimeout();
   }, []);
+
+  const handleItemClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    setOpen(false);
+    setMenuPosition(null);
+
+    const url = new URL(href, window.location.origin);
+    const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+    const targetPath = url.pathname.replace(/\/$/, "") || "/";
+
+    if (url.hash && targetPath === currentPath) {
+      event.preventDefault();
+      window.history.pushState(null, "", `${targetPath === "/" ? "/" : targetPath}${url.hash}`);
+      scrollToHash(url.hash);
+    }
+  };
 
   const menuPanel = (
     <div
-      className={`min-w-[13.5rem] overflow-hidden rounded-2xl border p-1.5 shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_18%,transparent)] ${
-        isLight ? "border-primary/12 bg-white/95" : "border-white/16 bg-primary/95"
-      } backdrop-blur-xl`}
+      ref={menuRef}
+      className="overflow-hidden rounded-2xl border border-primary/12 bg-white p-1.5 shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_18%,transparent)]"
+      style={{ minWidth: menuPosition?.width }}
     >
       {group.items.map((item) => (
         <a
           key={item.href}
           href={resolveNavHref(group.pageHref, item.href)}
-          className={`block rounded-xl px-3 py-2.5 text-sm font-semibold leading-[140%] transition ${
-            isLight
-              ? "text-primary/72 hover:bg-primary/6 hover:text-primary"
-              : "text-white/88 hover:bg-white/10 hover:text-white"
-          }`}
+          className="block rounded-xl px-3 py-2.5 text-sm font-semibold leading-[140%] text-primary/72 transition hover:bg-primary/6 hover:text-primary"
+          onClick={(event) => handleItemClick(event, resolveNavHref(group.pageHref, item.href))}
         >
           {item.label}
         </a>
@@ -413,13 +453,17 @@ function NavDropdown({
   );
 
   return (
-    <div className="relative shrink-0" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
-      <a
+    <div className="relative shrink-0">
+      <button
         ref={triggerRef}
-        href={group.pageHref}
-        className={`inline-flex items-center gap-0.5 rounded-full px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${tone.menuText}`}
+        type="button"
+        className={`inline-flex cursor-pointer items-center gap-0.5 rounded-full border-0 bg-transparent px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${tone.menuText}`}
         aria-expanded={open}
-        aria-haspopup="true"
+        aria-haspopup="menu"
+        aria-controls={`nav-menu-${group.id}`}
+        onPointerEnter={handleOpen}
+        onPointerLeave={handleClose}
+        onClick={handleClick}
       >
         {group.label}
         <ChevronDown
@@ -427,15 +471,18 @@ function NavDropdown({
           className={`shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
           aria-hidden="true"
         />
-      </a>
+      </button>
 
       {open &&
+        menuPosition &&
         createPortal(
           <div
-            className="fixed z-[10000]"
-            style={{ top: menuPosition.top, left: menuPosition.left }}
-            onMouseEnter={handleOpen}
-            onMouseLeave={handleClose}
+            id={`nav-menu-${group.id}`}
+            role="menu"
+            className="fixed z-[10001]"
+            style={{ top: menuPosition.top - 8, left: menuPosition.left, paddingTop: 8 }}
+            onPointerEnter={handleOpen}
+            onPointerLeave={handleClose}
           >
             {menuPanel}
           </div>,
@@ -454,10 +501,24 @@ function MobileNavLink({
   pageHref: string;
   onNavigate: () => void;
 }) {
+  const href = resolveNavHref(pageHref, item.href);
+
   return (
     <a
-      href={resolveNavHref(pageHref, item.href)}
-      onClick={onNavigate}
+      href={href}
+      onClick={(event) => {
+        const url = new URL(href, window.location.origin);
+        const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+        const targetPath = url.pathname.replace(/\/$/, "") || "/";
+
+        if (url.hash && targetPath === currentPath) {
+          event.preventDefault();
+          window.history.pushState(null, "", `${targetPath === "/" ? "/" : targetPath}${url.hash}`);
+          scrollToHash(url.hash);
+        }
+
+        onNavigate();
+      }}
       className="block py-2 text-base font-semibold leading-[150%] text-primary/82"
     >
       {item.label}
