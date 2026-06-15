@@ -35,8 +35,8 @@ export const techNavGroup: NavGroup = {
 };
 
 export const sharedNavItems: NavLink[] = [
-  { label: "Kodėl Vilnius", href: "kodel-vilnius" },
-  { label: "Apie VCIIP", href: "apie-vciip" },
+  { label: "Kodėl Vilnius", href: "/kodel-vilnius/" },
+  { label: "Apie VCIIP", href: "/apie-vciip/" },
 ];
 
 export function resolveNavHref(pageHref: string, anchor: string) {

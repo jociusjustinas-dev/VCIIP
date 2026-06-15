@@ -1,7 +1,7 @@
 import { EcosystemPage } from "./components/EcosystemPage";
 import { Footer } from "./components/Footer";
 import { HomePage } from "./components/HomePage";
-import { Navigation, type NavPageContext } from "./components/Navigation";
+import { Navigation } from "./components/Navigation";
 import { ScrollReveal } from "./components/ScrollReveal";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { StrategyBadge } from "./components/StrategyBadge";
@@ -12,13 +12,12 @@ function App() {
   const isStrategyPage = currentPath === "/strategija";
   const isBioPage = currentPath === "/ekosistema" || currentPath === "/bio";
   const brandVariant = isBioPage ? "bio" : "tech";
-  const pageContext: NavPageContext = isBioPage ? "bio" : "other";
 
   return (
     <div className={isBioPage ? "legacy-green-page" : undefined}>
       <SmoothScroll />
       <ScrollReveal />
-      <Navigation pageContext={pageContext} variant={brandVariant} />
+      <Navigation variant={brandVariant} />
       {!isBioPage && <StrategyBadge active={isStrategyPage} />}
       {isStrategyPage ? (
         <StrategyPage />

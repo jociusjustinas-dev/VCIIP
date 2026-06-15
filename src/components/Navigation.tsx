@@ -15,6 +15,7 @@ import {
 } from "../content/site";
 
 export type NavPageContext = "tech" | "bio" | "other";
+
 type BrandVariant = "bio" | "tech";
 
 type NavTone = {
@@ -30,13 +31,7 @@ const brandLogos: Record<BrandVariant, { dark: string; light: string; alt: strin
   tech: { dark: techLogo, light: techLogoWhite, alt: "VCIIP TECH" },
 };
 
-export function Navigation({
-  pageContext = "tech",
-  variant = "tech",
-}: {
-  pageContext?: NavPageContext;
-  variant?: BrandVariant;
-}) {
+export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
   const [stickyVisible, setStickyVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,8 +39,6 @@ export function Navigation({
   const [mobileExpanded, setMobileExpanded] = useState<"bio" | "tech" | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const logos = brandLogos[variant];
-
-  const activeGroupId = pageContext === "bio" ? "bio" : null;
 
   useEffect(() => {
     const updateTheme = () => {
@@ -100,37 +93,22 @@ export function Navigation({
 
     return (
       <>
-        {[bioNavGroup, techNavGroup].map((group) => {
-          const isActiveGroup = activeGroupId === group.id;
-
-          if (isActiveGroup) {
-            return (
-              <NavFlatGroup
-                key={group.id}
-                group={group}
-                tone={tone}
-                onNavigate={() => setMobileMenuOpen(false)}
-              />
-            );
-          }
-
-          return (
-            <NavDropdown
-              key={group.id}
-              group={group}
-              tone={tone}
-              isLight={isLightDropdown}
-              isOpen={openDropdown === group.id}
-              onOpen={() => setOpenDropdown(group.id)}
-              onClose={() => setOpenDropdown(null)}
-            />
-          );
-        })}
+        {[bioNavGroup, techNavGroup].map((group) => (
+          <NavDropdown
+            key={group.id}
+            group={group}
+            tone={tone}
+            isLight={isLightDropdown}
+            isOpen={openDropdown === group.id}
+            onOpen={() => setOpenDropdown(group.id)}
+            onClose={() => setOpenDropdown(null)}
+          />
+        ))}
 
         {sharedNavItems.map((item) => (
           <NavAnchor
             key={item.href}
-            href={resolveNavHref("/", item.href)}
+            href={item.href}
             className={tone.menuText}
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -286,28 +264,7 @@ export function Navigation({
           <div className="my-5 h-px w-full bg-primary/16" />
 
           {[bioNavGroup, techNavGroup].map((group) => {
-            const isActiveGroup = activeGroupId === group.id;
             const isExpanded = mobileExpanded === group.id;
-
-            if (isActiveGroup) {
-              return (
-                <div key={group.id} className="mb-4">
-                  <p className="mb-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-primary/42">
-                    {group.label}
-                  </p>
-                  <div className="flex flex-col gap-1">
-                    {group.items.map((item) => (
-                      <MobileNavLink
-                        key={item.href}
-                        item={item}
-                        pageHref={group.pageHref}
-                        onNavigate={() => setMobileMenuOpen(false)}
-                      />
-                    ))}
-                  </div>
-                </div>
-              );
-            }
 
             return (
               <div key={group.id} className="mb-2 border-b border-primary/10 pb-2">
@@ -340,12 +297,14 @@ export function Navigation({
           })}
 
           {sharedNavItems.map((item) => (
-            <MobileNavLink
+            <a
               key={item.href}
-              item={item}
-              pageHref="/"
-              onNavigate={() => setMobileMenuOpen(false)}
-            />
+              href={item.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-base font-semibold leading-[150%] text-primary/82"
+            >
+              {item.label}
+            </a>
           ))}
         </div>
       )}
@@ -375,31 +334,6 @@ function NavAnchor({
   );
 }
 
-function NavFlatGroup({
-  group,
-  tone,
-  onNavigate,
-}: {
-  group: NavGroup;
-  tone: NavTone;
-  onNavigate?: () => void;
-}) {
-  return (
-    <>
-      {group.items.map((item) => (
-        <NavAnchor
-          key={item.href}
-          href={resolveNavHref(group.pageHref, item.href)}
-          className={tone.menuText}
-          onClick={onNavigate}
-        >
-          {item.label}
-        </NavAnchor>
-      ))}
-    </>
-  );
-}
-
 function NavDropdown({
   group,
   tone,
@@ -417,20 +351,28 @@ function NavDropdown({
 }) {
   return (
     <div className="relative shrink-0" onMouseEnter={onOpen} onMouseLeave={onClose}>
-      <button
-        type="button"
-        className={`flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${tone.menuText}`}
-        onClick={() => (isOpen ? onClose() : onOpen())}
-        aria-expanded={isOpen}
-        aria-haspopup="true"
-      >
-        {group.label}
-        <ChevronDown
-          size={14}
-          className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
-          aria-hidden="true"
-        />
-      </button>
+      <div className={`flex items-center rounded-full transition ${tone.menuText}`}>
+        <a
+          href={group.pageHref}
+          className="rounded-full px-3 py-1.5 text-sm font-semibold leading-[150%]"
+        >
+          {group.label}
+        </a>
+        <button
+          type="button"
+          className="rounded-full px-1 py-1.5"
+          onClick={() => (isOpen ? onClose() : onOpen())}
+          aria-expanded={isOpen}
+          aria-haspopup="true"
+          aria-label={`${group.label} meniu`}
+        >
+          <ChevronDown
+            size={14}
+            className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+            aria-hidden="true"
+          />
+        </button>
+      </div>
 
       {isOpen && (
         <div
