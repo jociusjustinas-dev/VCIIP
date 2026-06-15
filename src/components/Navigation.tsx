@@ -128,7 +128,7 @@ export function Navigation({
     menuText: "text-primary hover:bg-primary/6",
     iconText: "text-primary",
     logo: logos.dark,
-    cta: "bg-primary text-white hover:bg-primary-soft hover:text-white",
+    cta: "bg-primary text-white hover:bg-accent hover:text-white",
   };
 
   const renderNavItems = (tone: NavTone, options: { sticky?: boolean } = {}) => (
