@@ -1,15 +1,36 @@
-import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 
 import logoDark from "../assets/logos/logo-dark.svg";
 import logoLight from "../assets/logos/logo-light.svg";
-import { navItems } from "../content/site";
+import {
+  bioNavGroup,
+  resolveNavHref,
+  sharedNavItems,
+  techNavGroup,
+  type NavGroup,
+  type NavLink,
+} from "../content/site";
 
-export function Navigation() {
+export type NavPageContext = "tech" | "bio" | "other";
+
+type NavTone = {
+  border: string;
+  menuText: string;
+  iconText: string;
+  logo: string;
+  cta: string;
+};
+
+export function Navigation({ pageContext = "tech" }: { pageContext?: NavPageContext }) {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
   const [stickyVisible, setStickyVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<"bio" | "tech" | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<"bio" | "tech" | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
+
+  const activeGroupId = pageContext === "bio" ? "bio" : pageContext === "tech" ? "tech" : null;
 
   useEffect(() => {
     const updateTheme = () => {
@@ -31,45 +52,95 @@ export function Navigation() {
     };
   }, []);
 
-  const navTone = onDarkSurface
+  useEffect(() => {
+    if (!mobileMenuOpen) setMobileExpanded(null);
+  }, [mobileMenuOpen]);
+
+  const navTone: NavTone = onDarkSurface
     ? {
         border: "border-white/28",
         menuText: "text-white hover:bg-white/10",
         iconText: "text-white",
         logo: logoLight,
-        cta: "bg-white text-primary hover:bg-accent hover:text-primary",
+        cta: "bg-white text-primary hover:bg-accent hover:text-white",
       }
     : {
         border: "border-primary/28",
         menuText: "text-primary hover:bg-white",
         iconText: "text-primary",
         logo: logoDark,
-        cta: "bg-primary text-white hover:bg-accent hover:text-primary",
+        cta: "bg-primary text-white hover:bg-accent hover:text-white",
       };
 
-  const stickyTone = {
+  const stickyTone: NavTone = {
     border: "border-primary/14",
     menuText: "text-primary hover:bg-primary/6",
     iconText: "text-primary",
     logo: logoDark,
-    cta: "bg-primary text-white hover:bg-accent hover:text-primary",
+    cta: "bg-primary text-white hover:bg-accent hover:text-white",
+  };
+
+  const renderNavItems = (tone: NavTone, options: { sticky?: boolean } = {}) => {
+    const isLightDropdown = options.sticky || !onDarkSurface;
+
+    return (
+      <>
+        {[bioNavGroup, techNavGroup].map((group) => {
+          const isActiveGroup = activeGroupId === group.id;
+
+          if (isActiveGroup) {
+            return (
+              <NavFlatGroup
+                key={group.id}
+                group={group}
+                tone={tone}
+                onNavigate={() => setMobileMenuOpen(false)}
+              />
+            );
+          }
+
+          return (
+            <NavDropdown
+              key={group.id}
+              group={group}
+              tone={tone}
+              isLight={isLightDropdown}
+              isOpen={openDropdown === group.id}
+              onOpen={() => setOpenDropdown(group.id)}
+              onClose={() => setOpenDropdown(null)}
+            />
+          );
+        })}
+
+        {sharedNavItems.map((item) => (
+          <NavAnchor
+            key={item.href}
+            href={resolveNavHref("/", item.href)}
+            className={tone.menuText}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            {item.label}
+          </NavAnchor>
+        ))}
+      </>
+    );
   };
 
   const renderNavBar = (
-    tone: typeof navTone,
+    tone: NavTone,
     options: { sticky?: boolean; hidden?: boolean } = {},
   ) => (
     <div className="site-container px-6 max-[479px]:px-4">
       <div
-        className={`relative mx-auto flex items-center justify-between border-b py-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`relative mx-auto flex items-center justify-between gap-3 border-b py-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] max-[991px]:gap-2 max-[991px]:py-3 ${
           options.sticky
             ? `rounded-b-2xl border-solid bg-white/78 px-5 shadow-[0_18px_54px_color-mix(in_srgb,var(--color-primary)_12%,transparent)] backdrop-blur-xl ${tone.border}`
             : `border-dashed ${tone.border}`
         } ${options.hidden ? "-translate-y-4 opacity-0" : "translate-y-0 opacity-100"}`}
       >
-        <div className="flex items-center gap-12 max-[991px]:gap-4">
+        <div className="flex min-w-0 flex-1 items-center gap-12 max-[991px]:gap-2.5">
           <button
-            className={`hidden items-center border-0 bg-transparent p-0 transition-colors max-[991px]:flex ${tone.iconText}`}
+            className={`hidden shrink-0 items-center border-0 bg-transparent p-0 transition-colors max-[991px]:flex ${tone.iconText}`}
             onClick={() => setMobileMenuOpen((value) => !value)}
             aria-expanded={mobileMenuOpen}
             aria-label="Atidaryti navigaciją"
@@ -77,39 +148,29 @@ export function Navigation() {
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
-          <a href="#" className="flex h-9 items-center" aria-label="VCIIP pradinis puslapis">
+          <a
+            href="/"
+            className="flex min-w-0 items-center max-[991px]:max-w-[min(100%,10.5rem)] max-[479px]:max-w-[min(100%,8.75rem)]"
+            aria-label="VCIIP pradinis puslapis"
+          >
             <img
               src={tone.logo}
               alt="VCIIP"
-              className="h-8 w-auto transition-opacity"
+              className="h-8 w-auto max-w-full object-contain object-left transition-opacity max-[991px]:h-7 max-[479px]:h-[1.625rem]"
               width="193"
               height="63"
             />
           </a>
 
-          <nav className="flex items-center gap-1 max-[991px]:hidden" aria-label="Pagrindinė navigacija">
-            {navItems.slice(0, 5).map((item) => (
-              <a
-                key={item.href}
-                className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${tone.menuText}`}
-                href={item.href}
-              >
-                <span>{item.label}</span>
-                {item.label === "Sklypai" && (
-                  <span
-                    className={`availability-badge text-[0.55rem] ${
-                      options.sticky || !onDarkSurface ? "availability-badge-dark" : ""
-                    }`}
-                  >
-                    Prieinama dabar
-                  </span>
-                )}
-              </a>
-            ))}
+          <nav
+            className="flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto max-[991px]:hidden"
+            aria-label="Pagrindinė navigacija"
+          >
+            {renderNavItems(tone, { sticky: options.sticky })}
           </nav>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-2 max-[479px]:gap-1.5">
           <div
             className={`hidden items-center rounded-full border p-1 max-[991px]:hidden sm:flex ${
               options.sticky || !onDarkSurface
@@ -142,10 +203,23 @@ export function Navigation() {
           </div>
 
           <a
-            className={`group inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 text-base font-semibold leading-none transition ${tone.cta}`}
-            href="#kontaktai"
+            className={`hidden min-h-12 shrink-0 items-center justify-center rounded-full bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary min-[992px]:inline-flex`}
+            href={resolveNavHref("/", "sklypai")}
+            aria-label="Prieinami sklypai"
           >
-            <span className="h-5 overflow-hidden py-px">
+            Prieinami sklypai
+          </a>
+
+          <a
+            className={`group inline-flex min-h-12 shrink-0 items-center justify-center gap-2 overflow-hidden rounded-full border px-5 py-3 text-base font-semibold leading-none transition max-[991px]:min-h-10 max-[991px]:px-3.5 max-[991px]:py-2 max-[991px]:text-sm max-[479px]:min-h-9 max-[479px]:px-3 ${
+              options.sticky || !onDarkSurface
+                ? "border-primary/18 bg-white text-primary hover:bg-primary hover:text-white"
+                : "border-white/32 bg-transparent text-white hover:bg-white hover:text-primary"
+            }`}
+            href={resolveNavHref("/", "investuotojo-uzklausa")}
+            aria-label="Susisiekti"
+          >
+            <span className="h-5 overflow-hidden py-px max-[400px]:hidden">
               <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
                 {["Susisiekti", "Susisiekti"].map((label, index) => (
                   <span key={index} className="flex h-5 items-center gap-2">
@@ -155,6 +229,7 @@ export function Navigation() {
                 ))}
               </span>
             </span>
+            <ArrowUpRight size={18} className="hidden max-[400px]:block" aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -182,41 +257,227 @@ export function Navigation() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="pointer-events-auto fixed inset-x-0 top-0 z-[997] hidden max-h-[89svh] overflow-auto bg-white px-6 pb-6 pt-28 shadow-2xl shadow-primary/16 max-[991px]:block max-[479px]:px-4">
-          <div className="absolute inset-x-0 top-0 flex items-center justify-between border-y border-primary/16 bg-background px-6 py-3 max-[479px]:px-4">
-            <div>
-              <p className="text-base font-bold leading-[150%] text-primary">VCIIP</p>
-              <a className="text-sm font-semibold leading-[142%] text-primary underline" href="#kontaktai">
-                Pradėti pokalbį
+        <div className="pointer-events-auto fixed inset-x-0 top-0 z-[997] hidden max-h-[89svh] overflow-auto bg-white px-6 pb-6 pt-[4.75rem] shadow-2xl shadow-primary/16 max-[991px]:block max-[479px]:px-4 max-[479px]:pt-[4.5rem]">
+          <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 border-y border-primary/16 bg-background px-6 py-3 max-[479px]:gap-2 max-[479px]:px-4">
+            <a href="/" aria-label="VCIIP pradinis puslapis" className="inline-flex min-w-0 max-w-[min(100%,10rem)]">
+              <img src={logoDark} alt="VCIIP" className="h-7 w-auto max-w-full object-contain object-left max-[479px]:h-[1.625rem]" />
+            </a>
+            <div className="flex shrink-0 items-center gap-2">
+              <a
+                className="inline-flex min-h-9 items-center justify-center rounded-full bg-primary px-3.5 py-2 text-sm font-semibold leading-none text-white"
+                href={resolveNavHref("/", "investuotojo-uzklausa")}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Susisiekti
               </a>
-            </div>
-            <div className="grid h-16 w-28 place-items-center rounded-md bg-primary text-accent">
-              <span className="font-mono text-xs font-black uppercase tracking-[0.08em]">Vilnius</span>
+              <button
+                className="inline-flex size-9 items-center justify-center rounded-full border border-primary/14 text-primary"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Uždaryti navigaciją"
+              >
+                <X size={18} />
+              </button>
             </div>
           </div>
 
-          <a className="block text-base font-bold leading-[150%] text-primary" href="#">
-            VCIIP
-          </a>
-
           <div className="my-5 h-px w-full bg-primary/16" />
 
-          {navItems.slice(0, 5).map((item) => (
+          {[bioNavGroup, techNavGroup].map((group) => {
+            const isActiveGroup = activeGroupId === group.id;
+            const isExpanded = mobileExpanded === group.id;
+
+            if (isActiveGroup) {
+              return (
+                <div key={group.id} className="mb-4">
+                  <p className="mb-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-primary/42">
+                    {group.label}
+                  </p>
+                  <div className="flex flex-col gap-1">
+                    {group.items.map((item) => (
+                      <MobileNavLink
+                        key={item.href}
+                        item={item}
+                        pageHref={group.pageHref}
+                        onNavigate={() => setMobileMenuOpen(false)}
+                      />
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <div key={group.id} className="mb-2 border-b border-primary/10 pb-2">
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between py-2 text-base font-bold leading-[150%] text-primary"
+                  onClick={() => setMobileExpanded((current) => (current === group.id ? null : group.id))}
+                  aria-expanded={isExpanded}
+                >
+                  {group.label}
+                  <ChevronDown
+                    size={18}
+                    className={`transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {isExpanded && (
+                  <div className="flex flex-col gap-1 pb-2 pl-3">
+                    {group.items.map((item) => (
+                      <MobileNavLink
+                        key={item.href}
+                        item={item}
+                        pageHref={group.pageHref}
+                        onNavigate={() => setMobileMenuOpen(false)}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
+          {sharedNavItems.map((item) => (
+            <MobileNavLink
+              key={item.href}
+              item={item}
+              pageHref="/"
+              onNavigate={() => setMobileMenuOpen(false)}
+            />
+          ))}
+
+          <a
+            href={resolveNavHref("/", "sklypai")}
+            onClick={() => setMobileMenuOpen(false)}
+            className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-accent px-5 py-3 text-base font-semibold leading-none text-white"
+          >
+            Prieinami sklypai
+          </a>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function NavAnchor({
+  href,
+  className,
+  children,
+  onClick,
+}: {
+  href: string;
+  className: string;
+  children: ReactNode;
+  onClick?: () => void;
+}) {
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      className={`shrink-0 rounded-full px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${className}`}
+    >
+      {children}
+    </a>
+  );
+}
+
+function NavFlatGroup({
+  group,
+  tone,
+  onNavigate,
+}: {
+  group: NavGroup;
+  tone: NavTone;
+  onNavigate?: () => void;
+}) {
+  return (
+    <>
+      {group.items.map((item) => (
+        <NavAnchor
+          key={item.href}
+          href={resolveNavHref(group.pageHref, item.href)}
+          className={tone.menuText}
+          onClick={onNavigate}
+        >
+          {item.label}
+        </NavAnchor>
+      ))}
+    </>
+  );
+}
+
+function NavDropdown({
+  group,
+  tone,
+  isLight,
+  isOpen,
+  onOpen,
+  onClose,
+}: {
+  group: NavGroup;
+  tone: NavTone;
+  isLight: boolean;
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+}) {
+  return (
+    <div className="relative shrink-0" onMouseEnter={onOpen} onMouseLeave={onClose}>
+      <button
+        type="button"
+        className={`flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${tone.menuText}`}
+        onClick={() => (isOpen ? onClose() : onOpen())}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+      >
+        {group.label}
+        <ChevronDown
+          size={14}
+          className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+          aria-hidden="true"
+        />
+      </button>
+
+      {isOpen && (
+        <div
+          className={`absolute left-0 top-[calc(100%+0.35rem)] z-[50] min-w-[13.5rem] overflow-hidden rounded-2xl border p-1.5 shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_18%,transparent)] ${
+            isLight ? "border-primary/12 bg-white/95" : "border-white/16 bg-primary/95"
+          } backdrop-blur-xl`}
+        >
+          {group.items.map((item) => (
             <a
               key={item.href}
-              href={item.href}
-              className="flex items-center justify-between gap-3 py-1 text-base font-bold leading-[150%] text-primary"
+              href={resolveNavHref(group.pageHref, item.href)}
+              className={`block rounded-xl px-3 py-2.5 text-sm font-semibold leading-[140%] transition ${
+                isLight
+                  ? "text-primary/72 hover:bg-primary/6 hover:text-primary"
+                  : "text-white/88 hover:bg-white/10 hover:text-white"
+              }`}
             >
-              <span>{item.label}</span>
-              {item.label === "Sklypai" && (
-                <span className="availability-badge availability-badge-dark text-[0.55rem]">
-                  Prieinama dabar
-                </span>
-              )}
+              {item.label}
             </a>
           ))}
         </div>
       )}
     </div>
+  );
+}
+
+function MobileNavLink({
+  item,
+  pageHref,
+  onNavigate,
+}: {
+  item: NavLink;
+  pageHref: string;
+  onNavigate: () => void;
+}) {
+  return (
+    <a
+      href={resolveNavHref(pageHref, item.href)}
+      onClick={onNavigate}
+      className="block py-2 text-base font-semibold leading-[150%] text-primary/82"
+    >
+      {item.label}
+    </a>
   );
 }

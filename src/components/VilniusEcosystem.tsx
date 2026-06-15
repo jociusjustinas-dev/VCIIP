@@ -49,7 +49,7 @@ export function VilniusEcosystem() {
   const tab = tabs[activeTab];
 
   return (
-    <section id="ekosistema-vilniuje" className="relative bg-white p-2">
+    <section id="kodel-vilnius" className="relative bg-white p-2">
       <div className="relative overflow-hidden rounded-2xl bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
         <div className="site-container px-6 max-[479px]:px-4">
           <div className="mx-auto mb-14 flex max-w-5xl flex-col items-center gap-7 text-center max-[767px]:items-start max-[767px]:text-left" data-reveal-group>

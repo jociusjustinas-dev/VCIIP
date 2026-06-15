@@ -22,7 +22,7 @@ export function WhyInvestors() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="kodel-vciip" className="relative bg-white p-2">
+    <section id="apie-vciip" className="relative bg-white p-2">
       <div className="relative overflow-hidden rounded-2xl bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
         <div className="site-container px-6 max-[479px]:px-4">
           <div className="grid items-stretch gap-16 lg:grid-cols-[minmax(0,0.92fr)_minmax(460px,0.78fr)] lg:gap-24">
