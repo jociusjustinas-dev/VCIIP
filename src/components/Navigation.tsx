@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 
 import bioLogo from "../assets/logos/bio.svg";
@@ -35,7 +36,6 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
   const [stickyVisible, setStickyVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<"bio" | "tech" | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<"bio" | "tech" | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const logos = brandLogos[variant];
@@ -99,9 +99,6 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
             group={group}
             tone={tone}
             isLight={isLightDropdown}
-            isOpen={openDropdown === group.id}
-            onOpen={() => setOpenDropdown(group.id)}
-            onClose={() => setOpenDropdown(null)}
           />
         ))}
 
@@ -156,7 +153,7 @@ export function Navigation({ variant = "tech" }: { variant?: BrandVariant }) {
           </a>
 
           <nav
-            className="flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto overflow-y-visible max-[991px]:hidden"
+            className="flex min-w-0 flex-1 items-center gap-0.5 overflow-visible max-[991px]:hidden"
             aria-label="Pagrindinė navigacija"
           >
             {renderNavItems(tone, { sticky: options.sticky })}
@@ -338,30 +335,54 @@ function NavDropdown({
   group,
   tone,
   isLight,
-  isOpen,
-  onOpen,
-  onClose,
 }: {
   group: NavGroup;
   tone: NavTone;
   isLight: boolean;
-  isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
 }) {
+  const [open, setOpen] = useState(false);
+  const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+  const triggerRef = useRef<HTMLAnchorElement>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const updateMenuPosition = () => {
+    const rect = triggerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+
+    setMenuPosition({
+      top: rect.bottom + 6,
+      left: rect.left,
+    });
+  };
 
   const handleOpen = () => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
       closeTimeoutRef.current = null;
     }
-    onOpen();
+
+    updateMenuPosition();
+    setOpen(true);
   };
 
   const handleClose = () => {
-    closeTimeoutRef.current = setTimeout(onClose, 120);
+    closeTimeoutRef.current = setTimeout(() => setOpen(false), 150);
   };
+
+  useEffect(() => {
+    if (!open) return;
+
+    updateMenuPosition();
+
+    const handleLayoutChange = () => updateMenuPosition();
+    window.addEventListener("scroll", handleLayoutChange, { passive: true });
+    window.addEventListener("resize", handleLayoutChange);
+
+    return () => {
+      window.removeEventListener("scroll", handleLayoutChange);
+      window.removeEventListener("resize", handleLayoutChange);
+    };
+  }, [open]);
 
   useEffect(() => {
     return () => {
@@ -369,45 +390,57 @@ function NavDropdown({
     };
   }, []);
 
+  const menuPanel = (
+    <div
+      className={`min-w-[13.5rem] overflow-hidden rounded-2xl border p-1.5 shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_18%,transparent)] ${
+        isLight ? "border-primary/12 bg-white/95" : "border-white/16 bg-primary/95"
+      } backdrop-blur-xl`}
+    >
+      {group.items.map((item) => (
+        <a
+          key={item.href}
+          href={resolveNavHref(group.pageHref, item.href)}
+          className={`block rounded-xl px-3 py-2.5 text-sm font-semibold leading-[140%] transition ${
+            isLight
+              ? "text-primary/72 hover:bg-primary/6 hover:text-primary"
+              : "text-white/88 hover:bg-white/10 hover:text-white"
+          }`}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  );
+
   return (
     <div className="relative shrink-0" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
       <a
+        ref={triggerRef}
         href={group.pageHref}
         className={`inline-flex items-center gap-0.5 rounded-full px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${tone.menuText}`}
-        aria-expanded={isOpen}
+        aria-expanded={open}
         aria-haspopup="true"
       >
         {group.label}
         <ChevronDown
           size={14}
-          className={`shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
           aria-hidden="true"
         />
       </a>
 
-      {isOpen && (
-        <div className="absolute left-0 top-full z-[50] pt-1.5">
+      {open &&
+        createPortal(
           <div
-            className={`min-w-[13.5rem] overflow-hidden rounded-2xl border p-1.5 shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_18%,transparent)] ${
-              isLight ? "border-primary/12 bg-white/95" : "border-white/16 bg-primary/95"
-            } backdrop-blur-xl`}
+            className="fixed z-[10000]"
+            style={{ top: menuPosition.top, left: menuPosition.left }}
+            onMouseEnter={handleOpen}
+            onMouseLeave={handleClose}
           >
-            {group.items.map((item) => (
-              <a
-                key={item.href}
-                href={resolveNavHref(group.pageHref, item.href)}
-                className={`block rounded-xl px-3 py-2.5 text-sm font-semibold leading-[140%] transition ${
-                  isLight
-                    ? "text-primary/72 hover:bg-primary/6 hover:text-primary"
-                    : "text-white/88 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
+            {menuPanel}
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }
