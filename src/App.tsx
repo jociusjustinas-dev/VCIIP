@@ -8,38 +8,33 @@ import { SmoothScroll } from "./components/SmoothScroll";
 import { StrategyBadge } from "./components/StrategyBadge";
 import { StrategyPage } from "./components/StrategyPage";
 import { TechPage } from "./components/TechPage";
+import { getBrandVariantFromPath, getHubHrefFromPath } from "./content/site";
 
 function App() {
-  const currentPath = window.location.pathname.replace(/\/$/, "");
+  const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
   const isStrategyPage = currentPath === "/strategija";
-  const isHomePage = currentPath === "";
-  const isTechPage = currentPath === "/tech";
-  const isBioPage = currentPath === "/ekosistema" || currentPath === "/bio";
-  const brandVariant: "vciip" | "bio" | "tech" = isBioPage
-    ? "bio"
-    : isTechPage
-      ? "tech"
-      : isHomePage
-        ? "vciip"
-        : "tech";
+  const isTechHub = currentPath === "/tech";
+  const isBioHub = currentPath === "/ekosistema" || currentPath === "/bio";
+  const brandVariant = getBrandVariantFromPath(currentPath);
+  const hubHref = getHubHrefFromPath(currentPath);
 
   return (
-    <div className={isBioPage ? "legacy-green-page" : undefined}>
+    <div className={isBioHub ? "legacy-green-page" : undefined}>
       <SmoothScroll />
       <HashScroll pathname={currentPath} />
       <ScrollReveal />
-      <Navigation variant={brandVariant} />
-      {!isBioPage && <StrategyBadge active={isStrategyPage} />}
+      <Navigation variant={brandVariant} hubHref={hubHref} />
+      {!isBioHub && <StrategyBadge active={isStrategyPage} />}
       {isStrategyPage ? (
         <StrategyPage />
-      ) : isBioPage ? (
+      ) : isBioHub ? (
         <EcosystemPage />
-      ) : isTechPage ? (
+      ) : isTechHub ? (
         <TechPage />
       ) : (
         <HomePage />
       )}
-      <Footer variant={brandVariant} />
+      <Footer variant={brandVariant} hubHref={hubHref} />
     </div>
   );
 }

@@ -10,7 +10,6 @@ import techLogo from "../assets/logos/tech.svg";
 import techLogoWhite from "../assets/logos/tech-white.svg";
 import {
   bioNavGroup,
-  getHubHref,
   resolveNavHref,
   sharedNavItems,
   techNavGroup,
@@ -35,18 +34,44 @@ const brandLogos: Record<BrandVariant, { dark: string; light: string; alt: strin
   tech: { dark: techLogo, light: techLogoWhite, alt: "VCIIP TECH" },
 };
 
-export function Navigation({ variant = "vciip" }: { variant?: BrandVariant }) {
+export function Navigation({
+  variant = "vciip",
+  hubHref = "/",
+}: {
+  variant?: BrandVariant;
+  hubHref?: string;
+}) {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
   const [stickyVisible, setStickyVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<"bio" | "tech" | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const logos = brandLogos[variant];
-  const hubHref = getHubHref(variant);
   const contactHref = resolveNavHref(
     variant === "bio" ? "/ekosistema" : variant === "tech" ? "/tech" : "/",
     "investuotojo-uzklausa",
   );
+
+  const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const normalizePath = (path: string) => path.replace(/\/$/, "") || "/";
+    const targetPath = normalizePath(new URL(hubHref, window.location.origin).pathname);
+    const currentPath = normalizePath(window.location.pathname);
+
+    if (targetPath !== currentPath) return;
+
+    event.preventDefault();
+
+    const heroId =
+      variant === "bio" ? "apie-vciip-bio" : variant === "tech" ? "apie-vciip-tech" : null;
+
+    if (heroId && document.getElementById(heroId)) {
+      scrollToHash(`#${heroId}`);
+      return;
+    }
+
+    window.lenis?.scrollTo(0, { immediate: false });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     const updateTheme = () => {
@@ -139,6 +164,7 @@ export function Navigation({ variant = "vciip" }: { variant?: BrandVariant }) {
 
           <a
             href={hubHref}
+            onClick={handleLogoClick}
             className="flex min-w-0 items-center max-[991px]:max-w-[min(100%,10.5rem)] max-[479px]:max-w-[min(100%,8.75rem)]"
             aria-label={`${logos.alt} pradinis puslapis`}
           >
@@ -226,7 +252,12 @@ export function Navigation({ variant = "vciip" }: { variant?: BrandVariant }) {
       {mobileMenuOpen && (
         <div className="pointer-events-auto fixed inset-x-0 top-0 z-[997] hidden max-h-[89svh] overflow-auto bg-white px-6 pb-6 pt-[4.75rem] shadow-2xl shadow-primary/16 max-[991px]:block max-[479px]:px-4 max-[479px]:pt-[4.5rem]">
           <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 border-y border-primary/16 bg-background px-6 py-3 max-[479px]:gap-2 max-[479px]:px-4">
-            <a href={hubHref} aria-label="VCIIP pradinis puslapis" className="inline-flex min-w-0 max-w-[min(100%,10rem)]">
+            <a
+              href={hubHref}
+              onClick={handleLogoClick}
+              aria-label={`${logos.alt} pradinis puslapis`}
+              className="inline-flex min-w-0 max-w-[min(100%,10rem)]"
+            >
               <img src={logos.dark} alt={logos.alt} className="h-7 w-auto max-w-full object-contain object-left max-[479px]:h-[1.625rem]" />
             </a>
             <div className="flex shrink-0 items-center gap-2">

@@ -39,6 +39,23 @@ export const sharedNavItems: NavLink[] = [
   { label: "Apie VCIIP", href: "/apie-vciip/" },
 ];
 
+export function getHubHrefFromPath(currentPath: string) {
+  const path = currentPath.replace(/\/$/, "") || "/";
+
+  if (path === "/ekosistema" || path === "/bio") return "/ekosistema";
+  if (path === "/tech") return "/tech";
+  return "/";
+}
+
+export function getBrandVariantFromPath(currentPath: string): "vciip" | "bio" | "tech" {
+  const path = currentPath.replace(/\/$/, "") || "/";
+
+  if (path === "/ekosistema" || path === "/bio") return "bio";
+  if (path === "/tech") return "tech";
+  return "vciip";
+}
+
+/** @deprecated Use getHubHrefFromPath instead */
 export function getHubHref(variant: "vciip" | "bio" | "tech") {
   if (variant === "bio") return "/ekosistema";
   if (variant === "tech") return "/tech";

@@ -3,7 +3,6 @@ import bioLogo from "../assets/logos/bio.svg";
 import vciipLogo from "../assets/logos/logo-dark.svg";
 import techLogo from "../assets/logos/tech.svg";
 import type { BrandVariant } from "./Navigation";
-import { getHubHref } from "../content/site";
 
 const footerNavigation = [
   { label: "VCIIP Bio", href: "/ekosistema" },
@@ -27,9 +26,14 @@ const brandLogos: Record<FooterBrandVariant, { src: string; alt: string }> = {
   tech: { src: techLogo, alt: "VCIIP TECH" },
 };
 
-export function Footer({ variant = "vciip" }: { variant?: FooterBrandVariant }) {
+export function Footer({
+  variant = "vciip",
+  hubHref = "/",
+}: {
+  variant?: FooterBrandVariant;
+  hubHref?: string;
+}) {
   const logo = brandLogos[variant];
-  const hubHref = getHubHref(variant);
 
   return (
     <footer className="relative bg-white p-2">
