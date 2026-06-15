@@ -1,7 +1,9 @@
+import { ApieVciipPage } from "./components/ApieVciipPage";
 import { EcosystemPage } from "./components/EcosystemPage";
 import { Footer } from "./components/Footer";
 import { HashScroll } from "./components/HashScroll";
 import { HomePage } from "./components/HomePage";
+import { KodelVilniusPage } from "./components/KodelVilniusPage";
 import { Navigation } from "./components/Navigation";
 import { ScrollReveal } from "./components/ScrollReveal";
 import { SmoothScroll } from "./components/SmoothScroll";
@@ -15,6 +17,8 @@ function App() {
   const isStrategyPage = currentPath === "/strategija";
   const isTechHub = currentPath === "/tech";
   const isBioHub = currentPath === "/ekosistema" || currentPath === "/bio";
+  const isKodelVilniusPage = currentPath === "/kodel-vilnius";
+  const isApieVciipPage = currentPath === "/apie-vciip";
   const brandVariant = getBrandVariantFromPath(currentPath);
   const hubHref = getHubHrefFromPath(currentPath);
 
@@ -31,6 +35,10 @@ function App() {
         <EcosystemPage />
       ) : isTechHub ? (
         <TechPage />
+      ) : isKodelVilniusPage ? (
+        <KodelVilniusPage />
+      ) : isApieVciipPage ? (
+        <ApieVciipPage />
       ) : (
         <HomePage />
       )}
