@@ -7,7 +7,6 @@ import { KodelVilniusPage } from "./components/KodelVilniusPage";
 import { Navigation } from "./components/Navigation";
 import { ScrollReveal } from "./components/ScrollReveal";
 import { SmoothScroll } from "./components/SmoothScroll";
-import { StrategyBadge } from "./components/StrategyBadge";
 import { StrategyPage } from "./components/StrategyPage";
 import { TechPage } from "./components/TechPage";
 import { getBrandVariantFromPath, getHubHrefFromPath } from "./content/site";
@@ -34,7 +33,6 @@ function App() {
       <HashScroll pathname={currentPath} />
       <ScrollReveal />
       <Navigation variant={brandVariant} hubHref={hubHref} navyMonochrome={isHomePage} />
-      {!isBioHub && <StrategyBadge active={isStrategyPage} />}
       {isStrategyPage ? (
         <StrategyPage />
       ) : isBioHub ? (
