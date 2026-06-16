@@ -5,6 +5,8 @@ import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import bioLogo from "../assets/logos/bio.svg";
 import bioLogoWhite from "../assets/logos/bio-white.svg";
 import vciipLogo from "../assets/logos/logo-dark.svg";
+import vciipLogoTeal from "../assets/logos/logo-teal-dark.svg";
+import vciipLogoTealWhite from "../assets/logos/logo-teal-light.svg";
 import vciipLogoWhite from "../assets/logos/logo-light.svg";
 import techLogo from "../assets/logos/tech.svg";
 import techLogoWhite from "../assets/logos/tech-white.svg";
@@ -34,19 +36,24 @@ const brandLogos: Record<BrandVariant, { dark: string; light: string; alt: strin
   tech: { dark: techLogo, light: techLogoWhite, alt: "VCIIP TECH" },
 };
 
+const vciipTealLogos = { dark: vciipLogoTeal, light: vciipLogoTealWhite, alt: "VCIIP" };
+
 export function Navigation({
   variant = "vciip",
   hubHref = "/",
+  tealLogo = false,
 }: {
   variant?: BrandVariant;
   hubHref?: string;
+  tealLogo?: boolean;
 }) {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
   const [stickyVisible, setStickyVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<"bio" | "tech" | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
-  const logos = brandLogos[variant];
+  const logos =
+    tealLogo && variant === "vciip" ? vciipTealLogos : brandLogos[variant];
   const contactHref = resolveNavHref(
     variant === "bio" ? "/ekosistema" : variant === "tech" ? "/tech" : "/",
     "investuotojo-uzklausa",

@@ -28,7 +28,7 @@ function App() {
       <SmoothScroll />
       <HashScroll pathname={currentPath} />
       <ScrollReveal />
-      <Navigation variant={brandVariant} hubHref={hubHref} />
+      <Navigation variant={brandVariant} hubHref={hubHref} tealLogo={isHomePage} />
       {isStrategyPage ? (
         <StrategyPage />
       ) : isBioHub ? (
@@ -42,7 +42,7 @@ function App() {
       ) : (
         <HomePage />
       )}
-      <Footer variant={brandVariant} hubHref={hubHref} />
+      <Footer variant={brandVariant} hubHref={hubHref} tealLogo={isHomePage} />
     </div>
   );
 }

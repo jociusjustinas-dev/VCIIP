@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import bioLogo from "../assets/logos/bio.svg";
 import vciipLogo from "../assets/logos/logo-dark.svg";
+import vciipLogoTeal from "../assets/logos/logo-teal-dark.svg";
 import techLogo from "../assets/logos/tech.svg";
 import type { BrandVariant } from "./Navigation";
 
@@ -29,11 +30,16 @@ const brandLogos: Record<FooterBrandVariant, { src: string; alt: string }> = {
 export function Footer({
   variant = "vciip",
   hubHref = "/",
+  tealLogo = false,
 }: {
   variant?: FooterBrandVariant;
   hubHref?: string;
+  tealLogo?: boolean;
 }) {
-  const logo = brandLogos[variant];
+  const logo =
+    tealLogo && variant === "vciip"
+      ? { src: vciipLogoTeal, alt: "VCIIP" }
+      : brandLogos[variant];
 
   return (
     <footer className="relative bg-white p-2">
