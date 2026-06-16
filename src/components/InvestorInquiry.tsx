@@ -222,7 +222,7 @@ export function InvestorInquiry({
   return (
     <section id="investuotojo-uzklausa" className="relative bg-white p-2">
       {isLight ? (
-        <div className="relative overflow-hidden rounded-2xl bg-background py-24 max-[991px]:py-16 max-[479px]:py-12">
+        <div className="relative overflow-hidden rounded-2xl bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
           {content}
         </div>
       ) : (
