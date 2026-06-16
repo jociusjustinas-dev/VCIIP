@@ -69,7 +69,11 @@ export function Navigation({
     event.preventDefault();
 
     const heroId =
-      variant === "bio" ? "apie-vciip-bio" : variant === "tech" ? "apie-vciip-tech" : null;
+      variant === "bio"
+        ? "apie-vciip-bio"
+        : variant === "tech"
+          ? "apie-vciip-tech"
+          : "apie-vciip";
 
     if (heroId && document.getElementById(heroId)) {
       scrollToHash(`#${heroId}`);

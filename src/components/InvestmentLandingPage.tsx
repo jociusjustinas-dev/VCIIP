@@ -1,5 +1,6 @@
 import { EcosystemMarquee } from "./EcosystemMarquee";
 import { EcosystemSplit } from "./EcosystemSplit";
+import { GatewayHero } from "./GatewayHero";
 import { Hero } from "./Hero";
 import { InvestorInquiry } from "./InvestorInquiry";
 import { ProofStats } from "./ProofStats";
@@ -13,7 +14,7 @@ export function InvestmentLandingPage({ variant = "tech" }: { variant?: "index" 
 
   return (
     <main>
-      <Hero />
+      {variant === "index" ? <GatewayHero /> : <Hero />}
       <ProofStats />
       <EcosystemSplit />
       {showFullTechSections && (
