@@ -55,6 +55,18 @@ export function getBrandVariantFromPath(currentPath: string): "vciip" | "bio" | 
   return "vciip";
 }
 
+export function usesVciipIndexTheme(currentPath: string) {
+  const path = currentPath.replace(/\/$/, "") || "/";
+
+  return path === "/" || path === "/kodel-vilnius" || path === "/apie-vciip";
+}
+
+export function usesLegacyGreenTheme(currentPath: string) {
+  const path = currentPath.replace(/\/$/, "") || "/";
+
+  return path === "/ekosistema" || path === "/bio" || usesVciipIndexTheme(path);
+}
+
 /** @deprecated Use getHubHrefFromPath instead */
 export function getHubHref(variant: "vciip" | "bio" | "tech") {
   if (variant === "bio") return "/ekosistema";

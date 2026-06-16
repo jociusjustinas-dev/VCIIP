@@ -9,7 +9,7 @@ import { ScrollReveal } from "./components/ScrollReveal";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { StrategyPage } from "./components/StrategyPage";
 import { TechPage } from "./components/TechPage";
-import { getBrandVariantFromPath, getHubHrefFromPath } from "./content/site";
+import { getBrandVariantFromPath, getHubHrefFromPath, usesLegacyGreenTheme, usesVciipIndexTheme } from "./content/site";
 
 function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
@@ -21,14 +21,15 @@ function App() {
   const isApieVciipPage = currentPath === "/apie-vciip";
   const brandVariant = getBrandVariantFromPath(currentPath);
   const hubHref = getHubHrefFromPath(currentPath);
-  const pageThemeClass = isBioHub || isHomePage ? "legacy-green-page" : undefined;
+  const pageThemeClass = usesLegacyGreenTheme(currentPath) ? "legacy-green-page" : undefined;
+  const useTealLogo = usesVciipIndexTheme(currentPath);
 
   return (
     <div className={pageThemeClass}>
       <SmoothScroll />
       <HashScroll pathname={currentPath} />
       <ScrollReveal />
-      <Navigation variant={brandVariant} hubHref={hubHref} tealLogo={isHomePage} />
+      <Navigation variant={brandVariant} hubHref={hubHref} tealLogo={useTealLogo} />
       {isStrategyPage ? (
         <StrategyPage />
       ) : isBioHub ? (
@@ -42,7 +43,7 @@ function App() {
       ) : (
         <HomePage />
       )}
-      <Footer variant={brandVariant} hubHref={hubHref} tealLogo={isHomePage} />
+      <Footer variant={brandVariant} hubHref={hubHref} tealLogo={useTealLogo} />
     </div>
   );
 }
