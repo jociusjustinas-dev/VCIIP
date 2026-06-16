@@ -94,12 +94,14 @@ export function GatewayHero() {
               </p>
             </div>
 
-            <div className="reveal-item grid gap-4 sm:grid-cols-2 lg:grid-cols-1 lg:gap-4 xl:grid-cols-2">
-              {destinations.map((destination) => (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 lg:gap-4 xl:grid-cols-2">
+              {destinations.map((destination, index) => (
                 <a
                   key={destination.href}
                   href={destination.href}
-                  className="group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-2xl bg-white/20 p-6 text-white backdrop-blur-md transition duration-300 hover:bg-white/26 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px] max-[479px]:p-5"
+                  data-reveal="scale"
+                  data-reveal-delay={`${index * 110}ms`}
+                  className="reveal-item group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-2xl bg-white/20 p-6 text-white backdrop-blur-md transition duration-300 hover:bg-white/26 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px] max-[479px]:p-5"
                 >
                   <div className="flex flex-col gap-3">
                     <h2 className="m-0 font-sans text-[1.35rem] font-semibold leading-[1.15] tracking-normal text-white">
