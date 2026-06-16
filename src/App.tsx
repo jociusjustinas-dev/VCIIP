@@ -13,7 +13,6 @@ import { getBrandVariantFromPath, getHubHrefFromPath, usesLegacyGreenTheme, uses
 
 function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
-  const isHomePage = currentPath === "/";
   const isStrategyPage = currentPath === "/strategija";
   const isTechHub = currentPath === "/tech";
   const isBioHub = currentPath === "/ekosistema" || currentPath === "/bio";
