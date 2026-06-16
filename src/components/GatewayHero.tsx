@@ -99,10 +99,9 @@ export function GatewayHero() {
                 <a
                   key={destination.href}
                   href={destination.href}
-                  data-reveal="scale"
-                  className="group flex min-h-[248px] flex-col overflow-hidden rounded-2xl bg-white/20 p-2 text-white backdrop-blur-md transition duration-300 hover:bg-white/26 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px]"
+                  className="group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-2xl bg-white/20 p-6 text-white backdrop-blur-md transition duration-300 hover:bg-white/26 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px] max-[479px]:p-5"
                 >
-                  <div className="flex flex-1 flex-col gap-3 rounded-lg bg-primary/42 p-5 max-[479px]:p-4">
+                  <div className="flex flex-col gap-3">
                     <h2 className="m-0 font-sans text-[1.35rem] font-semibold leading-[1.15] tracking-normal text-white">
                       {destination.title}
                     </h2>
@@ -114,10 +113,10 @@ export function GatewayHero() {
                     </p>
                   </div>
 
-                  <span className="mt-2 inline-flex items-center gap-2 px-1 font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-white transition group-hover:text-white/92 group-focus-visible:text-white/92">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold leading-none text-white/88 transition group-hover:text-white group-focus-visible:text-white">
                     {destination.cta}
                     <ArrowUpRight
-                      size={14}
+                      size={16}
                       aria-hidden="true"
                       className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                     />
