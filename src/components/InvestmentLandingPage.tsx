@@ -8,17 +8,23 @@ import { SettleProcess } from "./SettleProcess";
 import { VilniusEcosystem } from "./VilniusEcosystem";
 import { WhyInvestors } from "./WhyInvestors";
 
-export function InvestmentLandingPage() {
+export function InvestmentLandingPage({ variant = "tech" }: { variant?: "index" | "tech" }) {
+  const showFullTechSections = variant === "tech";
+
   return (
     <main>
       <Hero />
       <ProofStats />
       <EcosystemSplit />
-      <WhyInvestors />
-      <EcosystemMarquee />
-      <SettleProcess />
-      <ReadyToGrow />
-      <VilniusEcosystem />
+      {showFullTechSections && (
+        <>
+          <WhyInvestors />
+          <EcosystemMarquee />
+          <SettleProcess />
+          <ReadyToGrow />
+          <VilniusEcosystem />
+        </>
+      )}
       <InvestorInquiry />
     </main>
   );
