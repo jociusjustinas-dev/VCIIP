@@ -22,7 +22,7 @@
 
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  --radius-lg: 0.5rem;
 }
 
 @layer base {
@@ -256,7 +256,7 @@
     min-height: 3rem;
     width: 100%;
     border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
-    border-radius: 999px;
+    border-radius: var(--radius-md);
     background: var(--color-background);
     color: var(--color-primary);
     padding: 0.72rem 1rem;
@@ -319,6 +319,23 @@
 
   .animate-marquee-ecosystem:hover {
     animation-play-state: paused;
+  }
+}
+
+@layer utilities {
+  .rounded-xl,
+  .rounded-2xl {
+    border-radius: var(--radius-md);
+  }
+
+  .rounded-t-2xl {
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+  }
+
+  .rounded-b-2xl {
+    border-bottom-right-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
   }
 }
 

@@ -186,7 +186,7 @@ export function InvestorInquiry({
                       name="message"
                       rows={6}
                       placeholder="Trumpai papasakokite apie savo planuojamą veiklą, poreikius ar klausimus."
-                      className="form-field min-h-[132px] resize-y rounded-[1.5rem] py-4 max-[479px]:min-h-[120px]"
+                      className="form-field min-h-[132px] resize-y py-4 max-[479px]:min-h-[120px]"
                     />
                   </Field>
 
