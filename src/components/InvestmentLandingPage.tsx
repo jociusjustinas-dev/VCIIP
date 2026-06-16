@@ -25,7 +25,7 @@ export function InvestmentLandingPage({ variant = "tech" }: { variant?: "index" 
           <VilniusEcosystem />
         </>
       )}
-      <InvestorInquiry />
+      <InvestorInquiry tone={variant === "index" ? "light" : "dark"} />
     </main>
   );
 }

@@ -14,60 +14,98 @@ const fields = {
   stage: ["Vertiname galimybes", "Ieškome teritorijos", "Planuojame plėtrą", "Kita"],
 };
 
-export function InvestorInquiry({ showEyebrow = true }: { showEyebrow?: boolean }) {
+export function InvestorInquiry({
+  showEyebrow = true,
+  tone = "dark",
+}: {
+  showEyebrow?: boolean;
+  tone?: "dark" | "light";
+}) {
   const [formState, setFormState] = useState<FormState>("idle");
   const [interest, setInterest] = useState("");
   const [stage, setStage] = useState("");
+  const isLight = tone === "light";
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setFormState("success");
   };
 
-  return (
-    <section id="investuotojo-uzklausa" className="relative bg-white p-2">
-      <div className="relative overflow-hidden rounded-2xl bg-primary py-24 text-white max-[991px]:py-16 max-[479px]:py-12">
-        <div className="site-container px-6 max-[479px]:px-4">
-          <div className="grid gap-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(560px,1fr)] lg:gap-24" data-reveal-group>
-            <div className="flex flex-col justify-between gap-16">
-              <div className="reveal-item flex max-w-2xl flex-col gap-7">
-                {showEyebrow && <p className="eyebrow text-white">Pradėkime pokalbį</p>}
-                <h2 className="section-heading max-w-3xl text-white">
-                  Papasakokite apie savo planus
-                </h2>
-                <p className="m-0 text-xl font-medium leading-[150%] text-white/72 max-[479px]:text-base">
-                  Padėsime įvertinti galimybes ir rasti jūsų veiklai tinkamiausią sprendimą
-                  VCIIP teritorijoje.
-                </p>
-              </div>
+  const content = (
+    <div className="site-container px-6 max-[479px]:px-4">
+      <div className="grid gap-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(560px,1fr)] lg:gap-24" data-reveal-group>
+        <div className="flex flex-col justify-between gap-16">
+          <div className="reveal-item flex max-w-2xl flex-col gap-7">
+            {showEyebrow && (
+              <p className={`eyebrow ${isLight ? "text-primary/62" : "text-white"}`}>
+                Pradėkime pokalbį
+              </p>
+            )}
+            <h2 className={`section-heading max-w-3xl ${isLight ? "text-primary" : "text-white"}`}>
+              Papasakokite apie savo planus
+            </h2>
+            <p
+              className={`m-0 text-xl font-medium leading-[150%] max-[479px]:text-base ${
+                isLight ? "text-muted" : "text-white/72"
+              }`}
+            >
+              Padėsime įvertinti galimybes ir rasti jūsų veiklai tinkamiausią sprendimą
+              VCIIP teritorijoje.
+            </p>
+          </div>
 
-              <div className="reveal-item grid gap-8 border-t border-dashed border-white/24 pt-8 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 xl:gap-10">
-                <div className="flex flex-col gap-3">
-                  <p className="m-0 text-2xl font-medium leading-[1.15] text-white">
-                    Turite klausimų?
-                  </p>
-                  <p className="m-0 text-base font-medium leading-[150%] text-white/62">
-                    Susisiekite tiesiogiai su VCIIP operatoriumi.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 border-l border-dashed border-white/18 pl-10 max-[479px]:border-l-0 max-[479px]:pl-0 xl:pl-10">
-                  <p className="m-0 text-lg font-medium leading-[130%] text-white">
-                    Direktoriaus vardas pavardė
-                  </p>
-                  <p className="m-0 text-sm font-medium leading-[150%] text-white/52">
-                    Direktorius
-                  </p>
-                  <a className="text-base font-medium leading-[150%] text-white/72 hover:text-accent" href="mailto:el.paštas@vciip.lt">
-                    el. paštas@vciip.lt
-                  </a>
-                  <a className="text-base font-medium leading-[150%] text-white/72 hover:text-accent" href="tel:+370XXXXXXXX">
-                    +370 XXX XXXXX
-                  </a>
-                </div>
-              </div>
+          <div
+            className={`reveal-item grid gap-8 border-t border-dashed pt-8 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 xl:gap-10 ${
+              isLight ? "border-primary/16" : "border-white/24"
+            }`}
+          >
+            <div className="flex flex-col gap-3">
+              <p className={`m-0 text-2xl font-medium leading-[1.15] ${isLight ? "text-primary" : "text-white"}`}>
+                Turite klausimų?
+              </p>
+              <p className={`m-0 text-base font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/62"}`}>
+                Susisiekite tiesiogiai su VCIIP operatoriumi.
+              </p>
             </div>
+            <div
+              className={`flex flex-col gap-2 border-l border-dashed pl-10 max-[479px]:border-l-0 max-[479px]:pl-0 xl:pl-10 ${
+                isLight ? "border-primary/14" : "border-white/18"
+              }`}
+            >
+              <p className={`m-0 text-lg font-medium leading-[130%] ${isLight ? "text-primary" : "text-white"}`}>
+                Direktoriaus vardas pavardė
+              </p>
+              <p className={`m-0 text-sm font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/52"}`}>
+                Direktorius
+              </p>
+              <a
+                className={`text-base font-medium leading-[150%] hover:text-accent ${
+                  isLight ? "text-primary/72" : "text-white/72"
+                }`}
+                href="mailto:el.paštas@vciip.lt"
+              >
+                el. paštas@vciip.lt
+              </a>
+              <a
+                className={`text-base font-medium leading-[150%] hover:text-accent ${
+                  isLight ? "text-primary/72" : "text-white/72"
+                }`}
+                href="tel:+370XXXXXXXX"
+              >
+                +370 XXX XXXXX
+              </a>
+            </div>
+          </div>
+        </div>
 
-            <div className="reveal-item rounded-2xl bg-white p-8 text-primary max-[767px]:p-6 max-[479px]:p-5" data-reveal="scale">
+        <div
+          className={`reveal-item rounded-2xl p-8 text-primary max-[767px]:p-6 max-[479px]:p-5 ${
+            isLight
+              ? "border border-primary/12 bg-white shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_8%,transparent)]"
+              : "bg-white"
+          }`}
+          data-reveal="scale"
+        >
               {formState === "success" ? (
                 <div className="flex min-h-[420px] flex-col justify-center gap-4 text-center">
                   <p className="m-0 text-3xl font-medium leading-[1.12]">
@@ -176,10 +214,24 @@ export function InvestorInquiry({ showEyebrow = true }: { showEyebrow?: boolean 
                   </div>
                 </form>
               )}
-            </div>
-          </div>
         </div>
       </div>
+    </div>
+  );
+
+  return (
+    <section id="investuotojo-uzklausa" className="relative bg-white p-2">
+      {isLight ? (
+        <div className="relative overflow-hidden rounded-2xl bg-primary p-2 max-[479px]:p-1.5">
+          <div className="rounded-[0.875rem] bg-background py-24 max-[991px]:py-16 max-[479px]:py-12">
+            {content}
+          </div>
+        </div>
+      ) : (
+        <div className="relative overflow-hidden rounded-2xl bg-primary py-24 text-white max-[991px]:py-16 max-[479px]:py-12">
+          {content}
+        </div>
+      )}
     </section>
   );
 }
