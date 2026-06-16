@@ -21,18 +21,14 @@ function App() {
   const isApieVciipPage = currentPath === "/apie-vciip";
   const brandVariant = getBrandVariantFromPath(currentPath);
   const hubHref = getHubHrefFromPath(currentPath);
-  const pageThemeClass = isBioHub
-    ? "legacy-green-page"
-    : isHomePage
-      ? "index-navy-page"
-      : undefined;
+  const pageThemeClass = isBioHub || isHomePage ? "legacy-green-page" : undefined;
 
   return (
     <div className={pageThemeClass}>
       <SmoothScroll />
       <HashScroll pathname={currentPath} />
       <ScrollReveal />
-      <Navigation variant={brandVariant} hubHref={hubHref} navyMonochrome={isHomePage} />
+      <Navigation variant={brandVariant} hubHref={hubHref} />
       {isStrategyPage ? (
         <StrategyPage />
       ) : isBioHub ? (
@@ -46,7 +42,7 @@ function App() {
       ) : (
         <HomePage />
       )}
-      <Footer variant={brandVariant} hubHref={hubHref} navyMonochrome={isHomePage} />
+      <Footer variant={brandVariant} hubHref={hubHref} />
     </div>
   );
 }

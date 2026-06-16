@@ -60,18 +60,6 @@
     --color-muted: #5a7176;
   }
 
-  .index-navy-page {
-    --color-background: #ffffff;
-    --color-foreground: #212248;
-    --color-primary: #212248;
-    --color-primary-soft: #2d2f68;
-    --color-accent: #212248;
-    --color-accent-soft: #e8e9ef;
-    --color-accent-wash: #f3f3f6;
-    --color-muted: #5c6078;
-    --color-border: #d8dae3;
-  }
-
   .site-container {
     width: min(100% - 2rem, 1800px);
     margin-inline: auto;
