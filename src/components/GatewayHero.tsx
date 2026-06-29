@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
@@ -23,23 +23,7 @@ const destinations = [
 ] as const;
 
 export function GatewayHero() {
-  const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 },
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section id="apie-vciip" ref={sectionRef} className="relative bg-white text-white">
@@ -78,13 +62,7 @@ export function GatewayHero() {
               </ul>
 
               <h1 className="display-h1 reveal-item max-w-[920px] text-white">
-                <span
-                  className={`heading-highlight-animated -ml-6 -mr-4 py-1 pl-6 pr-4 backdrop-blur-[1px] ${
-                    visible ? "is-visible" : ""
-                  }`}
-                >
-                  <span className="relative z-[1]">Inovacijų ekosistema</span>
-                </span>
+                Inovacijų ekosistema
                 <span className="block">augimui Vilniuje.</span>
               </h1>
 

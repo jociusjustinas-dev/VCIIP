@@ -64,7 +64,7 @@ export function EcosystemMarquee() {
         <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
           <div className="mb-10 grid items-end gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,0.58fr)] max-[479px]:mb-8" data-reveal-group>
             <h2 className="section-heading reveal-item max-w-4xl">
-              <span className="heading-highlight">Ekosistema,</span>
+              Ekosistema,
               <br />
               kurioje verta atsirasti
             </h2>

@@ -14,9 +14,7 @@ export function EcosystemSplit() {
               <h2 className="section-heading reveal-item max-w-4xl text-white">
                 Du parkai.
                 <br />
-                <span className="heading-highlight">
-                  Viena ekosistema.
-                </span>
+                Viena ekosistema.
               </h2>
               <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-white/74 max-[479px]:text-base">
                 VCIIP – tai dvi viena kitą papildančios teritorijos: veikianti ekosistema

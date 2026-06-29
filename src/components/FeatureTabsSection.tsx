@@ -42,7 +42,7 @@ export function FeatureTabsSection({
           >
             <p className="eyebrow reveal-item text-primary/62">{eyebrow}</p>
             <h2 className="section-heading reveal-item max-w-4xl">
-              <span className="heading-highlight">{titleHighlight}</span>
+              {titleHighlight}
               <br />
               {titleRest}
             </h2>

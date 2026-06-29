@@ -1,31 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const ecosystemHeroVideoSrc =
   "https://cdn.prod.website-files.com/671f57636f0070068c1dc89c%2F6721479b87a477f27f4f5107_Tubes-transcode.mp4";
 
 export function EcosystemHero() {
-  const [headingVisible, setHeadingVisible] = useState(false);
   const [primaryHovered, setPrimaryHovered] = useState(false);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    const element = headingRef.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeadingVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 },
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section
@@ -38,19 +18,8 @@ export function EcosystemHero() {
             <p className="eyebrow reveal-item text-primary/72">VCIIP BIO</p>
 
             <div className="max-w-[600px]">
-              <h1
-                ref={headingRef}
-                className="reveal-item display-h1 m-0 text-primary"
-              >
-                Gyvybės mokslų{" "}
-                <span
-                  className={`heading-highlight-animated -ml-2 -mr-2 px-2 py-1 ${
-                    headingVisible ? "is-visible" : ""
-                  }`}
-                >
-                  <span className="relative z-[1]">ekosistema</span>
-                </span>{" "}
-                Vilniuje.
+              <h1 className="reveal-item display-h1 m-0 text-primary">
+                Gyvybės mokslų ekosistema Vilniuje.
               </h1>
             </div>
 

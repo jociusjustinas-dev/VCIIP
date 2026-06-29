@@ -40,7 +40,7 @@ export function FeatureAccordionSection({
                 <p className="eyebrow reveal-item text-primary/62">{eyebrow}</p>
                 <div className="flex flex-col gap-7">
                   <h2 className="section-heading reveal-item max-w-3xl">
-                    <span className="heading-highlight">{titleHighlight}</span>
+                    {titleHighlight}
                     <br />
                     {titleRest}
                   </h2>

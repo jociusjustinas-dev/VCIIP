@@ -37,7 +37,7 @@ export function SettleProcess() {
             <div className="flex flex-col items-start gap-7">
               <p className="eyebrow reveal-item text-primary/62">Procesas</p>
               <h2 className="section-heading reveal-item max-w-4xl">
-                <span className="heading-highlight">Kaip įsikurti</span>
+                Kaip įsikurti
                 <br />
                 VCIIP
               </h2>

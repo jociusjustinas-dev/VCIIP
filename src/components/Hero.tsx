@@ -3,25 +3,9 @@ import { ArrowUpRight, MapPinned, Play, X } from "lucide-react";
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 
 export function Hero() {
-  const [visible, setVisible] = useState(false);
   const [btnHovered, setBtnHovered] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 },
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     if (!videoOpen) return;
@@ -64,16 +48,8 @@ export function Hero() {
           >
             <div className="flex max-w-[1160px] flex-col items-start">
               <h1 className="display-h1 reveal-item max-w-[980px] text-white max-[991px]:mb-6">
-                <span
-                  className={`heading-highlight-animated -ml-6 -mr-4 py-1 pl-6 pr-4 backdrop-blur-[1px] ${
-                    visible ? "is-visible" : ""
-                  }`}
-                >
-                  <span className="relative z-[1]">Vilniaus inovacijų</span>
-                </span>
-                <span className="block">
-                  pramonės parkas
-                </span>
+                Vilniaus inovacijų
+                <span className="block">pramonės parkas</span>
               </h1>
             </div>
 

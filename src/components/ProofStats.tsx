@@ -4,27 +4,10 @@ import { stats } from "../content/site";
 
 export function ProofStats() {
   const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const [highlightVisible, setHighlightVisible] = useState(false);
   const [visibleTiles, setVisibleTiles] = useState<boolean[]>(stats.map(() => false));
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
-
-    const headingObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHighlightVisible(true);
-          headingObserver.disconnect();
-        }
-      },
-      { threshold: 0.55 },
-    );
-
-    if (headingRef.current) {
-      headingObserver.observe(headingRef.current);
-      observers.push(headingObserver);
-    }
 
     tileRefs.current.forEach((element, index) => {
       if (!element) return;
@@ -58,16 +41,8 @@ export function ProofStats() {
 
           <p className="eyebrow reveal-item text-primary/72">VCIIP šiandien</p>
 
-          <h2 ref={headingRef} className="section-heading reveal-item max-w-3xl">
-            VCIIP formuoja pažangių industrijų{" "}
-            <span
-              className={`heading-highlight-animated -ml-2 -mr-2 px-2 py-1 ${
-                highlightVisible ? "is-visible" : ""
-              }`}
-            >
-              <span className="relative z-[1]">ekosistemą Vilniuje</span>
-            </span>
-            .
+          <h2 className="section-heading reveal-item max-w-3xl">
+            VCIIP formuoja pažangių industrijų ekosistemą Vilniuje.
           </h2>
         </div>
 
