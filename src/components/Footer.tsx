@@ -8,10 +8,11 @@ import type { BrandVariant } from "./Navigation";
 
 const footerNavigation = [
   { label: "VCIIP Bio", href: "/ekosistema" },
-  { label: "Kodėl Vilnius", href: "#lokacija" },
-  { label: "Investavimo procesas", href: "#kaip-isikurti" },
-  { label: "Laisvi sklypai", href: "#sklypai" },
-  { label: "Kontaktai", href: "#investuotojo-uzklausa" },
+  { label: "Kodėl Vilnius", href: "/kodel-vilnius" },
+  { label: "Naujienos", href: "/naujienos" },
+  { label: "Investavimo procesas", href: "/tech#kaip-isikurti" },
+  { label: "Laisvi sklypai", href: "/tech#sklypai" },
+  { label: "Kontaktai", href: "/kontaktai" },
 ];
 
 const partnerLinks = [
