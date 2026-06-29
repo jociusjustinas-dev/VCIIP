@@ -11,7 +11,7 @@ export function KodelVilniusPage() {
     <main className="bg-white">
       <KodelVilniusHero />
       <KodelVilniusAdvantages />
-      <FeatureTabsSection {...kodelVilniusTabs} />
+      <FeatureTabsSection {...kodelVilniusTabs} showEyebrowRule={false} />
       <KodelVilniusCityLocation />
       <KodelVilniusPartners />
       <KodelVilniusCta />

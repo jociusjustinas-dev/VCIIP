@@ -18,6 +18,7 @@ type FeatureTabsSectionProps = {
   intro: string;
   tablistLabel: string;
   tabs: TabItem[];
+  showEyebrowRule?: boolean;
 };
 
 export function FeatureTabsSection({
@@ -28,6 +29,7 @@ export function FeatureTabsSection({
   intro,
   tablistLabel,
   tabs,
+  showEyebrowRule = true,
 }: FeatureTabsSectionProps) {
   const [activeTab, setActiveTab] = useState(0);
   const tab = tabs[activeTab];
