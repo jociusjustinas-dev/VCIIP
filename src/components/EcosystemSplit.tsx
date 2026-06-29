@@ -23,17 +23,17 @@ export function EcosystemSplit() {
             </div>
           </div>
 
-          <div className="flex gap-6 max-[767px]:flex-col" data-reveal-group>
-            <div className="w-1/2 px-4 max-[767px]:w-full max-[767px]:px-0">
+          <div className="flex items-center gap-6 max-[767px]:flex-col max-[767px]:items-stretch" data-reveal-group>
+            <div className="flex w-1/2 items-center px-4 max-[767px]:w-full max-[767px]:px-0">
               <div className="reveal-item flex max-w-[620px] flex-col items-start gap-5 max-[767px]:gap-4">
                 <div className="flex w-full flex-col gap-4">
-                  <div className="h-0 w-full border-b border-dashed border-white/48" />
+                  <div className="h-0 w-full border-b border-dashed border-white/48 max-[767px]:hidden" />
                   <img
                     src={bioLogoWhite}
                     alt="VCIIP BIO"
                     className="h-7 w-auto max-w-[9.5rem] object-contain object-left max-[479px]:h-[1.625rem]"
                   />
-                  <h3 className="heading-h3 max-w-xl text-white">
+                  <h3 className="heading-split max-w-xl text-white">
                     Veikianti ekosistema
                   </h3>
                 </div>
@@ -77,7 +77,7 @@ export function EcosystemSplit() {
             </div>
           </div>
 
-          <div className="mt-16 flex gap-6 max-[991px]:mt-14 max-[767px]:mt-12 max-[767px]:flex-col-reverse" data-reveal-group>
+          <div className="mt-16 flex items-center gap-6 max-[991px]:mt-14 max-[767px]:mt-12 max-[767px]:flex-col-reverse max-[767px]:items-stretch" data-reveal-group>
             <div className="flex w-1/2 items-center justify-start px-4 max-[767px]:w-full max-[767px]:px-0">
               <div className="reveal-item relative w-full overflow-hidden rounded-none bg-primary" data-reveal="scale">
                 <ParallaxImage
@@ -90,10 +90,10 @@ export function EcosystemSplit() {
               </div>
             </div>
 
-            <div className="flex w-1/2 justify-end px-4 max-[767px]:w-full max-[767px]:px-0">
+            <div className="flex w-1/2 items-center justify-end px-4 max-[767px]:w-full max-[767px]:px-0">
               <div className="reveal-item flex max-w-[620px] flex-col items-start gap-5 max-[767px]:gap-4">
                 <div className="flex w-full flex-col gap-4">
-                  <div className="h-0 w-full border-b border-dashed border-white/48" />
+                  <div className="h-0 w-full border-b border-dashed border-white/48 max-[767px]:hidden" />
                   <div className="flex flex-wrap items-center gap-3">
                     <img
                       src={techLogoWhite}
@@ -104,7 +104,7 @@ export function EcosystemSplit() {
                       Prieinama dabar
                     </span>
                   </div>
-                  <h3 className="heading-h3 max-w-xl text-white">
+                  <h3 className="heading-split max-w-xl text-white">
                     Naujos galimybės Liepkalnyje
                   </h3>
                 </div>
