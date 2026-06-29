@@ -17,7 +17,7 @@ export function InvestmentLandingPage({ variant = "tech" }: { variant?: "index" 
     <main>
       {variant === "index" ? <GatewayHero /> : <TechHero />}
       <ProofStats />
-      <EcosystemSplit />
+      {variant === "index" && <EcosystemSplit />}
       {variant === "index" && <MediaNewsSection />}
       {showFullTechSections && (
         <>
