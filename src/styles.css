@@ -429,7 +429,6 @@
   .plot-section__map {
     position: relative;
     overflow: hidden;
-    border: 1px solid color-mix(in srgb, var(--color-primary) 14%, transparent);
     background: var(--color-primary);
     aspect-ratio: 4 / 3;
   }
@@ -493,9 +492,9 @@
     height: 100%;
     flex-direction: column;
     gap: 1.5rem;
-    border: 1px solid color-mix(in srgb, var(--color-primary) 14%, transparent);
-    background: var(--color-white);
+    background: var(--color-primary);
     padding: 1.5rem;
+    color: var(--color-white);
   }
 
   .plot-detail-card__header {
@@ -510,7 +509,11 @@
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .plot-detail-card .plot-status {
+    color: var(--color-white);
   }
 
   .plot-detail-card__meta {
@@ -531,7 +534,7 @@
     letter-spacing: 0.04em;
     line-height: 1.2;
     text-transform: uppercase;
-    color: color-mix(in srgb, var(--color-primary) 52%, transparent);
+    color: color-mix(in srgb, var(--color-white) 52%, transparent);
   }
 
   .plot-detail-card__row dd {
@@ -539,7 +542,7 @@
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.6;
-    color: var(--color-primary);
+    color: var(--color-white);
   }
 
   .plot-detail-card__label {
@@ -550,7 +553,7 @@
     letter-spacing: 0.04em;
     line-height: 1.2;
     text-transform: uppercase;
-    color: color-mix(in srgb, var(--color-primary) 52%, transparent);
+    color: color-mix(in srgb, var(--color-white) 52%, transparent);
   }
 
   .plot-detail-card__infra-list {
@@ -568,11 +571,11 @@
     font-size: 0.9375rem;
     font-weight: 500;
     line-height: 1.5;
-    color: var(--color-primary);
+    color: var(--color-white);
   }
 
   .plot-detail-card__infra-list li.is-unavailable {
-    color: color-mix(in srgb, var(--color-primary) 42%, transparent);
+    color: color-mix(in srgb, var(--color-white) 42%, transparent);
   }
 
   .plot-detail-card__infra-list svg {
@@ -594,6 +597,48 @@
     padding-top: 0.5rem;
   }
 
+  .plot-detail-card__cta {
+    display: inline-flex;
+    min-height: 3rem;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--radius-button);
+    background: var(--color-white);
+    padding: 0.75rem 1.25rem;
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+
+  .plot-detail-card__cta:hover {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  .plot-detail-card__cta-secondary {
+    display: inline-flex;
+    min-height: 3rem;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid color-mix(in srgb, var(--color-white) 24%, transparent);
+    border-radius: var(--radius-button);
+    padding: 0.75rem 1.25rem;
+    color: var(--color-white);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    transition: border-color 160ms ease, color 160ms ease;
+  }
+
+  .plot-detail-card__cta-secondary:hover {
+    border-color: var(--color-white);
+    color: var(--color-white);
+  }
   .plot-status {
     display: inline-flex;
     align-items: center;

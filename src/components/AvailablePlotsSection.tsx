@@ -72,11 +72,7 @@ function PlotDetailCard({
       </div>
 
       <div className="plot-detail-card__actions">
-        <a
-          href={plot.ctaHref}
-          className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent"
-          onClick={onSelectCta}
-        >
+        <a href={plot.ctaHref} className="plot-detail-card__cta group" onClick={onSelectCta}>
           <span className="h-5 overflow-hidden py-px">
             <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
               {[plotsSectionCopy.primaryCta, plotsSectionCopy.primaryCta].map((label, index) => (
@@ -92,7 +88,7 @@ function PlotDetailCard({
         {plot.planDownloadUrl ? (
           <a
             href={plot.planDownloadUrl}
-            className="inline-flex min-h-12 w-fit items-center justify-center rounded-none border border-primary/18 px-5 py-3 text-base font-semibold leading-none text-primary transition hover:border-accent hover:text-accent"
+            className="plot-detail-card__cta-secondary"
             target="_blank"
             rel="noopener noreferrer"
           >
