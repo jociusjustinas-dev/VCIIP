@@ -19,8 +19,15 @@ export function KodelVilniusPartners() {
               target="_blank"
               rel="noopener noreferrer"
               className="vilnius-partners-grid__item"
+              aria-label={partner.label}
             >
-              {partner.label}
+              <img
+                src={partner.logo}
+                alt={partner.logoAlt}
+                className="vilnius-partners-grid__logo"
+                loading="lazy"
+                decoding="async"
+              />
             </a>
           ))}
         </div>

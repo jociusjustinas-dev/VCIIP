@@ -1,6 +1,12 @@
 import modernOfficeImage from "../assets/images/modern-office-work.png";
 import vilniusImage from "../assets/images/vilnius.webp";
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
+import goVilniusLogo from "../assets/logos/partners/go-vilnius.png";
+import investLithuaniaLogo from "../assets/logos/partners/invest-lithuania.svg";
+import lifeSciencesLithuaniaLogo from "../assets/logos/partners/life-sciences-lithuania.png";
+import startupLithuaniaLogo from "../assets/logos/partners/startup-lithuania.png";
+import vilniausUniversitetasLogo from "../assets/logos/partners/vilniaus-universitetas.png";
+import vilniusTechLogo from "../assets/logos/partners/vilnius-tech.png";
 
 export const kodelVilniusHero = {
   eyebrow: "Kodėl Vilnius",
@@ -138,12 +144,42 @@ export const kodelVilniusPartners = {
   intro:
     "Vilniaus inovacijų ekosistemą palaiko investicijų agentūros, mokslo institucijos ir verslo tinklai, padedantys įmonėms greičiau integruotis į rinką.",
   partners: [
-    { label: "Investuok Lietuvoje", href: "https://investlithuania.com/" },
-    { label: "Go Vilnius", href: "https://www.govilnius.lt/" },
-    { label: "Vilniaus universitetas", href: "https://www.vu.lt/" },
-    { label: "VILNIUS TECH", href: "https://vilniustech.lt/" },
-    { label: "Life Sciences Lithuania", href: "https://lithuanianlifesciences.com/" },
-    { label: "Startup Lithuania", href: "https://www.startuplithuania.com/" },
+    {
+      label: "Investuok Lietuvoje",
+      href: "https://investlithuania.com/",
+      logo: investLithuaniaLogo,
+      logoAlt: "Invest Lithuania",
+    },
+    {
+      label: "Go Vilnius",
+      href: "https://www.govilnius.lt/",
+      logo: goVilniusLogo,
+      logoAlt: "Go Vilnius",
+    },
+    {
+      label: "Vilniaus universitetas",
+      href: "https://www.vu.lt/",
+      logo: vilniausUniversitetasLogo,
+      logoAlt: "Vilniaus universitetas",
+    },
+    {
+      label: "VILNIUS TECH",
+      href: "https://vilniustech.lt/",
+      logo: vilniusTechLogo,
+      logoAlt: "VILNIUS TECH",
+    },
+    {
+      label: "Life Sciences Lithuania",
+      href: "https://lithuanianlifesciences.com/",
+      logo: lifeSciencesLithuaniaLogo,
+      logoAlt: "Life Sciences in Lithuania",
+    },
+    {
+      label: "Startup Lithuania",
+      href: "https://www.startuplithuania.com/",
+      logo: startupLithuaniaLogo,
+      logoAlt: "Startup Lithuania",
+    },
   ],
 };
 
