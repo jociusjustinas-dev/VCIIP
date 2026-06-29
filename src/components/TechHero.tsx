@@ -9,7 +9,8 @@ export function TechHero() {
       eyebrow="VCIIP TECH"
       title={
         <>
-          Technologijos ir pažangi gamyba
+          Technologijos
+          <span className="block">ir pažangi gamyba</span>
           <span className="block">Liepkalnyje.</span>
         </>
       }
