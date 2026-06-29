@@ -7,12 +7,13 @@ type CtaLink = {
 };
 
 type HubSplitHeroProps = {
-  id: string;
+  id?: string;
   eyebrow: string;
   title: ReactNode;
   description: string;
   primaryCta: CtaLink;
   secondaryCta?: CtaLink;
+  showEyebrowRule?: boolean;
   media:
     | { type: "video"; src: string }
     | { type: "image"; src: string; alt?: string };
@@ -25,6 +26,7 @@ export function HubSplitHero({
   description,
   primaryCta,
   secondaryCta,
+  showEyebrowRule = false,
   media,
 }: HubSplitHeroProps) {
   const [primaryHovered, setPrimaryHovered] = useState(false);
@@ -34,6 +36,7 @@ export function HubSplitHero({
       <div className="site-container px-6 max-[479px]:px-4">
         <div className="hub-split-hero__grid">
           <div className="hub-split-hero__content" data-reveal-group>
+            {showEyebrowRule ? <div className="section-eyebrow-rule reveal-item" /> : null}
             <p className="eyebrow reveal-item">{eyebrow}</p>
 
             <div className="max-w-[600px]">

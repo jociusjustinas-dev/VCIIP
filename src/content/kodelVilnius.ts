@@ -10,7 +10,7 @@ import vilniusTechLogo from "../assets/logos/partners/vilnius-tech.png";
 
 export const kodelVilniusHero = {
   eyebrow: "Kodėl Vilnius",
-  title: "Vienas konkurencingiausių miestų inovacijų verslui Baltijos regione.",
+  title: "Konkurencingiausias inovacijų miestas Baltijoje.",
   description:
     "Vilnius siūlo talentus, augančią inovacijų ekosistemą ir strategiškai patogią vietą verslo plėtrai Europoje.",
   primaryCta: { label: "Susisiekti", href: "/kontaktai" },
