@@ -1,16 +1,10 @@
-import { PageIntroHero } from "./PageIntroHero";
 import { ProofStats } from "./ProofStats";
 import { WhyInvestors } from "./WhyInvestors";
 
 export function ApieVciipPage() {
   return (
-    <main>
-      <PageIntroHero
-        eyebrow="VCIIP"
-        title="Apie VCIIP"
-        intro="Vilniaus miesto inovacijų ir pramonės parkas – pirmasis ir vienintelis inovacijoms skirtas pramonės parkas sostinėje, orientuotas į aukštos pridėtinės vertės veiklas."
-      />
-      <ProofStats />
+    <main className="bg-white pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
+      <ProofStats showTopDivider={false} />
       <WhyInvestors />
     </main>
   );
