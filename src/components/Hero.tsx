@@ -40,10 +40,10 @@ export function Hero() {
   }, [videoOpen]);
 
   return (
-    <section id="apie-vciip-tech" ref={sectionRef} className="relative bg-white p-2 text-white">
+    <section id="apie-vciip-tech" ref={sectionRef} className="relative bg-white text-white">
       <div
         data-nav-theme="dark"
-        className="relative z-[1] flex min-h-[calc(100svh-16px)] flex-col overflow-hidden rounded-none pb-14 pt-32"
+        className="relative z-[1] flex min-h-[100svh] flex-col overflow-hidden rounded-none pb-14 pt-32"
       >
         <img
           src={vciipOverviewImage}
@@ -59,7 +59,7 @@ export function Hero() {
 
         <div className="site-container relative z-[2] flex flex-1 px-6 max-[479px]:px-4">
           <div
-            className="grid min-h-[calc(100svh-16px-8rem-4.5rem)] w-full items-end gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(560px,0.72fr)]"
+            className="grid min-h-[calc(100svh-8rem-4.5rem)] w-full items-end gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(560px,0.72fr)]"
             data-reveal-group
           >
             <div className="flex max-w-[1160px] flex-col items-start">

@@ -42,10 +42,10 @@ export function GatewayHero() {
   }, []);
 
   return (
-    <section id="apie-vciip" ref={sectionRef} className="relative bg-white p-2 text-white">
+    <section id="apie-vciip" ref={sectionRef} className="relative bg-white text-white">
       <div
         data-nav-theme="dark"
-        className="relative z-[1] flex min-h-[calc(100svh-16px)] flex-col overflow-hidden rounded-none pb-14 pt-32 max-[991px]:pb-12 max-[479px]:pt-28"
+        className="relative z-[1] flex min-h-[100svh] flex-col overflow-hidden rounded-none pb-14 pt-32 max-[991px]:pb-12 max-[479px]:pt-28"
       >
         <img
           src={vciipOverviewImage}
