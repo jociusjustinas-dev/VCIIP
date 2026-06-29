@@ -1,6 +1,8 @@
 import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 
+import bioLogoWhite from "../assets/logos/bio-white.svg";
+import techLogoWhite from "../assets/logos/tech-white.svg";
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 
 const metadata = ["Nuo 2018", "Valstybei svarbus ekonomikos projektas", "30+ organizacijų"];
@@ -8,14 +10,16 @@ const metadata = ["Nuo 2018", "Valstybei svarbus ekonomikos projektas", "30+ org
 const destinations = [
   {
     href: "/bio",
-    title: "VCIIP BIO",
+    logo: bioLogoWhite,
+    logoAlt: "VCIIP BIO",
     subtitle: "Gyvybės mokslai ir inovacijos",
     text: "Veikianti ekosistema Vismaliukuose, skirta gyvybės mokslų, tyrimų ir inovacijų organizacijoms.",
     cta: "Plačiau apie BIO",
   },
   {
     href: "/tech",
-    title: "VCIIP TECH",
+    logo: techLogoWhite,
+    logoAlt: "VCIIP TECH",
     subtitle: "Technologijos ir pažangi gamyba",
     text: "Nauja plėtros teritorija Liepkalnyje, skirta pažangiai gamybai, technologijoms ir investicijoms.",
     cta: "Plačiau apie TECH",
@@ -82,9 +86,11 @@ export function GatewayHero() {
                   className="reveal-item group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-none bg-white/20 p-6 text-white backdrop-blur-md transition duration-300 hover:bg-white/26 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px] max-[479px]:p-5"
                 >
                   <div className="flex flex-col gap-3">
-                    <h2 className="heading-h3 m-0 text-white">
-                      {destination.title}
-                    </h2>
+                    <img
+                      src={destination.logo}
+                      alt={destination.logoAlt}
+                      className="h-7 w-auto max-w-[9.5rem] object-contain object-left max-[479px]:h-[1.625rem]"
+                    />
                     <p className="m-0 font-display text-sm font-bold uppercase leading-tight tracking-wide text-white/58">
                       {destination.subtitle}
                     </p>
