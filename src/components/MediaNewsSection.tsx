@@ -28,10 +28,6 @@ export function MediaNewsSection() {
     };
   }, []);
 
-  if (!isLoading && posts.length === 0) {
-    return null;
-  }
-
   return (
     <section id="naujienos" className="relative bg-white section-shell">
       <div className="site-container px-6 max-[479px]:px-4">
@@ -43,11 +39,17 @@ export function MediaNewsSection() {
         {isLoading ? (
           <div className="grid gap-6 lg:grid-cols-3">
             {Array.from({ length: 3 }, (_, index) => (
-              <div key={index} className="flex flex-col gap-4" aria-hidden="true">
-                <div className="aspect-video bg-background" />
-                <div className="h-3 w-24 bg-primary/8" />
-                <div className="h-6 w-full bg-primary/8" />
-                <div className="h-16 w-full bg-primary/6" />
+              <div
+                key={index}
+                className="flex flex-col border border-primary/10 bg-white"
+                aria-hidden="true"
+              >
+                <div className="aspect-video border-b border-primary/10 bg-background" />
+                <div className="flex flex-col gap-3 p-5">
+                  <div className="h-3 w-24 bg-primary/8" />
+                  <div className="h-6 w-full bg-primary/8" />
+                  <div className="h-16 w-full bg-primary/6" />
+                </div>
               </div>
             ))}
           </div>

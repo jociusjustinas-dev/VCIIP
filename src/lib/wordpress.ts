@@ -82,25 +82,62 @@ export function getNewsImageUrl(imageUrl: string | null) {
   return imageUrl ?? placeholderImage;
 }
 
+export const fallbackNewsPosts: NewsPost[] = [
+  {
+    id: 1,
+    title: "Pažangiausias Baltijos regione ląstelių terapijos centras kuriasi VCIIP",
+    excerpt:
+      "Pažangiausia Baltijos regione ląstelių terapijos infrastruktūra kuriasi Vilniuje. Northway Biotech grupės įmonė stato naują inovatyvių ląstelių terapijos centrą VCIIP teritorijoje.",
+    date: "2026-06-02T12:00:00",
+    url: "https://vciip.lt/2026/06/02/pazangiausias-baltijos-regione-lasteliu-terapijos-centras-kuriasi-vciip/",
+    imageUrl: null,
+  },
+  {
+    id: 2,
+    title: "Vilniaus miesto inovacijų pramonės parkas ir „Bio City“ – tarp 10 patraukliausių investicinių projektų",
+    excerpt:
+      "VCIIP ir „Bio City“ pripažinti vienu iš patraukliausių Vidurio ir Rytų Europos investicinių projektų, sustiprindami parko matomumą tarptautinėje investuotojų erdvėje.",
+    date: "2026-05-12T12:00:00",
+    url: "https://vciip.lt/2026/05/12/vilniaus-miesto-inovaciju-pramones-parkas-ir-bio-city-tarp-10-patraukliausiu-investiciniu-projektu-vidurio-ir-rytu-europoje/",
+    imageUrl: null,
+  },
+  {
+    id: 3,
+    title: "VCIIP išlieti pamatai pirmajai Europoje „Pentasweet“ saldaus baltymo gamyklai",
+    excerpt:
+      "Vilniaus miesto inovacijų pramonės parke prasidėjo viena didžiausių pastarųjų metų biotechnologijų investicijų – 65 mln. eurų vertės brazeino gamyklos statybos.",
+    date: "2026-02-04T12:00:00",
+    url: "https://vciip.lt/2026/02/04/vciip-islieti-pamatai-pirmajai-europoje-pentasweet-saldaus-baltymo-gamyklai/",
+    imageUrl: null,
+  },
+];
+
 export async function fetchLatestNewsPosts(limit = 3): Promise<NewsPost[]> {
-  const params = new URLSearchParams({
-    per_page: String(Math.max(limit * 2, 6)),
-    _embed: "1",
-    orderby: "date",
-    order: "desc",
-  });
+  try {
+    const params = new URLSearchParams({
+      per_page: String(Math.max(limit * 2, 6)),
+      _embed: "1",
+      orderby: "date",
+      order: "desc",
+    });
 
-  const response = await fetch(`${getApiBase()}/posts?${params.toString()}`, {
-    headers: { Accept: "application/json" },
-  });
+    const response = await fetch(`${getApiBase()}/posts?${params.toString()}`, {
+      headers: { Accept: "application/json" },
+    });
 
-  if (!response.ok) {
-    throw new Error(`WordPress API responded with ${response.status}`);
+    if (!response.ok) {
+      throw new Error(`WordPress API responded with ${response.status}`);
+    }
+
+    const posts = (await response.json()) as WpPost[];
+    const mapped = posts.filter(isLithuanianPost).slice(0, limit).map(mapPost);
+
+    if (mapped.length > 0) return mapped;
+  } catch {
+    // Fall through to static fallback content.
   }
 
-  const posts = (await response.json()) as WpPost[];
-
-  return posts.filter(isLithuanianPost).slice(0, limit).map(mapPost);
+  return fallbackNewsPosts.slice(0, limit);
 }
 
 export function formatNewsDate(date: string) {

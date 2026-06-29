@@ -42,11 +42,17 @@ export function NewsPage() {
           {isLoading ? (
             <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
               {Array.from({ length: 6 }, (_, index) => (
-                <div key={index} className="flex flex-col gap-4" aria-hidden="true">
-                  <div className="aspect-video bg-background" />
-                  <div className="h-3 w-24 bg-primary/8" />
-                  <div className="h-6 w-full bg-primary/8" />
-                  <div className="h-16 w-full bg-primary/6" />
+                <div
+                  key={index}
+                  className="flex flex-col border border-primary/10 bg-white"
+                  aria-hidden="true"
+                >
+                  <div className="aspect-video border-b border-primary/10 bg-background" />
+                  <div className="flex flex-col gap-3 p-5">
+                    <div className="h-3 w-24 bg-primary/8" />
+                    <div className="h-6 w-full bg-primary/8" />
+                    <div className="h-16 w-full bg-primary/6" />
+                  </div>
                 </div>
               ))}
             </div>
