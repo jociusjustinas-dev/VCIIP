@@ -31,6 +31,7 @@ export function NewsPage() {
   return (
     <main>
       <PageIntroHero
+        spacing="loose"
         eyebrow="VCIIP žiniasklaidoje"
         title="Naujienos"
         intro="VCIIP veiklos, investicijų ir ekosistemos plėtros naujienos iš oficialių komunikacijos kanalų."
