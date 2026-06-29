@@ -4,8 +4,8 @@ export function KodelVilniusAdvantages() {
   return (
     <section className="relative bg-white section-shell">
       <div className="site-container px-6 max-[479px]:px-4">
-        <div className="mb-10 flex flex-col gap-5 max-[479px]:mb-8" data-reveal-group>
-          <div className="h-0 w-full border-b border-dashed border-primary/48" />
+        <div className="section-intro max-[479px]:mb-8" data-reveal-group>
+          <div className="section-eyebrow-rule" />
           <p className="eyebrow reveal-item">{kodelVilniusAdvantages.eyebrow}</p>
           <h2 className="section-heading reveal-item max-w-3xl">{kodelVilniusAdvantages.title}</h2>
         </div>

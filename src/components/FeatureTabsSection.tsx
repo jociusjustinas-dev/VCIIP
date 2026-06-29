@@ -37,9 +37,10 @@ export function FeatureTabsSection({
       <div className="relative overflow-hidden rounded-none bg-white section-shell">
         <div className="site-container px-6 max-[479px]:px-4">
           <div
-            className="mx-auto mb-14 flex max-w-5xl flex-col items-center gap-7 text-center max-[767px]:items-start max-[767px]:text-left"
+            className="section-intro mx-auto mb-14 w-full max-w-5xl gap-7 items-center text-center max-[767px]:mb-10 max-[767px]:items-start max-[767px]:text-left"
             data-reveal-group
           >
+            <div className="section-eyebrow-rule" />
             <p className="eyebrow reveal-item">{eyebrow}</p>
             <h2 className="section-heading reveal-item max-w-4xl">
               {titleHighlight}

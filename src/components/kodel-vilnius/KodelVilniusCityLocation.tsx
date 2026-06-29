@@ -19,7 +19,7 @@ export function KodelVilniusCityLocation() {
 
           <div className="reveal-item flex flex-col gap-8" data-reveal="fade">
             <div className="flex flex-col gap-5">
-              <div className="h-0 w-full border-b border-dashed border-primary/48 lg:hidden" />
+              <div className="section-eyebrow-rule" />
               <p className="eyebrow">{kodelVilniusCityLocation.eyebrow}</p>
               <h2 className="section-heading max-w-xl">{kodelVilniusCityLocation.title}</h2>
               <p className="m-0 text-base leading-loose text-muted">{kodelVilniusCityLocation.intro}</p>

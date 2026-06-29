@@ -45,10 +45,8 @@ export function ProofStats({
       className="relative bg-white section-shell"
     >
       <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
-        <div className="mb-10 flex flex-col gap-5 max-[479px]:mb-8" data-reveal-group>
-          {showTopDivider ? (
-            <div className="h-0 w-full border-b border-dashed border-primary/48" />
-          ) : null}
+        <div className="section-intro max-[479px]:mb-8" data-reveal-group>
+          {showTopDivider ? <div className="section-eyebrow-rule" /> : null}
 
           <p className="eyebrow reveal-item ">VCIIP šiandien</p>
 

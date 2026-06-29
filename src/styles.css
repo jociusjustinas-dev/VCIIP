@@ -119,6 +119,25 @@
       0 0 1px color-mix(in srgb, var(--color-primary) 40%, transparent);
   }
 
+  .section-eyebrow-rule {
+    height: 0;
+    width: 100%;
+    border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 48%, transparent);
+  }
+
+  .section-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  @media (max-width: 479px) {
+    .section-intro {
+      margin-bottom: 2rem;
+    }
+  }
+
   .display-h1 {
     margin: 0;
     font-family: var(--font-display);
