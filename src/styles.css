@@ -424,7 +424,7 @@
     aspect-ratio: 697 / 720;
     width: 100%;
     overflow: hidden;
-    background: var(--color-white);
+    background: #0a0a12;
   }
 
   .vilnius-vciip-map__image {
@@ -432,83 +432,6 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-  }
-
-  .vilnius-vciip-map__marker {
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    pointer-events: none;
-  }
-
-  .vilnius-vciip-map__marker--bio {
-    top: 10.5%;
-    right: 4%;
-    left: auto;
-  }
-
-  .vilnius-vciip-map__marker--tech {
-    top: 34%;
-    left: 44%;
-    transform: translateX(-50%);
-  }
-
-  .vilnius-vciip-map__dots {
-    position: relative;
-    width: 1rem;
-    height: 1rem;
-    flex-shrink: 0;
-  }
-
-  .vilnius-vciip-map__dot {
-    display: block;
-    flex-shrink: 0;
-  }
-
-  .vilnius-vciip-map__dot--bio {
-    width: 1rem;
-    height: 1rem;
-    background: #00bdae;
-  }
-
-  .vilnius-vciip-map__dot--bio-secondary {
-    position: absolute;
-    right: 0.375rem;
-    bottom: -0.25rem;
-    width: 0.625rem;
-    height: 0.625rem;
-    background: color-mix(in srgb, var(--color-primary) 34%, transparent);
-  }
-
-  .vilnius-vciip-map__dot--tech {
-    width: 1.125rem;
-    height: 1.125rem;
-    background: var(--color-accent);
-  }
-
-  .vilnius-vciip-map__logo {
-    height: 1.625rem;
-    width: auto;
-    max-width: 8rem;
-  }
-
-  @media (max-width: 767px) {
-    .vilnius-vciip-map__logo {
-      height: 1.25rem;
-      max-width: 6rem;
-    }
-
-    .vilnius-vciip-map__marker--bio {
-      top: 8%;
-      right: 2%;
-    }
-
-    .vilnius-vciip-map__marker--tech {
-      top: 32%;
-      left: 42%;
-    }
   }
 
   .vilnius-map-legend {
