@@ -147,6 +147,15 @@
     line-height: 1.25;
   }
 
+  .inquiry-heading {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+  }
+
   .heading-split {
     margin: 0;
     font-family: var(--font-display);

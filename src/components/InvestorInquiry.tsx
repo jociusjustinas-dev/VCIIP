@@ -44,7 +44,7 @@ export function InvestorInquiry({
                 {eyebrow}
               </p>
             )}
-            <h2 className={`heading-h3 max-w-3xl ${isLight ? "text-primary" : "text-white"}`}>
+            <h2 className={`inquiry-heading max-w-3xl ${isLight ? "text-primary" : "text-white"}`}>
               Papasakokite
               <br />
               apie savo planus
