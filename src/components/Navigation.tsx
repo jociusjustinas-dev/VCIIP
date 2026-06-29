@@ -198,7 +198,7 @@ export function Navigation({
 
         <div className="flex shrink-0 items-center gap-2 max-[479px]:gap-1.5">
           <div
-            className={`hidden items-center rounded-none border p-1 max-[991px]:hidden sm:flex ${
+            className={`hidden h-12 items-stretch rounded-none border p-1 max-[991px]:hidden sm:flex ${
               options.sticky || !onDarkSurface
                 ? "border-primary/14 bg-primary/5"
                 : "border-white/22 bg-white/10"
@@ -208,7 +208,7 @@ export function Navigation({
             <a
               href="#"
               aria-current="true"
-              className={`rounded-none px-3 py-2 font-display text-sm font-bold uppercase leading-tight tracking-wide transition ${
+              className={`flex items-center rounded-none px-3 font-display text-sm font-bold uppercase leading-none tracking-wide transition ${
                 options.sticky || !onDarkSurface
                   ? "bg-primary text-white"
                   : "bg-white text-primary"
@@ -218,7 +218,7 @@ export function Navigation({
             </a>
             <a
               href="#"
-              className={`rounded-none px-3 py-2 font-display text-sm font-bold uppercase leading-tight tracking-wide transition ${
+              className={`flex items-center rounded-none px-3 font-display text-sm font-bold uppercase leading-none tracking-wide transition ${
                 options.sticky || !onDarkSurface
                   ? "text-primary/52 hover:text-primary"
                   : "text-white/62 hover:text-white"
