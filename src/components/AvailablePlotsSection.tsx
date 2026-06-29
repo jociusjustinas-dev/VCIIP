@@ -246,25 +246,29 @@ export function AvailablePlotsSection() {
         </div>
 
         <div className="plot-section__bottom reveal-item" data-reveal="fade">
-          <h3 className="heading-h3 m-0 text-primary">{plotsSectionCopy.bottomTitle}</h3>
-          <p className="m-0 max-w-3xl text-base font-normal leading-loose text-muted">
-            {plotsSectionCopy.bottomText}
-          </p>
-          <a
-            href={plotsSectionCopy.bottomCtaHref}
-            className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent"
-          >
-            <span className="h-5 overflow-hidden py-px">
-              <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
-                {[plotsSectionCopy.bottomCta, plotsSectionCopy.bottomCta].map((label, index) => (
-                  <span key={index} className="flex h-5 items-center gap-2">
-                    {label}
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </span>
-                ))}
+          <div className="plot-section__bottom-copy">
+            <h3 className="heading-h3 m-0 text-primary">{plotsSectionCopy.bottomTitle}</h3>
+            <p className="m-0 max-w-2xl text-base font-normal leading-[1.6] text-muted">
+              {plotsSectionCopy.bottomText}
+            </p>
+          </div>
+          <div className="plot-section__bottom-cta">
+            <a
+              href={plotsSectionCopy.bottomCtaHref}
+              className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent max-[767px]:w-full"
+            >
+              <span className="h-5 overflow-hidden py-px">
+                <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
+                  {[plotsSectionCopy.bottomCta, plotsSectionCopy.bottomCta].map((label, index) => (
+                    <span key={index} className="flex h-5 items-center gap-2">
+                      {label}
+                      <ArrowUpRight size={16} aria-hidden="true" />
+                    </span>
+                  ))}
+                </span>
               </span>
-            </span>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
     </section>
