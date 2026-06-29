@@ -4,7 +4,6 @@ import { KodelVilniusCityLocation } from "./kodel-vilnius/KodelVilniusCityLocati
 import { KodelVilniusCta } from "./kodel-vilnius/KodelVilniusCta";
 import { KodelVilniusHero } from "./kodel-vilnius/KodelVilniusHero";
 import { KodelVilniusPartners } from "./kodel-vilnius/KodelVilniusPartners";
-import { KodelVilniusStrategicLocation } from "./kodel-vilnius/KodelVilniusStrategicLocation";
 import { kodelVilniusTabs } from "../content/kodelVilnius";
 
 export function KodelVilniusPage() {
@@ -13,7 +12,6 @@ export function KodelVilniusPage() {
       <KodelVilniusHero />
       <KodelVilniusAdvantages />
       <FeatureTabsSection {...kodelVilniusTabs} />
-      <KodelVilniusStrategicLocation />
       <KodelVilniusCityLocation />
       <KodelVilniusPartners />
       <KodelVilniusCta />

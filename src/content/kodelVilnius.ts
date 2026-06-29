@@ -95,35 +95,6 @@ export const kodelVilniusTabs = {
   ],
 };
 
-export const kodelVilniusStrategicLocation = {
-  eyebrow: "Lokacija",
-  title: "Patogi vieta verslui Europoje.",
-  markers: [
-    { id: "vilnius", label: "Vilnius", x: 62, y: 58 },
-    { id: "klaipeda", label: "Klaipėdos uostas", x: 38, y: 52 },
-    { id: "airport", label: "Vilniaus oro uostas", x: 66, y: 54 },
-    { id: "rail", label: "Rail Baltica", x: 58, y: 64 },
-  ],
-  arguments: [
-    {
-      title: "ES rinkos centras",
-      body: "Vilnius yra ES ir euro zonos dalis – tai suteikia tiesioginę prieigą prie 450 mln. vartotojų rinkos.",
-    },
-    {
-      title: "Klaipėdos uostas",
-      body: "Artimiausias daugiafunkcis jūrų vartas Baltijos šalyse – svarbus logistikos koridorius eksportui.",
-    },
-    {
-      title: "Vilniaus oro uostas",
-      body: "Tiesioginiai skrydžiai į pagrindinius Europos verslo centrus ir tarptautinius hub'us.",
-    },
-    {
-      title: "Rail Baltica",
-      body: "Būsimas greitasis geležinkelio koridorius sujungs Vilnių su Varšuva, Ryga ir Berlynu.",
-    },
-  ],
-};
-
 export const kodelVilniusCityLocation = {
   eyebrow: "VCIIP lokacija",
   title: "Strategiškai patogi vieta Vilniuje.",
