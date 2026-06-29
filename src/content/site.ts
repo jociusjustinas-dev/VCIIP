@@ -18,7 +18,6 @@ export const bioNavGroup: NavGroup = {
     { label: "Apie VCIIP Bio", href: "apie-vciip-bio" },
     { label: "Lokacija", href: "lokacija" },
     { label: "Patalpos nuomai", href: "patalpos-nuomai" },
-    { label: "Kaip įsikurti", href: "kaip-isikurti" },
   ],
 };
 

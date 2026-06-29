@@ -4,7 +4,6 @@ import { EcosystemMarquee } from "./EcosystemMarquee";
 import { FeatureSplitHighlightsSection } from "./FeatureSplitHighlightsSection";
 import { FeatureTabsSection } from "./FeatureTabsSection";
 import { ProofStats } from "./ProofStats";
-import { SettleProcess } from "./SettleProcess";
 
 export function EcosystemPage() {
   return (
@@ -16,7 +15,6 @@ export function EcosystemPage() {
       <EcosystemMarquee />
       <FeatureTabsSection {...bioTabsContent} />
       <FeatureSplitHighlightsSection {...bioGrowthContent} />
-      <SettleProcess />
     </main>
   );
 }
