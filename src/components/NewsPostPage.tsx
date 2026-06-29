@@ -1,0 +1,195 @@
+import { useEffect, useState, type CSSProperties } from "react";
+import { ArrowLeft } from "lucide-react";
+
+import {
+  fetchLatestNewsPosts,
+  fetchPostBySlug,
+  formatNewsDate,
+  getNewsImageUrl,
+} from "../lib/wordpress";
+import type { NewsPost, NewsPostDetail } from "../types/news";
+import { NewsCard } from "./NewsCard";
+
+export function NewsPostPage({ slug }: { slug: string }) {
+  const [post, setPost] = useState<NewsPostDetail | null>(null);
+  const [relatedPosts, setRelatedPosts] = useState<NewsPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    Promise.all([fetchPostBySlug(slug), fetchLatestNewsPosts(4)])
+      .then(([nextPost, latestPosts]) => {
+        if (!isMounted) return;
+
+        if (!nextPost) {
+          setNotFound(true);
+          setPost(null);
+          setRelatedPosts(latestPosts.slice(0, 3));
+          return;
+        }
+
+        setPost(nextPost);
+        setRelatedPosts(latestPosts.filter((item) => item.id !== nextPost.id).slice(0, 3));
+      })
+      .catch(() => {
+        if (!isMounted) return;
+        setNotFound(true);
+        setPost(null);
+        setRelatedPosts([]);
+      })
+      .finally(() => {
+        if (isMounted) setIsLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [slug]);
+
+  if (isLoading) {
+    return (
+      <main>
+        <section className="relative bg-white p-2 pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
+          <div className="content-container px-6 max-[479px]:px-4">
+            <div className="border-b border-dashed border-primary/28 pb-10 pt-2">
+              <div className="h-4 w-36 bg-primary/8" />
+              <div className="mt-6 h-3 w-24 bg-primary/8" />
+              <div className="mt-5 h-12 w-full max-w-3xl bg-primary/8" />
+              <div className="mt-5 h-4 w-40 bg-primary/6" />
+            </div>
+          </div>
+        </section>
+
+        <section className="relative bg-white pb-16 pt-10">
+          <div className="content-container px-6 max-[479px]:px-4">
+            <div className="aspect-[16/9] max-w-4xl bg-background" />
+            <div className="mt-10 max-w-2xl space-y-4">
+              <div className="h-4 w-full bg-primary/6" />
+              <div className="h-4 w-full bg-primary/6" />
+              <div className="h-4 w-4/5 bg-primary/6" />
+            </div>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
+  if (notFound || !post) {
+    return (
+      <main>
+        <section className="relative bg-white p-2 pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
+          <div className="content-container px-6 max-[479px]:px-4">
+            <div className="border-b border-dashed border-primary/28 pb-10 pt-2" data-reveal-group>
+              <a
+                href="/naujienos"
+                className="reveal-item inline-flex items-center gap-2 text-sm font-semibold leading-none text-primary/62 transition-colors duration-200 hover:text-accent"
+              >
+                <ArrowLeft size={16} aria-hidden="true" />
+                Grįžti į naujienas
+              </a>
+              <h1 className="display-h1 reveal-item mt-6">Naujiena nerasta</h1>
+              <p className="reveal-item body-lead m-0 mt-5 max-w-2xl text-muted">
+                Šis straipsnis nebepasiekiamas arba adresas neteisingas.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {relatedPosts.length > 0 ? (
+          <section className="relative bg-background section-shell">
+            <div className="site-container px-6 max-[479px]:px-4">
+              <h2 className="section-heading m-0">Kitos naujienos</h2>
+              <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+                {relatedPosts.map((relatedPost) => (
+                  <NewsCard key={relatedPost.id} post={relatedPost} className="w-full" />
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
+      </main>
+    );
+  }
+
+  const imageUrl = getNewsImageUrl(post.imageUrl);
+
+  return (
+    <main>
+      <section className="relative bg-white p-2 pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
+        <div className="content-container px-6 max-[479px]:px-4">
+          <div className="border-b border-dashed border-primary/28 pb-10 pt-2" data-reveal-group>
+            <a
+              href="/naujienos"
+              className="reveal-item inline-flex items-center gap-2 text-sm font-semibold leading-none text-primary/62 transition-colors duration-200 hover:text-accent"
+            >
+              <ArrowLeft size={16} aria-hidden="true" />
+              Grįžti į naujienas
+            </a>
+
+            <p className="eyebrow reveal-item mt-6 text-primary/62">Naujienos</p>
+            <h1 className="display-h1 reveal-item mt-5 max-w-4xl">{post.title}</h1>
+
+            <time
+              dateTime={post.date}
+              className="reveal-item mt-5 block font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary/52"
+            >
+              {formatNewsDate(post.date)}
+            </time>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative bg-white pb-16 pt-10 max-[479px]:pb-14">
+        <div className="content-container px-6 max-[479px]:px-4" data-reveal-group>
+          <figure className="reveal-item m-0 max-w-4xl overflow-hidden bg-background">
+            <img
+              src={imageUrl}
+              alt=""
+              className="aspect-[16/9] w-full object-cover"
+            />
+          </figure>
+
+          <article
+            className="article-body reveal-item mt-10"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+
+          <footer className="reveal-item mt-14 max-w-4xl border-t border-dashed border-primary/20 pt-8">
+            <a
+              href="/naujienos"
+              className="inline-flex items-center gap-2 text-base font-semibold leading-none text-primary transition-colors duration-200 hover:text-accent"
+            >
+              <ArrowLeft size={16} aria-hidden="true" />
+              Grįžti į naujienas
+            </a>
+          </footer>
+        </div>
+      </section>
+
+      {relatedPosts.length > 0 ? (
+        <section className="relative border-t border-dashed border-primary/16 bg-background section-shell">
+          <div className="site-container px-6 max-[479px]:px-4">
+            <div className="flex flex-col gap-3 border-b border-dashed border-primary/28 pb-8" data-reveal-group>
+              <p className="eyebrow reveal-item text-primary/62">VCIIP žiniasklaidoje</p>
+              <h2 className="section-heading reveal-item m-0">Kitos naujienos</h2>
+            </div>
+
+            <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3" data-reveal-group>
+              {relatedPosts.map((relatedPost, index) => (
+                <div
+                  key={relatedPost.id}
+                  className="reveal-item h-full"
+                  style={{ "--reveal-delay": `${index * 70}ms` } as CSSProperties}
+                >
+                  <NewsCard post={relatedPost} className="w-full" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+    </main>
+  );
+}

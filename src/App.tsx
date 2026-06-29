@@ -6,6 +6,7 @@ import { HomePage } from "./components/HomePage";
 import { KodelVilniusPage } from "./components/KodelVilniusPage";
 import { Navigation } from "./components/Navigation";
 import { NewsPage } from "./components/NewsPage";
+import { NewsPostPage } from "./components/NewsPostPage";
 import { ScrollReveal } from "./components/ScrollReveal";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { StrategyPage } from "./components/StrategyPage";
@@ -20,6 +21,10 @@ function App() {
   const isKodelVilniusPage = currentPath === "/kodel-vilnius";
   const isApieVciipPage = currentPath === "/apie-vciip";
   const isNewsPage = currentPath === "/naujienos";
+  const newsPostSlug = currentPath.startsWith("/naujienos/")
+    ? currentPath.slice("/naujienos/".length).split("/")[0]
+    : null;
+  const isNewsPostPage = Boolean(newsPostSlug);
   const brandVariant = getBrandVariantFromPath(currentPath);
   const hubHref = getHubHrefFromPath(currentPath);
   const pageThemeClass = usesLegacyGreenTheme(currentPath) ? "legacy-green-page" : undefined;
@@ -41,6 +46,8 @@ function App() {
         <KodelVilniusPage />
       ) : isApieVciipPage ? (
         <ApieVciipPage />
+      ) : isNewsPostPage && newsPostSlug ? (
+        <NewsPostPage slug={newsPostSlug} />
       ) : isNewsPage ? (
         <NewsPage />
       ) : (

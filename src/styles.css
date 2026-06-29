@@ -180,6 +180,117 @@
     line-height: 2;
   }
 
+  .article-body {
+    max-width: 46rem;
+    color: var(--color-muted);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 2;
+  }
+
+  .article-body > :first-child {
+    margin-top: 0;
+  }
+
+  .article-body p {
+    margin: 1.25rem 0 0;
+  }
+
+  .article-body h2,
+  .article-body h3,
+  .article-body h4 {
+    color: var(--color-primary);
+    margin: 2.5rem 0 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+  }
+
+  .article-body h2 {
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+  }
+
+  .article-body h3 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+  }
+
+  .article-body h4 {
+    font-size: 0.875rem;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-primary) 58%, transparent);
+  }
+
+  .article-body ul,
+  .article-body ol {
+    margin: 1.25rem 0 0;
+    padding-left: 1.25rem;
+  }
+
+  .article-body li {
+    margin-top: 0.5rem;
+  }
+
+  .article-body ul {
+    list-style: none;
+    padding-left: 1.25rem;
+  }
+
+  .article-body ul > li {
+    position: relative;
+  }
+
+  .article-body ul > li::before {
+    content: "";
+    position: absolute;
+    top: 0.85rem;
+    left: -1.25rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--color-accent);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+    text-underline-offset: 0.18em;
+    transition: color 180ms ease;
+  }
+
+  .article-body a:hover {
+    color: var(--color-primary);
+  }
+
+  .article-body img,
+  .article-body figure {
+    margin: 2rem 0 0;
+    max-width: 100%;
+  }
+
+  .article-body img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .article-body blockquote {
+    margin: 2rem 0 0;
+    border-left: 3px solid var(--color-accent);
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    color: var(--color-primary);
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  .article-body strong {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
   .section-shell {
     padding-block: 5rem;
   }

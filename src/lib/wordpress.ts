@@ -1,4 +1,4 @@
-import type { NewsPost } from "../types/news";
+import type { NewsPost, NewsPostDetail } from "../types/news";
 
 import placeholderImage from "../assets/images/vciip-overview.jpg";
 
@@ -12,10 +12,12 @@ type WpEmbeddedMedia = {
 
 type WpPost = {
   id: number;
+  slug: string;
   date: string;
   link: string;
   title: { rendered: string };
   excerpt: { rendered: string };
+  content: { rendered: string };
   _embedded?: {
     "wp:featuredmedia"?: WpEmbeddedMedia[];
   };
@@ -62,11 +64,38 @@ function getFeaturedImageUrl(post: WpPost) {
 function mapPost(post: WpPost): NewsPost {
   return {
     id: post.id,
+    slug: post.slug,
     title: stripHtml(post.title.rendered),
     excerpt: truncateExcerpt(post.excerpt.rendered),
     date: post.date,
     url: post.link,
     imageUrl: getFeaturedImageUrl(post),
+  };
+}
+
+function mapPostDetail(post: WpPost): NewsPostDetail {
+  return {
+    ...mapPost(post),
+    content: post.content.rendered,
+  };
+}
+
+export function getNewsPostHref(post: Pick<NewsPost, "slug" | "url">) {
+  if (post.slug) return `/naujienos/${post.slug}`;
+  return post.url;
+}
+
+function buildFallbackContent(post: NewsPost) {
+  return `<p>${post.excerpt}</p><p>Tai oficiali VCIIP naujiena apie parko ekosistemos plėtrą, investicijas ir gyvybės mokslų bei technologijų bendruomenės veiklą Vilniuje. Daugiau informacijos rasite <a href="${post.url}">vciip.lt</a>.</p>`;
+}
+
+function getFallbackPostBySlug(slug: string): NewsPostDetail | null {
+  const post = fallbackNewsPosts.find((item) => item.slug === slug);
+  if (!post) return null;
+
+  return {
+    ...post,
+    content: buildFallbackContent(post),
   };
 }
 
@@ -85,6 +114,7 @@ export function getNewsImageUrl(imageUrl: string | null) {
 export const fallbackNewsPosts: NewsPost[] = [
   {
     id: 1,
+    slug: "pazangiausias-baltijos-regione-lasteliu-terapijos-centras-kuriasi-vciip",
     title: "Pažangiausias Baltijos regione ląstelių terapijos centras kuriasi VCIIP",
     excerpt:
       "Pažangiausia Baltijos regione ląstelių terapijos infrastruktūra kuriasi Vilniuje. Northway Biotech grupės įmonė stato naują inovatyvių ląstelių terapijos centrą VCIIP teritorijoje.",
@@ -94,6 +124,7 @@ export const fallbackNewsPosts: NewsPost[] = [
   },
   {
     id: 2,
+    slug: "vilniaus-miesto-inovaciju-pramones-parkas-ir-bio-city-tarp-10-patraukliausiu-investiciniu-projektu-vidurio-ir-rytu-europoje",
     title: "Vilniaus miesto inovacijų pramonės parkas ir „Bio City“ – tarp 10 patraukliausių investicinių projektų",
     excerpt:
       "VCIIP ir „Bio City“ pripažinti vienu iš patraukliausių Vidurio ir Rytų Europos investicinių projektų, sustiprindami parko matomumą tarptautinėje investuotojų erdvėje.",
@@ -103,6 +134,7 @@ export const fallbackNewsPosts: NewsPost[] = [
   },
   {
     id: 3,
+    slug: "vciip-islieti-pamatai-pirmajai-europoje-pentasweet-saldaus-baltymo-gamyklai",
     title: "VCIIP išlieti pamatai pirmajai Europoje „Pentasweet“ saldaus baltymo gamyklai",
     excerpt:
       "Vilniaus miesto inovacijų pramonės parke prasidėjo viena didžiausių pastarųjų metų biotechnologijų investicijų – 65 mln. eurų vertės brazeino gamyklos statybos.",
@@ -138,6 +170,32 @@ export async function fetchLatestNewsPosts(limit = 3): Promise<NewsPost[]> {
   }
 
   return fallbackNewsPosts.slice(0, limit);
+}
+
+export async function fetchPostBySlug(slug: string): Promise<NewsPostDetail | null> {
+  try {
+    const params = new URLSearchParams({
+      slug,
+      _embed: "1",
+    });
+
+    const response = await fetch(`${getApiBase()}/posts?${params.toString()}`, {
+      headers: { Accept: "application/json" },
+    });
+
+    if (!response.ok) {
+      throw new Error(`WordPress API responded with ${response.status}`);
+    }
+
+    const posts = (await response.json()) as WpPost[];
+    const post = posts.find(isLithuanianPost);
+
+    if (post) return mapPostDetail(post);
+  } catch {
+    // Fall through to static fallback content.
+  }
+
+  return getFallbackPostBySlug(slug);
 }
 
 export function formatNewsDate(date: string) {

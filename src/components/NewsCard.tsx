@@ -1,4 +1,4 @@
-import { getNewsImageUrl, formatNewsDate } from "../lib/wordpress";
+import { getNewsImageUrl, formatNewsDate, getNewsPostHref } from "../lib/wordpress";
 import type { NewsPost } from "../types/news";
 
 export function NewsCard({
@@ -12,7 +12,7 @@ export function NewsCard({
 
   return (
     <a
-      href={post.url}
+      href={getNewsPostHref(post)}
       className={`group flex h-full w-[min(88vw,360px)] shrink-0 snap-start flex-col bg-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 lg:w-auto lg:min-w-0 ${className}`}
     >
       <div className="aspect-video overflow-hidden bg-background">
