@@ -1,4 +1,4 @@
-import vilniusVciipLocationMap from "../../assets/images/vilnius-vciip-location-map.svg";
+import vilniusVciipLocationMap from "../../assets/images/vilnius-vciip-location-map.png";
 
 export function VilniusVciipMap() {
   return (
