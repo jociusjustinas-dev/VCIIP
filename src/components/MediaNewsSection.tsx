@@ -31,9 +31,9 @@ export function MediaNewsSection() {
   return (
     <section id="naujienos" className="relative bg-white section-shell">
       <div className="site-container px-6 max-[479px]:px-4">
-        <div className="mb-10 flex flex-col gap-4 border-b border-dashed border-primary/28 pb-8" data-reveal-group>
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-4 border-b border-dashed border-primary/28 pb-8" data-reveal-group>
           <p className="eyebrow reveal-item text-primary/72">VCIIP žiniasklaidoje</p>
-          <h2 className="section-heading reveal-item">Naujienos</h2>
+          <h2 className="section-heading reveal-item m-0">Naujienos</h2>
         </div>
 
         {isLoading ? (
