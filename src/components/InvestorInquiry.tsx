@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import type { FormEvent, ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import { CONTACT_INTEREST_OPTIONS, getInterestFromSearchParams } from "../lib/contactInterest";
@@ -14,10 +13,20 @@ const fields = {
 export function InvestorInquiry({
   showEyebrow = true,
   eyebrow = "Pradėkime pokalbį",
+  title = (
+    <>
+      Papasakokite
+      <br />
+      apie savo planus
+    </>
+  ),
+  description = "Padėsime įvertinti galimybes ir rasti jūsų veiklai tinkamiausią sprendimą VCIIP teritorijoje.",
   tone = "dark",
 }: {
   showEyebrow?: boolean;
   eyebrow?: string;
+  title?: ReactNode;
+  description?: string;
   tone?: "dark" | "light";
 }) {
   const [formState, setFormState] = useState<FormState>("idle");
@@ -45,17 +54,14 @@ export function InvestorInquiry({
               </p>
             )}
             <h2 className={`inquiry-heading max-w-3xl ${isLight ? "text-primary" : "text-white"}`}>
-              Papasakokite
-              <br />
-              apie savo planus
+              {title}
             </h2>
             <p
               className={`m-0 text-base font-normal leading-loose max-[479px]:text-base ${
                 isLight ? "text-muted" : "text-white/72"
               }`}
             >
-              Padėsime įvertinti galimybes ir rasti jūsų veiklai tinkamiausią sprendimą
-              VCIIP teritorijoje.
+              {description}
             </p>
 
             <div

@@ -1,13 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 
-import { stats } from "../content/site";
+import { stats as defaultStats } from "../content/site";
+
+type StatItem = {
+  value: string;
+  label: string;
+};
 
 export function ProofStats({
   showTopDivider = true,
   sectionId = "ekosistema",
+  eyebrow = "VCIIP šiandien",
+  title = "VCIIP formuoja pažangių industrijų ekosistemą Vilniuje.",
+  stats = defaultStats,
 }: {
   showTopDivider?: boolean;
   sectionId?: string | false;
+  eyebrow?: string;
+  title?: string;
+  stats?: StatItem[];
 }) {
   const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [visibleTiles, setVisibleTiles] = useState<boolean[]>(stats.map(() => false));
@@ -48,10 +59,10 @@ export function ProofStats({
         <div className="section-intro max-[479px]:mb-8" data-reveal-group>
           {showTopDivider ? <div className="section-eyebrow-rule" /> : null}
 
-          <p className="eyebrow reveal-item ">VCIIP šiandien</p>
+          <p className="eyebrow reveal-item ">{eyebrow}</p>
 
           <h2 className="section-heading reveal-item max-w-3xl">
-            VCIIP formuoja pažangių industrijų ekosistemą Vilniuje.
+            {title}
           </h2>
         </div>
 

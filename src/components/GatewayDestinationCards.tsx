@@ -1,17 +1,28 @@
 import { ArrowUpRight } from "lucide-react";
 
-import { gatewayDestinations } from "../content/gatewayDestinations";
+import { gatewayDestinations as defaultDestinations } from "../content/gatewayDestinations";
+
+type DestinationCard = {
+  href: string;
+  logo: string;
+  logoAlt: string;
+  subtitle: string;
+  text: string;
+  cta: string;
+};
 
 export function GatewayDestinationCards({
   className = "",
   reveal = true,
+  destinations = defaultDestinations,
 }: {
   className?: string;
   reveal?: boolean;
+  destinations?: readonly DestinationCard[];
 }) {
   return (
     <div className={`grid gap-4 sm:grid-cols-2 ${className}`.trim()}>
-      {gatewayDestinations.map((destination, index) => (
+      {destinations.map((destination, index) => (
         <a
           key={destination.href}
           href={destination.href}

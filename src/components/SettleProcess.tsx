@@ -1,8 +1,20 @@
+import { useState, type ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import processWarmRoomImage from "../assets/images/process-warm-room.png";
 
-const settleSteps = [
+type ProcessStep = {
+  number: string;
+  title: string;
+  body: string;
+};
+
+type ProcessCta = {
+  label: string;
+  href: string;
+};
+
+const defaultSettleSteps: ProcessStep[] = [
   {
     number: "01",
     title: "Įvertinimas.",
@@ -25,49 +37,74 @@ const settleSteps = [
   },
 ];
 
-export function SettleProcess() {
+export function SettleProcess({
+  id = "kaip-isikurti",
+  eyebrow = "Procesas",
+  title = (
+    <>
+      Kaip įsikurti
+      <br />
+      VCIIP
+    </>
+  ),
+  intro = "Aiškus kelias nuo pirmo kontakto iki veiklos pradžios. Operatorius lydi kiekviename žingsnyje.",
+  steps = defaultSettleSteps,
+  showImage = true,
+  cta = { label: "Sužinokite daugiau", href: "#kontaktai" },
+}: {
+  id?: string;
+  eyebrow?: string;
+  title?: ReactNode;
+  intro?: string;
+  steps?: ProcessStep[];
+  showImage?: boolean;
+  cta?: ProcessCta;
+}) {
   return (
-    <section id="kaip-isikurti" className="relative overflow-hidden bg-background section-shell">
+    <section id={id} className="relative overflow-hidden bg-background section-shell">
       <div className="site-container px-6 max-[479px]:px-4">
           <div
             className="mb-20 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)] max-[991px]:mb-14"
             data-reveal-group
           >
             <div className="flex flex-col items-start gap-7">
-              <p className="eyebrow reveal-item">Procesas</p>
+              <p className="eyebrow reveal-item">{eyebrow}</p>
               <h2 className="section-heading reveal-item max-w-4xl">
-                Kaip įsikurti
-                <br />
-                VCIIP
+                {title}
               </h2>
             </div>
 
             <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-muted max-[479px]:text-base">
-              Aiškus kelias nuo pirmo kontakto iki veiklos pradžios. Operatorius lydi
-              kiekviename žingsnyje.
+              {intro}
             </p>
           </div>
 
           <div
-            className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(540px,1fr)] lg:gap-16 max-[991px]:gap-12"
+            className={`grid items-stretch gap-10 max-[991px]:gap-12 ${
+              showImage
+                ? "lg:grid-cols-[minmax(0,1fr)_minmax(540px,1fr)] lg:gap-16"
+                : "lg:grid-cols-1"
+            }`}
             data-reveal-group
           >
-            <div
-              className="reveal-item relative h-full min-h-[260px] overflow-hidden rounded-none bg-background max-[767px]:min-h-[320px] max-[991px]:min-h-[360px] lg:min-h-0"
-              data-reveal="scale"
-            >
-              <img
-                src={processWarmRoomImage}
-                alt=""
-                className="absolute inset-0 h-full w-full object-cover"
-                loading="eager"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_2%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]" />
-            </div>
+            {showImage ? (
+              <div
+                className="reveal-item relative h-full min-h-[260px] overflow-hidden rounded-none bg-background max-[767px]:min-h-[320px] max-[991px]:min-h-[360px] lg:min-h-0"
+                data-reveal="scale"
+              >
+                <img
+                  src={processWarmRoomImage}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_2%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]" />
+              </div>
+            ) : null}
 
             <div className="reveal-item border-t border-dashed border-primary/18" data-reveal="fade">
-              {settleSteps.map((step) => (
+              {steps.map((step) => (
                 <article
                   key={step.number}
                   className="group grid gap-8 border-b border-dashed border-primary/18 py-8 text-primary transition-colors duration-300 hover:border-primary/34 max-[767px]:gap-4 max-[479px]:grid-cols-1 sm:grid-cols-[minmax(180px,0.74fr)_minmax(0,1fr)]"
@@ -92,12 +129,12 @@ export function SettleProcess() {
 
               <div className="pt-10">
                 <a
-                  href="#kontaktai"
+                  href={cta.href}
                   className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent hover:text-white"
                 >
                   <span className="h-5 overflow-hidden py-px">
                     <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
-                      {["Sužinokite daugiau", "Sužinokite daugiau"].map((label, index) => (
+                      {[cta.label, cta.label].map((label, index) => (
                         <span key={index} className="flex h-5 items-center gap-2">
                           {label}
                           <ArrowUpRight size={16} aria-hidden="true" />
