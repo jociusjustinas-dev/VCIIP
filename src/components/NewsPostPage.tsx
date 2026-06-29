@@ -9,6 +9,7 @@ import {
 } from "../lib/wordpress";
 import type { NewsPost, NewsPostDetail } from "../types/news";
 import { NewsCard } from "./NewsCard";
+import { ArticleShareActions } from "./ArticleShareActions";
 
 const articleColumnClass = "mx-auto w-full max-w-4xl";
 
@@ -57,8 +58,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
           <div className="content-container px-6 max-[479px]:px-4">
             <div className={articleColumnClass}>
               <div className="border-b border-dashed border-primary/28 pb-10 pt-2">
-                <div className="h-4 w-36 bg-primary/8" />
-                <div className="mt-6 h-3 w-24 bg-primary/8" />
+                <div className="h-3 w-24 bg-primary/8" />
                 <div className="mt-5 h-12 w-full bg-primary/8" />
                 <div className="mt-5 h-4 w-40 bg-primary/6" />
               </div>
@@ -126,15 +126,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
       <section className="relative bg-white p-2 pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
         <div className="content-container px-6 max-[479px]:px-4">
           <div className={`${articleColumnClass} border-b border-dashed border-primary/28 pb-10 pt-2`} data-reveal-group>
-            <a
-              href="/naujienos"
-              className="reveal-item inline-flex items-center gap-2 text-sm font-semibold leading-none text-primary/62 transition-colors duration-200 hover:text-accent"
-            >
-              <ArrowLeft size={16} aria-hidden="true" />
-              Grįžti į naujienas
-            </a>
-
-            <p className="eyebrow reveal-item mt-6 text-primary/62">Naujienos</p>
+            <p className="eyebrow reveal-item text-primary/62">Naujienos</p>
             <h1 className="display-h1 reveal-item mt-5">{post.title}</h1>
 
             <time
@@ -163,10 +155,11 @@ export function NewsPostPage({ slug }: { slug: string }) {
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
-            <footer className="reveal-item mt-14 border-t border-dashed border-primary/20 pt-8">
+            <footer className="reveal-item mt-14 flex flex-col gap-6 border-t border-dashed border-primary/20 pt-8">
+              <ArticleShareActions />
               <a
                 href="/naujienos"
-                className="inline-flex items-center gap-2 text-base font-semibold leading-none text-primary transition-colors duration-200 hover:text-accent"
+                className="inline-flex w-fit items-center gap-2 text-base font-semibold leading-none text-primary transition-colors duration-200 hover:text-accent"
               >
                 <ArrowLeft size={16} aria-hidden="true" />
                 Grįžti į naujienas
