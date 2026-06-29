@@ -427,6 +427,34 @@
     background: var(--color-white);
   }
 
+  .vilnius-vciip-map--placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+    border: 1px dashed color-mix(in srgb, var(--color-primary) 24%, transparent);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .vilnius-vciip-map__placeholder-label {
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .vilnius-vciip-map__placeholder-text {
+    margin: 0;
+    max-width: 18rem;
+    align-self: center;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
   .vilnius-vciip-map__image {
     display: block;
     width: 100%;
