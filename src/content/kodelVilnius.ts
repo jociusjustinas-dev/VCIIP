@@ -95,21 +95,41 @@ export const kodelVilniusTabs = {
   ],
 };
 
+import vilniusLocationMap from "../assets/images/vilnius-location-map.svg";
+
 export const kodelVilniusCityLocation = {
   eyebrow: "VCIIP lokacija",
   title: "Strategiškai patogi vieta Vilniuje.",
   intro:
-    "VCIIP BIO ir VCIIP TECH teritorijos išdėstytos taip, kad investuotojai galėtų pasinaudoti miesto infrastruktūra, talentais ir logistika.",
-  connectivity:
-    "Vismaliukai ir Liepkalnis jungiasi su miesto centru, oro uostu ir pagrindiniais keliais – tai leidžia planuoti tiek kasdienį darbą, tiek tarptautinę logistiką.",
-  pins: [
-    { label: "Miesto centras", left: "54%", top: "42%" },
-    { label: "Oro uostas", left: "72%", top: "38%" },
-    { label: "VCIIP BIO", left: "48%", top: "56%" },
-    { label: "VCIIP TECH", left: "58%", top: "62%" },
-    { label: "Universitetai", left: "50%", top: "48%" },
-    { label: "Pagrindiniai keliai", left: "62%", top: "52%" },
+    "VCIIP įsikūręs pačiame Vilniaus mieste – per 30 min. iki senamiesčio, geležinkelio ir autobusų stočių bei tarptautinio oro uosto. Šalia įsikūrę geriausi šalies universitetai, studentų miesteliai ir mokslo centrai.",
+  legend: [
+    {
+      label: "VCIIP",
+      symbol: "accent-dot",
+    },
+    {
+      label: "VCIIP klientams aktualios lokacijos",
+      symbol: "primary-dot",
+    },
+    {
+      label: "Artimiausios viešojo transporto stotelės",
+      symbol: "muted-dot",
+    },
+    {
+      label: "Galimi maršrutai nuo Tarptautinio Vilniaus oro uosto iki VCIIP",
+      symbol: "primary-line",
+    },
+    {
+      label: "Magistraliniai ir Europos keliai",
+      symbol: "muted-line",
+    },
+    {
+      label: "Geležinkelio kelių (bėgių) tinklas",
+      symbol: "dashed-line",
+    },
   ],
+  mapSrc: vilniusLocationMap,
+  mapAlt: "VCIIP vieta Vilniaus mieste",
 };
 
 export const kodelVilniusPartners = {
