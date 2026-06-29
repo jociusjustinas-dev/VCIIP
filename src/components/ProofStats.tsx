@@ -60,7 +60,7 @@ export function ProofStats() {
                 transitionDelay: `${index * 100}ms`,
               }}
             >
-              <div className="stat-value text-primary">{stat.value}</div>
+              <div className="stat-value">{stat.value}</div>
               <div className="text-base leading-loose text-primary/78">
                 {stat.label}
               </div>

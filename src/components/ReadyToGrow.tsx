@@ -216,7 +216,7 @@ export function ReadyToGrow() {
                   {title}
                 </span>
                 <span className="grid max-h-0 max-w-0 overflow-hidden opacity-0 transition-[max-height,max-width,opacity,margin] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:mt-1.5 group-hover:max-h-10 group-hover:max-w-[180px] group-hover:opacity-100 group-focus-visible:mt-1.5 group-focus-visible:max-h-10 group-focus-visible:max-w-[180px] group-focus-visible:opacity-100">
-                  <span className="translate-y-1 whitespace-nowrap text-2xl font-normal leading-none transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-focus-visible:translate-y-0">
+                  <span className="translate-y-1 whitespace-nowrap text-2xl font-normal leading-none text-accent transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-focus-visible:translate-y-0">
                     {value}
                   </span>
                 </span>
@@ -242,7 +242,7 @@ export function ReadyToGrow() {
                 {plotHotspot.title}
               </span>
               <span className="grid max-h-0 max-w-0 overflow-hidden opacity-0 transition-[max-height,max-width,opacity,margin] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:mt-1.5 group-hover:max-h-10 group-hover:max-w-[180px] group-hover:opacity-100 group-focus-visible:mt-1.5 group-focus-visible:max-h-10 group-focus-visible:max-w-[180px] group-focus-visible:opacity-100">
-                <span className="translate-y-1 whitespace-nowrap text-2xl font-normal leading-none transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-focus-visible:translate-y-0">
+                <span className="translate-y-1 whitespace-nowrap text-2xl font-normal leading-none text-accent transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-focus-visible:translate-y-0">
                   {plotHotspot.value}
                 </span>
               </span>
@@ -272,7 +272,7 @@ export function ReadyToGrow() {
                 </div>
                 <div className="flex flex-col gap-1">
                   <Icon size={18} aria-hidden="true" className="text-accent" />
-                  <span className="font-display text-3xl font-bold leading-none tracking-tight">
+                  <span className="font-display text-3xl font-bold leading-none tracking-tight text-accent">
                     {value}
                   </span>
                 </div>

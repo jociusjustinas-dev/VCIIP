@@ -74,7 +74,7 @@ export function SettleProcess() {
                   className="group grid gap-8 border-b border-dashed border-primary/18 py-8 text-primary transition-colors duration-300 hover:border-primary/34 max-[767px]:gap-4 max-[479px]:grid-cols-1 sm:grid-cols-[minmax(180px,0.74fr)_minmax(0,1fr)]"
                 >
                   <div className="flex flex-col gap-4">
-                    <span className="font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary/46 transition-colors duration-300 group-hover:text-accent">
+                    <span className="font-display text-sm font-bold uppercase leading-tight tracking-wide text-accent transition-colors duration-300 group-hover:text-accent">
                       {step.number}
                     </span>
                     <h3 className="heading-h3 text-primary">

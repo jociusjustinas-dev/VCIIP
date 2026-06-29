@@ -162,6 +162,7 @@
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.05em;
+    color: var(--color-accent);
   }
 
   .body-lead {
