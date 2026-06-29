@@ -32,7 +32,7 @@ export function NewsCard({
           {formatNewsDate(post.date)}
         </time>
 
-        <h3 className="mt-2 text-lg font-medium leading-[1.35] text-primary transition-colors duration-200 group-hover:text-accent max-[479px]:text-base">
+        <h3 className="mt-2 text-[clamp(1.125rem,1.55vw,1.5rem)] font-medium leading-[1.32] text-primary transition-colors duration-200 group-hover:text-accent">
           {post.title}
         </h3>
 
