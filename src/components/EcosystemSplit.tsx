@@ -9,24 +9,24 @@ export function EcosystemSplit() {
   return (
     <section className="relative overflow-hidden bg-primary text-white section-shell" id="lokacija">
       <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
-          <div className="mb-20 flex flex-col gap-12 px-4 max-[767px]:px-0 max-[479px]:mb-12" data-reveal-group>
-            <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)]">
+          <div className="mb-12 flex flex-col gap-6 px-4 max-[767px]:px-0 max-[479px]:mb-8" data-reveal-group>
+            <div className="grid items-end gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)]">
               <h2 className="section-heading reveal-item max-w-4xl text-white">
                 Du parkai.
                 <br />
                 Viena ekosistema.
               </h2>
-              <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-white/74 max-[479px]:text-base">
+              <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-normal text-white/74">
                 VCIIP – tai dvi viena kitą papildančios teritorijos: veikianti ekosistema
                 Vismaliukuose ir nauja plėtra Liepkalnyje.
               </p>
             </div>
           </div>
 
-          <div className="flex gap-8 max-[767px]:flex-col" data-reveal-group>
+          <div className="flex gap-6 max-[767px]:flex-col" data-reveal-group>
             <div className="w-1/2 px-4 max-[767px]:w-full max-[767px]:px-0">
-              <div className="reveal-item flex h-full max-w-[620px] flex-col items-start justify-between gap-10 max-[767px]:gap-8">
-                <div className="flex w-full flex-col gap-8">
+              <div className="reveal-item flex max-w-[620px] flex-col items-start gap-5 max-[767px]:gap-4">
+                <div className="flex w-full flex-col gap-4">
                   <div className="h-0 w-full border-b border-dashed border-white/48" />
                   <img
                     src={bioLogoWhite}
@@ -38,8 +38,8 @@ export function EcosystemSplit() {
                   </h3>
                 </div>
 
-                <div className="flex flex-col gap-6">
-                  <p className="m-0 max-w-xl text-base font-normal leading-loose text-white/72 max-[479px]:text-base">
+                <div className="flex flex-col gap-4">
+                  <p className="m-0 max-w-xl text-base font-normal leading-normal text-white/72">
                     Vismaliukų teritorijoje jau veikia 30+ inovatyvių kompanijų ir gyvybės
                     mokslų klasteris. Tai įrodymas, kad VCIIP modelis veikia ir kuria realią
                     vertę.
@@ -69,7 +69,7 @@ export function EcosystemSplit() {
                 <ParallaxImage
                   src={ecosystemBioImage}
                   alt=""
-                  className="h-[640px] w-full max-[991px]:h-[500px] max-[767px]:h-[400px] max-[479px]:h-[250px]"
+                  className="h-[420px] w-full max-[991px]:h-[360px] max-[767px]:h-[300px] max-[479px]:h-[220px]"
                   loading="lazy"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]" />
@@ -77,13 +77,13 @@ export function EcosystemSplit() {
             </div>
           </div>
 
-          <div className="mt-32 flex gap-8 max-[991px]:mt-24 max-[767px]:mt-16 max-[767px]:flex-col-reverse" data-reveal-group>
+          <div className="mt-16 flex gap-6 max-[991px]:mt-14 max-[767px]:mt-12 max-[767px]:flex-col-reverse" data-reveal-group>
             <div className="flex w-1/2 items-center justify-start px-4 max-[767px]:w-full max-[767px]:px-0">
               <div className="reveal-item relative w-full overflow-hidden rounded-none bg-primary" data-reveal="scale">
                 <ParallaxImage
                   src={ecosystemTechImage}
                   alt=""
-                  className="h-[640px] w-full max-[991px]:h-[500px] max-[767px]:h-[400px] max-[479px]:h-[250px]"
+                  className="h-[420px] w-full max-[991px]:h-[360px] max-[767px]:h-[300px] max-[479px]:h-[220px]"
                   loading="lazy"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_2%,transparent),color-mix(in_srgb,var(--color-primary)_30%,transparent))]" />
@@ -91,8 +91,8 @@ export function EcosystemSplit() {
             </div>
 
             <div className="flex w-1/2 justify-end px-4 max-[767px]:w-full max-[767px]:px-0">
-              <div className="reveal-item flex h-full max-w-[620px] flex-col items-start justify-between gap-10 max-[767px]:gap-8">
-                <div className="flex w-full flex-col gap-8">
+              <div className="reveal-item flex max-w-[620px] flex-col items-start gap-5 max-[767px]:gap-4">
+                <div className="flex w-full flex-col gap-4">
                   <div className="h-0 w-full border-b border-dashed border-white/48" />
                   <div className="flex flex-wrap items-center gap-3">
                     <img
@@ -109,8 +109,8 @@ export function EcosystemSplit() {
                   </h3>
                 </div>
 
-                <div className="flex flex-col gap-6">
-                  <p className="m-0 max-w-xl text-base font-normal leading-loose text-white/72 max-[479px]:text-base">
+                <div className="flex flex-col gap-4">
+                  <p className="m-0 max-w-xl text-base font-normal leading-normal text-white/72">
                     Beveik 39 ha nauja teritorija su plėtojama inžinerine infrastruktūra.
                     Vieta jūsų gamybai, laboratorijoms ar tyrimų centrui.
                   </p>
