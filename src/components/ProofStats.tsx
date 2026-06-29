@@ -71,17 +71,14 @@ export function ProofStats() {
           </h2>
         </div>
 
-        <div
-          className="grid border-t border-dashed border-primary/48 sm:grid-cols-2 lg:grid-cols-4"
-          data-reveal-group
-        >
+        <div className="grid border-t border-dashed border-primary/48 sm:grid-cols-2 lg:grid-cols-4" data-reveal-group>
           {stats.map((stat, index) => (
             <div
               key={stat.label}
               ref={(element) => {
                 tileRefs.current[index] = element;
               }}
-              className="reveal-item flex flex-col gap-3 border-t border-dashed border-primary/48 px-0 py-6 transition-all duration-700 ease-out sm:border-l sm:px-5 sm:first:border-l-0 lg:px-6"
+              className="reveal-item flex flex-col gap-3 border-dashed border-primary/48 px-0 py-6 transition-all duration-700 ease-out max-sm:[&:not(:first-child)]:border-t sm:px-5 sm:[&:nth-child(even)]:border-l sm:[&:nth-child(n+3)]:border-t lg:[&:not(:first-child)]:border-l lg:[&:nth-child(n+3)]:border-t-0 lg:px-6"
               style={{
                 opacity: visibleTiles[index] ? 1 : 0,
                 transform: visibleTiles[index] ? "translateY(0)" : "translateY(20px)",
