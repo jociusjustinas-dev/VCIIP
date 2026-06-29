@@ -54,10 +54,12 @@ export function Navigation({
   const navRef = useRef<HTMLDivElement>(null);
   const logos =
     tealLogo && variant === "vciip" ? vciipTealLogos : brandLogos[variant];
-  const contactHref = resolveNavHref(
-    variant === "bio" ? "/ekosistema" : variant === "tech" ? "/tech" : "/",
-    "investuotojo-uzklausa",
-  );
+  const contactHref =
+    variant === "bio"
+      ? "/kontaktai?interest=bio"
+      : variant === "tech"
+        ? "/kontaktai?interest=tech"
+        : "/kontaktai";
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
     const normalizePath = (path: string) => path.replace(/\/$/, "") || "/";
