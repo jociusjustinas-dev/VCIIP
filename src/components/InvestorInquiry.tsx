@@ -38,13 +38,13 @@ export function InvestorInquiry({
   const content = (
     <div className="site-container px-6 max-[479px]:px-4">
       <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(560px,1fr)] lg:gap-16" data-reveal-group>
-        <div className="reveal-item flex max-w-2xl flex-col gap-7 lg:max-w-none">
+        <div className="reveal-item flex max-w-2xl flex-col gap-5 lg:max-w-none">
             {showEyebrow && (
               <p className={`eyebrow ${isLight ? "" : "eyebrow-on-dark"}`}>
                 {eyebrow}
               </p>
             )}
-            <h2 className={`section-heading max-w-3xl ${isLight ? "text-primary" : "text-white"}`}>
+            <h2 className={`heading-h3 max-w-3xl ${isLight ? "text-primary" : "text-white"}`}>
               Papasakokite
               <br />
               apie savo planus
@@ -225,13 +225,13 @@ export function InvestorInquiry({
   );
 
   return (
-    <section id="investuotojo-uzklausa" className="relative bg-white p-2">
+    <section id="investuotojo-uzklausa" className="relative bg-white">
       {isLight ? (
-        <div className="relative overflow-hidden rounded-none bg-white section-shell">
+        <div className="relative overflow-hidden rounded-none bg-white py-10 max-[991px]:py-8 max-[479px]:py-7">
           {content}
         </div>
       ) : (
-        <div className="relative overflow-hidden rounded-none bg-primary section-shell text-white">
+        <div className="relative overflow-hidden rounded-none bg-primary py-14 text-white max-[991px]:py-12 max-[479px]:py-10">
           {content}
         </div>
       )}
