@@ -1,3 +1,4 @@
+import { AvailablePlotsSection } from "./AvailablePlotsSection";
 import { MediaNewsSection } from "./MediaNewsSection";
 import { EcosystemMarquee } from "./EcosystemMarquee";
 import { EcosystemSplit } from "./EcosystemSplit";
@@ -22,6 +23,7 @@ export function InvestmentLandingPage({ variant = "tech" }: { variant?: "index" 
         <>
           <WhyInvestors />
           <EcosystemMarquee />
+          <AvailablePlotsSection />
           <SettleProcess />
           <VilniusEcosystem />
         </>
