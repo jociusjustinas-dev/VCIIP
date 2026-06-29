@@ -15,9 +15,9 @@ export const bioNavGroup: NavGroup = {
   label: "VCIIP Bio",
   pageHref: "/ekosistema",
   items: [
-    { label: "Apie VCIIP Bio", href: "apie-vciip-bio" },
+    { label: "Apie VCIIP Bio", href: "apie" },
     { label: "Lokacija", href: "lokacija" },
-    { label: "Patalpos nuomai", href: "patalpos-nuomai" },
+    { label: "Patalpos nuomai", href: "patalpos" },
   ],
 };
 

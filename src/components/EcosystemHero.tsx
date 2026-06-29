@@ -6,11 +6,11 @@ const ecosystemHeroVideoSrc =
 export function EcosystemHero() {
   return (
     <HubSplitHero
-      id="apie-vciip-bio"
+      id="apie"
       eyebrow="VCIIP BIO"
       title="Gyvybės mokslų ekosistema Vilniuje."
       description="VCIIP BIO teritorijoje jau šiandien veikia gyvybės mokslų, tyrimų ir inovacijų organizacijos, formuojančios vieną stipriausių ekosistemų regione."
-      primaryCta={{ label: "Tyrinėti ekosistemą", href: "#ekosistema-turinys" }}
+      primaryCta={{ label: "Tyrinėti ekosistemą", href: "#lokacija" }}
       secondaryCta={{ label: "Susisiekti", href: "/kontaktai?interest=bio" }}
       media={{ type: "video", src: ecosystemHeroVideoSrc }}
     />

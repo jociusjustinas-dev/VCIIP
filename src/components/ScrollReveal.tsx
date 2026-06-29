@@ -28,9 +28,9 @@ function setupRevealItem(
   }
 
   const isHeroItem =
+    item.closest("#apie") ||
     item.closest("#apie-vciip-tech") ||
-    item.closest("#apie-vciip") ||
-    item.closest("#apie-vciip-bio");
+    item.closest("#apie-vciip");
 
   if (isHeroItem) {
     item.classList.add("is-visible");

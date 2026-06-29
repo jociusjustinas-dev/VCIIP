@@ -3,13 +3,16 @@ import ecosystemTechImage from "../assets/images/ecosystem-tech.jpg";
 import modernOfficeImage from "../assets/images/modern-office-work.png";
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 
+export const bioApieIntro =
+  "Nuo 2018 metų Vismaliukuose formuojama gyvybės mokslų ekosistema – čia jau šiandien veikia tyrimų, inovacijų ir verslo organizacijos, kurios kuria aukštos pridėtinės vertės sprendimus Vilniuje.";
+
 export const bioTabsContent = {
-  id: "patalpos-nuomai",
+  id: "lokacija",
   eyebrow: "VCIIP BIO",
-  titleHighlight: "Gyvybės mokslams",
-  titleRest: "pritaikyta aplinka.",
+  titleHighlight: "Vismaliukuose",
+  titleRest: "susitelkusi ekosistema.",
   intro:
-    "VCIIP BIO vystoma organizacijoms, kurioms svarbi infrastruktūra, bendradarbiavimo ekosistema ir ilgalaikės augimo galimybės.",
+    "VCIIP BIO teritorijoje rodomas Vismaliukų kontekstas, infrastruktūra, partnerystės ir aplinka – vieta, kur gyvybės mokslų organizacijos gali augti ilgalaikėje ekosistemoje.",
   tablistLabel: "VCIIP BIO temos",
   tabs: [
     {
@@ -55,17 +58,17 @@ export const bioTabsContent = {
 };
 
 export const bioGrowthContent = {
-  id: "bio-pletra",
-  eyebrow: "VCIIP BIO",
-  titleHighlight: "Aplinka",
-  titleRest: "tolimesnei plėtrai.",
+  id: "patalpos",
+  eyebrow: "Patalpos nuomai",
+  titleHighlight: "Galimybės",
+  titleRest: "jūsų organizacijai.",
   intro:
-    "VCIIP BIO teritorijoje planuojama tolimesnė gyvybės mokslų infrastruktūros ir ekosistemos plėtra, sudaranti galimybes organizacijų augimui vienoje teritorijoje.",
+    "VCIIP BIO teritorijoje galite rasti patalpas ir plėtros galimybes, pritaikytas gyvybės mokslų, tyrimų ir inovacijų veiklai. Susisiekite – padėsime įvertinti tinkamiausią sprendimą.",
   highlights: [
-    "Galimybės tolimesnei plėtrai",
-    "Integracija į esamą ekosistemą",
-    "Planuojama infrastruktūros plėtra",
-    "Ilgalaikė teritorijos vystymo kryptis",
+    "Patalpos ir laboratorijų galimybės",
+    "Plėtros potencialas esamoje teritorijoje",
+    "Individualus sprendimas pagal veiklos poreikius",
+    "Tiesioginis kontaktas su VCIIP operatoriumi",
   ],
   note: "Dalis infrastruktūros ir teritorijos vystoma etapais kartu su VCIIP plėtra.",
   primaryCta: {

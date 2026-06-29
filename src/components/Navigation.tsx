@@ -72,7 +72,7 @@ export function Navigation({
 
     const heroId =
       variant === "bio"
-        ? "apie-vciip-bio"
+        ? "apie"
         : variant === "tech"
           ? "apie-vciip-tech"
           : "apie-vciip";
