@@ -41,11 +41,11 @@ export function MediaNewsSection() {
             {Array.from({ length: 3 }, (_, index) => (
               <div
                 key={index}
-                className="flex flex-col border border-primary/10 bg-white"
+                className="flex flex-col bg-white"
                 aria-hidden="true"
               >
-                <div className="aspect-video border-b border-primary/10 bg-background" />
-                <div className="flex flex-col gap-3 p-5">
+                <div className="aspect-video bg-background" />
+                <div className="flex flex-col gap-3 pt-4">
                   <div className="h-3 w-24 bg-primary/8" />
                   <div className="h-6 w-full bg-primary/8" />
                   <div className="h-16 w-full bg-primary/6" />

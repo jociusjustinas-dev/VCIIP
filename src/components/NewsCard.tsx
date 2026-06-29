@@ -13,9 +13,9 @@ export function NewsCard({
   return (
     <a
       href={post.url}
-      className={`group flex h-full w-[min(88vw,360px)] shrink-0 snap-start flex-col border border-primary/14 bg-white transition-[border-color,background-color] duration-200 hover:border-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 lg:w-auto lg:min-w-0 ${className}`}
+      className={`group flex h-full w-[min(88vw,360px)] shrink-0 snap-start flex-col bg-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 lg:w-auto lg:min-w-0 ${className}`}
     >
-      <div className="aspect-video overflow-hidden border-b border-primary/10 bg-background">
+      <div className="aspect-video overflow-hidden bg-background">
         <img
           src={imageUrl}
           alt=""
@@ -24,7 +24,7 @@ export function NewsCard({
         />
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col pt-4">
         <time
           dateTime={post.date}
           className="font-mono text-[0.6875rem] font-semibold uppercase leading-[1.3] tracking-[0.1em] text-primary/52"
@@ -32,7 +32,7 @@ export function NewsCard({
           {formatNewsDate(post.date)}
         </time>
 
-        <h3 className="heading-h3 mt-3 text-primary transition-colors duration-200 group-hover:text-accent">
+        <h3 className="mt-2 text-lg font-medium leading-[1.35] text-primary transition-colors duration-200 group-hover:text-accent max-[479px]:text-base">
           {post.title}
         </h3>
 
