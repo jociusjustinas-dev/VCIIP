@@ -27,7 +27,6 @@ export function EcosystemSplit() {
             <div className="flex w-1/2 items-center px-4 max-[767px]:w-full max-[767px]:px-0">
               <div className="reveal-item flex max-w-[620px] flex-col items-start gap-5 max-[767px]:gap-4">
                 <div className="flex w-full flex-col gap-4">
-                  <div className="h-0 w-full border-b border-dashed border-white/48 max-[767px]:hidden" />
                   <img
                     src={bioLogoWhite}
                     alt="VCIIP BIO"
