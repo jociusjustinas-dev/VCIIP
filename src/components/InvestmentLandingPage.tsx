@@ -2,7 +2,7 @@ import { MediaNewsSection } from "./MediaNewsSection";
 import { EcosystemMarquee } from "./EcosystemMarquee";
 import { EcosystemSplit } from "./EcosystemSplit";
 import { GatewayHero } from "./GatewayHero";
-import { Hero } from "./Hero";
+import { TechHero } from "./TechHero";
 import { InvestorInquiry } from "./InvestorInquiry";
 import { ProofStats } from "./ProofStats";
 import { ReadyToGrow } from "./ReadyToGrow";
@@ -15,7 +15,7 @@ export function InvestmentLandingPage({ variant = "tech" }: { variant?: "index" 
 
   return (
     <main>
-      {variant === "index" ? <GatewayHero /> : <Hero />}
+      {variant === "index" ? <GatewayHero /> : <TechHero />}
       <ProofStats />
       <EcosystemSplit />
       {variant === "index" && <MediaNewsSection />}
