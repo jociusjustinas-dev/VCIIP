@@ -295,6 +295,89 @@
     padding-block: 5rem;
   }
 
+  .hub-split-hero {
+    --hero-pad: 7rem;
+    box-sizing: border-box;
+    min-height: 100svh;
+    padding-top: var(--hero-pad);
+    padding-bottom: var(--hero-pad);
+    background: var(--color-white);
+  }
+
+  .hub-split-hero__grid {
+    display: grid;
+    width: 100%;
+    gap: 2rem;
+  }
+
+  .hub-split-hero__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .hub-split-hero__media {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-image);
+    background: var(--color-primary);
+    min-height: min(400px, 50svh);
+  }
+
+  .hub-split-hero__media img,
+  .hub-split-hero__media video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 991px) {
+    .hub-split-hero {
+      --hero-pad: 6rem;
+    }
+
+    .hub-split-hero__media {
+      min-height: min(360px, 45svh);
+    }
+  }
+
+  @media (max-width: 479px) {
+    .hub-split-hero {
+      --hero-pad: 5rem;
+    }
+
+    .hub-split-hero__grid {
+      gap: 2rem;
+    }
+
+    .hub-split-hero__media {
+      min-height: min(280px, 40svh);
+    }
+  }
+
+  @media (min-width: 992px) {
+    .hub-split-hero {
+      height: 100svh;
+    }
+
+    .hub-split-hero__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 2.5rem;
+      height: calc(100svh - (var(--hero-pad) * 2));
+    }
+
+    .hub-split-hero__media {
+      min-height: 0;
+      height: 100%;
+    }
+  }
+
   .btn-primary {
     display: inline-flex;
     min-height: 3rem;

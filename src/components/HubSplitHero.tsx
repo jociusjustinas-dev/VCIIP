@@ -30,17 +30,10 @@ export function HubSplitHero({
   const [primaryHovered, setPrimaryHovered] = useState(false);
 
   return (
-    <section
-      id={id}
-      className="relative box-border min-h-[100svh] bg-white [--hero-pad:7rem] max-[991px]:[--hero-pad:6rem] max-[479px]:[--hero-pad:5rem]"
-      style={{
-        paddingTop: "var(--hero-pad)",
-        paddingBottom: "var(--hero-pad)",
-      }}
-    >
+    <section id={id} className="hub-split-hero relative">
       <div className="site-container px-6 max-[479px]:px-4">
-        <div className="grid w-full gap-8 max-[991px]:grid-cols-1 lg:h-[calc(100svh-(var(--hero-pad)*2))] lg:grid-cols-2 lg:items-stretch lg:gap-10">
-          <div className="relative z-[2] flex flex-col justify-center gap-6" data-reveal-group>
+        <div className="hub-split-hero__grid">
+          <div className="hub-split-hero__content" data-reveal-group>
             <p className="eyebrow reveal-item">{eyebrow}</p>
 
             <div className="max-w-[600px]">
@@ -82,27 +75,13 @@ export function HubSplitHero({
             </div>
           </div>
 
-          <div
-            className="reveal-item relative min-h-[min(400px,50svh)] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[min(360px,45svh)] max-[479px]:min-h-[min(280px,40svh)] lg:h-full lg:min-h-0"
-            data-reveal="scale"
-          >
+          <div className="hub-split-hero__media reveal-item" data-reveal="scale">
             {media.type === "video" ? (
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 h-full w-full object-cover"
-                aria-hidden="true"
-              >
+              <video autoPlay loop muted playsInline aria-hidden="true">
                 <source src={media.src} type="video/mp4" />
               </video>
             ) : (
-              <img
-                src={media.src}
-                alt={media.alt ?? ""}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
+              <img src={media.src} alt={media.alt ?? ""} />
             )}
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,transparent),color-mix(in_srgb,var(--color-primary)_28%,transparent))]" />
           </div>
