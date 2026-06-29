@@ -7,9 +7,8 @@ import { ParallaxImage } from "./ParallaxImage";
 
 export function EcosystemSplit() {
   return (
-    <section className="relative bg-white p-2" id="lokacija">
-      <div className="relative overflow-hidden rounded-none bg-primary text-white section-shell">
-        <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
+    <section className="relative overflow-hidden bg-primary text-white section-shell" id="lokacija">
+      <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
           <div className="mb-20 flex flex-col gap-12 px-4 max-[767px]:px-0 max-[479px]:mb-12" data-reveal-group>
             <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)]">
               <h2 className="section-heading reveal-item max-w-4xl text-white">
@@ -138,7 +137,6 @@ export function EcosystemSplit() {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }
