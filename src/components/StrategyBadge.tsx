@@ -11,7 +11,8 @@ export function StrategyBadge({ active = false }: { active?: boolean }) {
 
     const updateVisibility = () => {
       const hero =
-        document.getElementById("apie-vciip-tech") ?? document.getElementById("apie-vciip");
+        document.getElementById("apie") ??
+        document.getElementById("apie-vciip");
       if (!hero) {
         setVisible(window.scrollY < window.innerHeight * 0.75);
         return;

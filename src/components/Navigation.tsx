@@ -70,12 +70,7 @@ export function Navigation({
 
     event.preventDefault();
 
-    const heroId =
-      variant === "bio"
-        ? "apie"
-        : variant === "tech"
-          ? "apie-vciip-tech"
-          : "apie-vciip";
+    const heroId = variant === "vciip" ? "apie-vciip" : "apie";
 
     if (heroId && document.getElementById(heroId)) {
       scrollToHash(`#${heroId}`);

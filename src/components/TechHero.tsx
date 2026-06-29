@@ -5,7 +5,7 @@ import { HubSplitHero } from "./HubSplitHero";
 export function TechHero() {
   return (
     <HubSplitHero
-      id="apie-vciip-tech"
+      id="apie"
       eyebrow="VCIIP TECH"
       title={
         <>
