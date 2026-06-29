@@ -80,9 +80,19 @@ function mapPostDetail(post: WpPost): NewsPostDetail {
   };
 }
 
-export function getNewsPostHref(post: Pick<NewsPost, "slug" | "url">) {
-  if (post.slug) return `/naujienos/${post.slug}`;
-  return post.url;
+export function getNewsPostHref() {
+  return NEWS_INNER_PAGE_PATH;
+}
+
+export const NEWS_INNER_PAGE_SLUG = "straipsnis";
+export const NEWS_INNER_PAGE_PATH = `/naujienos/${NEWS_INNER_PAGE_SLUG}`;
+
+export function getDemoNewsPostDetail(): NewsPostDetail {
+  const post = fallbackNewsPosts[0];
+  return {
+    ...post,
+    content: buildFallbackContent(post),
+  };
 }
 
 function buildFallbackContent(post: NewsPost) {
@@ -173,6 +183,10 @@ export async function fetchLatestNewsPosts(limit = 3): Promise<NewsPost[]> {
 }
 
 export async function fetchPostBySlug(slug: string): Promise<NewsPostDetail | null> {
+  if (slug === NEWS_INNER_PAGE_SLUG) {
+    return getDemoNewsPostDetail();
+  }
+
   try {
     const params = new URLSearchParams({
       slug,

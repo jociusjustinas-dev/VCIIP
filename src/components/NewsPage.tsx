@@ -1,5 +1,4 @@
 import { useEffect, useState, type CSSProperties } from "react";
-import { ArrowUpRight } from "lucide-react";
 
 import { fetchLatestNewsPosts } from "../lib/wordpress";
 import type { NewsPost } from "../types/news";
