@@ -151,9 +151,5 @@ export const kodelVilniusCta = {
   title: "Pasikalbėkime apie jūsų planus Vilniuje.",
   description:
     "Padėsime įvertinti, kuri VCIIP teritorija geriausiai atitinka jūsų veiklos poreikius.",
-  links: [
-    { label: "VCIIP Bio", href: "/ekosistema" },
-    { label: "VCIIP Tech", href: "/tech" },
-    { label: "Susisiekti", href: "/kontaktai" },
-  ],
+  contactHref: "/kontaktai",
 };
