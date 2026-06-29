@@ -29,7 +29,6 @@ function setupRevealItem(
 
   const isHeroItem =
     item.closest("#apie") ||
-    item.closest("#apie-vciip-tech") ||
     item.closest("#apie-vciip");
 
   if (isHeroItem) {

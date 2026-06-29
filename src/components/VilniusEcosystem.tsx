@@ -49,7 +49,7 @@ const vilniusTabs = [
 export function VilniusEcosystem() {
   return (
     <FeatureTabsSection
-      id="kodel-vilnius"
+      id="lokacija"
       eyebrow="VCIIP aplinka"
       titleHighlight="Inovacijų ekosistema,"
       titleRest="integruota į Vilniaus miestą."

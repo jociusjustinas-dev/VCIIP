@@ -26,10 +26,10 @@ export const techNavGroup: NavGroup = {
   label: "VCIIP Tech",
   pageHref: "/tech",
   items: [
-    { label: "Apie VCIIP Tech", href: "apie-vciip-tech" },
+    { label: "Apie", href: "apie" },
     { label: "Sklypai", href: "sklypai" },
-    { label: "Lokacija", href: "lokacija" },
     { label: "Kaip įsikurti", href: "kaip-isikurti" },
+    { label: "Lokacija", href: "lokacija" },
   ],
 };
 
