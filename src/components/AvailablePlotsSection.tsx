@@ -140,9 +140,13 @@ export function AvailablePlotsSection() {
       <section id="sklypai" className="plot-section relative bg-white section-shell">
         <div className="site-container px-6 max-[479px]:px-4">
           <div className="plot-section__intro" data-reveal-group>
-            <p className="eyebrow reveal-item">{plotsSectionCopy.eyebrow}</p>
-            <h2 className="section-heading reveal-item max-w-4xl">{plotsSectionCopy.title}</h2>
-            <p className="reveal-item body-lead m-0 max-w-3xl text-muted">{plotsSectionCopy.intro}</p>
+            <div className="plot-section__intro-heading">
+              <p className="eyebrow reveal-item">{plotsSectionCopy.eyebrow}</p>
+              <h2 className="section-heading reveal-item max-w-4xl">{plotsSectionCopy.title}</h2>
+            </div>
+            <p className="reveal-item plot-section__intro-text body-lead m-0 text-muted">
+              {plotsSectionCopy.intro}
+            </p>
           </div>
           <div className="plot-section__loading" aria-hidden="true">
             <div className="plot-section__loading-map" />
@@ -159,9 +163,13 @@ export function AvailablePlotsSection() {
     <section id="sklypai" className="plot-section relative bg-white section-shell">
       <div className="site-container px-6 max-[479px]:px-4">
         <div className="plot-section__intro" data-reveal-group>
-          <p className="eyebrow reveal-item">{plotsSectionCopy.eyebrow}</p>
-          <h2 className="section-heading reveal-item max-w-4xl">{plotsSectionCopy.title}</h2>
-          <p className="reveal-item body-lead m-0 max-w-3xl text-muted">{plotsSectionCopy.intro}</p>
+          <div className="plot-section__intro-heading">
+            <p className="eyebrow reveal-item">{plotsSectionCopy.eyebrow}</p>
+            <h2 className="section-heading reveal-item max-w-4xl">{plotsSectionCopy.title}</h2>
+          </div>
+          <p className="reveal-item plot-section__intro-text body-lead m-0 text-muted">
+            {plotsSectionCopy.intro}
+          </p>
         </div>
 
         <div className="plot-section__workspace reveal-item" data-reveal="fade">
