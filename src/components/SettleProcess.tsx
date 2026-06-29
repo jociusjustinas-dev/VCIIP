@@ -50,11 +50,11 @@ export function SettleProcess() {
           </div>
 
           <div
-            className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(540px,1fr)] lg:gap-16 max-[991px]:gap-12"
+            className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(540px,1fr)] lg:gap-16 max-[991px]:gap-12"
             data-reveal-group
           >
             <div
-              className="reveal-item sticky top-28 min-h-[480px] overflow-hidden rounded-none bg-background max-[991px]:static max-[991px]:min-h-[360px] max-[767px]:min-h-[320px] max-[479px]:min-h-[260px]"
+              className="reveal-item relative h-full min-h-[260px] overflow-hidden rounded-none bg-background max-[767px]:min-h-[320px] max-[991px]:min-h-[360px] lg:min-h-0"
               data-reveal="scale"
             >
               <img
