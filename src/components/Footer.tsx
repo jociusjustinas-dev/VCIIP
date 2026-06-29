@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import bioLogo from "../assets/logos/bio.svg";
-import iconFacebook from "../assets/icons/icon-facebook.svg";
-import iconLinkedin from "../assets/icons/icon-linkedin.svg";
+import { FacebookIcon, LinkedinIcon } from "./FooterSocialIcons";
 import vciipLogo from "../assets/logos/logo-dark.svg";
 import vciipLogoTeal from "../assets/logos/logo-teal-dark.svg";
 import techLogo from "../assets/logos/tech.svg";
@@ -22,11 +21,11 @@ const partnerLinks = [
 ];
 
 const socialLinks = [
-  { label: "VCIIP Facebook", href: "https://www.facebook.com/VCIIP/", icon: iconFacebook },
+  { label: "VCIIP Facebook", href: "https://www.facebook.com/VCIIP/", Icon: FacebookIcon },
   {
     label: "VCIIP LinkedIn",
     href: "https://www.linkedin.com/company/vilnius-city-innovation-industrial-park/",
-    icon: iconLinkedin,
+    Icon: LinkedinIcon,
   },
 ] as const;
 
@@ -65,8 +64,8 @@ export function Footer({
                 vertės inovacijų, gyvybės mokslų ir pažangios gamybos veikloms.
               </p>
               <div className="flex items-center gap-2.5">
-                {socialLinks.map(({ label, href, icon }) => (
-                  <FooterSocialLink key={href} href={href} label={label} icon={icon} />
+                {socialLinks.map(({ label, href, Icon }) => (
+                  <FooterSocialLink key={href} href={href} label={label} Icon={Icon} />
                 ))}
               </div>
             </div>
@@ -161,11 +160,11 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
 function FooterSocialLink({
   href,
   label,
-  icon,
+  Icon,
 }: {
   href: string;
   label: string;
-  icon: string;
+  Icon: typeof FacebookIcon;
 }) {
   return (
     <a
@@ -173,13 +172,9 @@ function FooterSocialLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="group inline-flex size-10 items-center justify-center rounded-full border border-[#c5c5cb] bg-white transition-colors duration-150 hover:border-accent hover:bg-accent"
+      className="group inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-[#c5c5cb] bg-white text-primary transition-colors duration-150 hover:border-accent hover:bg-accent hover:text-white"
     >
-      <span
-        aria-hidden="true"
-        className="block size-3.5 bg-no-repeat bg-[length:14px_28px] bg-[position:0_0] group-hover:bg-[position:0_-14px]"
-        style={{ backgroundImage: `url(${icon})` }}
-      />
+      <Icon className="block size-3" />
     </a>
   );
 }
