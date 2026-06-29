@@ -33,16 +33,11 @@ export function HubSplitHero({
     <section
       id={id}
       className="relative min-h-[100svh] bg-white [--hero-pad:7rem] max-[991px]:[--hero-pad:6rem] max-[479px]:[--hero-pad:5rem]"
-      style={{
-        paddingTop: "var(--hero-pad)",
-        paddingBottom: "var(--hero-pad)",
-      }}
+      style={{ paddingTop: "var(--hero-pad)" }}
     >
-      <div className="site-container h-full px-6 max-[479px]:px-4">
-        <div
-          className="grid w-full gap-8 max-[991px]:grid-cols-1 lg:h-[calc(100svh-(var(--hero-pad)*2))] lg:grid-cols-2 lg:items-stretch lg:gap-10"
-        >
-          <div className="relative z-[2] flex flex-col justify-center gap-6 py-2" data-reveal-group>
+      <div className="site-container px-6 max-[479px]:px-4 lg:min-h-[calc(100svh-var(--hero-pad))]">
+        <div className="grid w-full gap-8 max-[991px]:grid-cols-1 lg:grid-cols-2 lg:items-stretch lg:gap-10 lg:min-h-[calc(100svh-var(--hero-pad))]">
+          <div className="relative z-[2] flex flex-col justify-center gap-6 py-2 lg:py-0" data-reveal-group>
             <p className="eyebrow reveal-item">{eyebrow}</p>
 
             <div className="max-w-[600px]">
@@ -85,7 +80,7 @@ export function HubSplitHero({
           </div>
 
           <div
-            className="reveal-item relative min-h-[min(400px,50svh)] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[min(360px,45svh)] max-[479px]:min-h-[min(280px,40svh)] lg:h-[calc(100svh-(var(--hero-pad)*2))] lg:min-h-0"
+            className="reveal-item relative min-h-[min(400px,50svh)] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[min(360px,45svh)] max-[479px]:min-h-[min(280px,40svh)] lg:min-h-[calc(100svh-var(--hero-pad))] lg:self-stretch"
             data-reveal="scale"
           >
             {media.type === "video" ? (
