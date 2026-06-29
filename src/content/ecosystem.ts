@@ -57,16 +57,24 @@ export const bioTabsContent = {
 export const bioGrowthContent = {
   id: "bio-pletra",
   eyebrow: "VCIIP BIO",
-  title: "Galimybės tolimesnei plėtrai",
+  titleHighlight: "Aplinka",
+  titleRest: "tolimesnei plėtrai.",
   intro:
-    "VCIIP BIO teritorija toliau vystoma kartu su esamos ekosistemos plėtra. Jei ieškote patalpų, partnerystės ar plėtros galimybių gyvybės mokslų srityje, kviečiame susisiekti – kartu įvertinsime tinkamiausią sprendimą.",
+    "VCIIP BIO teritorijoje planuojama tolimesnė gyvybės mokslų infrastruktūros ir ekosistemos plėtra, sudaranti galimybes organizacijų augimui vienoje teritorijoje.",
+  highlights: [
+    "Galimybės tolimesnei plėtrai",
+    "Integracija į esamą ekosistemą",
+    "Planuojama infrastruktūros plėtra",
+    "Ilgalaikė teritorijos vystymo kryptis",
+  ],
+  note: "Dalis infrastruktūros ir teritorijos vystoma etapais kartu su VCIIP plėtra.",
   primaryCta: {
     label: "Susisiekti dėl galimybių",
     href: "/kontaktai?interest=bio",
   },
   secondaryCta: {
-    label: "Peržiūrėti VCIIP TECH",
-    href: "/tech",
+    label: "Peržiūrėti TECH teritoriją",
+    href: "/tech#sklypai",
   },
   imageSrc: ecosystemTechImage,
 };
