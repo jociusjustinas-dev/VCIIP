@@ -42,7 +42,7 @@ export function FeatureTabsSection({
             className="section-intro mx-auto mb-14 w-full max-w-5xl gap-7 items-center text-center max-[767px]:mb-10 max-[767px]:items-start max-[767px]:text-left"
             data-reveal-group
           >
-            <div className="section-eyebrow-rule" />
+            {showEyebrowRule ? <div className="section-eyebrow-rule" /> : null}
             <p className="eyebrow reveal-item">{eyebrow}</p>
             <h2 className="section-heading reveal-item max-w-4xl">
               {titleHighlight}
