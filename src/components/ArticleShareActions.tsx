@@ -69,7 +69,7 @@ export function ArticleShareActions() {
         <button
           type="button"
           onClick={handleCopy}
-          className="inline-flex h-10 items-center gap-2 rounded-full border border-[#c5c5cb] bg-white px-4 text-sm font-semibold leading-none text-primary transition-colors duration-150 hover:border-accent hover:bg-accent hover:text-white"
+          className="inline-flex h-10 items-center gap-2 rounded-none border border-[#c5c5cb] bg-white px-4 text-sm font-semibold leading-none text-primary transition-colors duration-150 hover:border-accent hover:bg-accent hover:text-white"
           aria-live="polite"
         >
           <Link2 size={14} aria-hidden="true" />
