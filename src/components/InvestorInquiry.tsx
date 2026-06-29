@@ -42,7 +42,9 @@ export function InvestorInquiry({
               </p>
             )}
             <h2 className={`section-heading max-w-3xl ${isLight ? "text-primary" : "text-white"}`}>
-              Papasakokite apie savo planus
+              Papasakokite
+              <br />
+              apie savo planus
             </h2>
             <p
               className={`m-0 text-base font-normal leading-loose max-[479px]:text-base ${
