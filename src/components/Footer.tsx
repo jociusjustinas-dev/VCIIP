@@ -44,8 +44,8 @@ export function Footer({
   return (
     <footer className="relative border-t border-dashed border-primary/12 bg-white">
       <div className="site-container px-6 py-14 text-primary max-[767px]:py-12 max-[479px]:px-4 max-[479px]:py-12">
-          <div className="grid gap-8 border-b border-dashed border-primary/12 pb-8 lg:grid-cols-[minmax(240px,1.1fr)_0.72fr_0.9fr_0.82fr] lg:gap-10" data-reveal-group>
-            <div className="reveal-item flex max-w-md flex-col gap-4">
+          <div className="grid gap-8 border-b border-dashed border-primary/12 pb-8 lg:grid-cols-[minmax(240px,1.1fr)_0.72fr_0.9fr_0.82fr] lg:gap-10">
+            <div className="flex max-w-md flex-col gap-4">
               <a href={hubHref} aria-label={logo.alt} className="inline-flex w-fit">
                 <img src={logo.src} alt={logo.alt} className="h-9 w-auto" />
               </a>
@@ -105,7 +105,7 @@ export function Footer({
             </FooterColumn>
           </div>
 
-          <div className="reveal-item flex items-center justify-between gap-4 pt-6 max-[767px]:flex-col max-[767px]:items-start">
+          <div className="flex items-center justify-between gap-4 pt-6 max-[767px]:flex-col max-[767px]:items-start">
             <p className="m-0 text-xs font-medium leading-[1.5] text-primary/48">
               © 2026 VCIIP. Visos teisės saugomos.
             </p>
@@ -122,7 +122,7 @@ export function Footer({
 
 function FooterColumn({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="reveal-item flex flex-col gap-3">
+    <div className="flex flex-col gap-3">
       <p className="m-0 font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary/42">
         {title}
       </p>
