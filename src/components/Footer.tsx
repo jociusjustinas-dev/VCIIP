@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
-import { Facebook, Linkedin } from "lucide-react";
 import bioLogo from "../assets/logos/bio.svg";
+import iconFacebook from "../assets/icons/icon-facebook.svg";
+import iconLinkedin from "../assets/icons/icon-linkedin.svg";
 import vciipLogo from "../assets/logos/logo-dark.svg";
 import vciipLogoTeal from "../assets/logos/logo-teal-dark.svg";
 import techLogo from "../assets/logos/tech.svg";
@@ -21,11 +22,11 @@ const partnerLinks = [
 ];
 
 const socialLinks = [
-  { label: "VCIIP Facebook", href: "https://www.facebook.com/VCIIP/", icon: Facebook },
+  { label: "VCIIP Facebook", href: "https://www.facebook.com/VCIIP/", icon: iconFacebook },
   {
     label: "VCIIP LinkedIn",
     href: "https://www.linkedin.com/company/vilnius-city-innovation-industrial-park/",
-    icon: Linkedin,
+    icon: iconLinkedin,
   },
 ] as const;
 
@@ -63,11 +64,9 @@ export function Footer({
                 Vilniaus miesto inovacijų ir pramonės parkas, vystomas aukštos pridėtinės
                 vertės inovacijų, gyvybės mokslų ir pažangios gamybos veikloms.
               </p>
-              <div className="flex items-center gap-3">
-                {socialLinks.map(({ label, href, icon: Icon }) => (
-                  <FooterSocialLink key={href} href={href} label={label}>
-                    <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
-                  </FooterSocialLink>
+              <div className="flex items-center gap-2.5">
+                {socialLinks.map(({ label, href, icon }) => (
+                  <FooterSocialLink key={href} href={href} label={label} icon={icon} />
                 ))}
               </div>
             </div>
@@ -162,11 +161,11 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
 function FooterSocialLink({
   href,
   label,
-  children,
+  icon,
 }: {
   href: string;
   label: string;
-  children: ReactNode;
+  icon: string;
 }) {
   return (
     <a
@@ -174,9 +173,13 @@ function FooterSocialLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="inline-flex size-10 items-center justify-center rounded-full border border-primary/18 text-primary transition-colors duration-200 hover:border-accent hover:text-accent"
+      className="group inline-flex size-10 items-center justify-center rounded-full border border-[#c5c5cb] bg-white transition-colors duration-150 hover:border-accent hover:bg-accent"
     >
-      {children}
+      <span
+        aria-hidden="true"
+        className="block size-3.5 bg-no-repeat bg-[length:14px_28px] bg-[position:0_0] group-hover:bg-[position:0_-14px]"
+        style={{ backgroundImage: `url(${icon})` }}
+      />
     </a>
   );
 }
