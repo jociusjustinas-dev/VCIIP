@@ -83,25 +83,25 @@ export function GatewayHero() {
                   href={destination.href}
                   data-reveal="scale"
                   data-reveal-delay={`${index * 110}ms`}
-                  className="reveal-item group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-none border border-white/14 bg-primary/48 p-6 text-white shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_28%,transparent)] backdrop-blur-lg transition duration-300 hover:border-white/22 hover:bg-primary/56 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px] max-[479px]:p-5"
+                  className="reveal-item group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-none border border-primary/12 bg-white p-6 text-primary shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_18%,transparent)] transition duration-300 hover:border-primary/24 hover:shadow-[0_22px_56px_color-mix(in_srgb,var(--color-primary)_22%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:min-h-[220px] max-[479px]:p-5"
                 >
                   <div className="flex flex-col gap-3">
-                    <div className="inline-flex w-fit bg-white px-3 py-2.5 shadow-[0_6px_18px_color-mix(in_srgb,var(--color-primary)_22%,transparent)]">
+                    <div className="inline-flex w-fit">
                       <img
                         src={destination.logo}
                         alt={destination.logoAlt}
                         className="h-6 w-auto max-w-[10.5rem] object-contain object-left max-[479px]:h-[1.375rem]"
                       />
                     </div>
-                    <p className="m-0 font-display text-sm font-bold uppercase leading-tight tracking-wide text-white/72">
+                    <p className="m-0 font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary/62">
                       {destination.subtitle}
                     </p>
-                    <p className="m-0 text-base font-medium leading-[150%] text-white/84">
+                    <p className="m-0 text-base font-medium leading-[150%] text-muted">
                       {destination.text}
                     </p>
                   </div>
 
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold leading-none text-white/88 transition group-hover:text-white group-focus-visible:text-white">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold leading-none text-primary transition group-hover:text-accent group-focus-visible:text-accent">
                     {destination.cta}
                     <ArrowUpRight
                       size={16}
