@@ -601,7 +601,7 @@
 
   .plot-table th,
   .plot-table td {
-    border-top: 1px dashed color-mix(in srgb, var(--color-primary) 18%, transparent);
+    border-top: 1px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
     padding: 0.9rem 0.75rem;
     text-align: left;
     vertical-align: middle;
@@ -653,12 +653,7 @@
     flex-direction: column;
     gap: 1.25rem;
     max-width: 42rem;
-  }
-
-  .plot-section__bottom-divider {
-    width: 100%;
-    border-top: 1px dashed color-mix(in srgb, var(--color-primary) 18%, transparent);
-    padding-top: 0.25rem;
+    margin-top: 2.5rem;
   }
 
   .plot-section__loading {

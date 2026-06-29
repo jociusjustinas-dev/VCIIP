@@ -246,7 +246,6 @@ export function AvailablePlotsSection() {
         </div>
 
         <div className="plot-section__bottom reveal-item" data-reveal="fade">
-          <div className="plot-section__bottom-divider" />
           <h3 className="heading-h3 m-0 text-primary">{plotsSectionCopy.bottomTitle}</h3>
           <p className="m-0 max-w-3xl text-base font-normal leading-loose text-muted">
             {plotsSectionCopy.bottomText}
