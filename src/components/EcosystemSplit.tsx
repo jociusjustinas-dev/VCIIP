@@ -1,4 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
+import bioLogoWhite from "../assets/logos/bio-white.svg";
+import techLogoWhite from "../assets/logos/tech-white.svg";
 import ecosystemBioImage from "../assets/images/ecosystem-bio.jpeg";
 import ecosystemTechImage from "../assets/images/ecosystem-tech.jpg";
 import { ParallaxImage } from "./ParallaxImage";
@@ -6,7 +8,7 @@ import { ParallaxImage } from "./ParallaxImage";
 export function EcosystemSplit() {
   return (
     <section className="relative bg-white p-2" id="lokacija">
-      <div className="relative overflow-hidden rounded-none bg-primary py-20 text-white max-[991px]:py-16 max-[479px]:py-12">
+      <div className="relative overflow-hidden rounded-none bg-primary text-white section-shell">
         <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
           <div className="mb-20 flex flex-col gap-12 px-4 max-[767px]:px-0 max-[479px]:mb-12" data-reveal-group>
             <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)]">
@@ -29,9 +31,11 @@ export function EcosystemSplit() {
               <div className="reveal-item flex h-full max-w-[620px] flex-col items-start justify-between gap-10 max-[767px]:gap-8">
                 <div className="flex w-full flex-col gap-8">
                   <div className="h-0 w-full border-b border-dashed border-white/48" />
-                  <p className="font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-white/72">
-                    BIO
-                  </p>
+                  <img
+                    src={bioLogoWhite}
+                    alt="VCIIP BIO"
+                    className="h-7 w-auto max-w-[9.5rem] object-contain object-left max-[479px]:h-[1.625rem]"
+                  />
                   <h3 className="heading-h3 max-w-xl text-white">
                     Veikianti ekosistema
                   </h3>
@@ -94,9 +98,11 @@ export function EcosystemSplit() {
                 <div className="flex w-full flex-col gap-8">
                   <div className="h-0 w-full border-b border-dashed border-white/48" />
                   <div className="flex flex-wrap items-center gap-3">
-                    <p className="m-0 font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-white/72">
-                      TECH
-                    </p>
+                    <img
+                      src={techLogoWhite}
+                      alt="VCIIP TECH"
+                      className="h-7 w-auto max-w-[9.5rem] object-contain object-left max-[479px]:h-[1.625rem]"
+                    />
                     <span className="availability-badge">
                       Prieinama dabar
                     </span>
