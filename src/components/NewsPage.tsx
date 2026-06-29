@@ -73,20 +73,6 @@ export function NewsPage() {
               ))}
             </div>
           )}
-
-          <div className="mt-10 border-t border-dashed border-primary/20 pt-8">
-            <a
-              href="https://vciip.lt/"
-              className="group inline-flex items-center gap-2 text-base font-semibold leading-none text-primary transition-colors duration-200 hover:text-accent"
-            >
-              Visos naujienos vciip.lt
-              <ArrowUpRight
-                size={16}
-                aria-hidden="true"
-                className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              />
-            </a>
-          </div>
         </div>
       </section>
     </main>
