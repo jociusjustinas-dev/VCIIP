@@ -36,6 +36,7 @@ export const techNavGroup: NavGroup = {
 export const sharedNavItems: NavLink[] = [
   { label: "Kodėl Vilnius", href: "/kodel-vilnius/" },
   { label: "Apie VCIIP", href: "/apie-vciip/" },
+  { label: "Naujienos", href: "/naujienos/" },
 ];
 
 export function getHubHrefFromPath(currentPath: string) {
