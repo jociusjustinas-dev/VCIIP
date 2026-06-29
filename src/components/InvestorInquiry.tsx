@@ -13,9 +13,11 @@ const fields = {
 
 export function InvestorInquiry({
   showEyebrow = true,
+  eyebrow = "Pradėkime pokalbį",
   tone = "dark",
 }: {
   showEyebrow?: boolean;
+  eyebrow?: string;
   tone?: "dark" | "light";
 }) {
   const [formState, setFormState] = useState<FormState>("idle");
