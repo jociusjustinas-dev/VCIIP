@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-import bioLogoWhite from "../assets/logos/bio-white.svg";
-import techLogoWhite from "../assets/logos/tech-white.svg";
+import bioLogo from "../assets/logos/bio.svg";
+import techLogo from "../assets/logos/tech.svg";
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 
 const metadata = ["Nuo 2018", "Valstybei svarbus ekonomikos projektas", "30+ organizacijų"];
@@ -10,7 +10,7 @@ const metadata = ["Nuo 2018", "Valstybei svarbus ekonomikos projektas", "30+ org
 const destinations = [
   {
     href: "/bio",
-    logo: bioLogoWhite,
+    logo: bioLogo,
     logoAlt: "VCIIP BIO",
     subtitle: "Gyvybės mokslai ir inovacijos",
     text: "Veikianti ekosistema Vismaliukuose, skirta gyvybės mokslų, tyrimų ir inovacijų organizacijoms.",
@@ -18,7 +18,7 @@ const destinations = [
   },
   {
     href: "/tech",
-    logo: techLogoWhite,
+    logo: techLogo,
     logoAlt: "VCIIP TECH",
     subtitle: "Technologijos ir pažangi gamyba",
     text: "Nauja plėtros teritorija Liepkalnyje, skirta pažangiai gamybai, technologijoms ir investicijoms.",
@@ -83,18 +83,20 @@ export function GatewayHero() {
                   href={destination.href}
                   data-reveal="scale"
                   data-reveal-delay={`${index * 110}ms`}
-                  className="reveal-item group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-none bg-white/20 p-6 text-white backdrop-blur-md transition duration-300 hover:bg-white/26 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px] max-[479px]:p-5"
+                  className="reveal-item group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-none border border-white/14 bg-primary/48 p-6 text-white shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_28%,transparent)] backdrop-blur-lg transition duration-300 hover:border-white/22 hover:bg-primary/56 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px] max-[479px]:p-5"
                 >
                   <div className="flex flex-col gap-3">
-                    <img
-                      src={destination.logo}
-                      alt={destination.logoAlt}
-                      className="h-7 w-auto max-w-[9.5rem] object-contain object-left max-[479px]:h-[1.625rem]"
-                    />
-                    <p className="m-0 font-display text-sm font-bold uppercase leading-tight tracking-wide text-white/58">
+                    <div className="inline-flex w-fit bg-white px-3 py-2.5 shadow-[0_6px_18px_color-mix(in_srgb,var(--color-primary)_22%,transparent)]">
+                      <img
+                        src={destination.logo}
+                        alt={destination.logoAlt}
+                        className="h-6 w-auto max-w-[10.5rem] object-contain object-left max-[479px]:h-[1.375rem]"
+                      />
+                    </div>
+                    <p className="m-0 font-display text-sm font-bold uppercase leading-tight tracking-wide text-white/72">
                       {destination.subtitle}
                     </p>
-                    <p className="m-0 text-base font-medium leading-[150%] text-white/74">
+                    <p className="m-0 text-base font-medium leading-[150%] text-white/84">
                       {destination.text}
                     </p>
                   </div>
