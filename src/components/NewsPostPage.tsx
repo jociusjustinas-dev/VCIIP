@@ -10,6 +10,8 @@ import {
 import type { NewsPost, NewsPostDetail } from "../types/news";
 import { NewsCard } from "./NewsCard";
 
+const articleColumnClass = "mx-auto w-full max-w-4xl";
+
 export function NewsPostPage({ slug }: { slug: string }) {
   const [post, setPost] = useState<NewsPostDetail | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<NewsPost[]>([]);
@@ -53,22 +55,26 @@ export function NewsPostPage({ slug }: { slug: string }) {
       <main>
         <section className="relative bg-white p-2 pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
           <div className="content-container px-6 max-[479px]:px-4">
-            <div className="border-b border-dashed border-primary/28 pb-10 pt-2">
-              <div className="h-4 w-36 bg-primary/8" />
-              <div className="mt-6 h-3 w-24 bg-primary/8" />
-              <div className="mt-5 h-12 w-full max-w-3xl bg-primary/8" />
-              <div className="mt-5 h-4 w-40 bg-primary/6" />
+            <div className={articleColumnClass}>
+              <div className="border-b border-dashed border-primary/28 pb-10 pt-2">
+                <div className="h-4 w-36 bg-primary/8" />
+                <div className="mt-6 h-3 w-24 bg-primary/8" />
+                <div className="mt-5 h-12 w-full bg-primary/8" />
+                <div className="mt-5 h-4 w-40 bg-primary/6" />
+              </div>
             </div>
           </div>
         </section>
 
         <section className="relative bg-white pb-16 pt-10">
           <div className="content-container px-6 max-[479px]:px-4">
-            <div className="aspect-[16/9] max-w-4xl bg-background" />
-            <div className="mt-10 max-w-2xl space-y-4">
-              <div className="h-4 w-full bg-primary/6" />
-              <div className="h-4 w-full bg-primary/6" />
-              <div className="h-4 w-4/5 bg-primary/6" />
+            <div className={articleColumnClass}>
+              <div className="aspect-[16/9] bg-background" />
+              <div className="mt-10 space-y-4">
+                <div className="h-4 w-full bg-primary/6" />
+                <div className="h-4 w-full bg-primary/6" />
+                <div className="h-4 w-4/5 bg-primary/6" />
+              </div>
             </div>
           </div>
         </section>
@@ -81,7 +87,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
       <main>
         <section className="relative bg-white p-2 pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
           <div className="content-container px-6 max-[479px]:px-4">
-            <div className="border-b border-dashed border-primary/28 pb-10 pt-2" data-reveal-group>
+            <div className={`${articleColumnClass} border-b border-dashed border-primary/28 pb-10 pt-2`} data-reveal-group>
               <a
                 href="/naujienos"
                 className="reveal-item inline-flex items-center gap-2 text-sm font-semibold leading-none text-primary/62 transition-colors duration-200 hover:text-accent"
@@ -119,7 +125,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
     <main>
       <section className="relative bg-white p-2 pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
         <div className="content-container px-6 max-[479px]:px-4">
-          <div className="border-b border-dashed border-primary/28 pb-10 pt-2" data-reveal-group>
+          <div className={`${articleColumnClass} border-b border-dashed border-primary/28 pb-10 pt-2`} data-reveal-group>
             <a
               href="/naujienos"
               className="reveal-item inline-flex items-center gap-2 text-sm font-semibold leading-none text-primary/62 transition-colors duration-200 hover:text-accent"
@@ -129,7 +135,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
             </a>
 
             <p className="eyebrow reveal-item mt-6 text-primary/62">Naujienos</p>
-            <h1 className="display-h1 reveal-item mt-5 max-w-4xl">{post.title}</h1>
+            <h1 className="display-h1 reveal-item mt-5">{post.title}</h1>
 
             <time
               dateTime={post.date}
@@ -142,29 +148,31 @@ export function NewsPostPage({ slug }: { slug: string }) {
       </section>
 
       <section className="relative bg-white pb-16 pt-10 max-[479px]:pb-14">
-        <div className="content-container px-6 max-[479px]:px-4" data-reveal-group>
-          <figure className="reveal-item m-0 max-w-4xl overflow-hidden bg-background">
-            <img
-              src={imageUrl}
-              alt=""
-              className="aspect-[16/9] w-full object-cover"
+        <div className="content-container px-6 max-[479px]:px-4">
+          <div className={articleColumnClass} data-reveal-group>
+            <figure className="reveal-item m-0 overflow-hidden bg-background">
+              <img
+                src={imageUrl}
+                alt=""
+                className="aspect-[16/9] w-full object-cover"
+              />
+            </figure>
+
+            <article
+              className="article-body reveal-item mt-10"
+              dangerouslySetInnerHTML={{ __html: post.content }}
             />
-          </figure>
 
-          <article
-            className="article-body reveal-item mt-10"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
-
-          <footer className="reveal-item mt-14 max-w-4xl border-t border-dashed border-primary/20 pt-8">
-            <a
-              href="/naujienos"
-              className="inline-flex items-center gap-2 text-base font-semibold leading-none text-primary transition-colors duration-200 hover:text-accent"
-            >
-              <ArrowLeft size={16} aria-hidden="true" />
-              Grįžti į naujienas
-            </a>
-          </footer>
+            <footer className="reveal-item mt-14 border-t border-dashed border-primary/20 pt-8">
+              <a
+                href="/naujienos"
+                className="inline-flex items-center gap-2 text-base font-semibold leading-none text-primary transition-colors duration-200 hover:text-accent"
+              >
+                <ArrowLeft size={16} aria-hidden="true" />
+                Grįžti į naujienas
+              </a>
+            </footer>
+          </div>
         </div>
       </section>
 

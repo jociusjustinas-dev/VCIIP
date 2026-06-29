@@ -181,7 +181,7 @@
   }
 
   .article-body {
-    max-width: 46rem;
+    width: 100%;
     color: var(--color-muted);
     font-size: 1rem;
     font-weight: 500;
