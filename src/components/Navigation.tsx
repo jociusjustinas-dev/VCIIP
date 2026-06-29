@@ -157,10 +157,8 @@ export function Navigation({
   const renderNavBar = (tone: NavTone, options: { sticky?: boolean } = {}) => (
     <div className="site-container px-6 max-[479px]:px-4">
       <div
-        className={`relative mx-auto flex items-center justify-between gap-3 border-b py-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] max-[991px]:gap-2 max-[991px]:py-3 ${
-          options.sticky
-            ? `rounded-b-none border-solid bg-white/78 px-5 shadow-[0_18px_54px_color-mix(in_srgb,var(--color-primary)_12%,transparent)] backdrop-blur-xl ${tone.border}`
-            : `border-dashed ${tone.border}`
+        className={`relative flex items-center justify-between gap-3 border-b py-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] max-[991px]:gap-2 max-[991px]:py-3 ${
+          options.sticky ? "border-transparent" : `border-dashed ${tone.border}`
         }`}
       >
         <div className="flex min-w-0 flex-1 items-center gap-12 max-[991px]:gap-2.5">
@@ -251,7 +249,14 @@ export function Navigation({
   );
 
   return (
-    <div ref={navRef} className="pointer-events-auto fixed inset-x-0 top-0 z-[999] w-full">
+    <div
+      ref={navRef}
+      className={`pointer-events-auto fixed inset-x-0 top-0 z-[999] w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        stickyVisible
+          ? "border-b border-solid border-primary/14 bg-white/78 shadow-[0_18px_54px_color-mix(in_srgb,var(--color-primary)_12%,transparent)] backdrop-blur-xl"
+          : ""
+      }`}
+    >
       <div
         className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           stickyVisible ? "translate-y-0" : "translate-y-2 max-[479px]:translate-y-3"
