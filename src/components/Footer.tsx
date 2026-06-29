@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Facebook, Linkedin } from "lucide-react";
 import bioLogo from "../assets/logos/bio.svg";
 import vciipLogo from "../assets/logos/logo-dark.svg";
 import vciipLogoTeal from "../assets/logos/logo-teal-dark.svg";
@@ -18,6 +19,15 @@ const partnerLinks = [
   { label: "Go Vilnius", href: "https://www.govilnius.lt/" },
   { label: "Vilniaus miesto savivaldybė", href: "https://vilnius.lt/" },
 ];
+
+const socialLinks = [
+  { label: "VCIIP Facebook", href: "https://www.facebook.com/VCIIP/", icon: Facebook },
+  {
+    label: "VCIIP LinkedIn",
+    href: "https://www.linkedin.com/company/vilnius-city-innovation-industrial-park/",
+    icon: Linkedin,
+  },
+] as const;
 
 type FooterBrandVariant = BrandVariant;
 
@@ -53,6 +63,13 @@ export function Footer({
                 Vilniaus miesto inovacijų ir pramonės parkas, vystomas aukštos pridėtinės
                 vertės inovacijų, gyvybės mokslų ir pažangios gamybos veikloms.
               </p>
+              <div className="flex items-center gap-3">
+                {socialLinks.map(({ label, href, icon: Icon }) => (
+                  <FooterSocialLink key={href} href={href} label={label}>
+                    <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
+                  </FooterSocialLink>
+                ))}
+              </div>
             </div>
 
             <FooterColumn title="Navigacija">
@@ -136,6 +153,28 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
     <a
       href={href}
       className="text-sm font-medium leading-[1.5] text-primary/68 transition-colors duration-200 hover:text-primary"
+    >
+      {children}
+    </a>
+  );
+}
+
+function FooterSocialLink({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      className="inline-flex size-10 items-center justify-center rounded-full border border-primary/18 text-primary transition-colors duration-200 hover:border-accent hover:text-accent"
     >
       {children}
     </a>
