@@ -70,7 +70,7 @@ export function FeatureAccordionSection({
                         className="flex w-full items-center gap-5 px-5 py-5 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:gap-4 max-[479px]:px-4"
                       >
                         <span
-                          className={`flex size-11 shrink-0 items-center justify-center rounded-[4px] border font-mono text-xs font-bold transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white ${
+                          className={`flex size-11 shrink-0 items-center justify-center rounded-none border font-mono text-xs font-bold transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white ${
                             isOpen
                               ? "border-accent bg-accent text-white"
                               : "border-primary/18 bg-white text-primary"

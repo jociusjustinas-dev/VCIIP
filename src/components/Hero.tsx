@@ -81,7 +81,7 @@ export function Hero() {
               <div className="reveal-item mb-[60px] w-[252px] self-end overflow-hidden rounded-none bg-white/20 p-2 text-center text-white backdrop-blur-md max-[479px]:mb-8 max-[479px]:w-[180px]" data-reveal="scale">
                 <button
                   type="button"
-                  className="relative flex h-[126px] w-full items-center justify-center overflow-hidden rounded-lg bg-primary max-[479px]:h-[92px]"
+                  className="relative flex h-[126px] w-full items-center justify-center overflow-hidden rounded-none bg-primary max-[479px]:h-[92px]"
                   style={{
                     backgroundImage: "url('https://i.ytimg.com/vi/RfuIt1vlqP4/maxresdefault.jpg')",
                     backgroundPosition: "50% 48%",
@@ -90,7 +90,7 @@ export function Hero() {
                   onClick={() => setVideoOpen(true)}
                   aria-label="Žiūrėti pristatymą"
                 >
-                  <span className="grid size-12 place-items-center rounded-[4px] bg-white text-primary transition-transform hover:scale-105 max-[479px]:size-8">
+                  <span className="grid size-12 place-items-center rounded-none bg-white text-primary transition-transform hover:scale-105 max-[479px]:size-8">
                     <Play size={18} fill="currentColor" aria-hidden="true" />
                   </span>
                 </button>
@@ -109,7 +109,7 @@ export function Hero() {
               <div className="reveal-item flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#kontaktai"
-                  className="relative flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent hover:text-white"
+                  className="relative flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent hover:text-white"
                   onMouseEnter={() => setBtnHovered(true)}
                   onMouseLeave={() => setBtnHovered(false)}
                 >
@@ -130,7 +130,7 @@ export function Hero() {
 
                 <a
                   href="#sklypai"
-                  className="inline-flex min-h-10 w-fit items-center gap-2 rounded-[4px] border border-white/28 px-5 py-2 text-base font-semibold text-white transition hover:border-accent hover:text-accent"
+                  className="inline-flex min-h-10 w-fit items-center gap-2 rounded-none border border-white/28 px-5 py-2 text-base font-semibold text-white transition hover:border-accent hover:text-accent"
                 >
                   <MapPinned size={17} aria-hidden="true" />
                   Žiūrėti sklypus
@@ -155,7 +155,7 @@ export function Hero() {
           >
             <button
               type="button"
-              className="absolute right-3 top-3 z-10 grid size-10 place-items-center rounded-[4px] bg-white text-primary transition hover:bg-accent hover:text-white"
+              className="absolute right-3 top-3 z-10 grid size-10 place-items-center rounded-none bg-white text-primary transition hover:bg-accent hover:text-white"
               onClick={() => setVideoOpen(false)}
               aria-label="Uždaryti video"
             >

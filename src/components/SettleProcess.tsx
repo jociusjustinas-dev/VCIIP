@@ -83,7 +83,7 @@ export function SettleProcess() {
                   </div>
 
                   <div className="flex gap-5">
-                    <span className="mt-2 size-2.5 shrink-0 rounded-[4px] bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 max-[479px]:hidden" />
+                    <span className="mt-2 size-2.5 shrink-0 rounded-none bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 max-[479px]:hidden" />
                     <p className="m-0 text-lg font-medium leading-[150%] text-muted max-[479px]:text-base">
                       {step.body}
                     </p>
@@ -94,7 +94,7 @@ export function SettleProcess() {
               <div className="pt-10">
                 <a
                   href="#kontaktai"
-                  className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent hover:text-white"
+                  className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent hover:text-white"
                 >
                   <span className="h-5 overflow-hidden py-px">
                     <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">

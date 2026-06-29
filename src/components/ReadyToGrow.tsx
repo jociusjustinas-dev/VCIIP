@@ -111,7 +111,6 @@ export function ReadyToGrow() {
   const imageWidth = isMobile ? 100 : 68 + imageProgress * 32 - exitProgress * 6;
   const imageHeight = 64 + imageProgress * 36 - exitProgress * 10;
   const framePadding = isMobile ? 0 : 24 * (1 - imageProgress) + 24 * exitProgress;
-  const frameRadius = isMobile ? 16 : 24 * (1 - imageProgress) + 24 * exitProgress;
   const introIn = phaseProgress(stickyProgress, 0.38, 0.46);
   const introOut = phaseProgress(stickyProgress, 0.54, 0.64);
   const introOpacity = isMobile ? 1 : introIn * (1 - introOut);
@@ -149,7 +148,7 @@ export function ReadyToGrow() {
                 <h2 className="m-0 font-sans text-[clamp(4.75rem,12vw,13rem)] font-medium leading-[1.05] tracking-[-0.035em] text-primary max-[479px]:text-[3.5rem]">
                   Paruošta augti
                 </h2>
-                <span className="mt-5 size-6 flex-none rounded-[4px] bg-accent max-[767px]:size-4 max-[479px]:mt-3 max-[479px]:size-3" />
+                <span className="mt-5 size-6 flex-none rounded-none bg-accent max-[767px]:size-4 max-[479px]:mt-3 max-[479px]:size-3" />
               </div>
             ))}
           </div>
@@ -166,7 +165,6 @@ export function ReadyToGrow() {
             style={{
               width: `${imageWidth}%`,
               height: isMobile ? "auto" : `${imageHeight}vh`,
-              borderRadius: `${frameRadius}px`,
             }}
           >
           <img
@@ -293,7 +291,7 @@ export function ReadyToGrow() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#sklypai"
-                className="group inline-flex min-h-14 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-accent px-7 py-4 text-lg font-semibold leading-none text-white transition hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
+                className="group inline-flex min-h-14 w-fit items-center justify-center overflow-hidden rounded-none bg-accent px-7 py-4 text-lg font-semibold leading-none text-white transition hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
               >
                 <span className="h-5 overflow-hidden py-px">
                   <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
@@ -308,7 +306,7 @@ export function ReadyToGrow() {
               </a>
               <a
                 href="#kontaktai"
-                className="inline-flex min-h-14 w-fit items-center justify-center rounded-[4px] border border-white/42 bg-white/10 px-7 py-4 text-lg font-semibold leading-none text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
+                className="inline-flex min-h-14 w-fit items-center justify-center rounded-none border border-white/42 bg-white/10 px-7 py-4 text-lg font-semibold leading-none text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
               >
                 Susisiekti
               </a>

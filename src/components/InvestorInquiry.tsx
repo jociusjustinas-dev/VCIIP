@@ -193,7 +193,7 @@ export function InvestorInquiry({
                   <div className="flex flex-col gap-4">
                     <button
                       type="submit"
-                      className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
+                      className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
                     >
                       <span className="h-5 overflow-hidden py-px">
                         <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">

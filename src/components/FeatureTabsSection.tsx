@@ -53,7 +53,7 @@ export function FeatureTabsSection({
 
           <div className="reveal-item mb-16 flex justify-center max-[767px]:mb-10 max-[767px]:justify-start">
             <div
-              className="flex max-w-full gap-1 overflow-x-auto rounded-[4px] bg-background p-1 [scrollbar-width:none] max-[479px]:w-full [&::-webkit-scrollbar]:hidden"
+              className="flex max-w-full gap-1 overflow-x-auto rounded-none bg-background p-1 [scrollbar-width:none] max-[479px]:w-full [&::-webkit-scrollbar]:hidden"
               role="tablist"
               aria-label={tablistLabel}
             >
@@ -67,7 +67,7 @@ export function FeatureTabsSection({
                     role="tab"
                     aria-selected={isActive}
                     onClick={() => setActiveTab(index)}
-                    className={`flex-none rounded-[4px] px-8 py-4 text-left text-lg font-medium leading-none transition-colors duration-300 outline-none max-[767px]:px-6 max-[479px]:px-5 max-[479px]:text-base ${
+                    className={`flex-none rounded-none px-8 py-4 text-left text-lg font-medium leading-none transition-colors duration-300 outline-none max-[767px]:px-6 max-[479px]:px-5 max-[479px]:text-base ${
                       isActive
                         ? "bg-primary text-white"
                         : "text-primary/62 hover:bg-primary/8 hover:text-primary"

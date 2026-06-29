@@ -71,7 +71,7 @@ export function GatewayHero() {
               >
                 {metadata.map((item, index) => (
                   <li key={item} className="flex items-center gap-3">
-                    {index > 0 && <span className="size-1 rounded-[4px] bg-white/28" aria-hidden="true" />}
+                    {index > 0 && <span className="size-1 rounded-none bg-white/28" aria-hidden="true" />}
                     <span>{item}</span>
                   </li>
                 ))}

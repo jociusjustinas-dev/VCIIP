@@ -86,7 +86,7 @@ export function FeatureSplitHighlightsSection({
                 <div className="flex flex-wrap gap-3 max-[479px]:flex-col">
                   <a
                     href={primaryCta.href}
-                    className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
+                    className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
                     onMouseEnter={() => setPrimaryHovered(true)}
                     onMouseLeave={() => setPrimaryHovered(false)}
                   >
@@ -107,7 +107,7 @@ export function FeatureSplitHighlightsSection({
 
                   <a
                     href={secondaryCta.href}
-                    className="inline-flex min-h-12 w-fit items-center justify-center rounded-[4px] border border-primary/18 px-5 py-3 text-base font-semibold leading-none text-primary transition hover:border-accent hover:text-accent"
+                    className="inline-flex min-h-12 w-fit items-center justify-center rounded-none border border-primary/18 px-5 py-3 text-base font-semibold leading-none text-primary transition hover:border-accent hover:text-accent"
                   >
                     {secondaryCta.label}
                   </a>

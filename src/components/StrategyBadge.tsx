@@ -39,7 +39,7 @@ export function StrategyBadge({ active = false }: { active?: boolean }) {
       aria-label={active ? "Grįžti į pradžią" : "Atidaryti strategijos puslapį"}
       aria-hidden={!visible}
     >
-      <span className="size-2 rounded-[4px] bg-accent" />
+      <span className="size-2 rounded-none bg-accent" />
       {active ? "Pradžia" : "Strategija"}
     </a>
   );

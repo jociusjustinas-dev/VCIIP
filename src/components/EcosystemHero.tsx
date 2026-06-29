@@ -62,7 +62,7 @@ export function EcosystemHero() {
             <div className="reveal-item flex flex-wrap gap-3 max-[479px]:flex-col">
               <a
                 href="#ekosistema-turinys"
-                className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
+                className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
                 onMouseEnter={() => setPrimaryHovered(true)}
                 onMouseLeave={() => setPrimaryHovered(false)}
               >
@@ -83,7 +83,7 @@ export function EcosystemHero() {
 
               <a
                 href="#kontaktai"
-                className="inline-flex min-h-12 w-fit items-center justify-center rounded-[4px] border border-primary/18 px-5 py-3 text-base font-semibold leading-none text-primary transition hover:border-accent hover:text-accent"
+                className="inline-flex min-h-12 w-fit items-center justify-center rounded-none border border-primary/18 px-5 py-3 text-base font-semibold leading-none text-primary transition hover:border-accent hover:text-accent"
               >
                 Susisiekti
               </a>

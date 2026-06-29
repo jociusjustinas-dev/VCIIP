@@ -23,9 +23,9 @@
   --radius-section: 0px;
   --radius-card: 0px;
   --radius-image: 0px;
-  --radius-input: 4px;
-  --radius-button: 6px;
-  --radius-chip: 4px;
+  --radius-input: 0px;
+  --radius-button: 0px;
+  --radius-chip: 0px;
   --radius-sm: var(--radius-input);
   --radius-md: var(--radius-input);
   --radius-lg: var(--radius-button);

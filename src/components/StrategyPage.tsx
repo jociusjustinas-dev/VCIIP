@@ -66,7 +66,7 @@ function StrategyContent({ items }: { items: StrategyItem[] }) {
         {listItems.map((text, index) => (
           <li
             key={`${text}-${index}`}
-            className={`relative text-lg leading-[150%] before:absolute before:-left-5 before:top-[0.7rem] before:size-2 before:rounded-[4px] before:bg-accent max-[479px]:text-base ${
+            className={`relative text-lg leading-[150%] before:absolute before:-left-5 before:top-[0.7rem] before:size-2 before:rounded-none before:bg-accent max-[479px]:text-base ${
               isColonLeadIn(text) ? "font-semibold text-primary" : "font-medium text-muted"
             }`}
           >
