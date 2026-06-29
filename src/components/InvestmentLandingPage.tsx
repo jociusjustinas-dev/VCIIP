@@ -1,6 +1,5 @@
 import { AvailablePlotsSection } from "./AvailablePlotsSection";
 import { MediaNewsSection } from "./MediaNewsSection";
-import { EcosystemMarquee } from "./EcosystemMarquee";
 import { EcosystemSplit } from "./EcosystemSplit";
 import { GatewayHero } from "./GatewayHero";
 import { TechHero } from "./TechHero";
@@ -22,7 +21,6 @@ export function InvestmentLandingPage({ variant = "tech" }: { variant?: "index" 
       {showFullTechSections && (
         <>
           <WhyInvestors />
-          <EcosystemMarquee />
           <AvailablePlotsSection />
           <SettleProcess />
           <VilniusEcosystem />
