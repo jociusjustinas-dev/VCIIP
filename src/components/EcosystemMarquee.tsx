@@ -37,11 +37,11 @@ export function EcosystemMarquee() {
           key={`${copyIndex}-${item.logo}`}
           className="mr-5 flex h-[240px] w-[380px] flex-none snap-start flex-col justify-between overflow-hidden rounded-none bg-primary px-7 py-6 text-white max-[767px]:h-[220px] max-[767px]:w-[320px] max-[479px]:mr-3 max-[479px]:h-[200px] max-[479px]:w-[280px]"
         >
-          <p className="m-0 max-w-[330px] text-xl font-medium leading-[1.22] tracking-[-0.02em] text-white/78 max-[767px]:text-lg">
+          <p className="m-0 max-w-[330px] text-base leading-loose text-white/78">
             {item.description}
           </p>
           <div className="flex items-end justify-between gap-6">
-            <span className="font-sans text-[clamp(1.75rem,2.5vw,2.5rem)] font-semibold leading-none tracking-[-0.04em] text-white max-[767px]:text-[1.75rem] max-[479px]:text-[1.625rem]">
+            <span className="font-display text-4xl font-bold leading-none tracking-tight text-white max-[767px]:text-3xl max-[479px]:text-[1.875rem]">
               {item.logo}
             </span>
             <span className="mb-1 size-3 shrink-0 rounded-none bg-accent" />
@@ -70,7 +70,7 @@ export function EcosystemMarquee() {
             </h2>
 
             <div className="reveal-item flex max-w-xl flex-col items-start gap-7 justify-self-end">
-              <p className="m-0 text-lg font-medium leading-[1.58] text-muted max-[479px]:text-base">
+              <p className="m-0 text-base font-normal leading-loose text-muted max-[479px]:text-base">
                 Įsikūrę VCIIP, atsiduriate tarp savo srities lyderių. Bendra aplinka skatina
                 bendradarbiavimą, dalijimąsi žiniomis ir spartesnį augimą.
               </p>

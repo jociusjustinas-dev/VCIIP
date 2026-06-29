@@ -86,7 +86,7 @@ export function ProofStats() {
               }}
             >
               <div className="stat-value text-primary">{stat.value}</div>
-              <div className="text-base font-medium leading-[1.5] text-primary/78 max-[479px]:text-[0.9375rem]">
+              <div className="text-base leading-loose text-primary/78">
                 {stat.label}
               </div>
             </div>

@@ -123,7 +123,7 @@ export function Footer({
 function FooterColumn({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div className="reveal-item flex flex-col gap-3">
-      <p className="m-0 font-mono text-[0.6875rem] font-bold uppercase leading-4 tracking-[0.08em] text-primary/42">
+      <p className="m-0 font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary/42">
         {title}
       </p>
       <div className="flex flex-col gap-2">{children}</div>

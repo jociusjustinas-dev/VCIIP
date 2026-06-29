@@ -208,7 +208,7 @@ export function Navigation({
             <a
               href="#"
               aria-current="true"
-              className={`rounded-none px-3 py-2 font-mono text-xs font-semibold uppercase leading-none tracking-[0.08em] transition ${
+              className={`rounded-none px-3 py-2 font-display text-sm font-bold uppercase leading-tight tracking-wide transition ${
                 options.sticky || !onDarkSurface
                   ? "bg-primary text-white"
                   : "bg-white text-primary"
@@ -218,7 +218,7 @@ export function Navigation({
             </a>
             <a
               href="#"
-              className={`rounded-none px-3 py-2 font-mono text-xs font-semibold uppercase leading-none tracking-[0.08em] transition ${
+              className={`rounded-none px-3 py-2 font-display text-sm font-bold uppercase leading-tight tracking-wide transition ${
                 options.sticky || !onDarkSurface
                   ? "text-primary/52 hover:text-primary"
                   : "text-white/62 hover:text-white"

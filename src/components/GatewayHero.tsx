@@ -66,7 +66,7 @@ export function GatewayHero() {
           >
             <div className="flex max-w-[920px] flex-col items-start gap-6 max-[991px]:gap-5">
               <ul
-                className="reveal-item flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-white/62"
+                className="reveal-item flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-sm font-bold uppercase leading-tight tracking-wide text-white/62"
                 aria-label="VCIIP faktai"
               >
                 {metadata.map((item, index) => (
@@ -104,10 +104,10 @@ export function GatewayHero() {
                   className="reveal-item group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-none bg-white/20 p-6 text-white backdrop-blur-md transition duration-300 hover:bg-white/26 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px] max-[479px]:p-5"
                 >
                   <div className="flex flex-col gap-3">
-                    <h2 className="heading-h3 m-0 font-semibold text-white">
+                    <h2 className="heading-h3 m-0 text-white">
                       {destination.title}
                     </h2>
-                    <p className="m-0 font-mono text-[0.68rem] font-semibold uppercase leading-[1.3] tracking-[0.1em] text-white/58">
+                    <p className="m-0 font-display text-sm font-bold uppercase leading-tight tracking-wide text-white/58">
                       {destination.subtitle}
                     </p>
                     <p className="m-0 text-base font-medium leading-[150%] text-white/74">

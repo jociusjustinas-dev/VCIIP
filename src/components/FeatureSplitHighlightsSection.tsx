@@ -57,7 +57,7 @@ export function FeatureSplitHighlightsSection({
               </h2>
             </div>
 
-            <p className="reveal-item m-0 max-w-xl justify-self-end text-lg font-medium leading-[1.58] text-muted max-[479px]:text-base">
+            <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-muted max-[479px]:text-base">
               {intro}
             </p>
           </div>
@@ -71,7 +71,7 @@ export function FeatureSplitHighlightsSection({
                 {highlights.map((item) => (
                   <li
                     key={item}
-                    className="border-t border-dashed border-primary/22 py-4 text-lg font-medium leading-[140%] text-primary max-[479px]:text-base"
+                    className="border-t border-dashed border-primary/22 py-4 text-base leading-loose text-primary"
                   >
                     {item}
                   </li>

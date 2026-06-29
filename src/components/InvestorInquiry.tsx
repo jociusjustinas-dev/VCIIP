@@ -45,7 +45,7 @@ export function InvestorInquiry({
               Papasakokite apie savo planus
             </h2>
             <p
-              className={`m-0 text-lg font-medium leading-[1.58] max-[479px]:text-base ${
+              className={`m-0 text-base font-normal leading-loose max-[479px]:text-base ${
                 isLight ? "text-muted" : "text-white/72"
               }`}
             >
@@ -76,7 +76,7 @@ export function InvestorInquiry({
                 isLight ? "border-primary/14" : "border-white/18"
               }`}
             >
-              <p className={`m-0 text-lg font-medium leading-[130%] ${isLight ? "text-primary" : "text-white"}`}>
+              <p className={`m-0 text-base leading-loose ${isLight ? "text-primary" : "text-white"}`}>
                 Direktoriaus vardas pavardė
               </p>
               <p className={`m-0 text-sm font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/52"}`}>
@@ -115,7 +115,7 @@ export function InvestorInquiry({
                   <p className="m-0 text-2xl font-medium leading-[1.15]">
                     Užklausa paruošta.
                   </p>
-                  <p className="m-0 text-lg font-medium leading-[150%] text-muted">
+                  <p className="m-0 text-base leading-loose text-muted">
                     Ačiū. Šiame prototipe forma nėra prijungta prie backend, bet būsena ir UX
                     paruošti integracijai.
                   </p>
@@ -241,7 +241,7 @@ export function InvestorInquiry({
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="flex flex-col gap-3">
-      <span className="font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-primary/58">
+      <span className="font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary/58">
         {label}
       </span>
       {children}

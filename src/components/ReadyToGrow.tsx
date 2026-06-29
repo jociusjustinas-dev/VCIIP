@@ -145,7 +145,7 @@ export function ReadyToGrow() {
                 key={index}
                 className="mr-10 flex flex-none items-center gap-10 max-[479px]:mr-6 max-[479px]:gap-6"
               >
-                <h2 className="m-0 font-sans text-[clamp(2.5rem,6vw,4rem)] font-medium leading-[1.02] tracking-[-0.02em] text-primary max-[479px]:text-[2.25rem]">
+                <h2 className="section-heading m-0 text-primary">
                   Paruošta augti
                 </h2>
                 <span className="mt-5 size-6 flex-none rounded-none bg-accent max-[767px]:size-4 max-[479px]:mt-3 max-[479px]:size-3" />
@@ -189,7 +189,7 @@ export function ReadyToGrow() {
               transform: `translateY(${introTranslateY}px)`,
             }}
           >
-            <p className="m-0 max-w-3xl text-[clamp(1.375rem,2.4vw,2.25rem)] font-medium leading-[1.18] tracking-[-0.02em] text-white">
+            <p className="body-lead m-0 max-w-3xl text-white">
               Liepkalnio teritorijoje plėtojami išskirtiniai inžinerinės infrastruktūros
               pajėgumai, pritaikyti reikliausioms inovacijų ir gamybos veikloms.
             </p>
@@ -212,11 +212,11 @@ export function ReadyToGrow() {
               <span className="mx-3 h-5 w-px flex-none bg-primary/12" />
 
               <span className="flex min-w-0 flex-col pr-4">
-                <span className="whitespace-nowrap font-mono text-[11px] font-bold uppercase leading-[130%] tracking-[0.18em] text-primary">
+                <span className="whitespace-nowrap font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary">
                   {title}
                 </span>
                 <span className="grid max-h-0 max-w-0 overflow-hidden opacity-0 transition-[max-height,max-width,opacity,margin] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:mt-1.5 group-hover:max-h-10 group-hover:max-w-[180px] group-hover:opacity-100 group-focus-visible:mt-1.5 group-focus-visible:max-h-10 group-focus-visible:max-w-[180px] group-focus-visible:opacity-100">
-                  <span className="translate-y-1 whitespace-nowrap text-[24px] font-medium leading-none tracking-[-0.04em] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-focus-visible:translate-y-0">
+                  <span className="translate-y-1 whitespace-nowrap text-2xl font-normal leading-none transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-focus-visible:translate-y-0">
                     {value}
                   </span>
                 </span>
@@ -238,11 +238,11 @@ export function ReadyToGrow() {
             </span>
             <span className="mx-3 h-5 w-px flex-none bg-primary/12" />
             <span className="flex min-w-0 flex-col pr-4">
-              <span className="whitespace-nowrap font-mono text-[11px] font-bold uppercase leading-[130%] tracking-[0.18em] text-primary">
+              <span className="whitespace-nowrap font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary">
                 {plotHotspot.title}
               </span>
               <span className="grid max-h-0 max-w-0 overflow-hidden opacity-0 transition-[max-height,max-width,opacity,margin] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:mt-1.5 group-hover:max-h-10 group-hover:max-w-[180px] group-hover:opacity-100 group-focus-visible:mt-1.5 group-focus-visible:max-h-10 group-focus-visible:max-w-[180px] group-focus-visible:opacity-100">
-                <span className="translate-y-1 whitespace-nowrap text-[24px] font-medium leading-none tracking-[-0.04em] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-focus-visible:translate-y-0">
+                <span className="translate-y-1 whitespace-nowrap text-2xl font-normal leading-none transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-focus-visible:translate-y-0">
                   {plotHotspot.value}
                 </span>
               </span>
@@ -266,13 +266,13 @@ export function ReadyToGrow() {
                       +
                     </span>
                   </span>
-                  <span className="font-mono text-[10px] font-bold uppercase leading-[130%] tracking-[0.14em] text-white/72">
+                  <span className="font-display text-sm font-bold uppercase leading-tight tracking-wide text-white/72">
                     {title}
                   </span>
                 </div>
                 <div className="flex flex-col gap-1">
                   <Icon size={18} aria-hidden="true" className="text-accent" />
-                  <span className="text-[30px] font-medium leading-none tracking-[-0.04em]">
+                  <span className="font-display text-3xl font-bold leading-none tracking-tight">
                     {value}
                   </span>
                 </div>
@@ -291,7 +291,7 @@ export function ReadyToGrow() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#sklypai"
-                className="group inline-flex min-h-14 w-fit items-center justify-center overflow-hidden rounded-none bg-accent px-7 py-4 text-lg font-semibold leading-none text-white transition hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
+                className="group inline-flex min-h-14 w-fit items-center justify-center overflow-hidden rounded-none bg-accent px-7 py-4 text-base font-bold leading-none text-white transition hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3"
               >
                 <span className="h-5 overflow-hidden py-px">
                   <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
@@ -306,7 +306,7 @@ export function ReadyToGrow() {
               </a>
               <a
                 href="#kontaktai"
-                className="inline-flex min-h-14 w-fit items-center justify-center rounded-none border border-white/42 bg-white/10 px-7 py-4 text-lg font-semibold leading-none text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
+                className="inline-flex min-h-14 w-fit items-center justify-center rounded-none border border-white/42 bg-white/10 px-7 py-4 text-base font-bold leading-none text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3"
               >
                 Susisiekti
               </a>

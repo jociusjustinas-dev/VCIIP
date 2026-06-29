@@ -23,7 +23,7 @@ export function StrategyPage() {
 
           <div className="grid items-start gap-10 lg:grid-cols-[280px_minmax(0,1fr)]">
             <aside className="sticky top-28 hidden rounded-none border border-primary/10 bg-white/70 p-4 backdrop-blur lg:block">
-              <p className="m-0 mb-4 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary/44">
+              <p className="m-0 mb-4 font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary/44">
                 Turinys
               </p>
               <nav className="flex flex-col gap-1" aria-label="Strategijos turinys">
@@ -101,7 +101,7 @@ function StrategyContent({ items }: { items: StrategyItem[] }) {
       nodes.push(
         <h3
           key={`${item.type}-${index}`}
-          className="mt-14 text-[36px] font-medium leading-[1.14] tracking-[-0.02em] text-primary max-[767px]:text-[30px]"
+          className="mt-14 font-display text-4xl font-bold leading-tight tracking-tight text-primary max-[767px]:text-3xl"
         >
           {item.text}
         </h3>,
@@ -113,7 +113,7 @@ function StrategyContent({ items }: { items: StrategyItem[] }) {
       nodes.push(
         <h4
           key={`${item.type}-${index}`}
-          className="mt-9 font-mono text-sm font-semibold uppercase leading-[140%] tracking-[0.14em] text-primary/58"
+          className="mt-9 font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary/58"
         >
           {item.text}
         </h4>,
@@ -142,7 +142,7 @@ function StrategyContent({ items }: { items: StrategyItem[] }) {
                           rowIndex === 0
                             ? "text-white"
                             : cellIndex === 0
-                              ? "font-mono text-sm uppercase tracking-[0.12em] text-primary/58"
+                              ? "font-display text-sm uppercase tracking-[0.12em] text-primary/58"
                               : isColonLeadIn(cell)
                                 ? "font-semibold text-primary"
                                 : "text-muted"

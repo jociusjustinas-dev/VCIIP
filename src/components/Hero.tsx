@@ -95,7 +95,7 @@ export function Hero() {
                   </span>
                 </button>
 
-                <div className="mt-2 font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-white">
+                <div className="mt-2 font-display text-sm font-bold uppercase leading-tight tracking-wide text-white">
                   Žiūrėti pristatymą
                 </div>
               </div>

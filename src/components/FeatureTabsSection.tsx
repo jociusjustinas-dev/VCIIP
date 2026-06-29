@@ -46,7 +46,7 @@ export function FeatureTabsSection({
               <br />
               {titleRest}
             </h2>
-            <p className="reveal-item m-0 max-w-3xl text-lg font-medium leading-[1.58] text-muted max-[479px]:text-base">
+            <p className="reveal-item m-0 max-w-3xl text-base font-normal leading-loose text-muted max-[479px]:text-base">
               {intro}
             </p>
           </div>
@@ -67,7 +67,7 @@ export function FeatureTabsSection({
                     role="tab"
                     aria-selected={isActive}
                     onClick={() => setActiveTab(index)}
-                    className={`flex-none rounded-none px-8 py-4 text-left text-lg font-medium leading-none transition-colors duration-300 outline-none max-[767px]:px-6 max-[479px]:px-5 max-[479px]:text-base ${
+                    className={`flex-none rounded-none px-8 py-4 text-left text-base font-normal leading-none transition-colors duration-300 outline-none max-[767px]:px-6 max-[479px]:px-5 ${
                       isActive
                         ? "bg-primary text-white"
                         : "text-primary/62 hover:bg-primary/8 hover:text-primary"
@@ -86,13 +86,13 @@ export function FeatureTabsSection({
           >
             <div className="reveal-item flex min-h-[420px] flex-col justify-between gap-10 rounded-none bg-[linear-gradient(90deg,color-mix(in_srgb,var(--color-accent)_20%,transparent),color-mix(in_srgb,var(--color-accent)_4%,transparent))] p-8 max-[991px]:min-h-0 max-[767px]:p-7 max-[479px]:gap-6 max-[479px]:p-6">
               <div className="flex max-w-3xl flex-col gap-7">
-                <p className="m-0 font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-primary/52">
+                <p className="m-0 font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary/52">
                   {String(activeTab + 1).padStart(2, "0")}
                 </p>
                 <h3 className="heading-h3 text-primary">
                   {tab.title}
                 </h3>
-                <p className="m-0 text-lg font-medium leading-[1.58] text-primary/78 max-[479px]:text-base">
+                <p className="m-0 text-base font-normal leading-loose text-primary/78 max-[479px]:text-base">
                   {tab.intro}
                 </p>
               </div>
@@ -101,7 +101,7 @@ export function FeatureTabsSection({
                 {tab.items.map((item) => (
                   <li
                     key={item}
-                    className="border-t border-dashed border-primary/22 py-4 text-lg font-medium leading-[140%] text-muted max-[479px]:text-base"
+                    className="border-t border-dashed border-primary/22 py-4 text-base leading-loose text-muted"
                   >
                     {item}
                   </li>

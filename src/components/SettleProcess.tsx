@@ -43,7 +43,7 @@ export function SettleProcess() {
               </h2>
             </div>
 
-            <p className="reveal-item m-0 max-w-xl justify-self-end text-lg font-medium leading-[1.58] text-muted max-[479px]:text-base">
+            <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-muted max-[479px]:text-base">
               Aiškus kelias nuo pirmo kontakto iki veiklos pradžios. Operatorius lydi
               kiekviename žingsnyje.
             </p>
@@ -74,17 +74,17 @@ export function SettleProcess() {
                   className="group grid gap-8 border-b border-dashed border-primary/18 py-8 text-primary transition-colors duration-300 hover:border-primary/34 max-[767px]:gap-4 max-[479px]:grid-cols-1 sm:grid-cols-[minmax(180px,0.74fr)_minmax(0,1fr)]"
                 >
                   <div className="flex flex-col gap-4">
-                    <span className="font-mono text-xs font-normal uppercase leading-none tracking-[0.16em] text-primary/46 transition-colors duration-300 group-hover:text-accent">
+                    <span className="font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary/46 transition-colors duration-300 group-hover:text-accent">
                       {step.number}
                     </span>
-                    <h3 className="m-0 text-[28px] font-medium leading-[1.08] tracking-[-0.02em] max-[767px]:text-[24px]">
+                    <h3 className="heading-h3 text-primary">
                       {step.title}
                     </h3>
                   </div>
 
                   <div className="flex gap-5">
                     <span className="mt-2 size-2.5 shrink-0 rounded-none bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 max-[479px]:hidden" />
-                    <p className="m-0 text-lg font-medium leading-[150%] text-muted max-[479px]:text-base">
+                    <p className="m-0 text-base leading-loose text-muted">
                       {step.body}
                     </p>
                   </div>

@@ -44,7 +44,7 @@ export function FeatureAccordionSection({
                     <br />
                     {titleRest}
                   </h2>
-                  <p className="reveal-item m-0 max-w-2xl text-lg font-medium leading-[1.58] text-muted max-[479px]:text-base">
+                  <p className="reveal-item m-0 max-w-2xl text-base font-normal leading-loose text-muted max-[479px]:text-base">
                     {intro}
                   </p>
                 </div>
@@ -70,7 +70,7 @@ export function FeatureAccordionSection({
                         className="flex w-full items-center gap-5 px-5 py-5 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:gap-4 max-[479px]:px-4"
                       >
                         <span
-                          className={`flex size-11 shrink-0 items-center justify-center rounded-none border font-mono text-xs font-bold transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white ${
+                          className={`flex size-11 shrink-0 items-center justify-center rounded-none border font-display text-sm font-bold transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white ${
                             isOpen
                               ? "border-accent bg-accent text-white"
                               : "border-primary/18 bg-white text-primary"
@@ -78,7 +78,7 @@ export function FeatureAccordionSection({
                         >
                           {String(index + 1).padStart(2, "0")}
                         </span>
-                        <span className="min-w-0 flex-1 text-xl font-medium leading-[1.2] text-primary max-[479px]:text-lg">
+                        <span className="min-w-0 flex-1 text-2xl font-normal leading-tight text-primary max-[479px]:text-xl">
                           {item.title}
                         </span>
                         <ChevronDown
@@ -95,7 +95,7 @@ export function FeatureAccordionSection({
                           isOpen ? "max-h-56 opacity-100" : "max-h-0 opacity-0"
                         }`}
                       >
-                        <p className="m-0 max-w-2xl px-5 pb-6 pl-[5.25rem] text-lg font-medium leading-[150%] text-muted max-[479px]:pl-4 max-[479px]:text-base">
+                        <p className="m-0 max-w-2xl px-5 pb-6 pl-[5.25rem] text-base leading-loose text-muted max-[479px]:pl-4">
                           {item.body}
                         </p>
                       </div>

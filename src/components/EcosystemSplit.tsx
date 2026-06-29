@@ -19,7 +19,7 @@ export function EcosystemSplit() {
                   Viena ekosistema.
                 </span>
               </h2>
-              <p className="reveal-item m-0 max-w-xl justify-self-end text-lg font-medium leading-[1.58] text-white/74 max-[479px]:text-base">
+              <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-white/74 max-[479px]:text-base">
                 VCIIP – tai dvi viena kitą papildančios teritorijos: veikianti ekosistema
                 Vismaliukuose ir nauja plėtra Liepkalnyje.
               </p>
@@ -42,7 +42,7 @@ export function EcosystemSplit() {
                 </div>
 
                 <div className="flex flex-col gap-6">
-                  <p className="m-0 max-w-xl text-lg font-medium leading-[1.58] text-white/72 max-[479px]:text-base">
+                  <p className="m-0 max-w-xl text-base font-normal leading-loose text-white/72 max-[479px]:text-base">
                     Vismaliukų teritorijoje jau veikia 30+ inovatyvių kompanijų ir gyvybės
                     mokslų klasteris. Tai įrodymas, kad VCIIP modelis veikia ir kuria realią
                     vertę.
@@ -113,7 +113,7 @@ export function EcosystemSplit() {
                 </div>
 
                 <div className="flex flex-col gap-6">
-                  <p className="m-0 max-w-xl text-lg font-medium leading-[1.58] text-white/72 max-[479px]:text-base">
+                  <p className="m-0 max-w-xl text-base font-normal leading-loose text-white/72 max-[479px]:text-base">
                     Beveik 39 ha nauja teritorija su plėtojama inžinerine infrastruktūra.
                     Vieta jūsų gamybai, laboratorijoms ar tyrimų centrui.
                   </p>
