@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { stats } from "../content/site";
 
-export function ProofStats() {
+export function ProofStats({ showTopDivider = true }: { showTopDivider?: boolean }) {
   const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [visibleTiles, setVisibleTiles] = useState<boolean[]>(stats.map(() => false));
 
@@ -37,7 +37,9 @@ export function ProofStats() {
     <section id="ekosistema" className="relative bg-white section-shell">
       <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
         <div className="mb-10 flex flex-col gap-5 max-[479px]:mb-8" data-reveal-group>
-          <div className="h-0 w-full border-b border-dashed border-primary/48" />
+          {showTopDivider ? (
+            <div className="h-0 w-full border-b border-dashed border-primary/48" />
+          ) : null}
 
           <p className="eyebrow reveal-item text-primary/72">VCIIP šiandien</p>
 
