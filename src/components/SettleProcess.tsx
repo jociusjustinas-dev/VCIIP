@@ -27,9 +27,8 @@ const settleSteps = [
 
 export function SettleProcess() {
   return (
-    <section id="kaip-isikurti" className="relative bg-white p-2">
-      <div className="relative overflow-hidden rounded-none bg-background section-shell">
-        <div className="site-container px-6 max-[479px]:px-4">
+    <section id="kaip-isikurti" className="relative overflow-hidden bg-background section-shell">
+      <div className="site-container px-6 max-[479px]:px-4">
           <div
             className="mb-20 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)] max-[991px]:mb-14"
             data-reveal-group
@@ -111,7 +110,6 @@ export function SettleProcess() {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }
