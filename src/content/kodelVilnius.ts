@@ -95,8 +95,6 @@ export const kodelVilniusTabs = {
   ],
 };
 
-import vilniusLocationMap from "../assets/images/vilnius-location-map.svg";
-
 export const kodelVilniusCityLocation = {
   eyebrow: "VCIIP lokacija",
   title: "Strategiškai patogi vieta Vilniuje.",
@@ -104,8 +102,12 @@ export const kodelVilniusCityLocation = {
     "VCIIP įsikūręs pačiame Vilniaus mieste – per 30 min. iki senamiesčio, geležinkelio ir autobusų stočių bei tarptautinio oro uosto. Šalia įsikūrę geriausi šalies universitetai, studentų miesteliai ir mokslo centrai.",
   legend: [
     {
-      label: "VCIIP",
+      label: "VCIIP Bio",
       symbol: "accent-dot",
+    },
+    {
+      label: "VCIIP Tech",
+      symbol: "tech-dot",
     },
     {
       label: "VCIIP klientams aktualios lokacijos",
@@ -128,8 +130,6 @@ export const kodelVilniusCityLocation = {
       symbol: "dashed-line",
     },
   ],
-  mapSrc: vilniusLocationMap,
-  mapAlt: "VCIIP vieta Vilniaus mieste",
 };
 
 export const kodelVilniusPartners = {

@@ -1,3 +1,4 @@
+import { VilniusVciipDarkMap } from "./VilniusVciipDarkMap";
 import { kodelVilniusCityLocation } from "../../content/kodelVilnius";
 
 function LegendSymbol({ type }: { type: string }) {
@@ -12,12 +13,8 @@ export function KodelVilniusCityLocation() {
           className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:gap-14"
           data-reveal-group
         >
-          <div className="reveal-item vilnius-city-map" data-reveal="scale">
-            <img
-              src={kodelVilniusCityLocation.mapSrc}
-              alt={kodelVilniusCityLocation.mapAlt}
-              className="block h-auto w-full"
-            />
+          <div className="reveal-item" data-reveal="scale">
+            <VilniusVciipDarkMap />
           </div>
 
           <div className="reveal-item flex flex-col gap-8" data-reveal="fade">
