@@ -126,7 +126,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
       <section className="relative bg-white p-2 pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
         <div className="content-container px-6 max-[479px]:px-4">
           <div className={`${articleColumnClass} border-b border-dashed border-primary/28 pb-10 pt-2`} data-reveal-group>
-            <p className="eyebrow reveal-item text-primary/62">Naujienos</p>
+            <p className="eyebrow reveal-item">Naujienos</p>
             <h1 className="display-h1 reveal-item mt-5">{post.title}</h1>
 
             <time
@@ -173,7 +173,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
         <section className="relative bg-white section-shell">
           <div className="site-container px-6 max-[479px]:px-4">
             <div className="flex flex-col gap-3 border-b border-dashed border-primary/28 pb-8" data-reveal-group>
-              <p className="eyebrow reveal-item text-primary/62">VCIIP žiniasklaidoje</p>
+              <p className="eyebrow reveal-item">VCIIP žiniasklaidoje</p>
               <h2 className="section-heading reveal-item m-0">Kitos naujienos</h2>
             </div>
 

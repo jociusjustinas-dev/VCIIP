@@ -42,7 +42,7 @@ export function ProofStats({ showTopDivider = true }: { showTopDivider?: boolean
               <div className="h-0 w-full border-b border-dashed border-primary/32" />
             ) : null}
 
-            <p className="eyebrow reveal-item text-primary/72">VCIIP šiandien</p>
+            <p className="eyebrow reveal-item">VCIIP šiandien</p>
 
             <h2 className="reveal-item m-0 max-w-3xl font-display text-[clamp(1.5rem,2.6vw,2rem)] font-bold leading-tight tracking-tight text-primary">
               VCIIP formuoja pažangių industrijų ekosistemą Vilniuje.

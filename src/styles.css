@@ -100,32 +100,23 @@
   }
 
   .eyebrow {
-    display: inline-flex;
+    display: block;
     width: fit-content;
-    align-items: center;
-    gap: 0.5rem;
-    border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
-    border-radius: var(--radius-chip);
-    background: color-mix(in srgb, currentColor 3%, transparent);
-    color: var(--color-primary);
-    font-family: var(--font-display);
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.025em;
-    line-height: 1.25;
-    padding: 0.5rem 0.75rem;
-    text-transform: uppercase;
-  }
-
-  .eyebrow::before {
-    content: "+";
+    margin: 0;
     color: var(--color-accent);
     font-family: var(--font-display);
     font-size: 0.875rem;
     font-weight: 700;
-    letter-spacing: 0;
-    line-height: 1;
-    transform: translateY(-0.02em);
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .eyebrow-on-dark {
+    color: var(--color-accent);
+    text-shadow:
+      0 1px 14px color-mix(in srgb, var(--color-primary) 72%, transparent),
+      0 0 1px color-mix(in srgb, var(--color-primary) 40%, transparent);
   }
 
   .display-h1 {

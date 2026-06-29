@@ -35,7 +35,7 @@ export function SettleProcess() {
             data-reveal-group
           >
             <div className="flex flex-col items-start gap-7">
-              <p className="eyebrow reveal-item text-primary/62">Procesas</p>
+              <p className="eyebrow reveal-item">Procesas</p>
               <h2 className="section-heading reveal-item max-w-4xl">
                 Kaip įsikurti
                 <br />

@@ -51,7 +51,7 @@ export function FeatureSplitHighlightsSection({
             data-reveal-group
           >
             <div className="flex flex-col items-start gap-7">
-              <p className="eyebrow reveal-item text-primary/62">{eyebrow}</p>
+              <p className="eyebrow reveal-item">{eyebrow}</p>
               <h2 className="section-heading reveal-item max-w-4xl">
                 {title ? (
                   title

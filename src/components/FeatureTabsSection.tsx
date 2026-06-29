@@ -40,7 +40,7 @@ export function FeatureTabsSection({
             className="mx-auto mb-14 flex max-w-5xl flex-col items-center gap-7 text-center max-[767px]:items-start max-[767px]:text-left"
             data-reveal-group
           >
-            <p className="eyebrow reveal-item text-primary/62">{eyebrow}</p>
+            <p className="eyebrow reveal-item">{eyebrow}</p>
             <h2 className="section-heading reveal-item max-w-4xl">
               {titleHighlight}
               <br />

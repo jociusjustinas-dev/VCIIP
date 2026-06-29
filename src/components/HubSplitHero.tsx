@@ -43,7 +43,7 @@ export function HubSplitHero({
           className="grid w-full gap-8 max-[991px]:grid-cols-1 lg:h-[calc(100svh-(var(--hero-pad)*2))] lg:grid-cols-2 lg:items-stretch lg:gap-10"
         >
           <div className="relative z-[2] flex flex-col justify-center gap-6 py-2" data-reveal-group>
-            <p className="eyebrow reveal-item text-primary/72">{eyebrow}</p>
+            <p className="eyebrow reveal-item">{eyebrow}</p>
 
             <div className="max-w-[600px]">
               <h1 className="reveal-item display-h1 m-0 text-primary">{title}</h1>

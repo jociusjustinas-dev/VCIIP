@@ -16,7 +16,7 @@ export function StrategyPage() {
         <div className="site-container px-6 max-[479px]:px-4">
           <div className="mb-14 border-b border-dashed border-primary/28 pb-10">
             <div className="flex max-w-5xl flex-col items-start gap-5">
-              <p className="eyebrow text-primary/62">Strategija</p>
+              <p className="eyebrow">Strategija</p>
               <h1 className="display-h1 max-w-5xl">VCIIP svetainės strateginis dokumentas</h1>
             </div>
           </div>

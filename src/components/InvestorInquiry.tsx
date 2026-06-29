@@ -40,7 +40,7 @@ export function InvestorInquiry({
       <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(560px,1fr)] lg:gap-16" data-reveal-group>
         <div className="reveal-item flex max-w-2xl flex-col gap-7 lg:max-w-none">
             {showEyebrow && (
-              <p className={`eyebrow ${isLight ? "text-primary/62" : "text-white"}`}>
+              <p className={`eyebrow ${isLight ? "" : "eyebrow-on-dark"}`}>
                 {eyebrow}
               </p>
             )}
