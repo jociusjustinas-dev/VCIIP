@@ -42,15 +42,14 @@ export function Footer({
       : brandLogos[variant];
 
   return (
-    <footer className="relative bg-white p-2">
-      <div className="rounded-none bg-white px-6 py-16 text-primary max-[479px]:px-4 max-[479px]:py-12">
-        <div className="site-container">
-          <div className="grid gap-12 border-b border-dashed border-primary/12 pb-14 lg:grid-cols-[minmax(260px,1.15fr)_0.72fr_0.9fr_0.82fr]" data-reveal-group>
-            <div className="reveal-item flex max-w-md flex-col gap-8">
+    <footer className="relative border-t border-dashed border-primary/12 bg-white">
+      <div className="site-container px-6 py-14 text-primary max-[767px]:py-12 max-[479px]:px-4 max-[479px]:py-12">
+          <div className="grid gap-8 border-b border-dashed border-primary/12 pb-8 lg:grid-cols-[minmax(240px,1.1fr)_0.72fr_0.9fr_0.82fr] lg:gap-10" data-reveal-group>
+            <div className="reveal-item flex max-w-md flex-col gap-4">
               <a href={hubHref} aria-label={logo.alt} className="inline-flex w-fit">
-                <img src={logo.src} alt={logo.alt} className="h-11 w-auto" />
+                <img src={logo.src} alt={logo.alt} className="h-9 w-auto" />
               </a>
-              <p className="m-0 text-base font-medium leading-[150%] text-muted">
+              <p className="m-0 text-sm font-medium leading-[1.55] text-muted">
                 Vilniaus miesto inovacijų ir pramonės parkas, vystomas aukštos pridėtinės
                 vertės inovacijų, gyvybės mokslų ir pažangios gamybos veikloms.
               </p>
@@ -65,32 +64,32 @@ export function Footer({
             </FooterColumn>
 
             <FooterColumn title="Kontaktai">
-              <div className="flex flex-col gap-5">
-                <div className="flex flex-col gap-2">
-                  <p className="m-0 text-base font-medium leading-[150%] text-primary">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-1.5">
+                  <p className="m-0 text-sm font-medium leading-[1.5] text-primary">
                     VšĮ „Northtown Vilnius“
                   </p>
-                  <p className="m-0 text-base font-medium leading-[150%] text-muted">
+                  <p className="m-0 text-sm font-medium leading-[1.5] text-muted">
                     [Adresas]
                   </p>
-                  <a className="text-base font-medium leading-[150%] text-primary/68 hover:text-primary" href="mailto:info@vciip.lt">
+                  <a className="text-sm font-medium leading-[1.5] text-primary/68 hover:text-primary" href="mailto:info@vciip.lt">
                     info@vciip.lt
                   </a>
-                  <a className="text-base font-medium leading-[150%] text-primary/68 hover:text-primary" href="tel:+370XXXXXXXX">
+                  <a className="text-sm font-medium leading-[1.5] text-primary/68 hover:text-primary" href="tel:+370XXXXXXXX">
                     +370 XXX XXXXX
                   </a>
                 </div>
 
                 <div className="h-0 w-full border-b border-dashed border-primary/12" />
 
-                <div className="flex flex-col gap-2">
-                  <p className="m-0 text-base font-medium leading-[150%] text-primary">
+                <div className="flex flex-col gap-1.5">
+                  <p className="m-0 text-sm font-medium leading-[1.5] text-primary">
                     [Vardas Pavardė]
                   </p>
-                  <p className="m-0 text-sm font-medium leading-[150%] text-muted">
+                  <p className="m-0 text-xs font-medium leading-[1.5] text-muted">
                     Direktorius
                   </p>
-                  <a className="text-base font-medium leading-[150%] text-primary/68 hover:text-primary" href="mailto:vardas@vciip.lt">
+                  <a className="text-sm font-medium leading-[1.5] text-primary/68 hover:text-primary" href="mailto:vardas@vciip.lt">
                     vardas@vciip.lt
                   </a>
                 </div>
@@ -106,17 +105,16 @@ export function Footer({
             </FooterColumn>
           </div>
 
-          <div className="reveal-item flex items-center justify-between gap-6 pt-8 max-[767px]:flex-col max-[767px]:items-start">
-            <p className="m-0 text-sm font-medium leading-[150%] text-primary/48">
+          <div className="reveal-item flex items-center justify-between gap-4 pt-6 max-[767px]:flex-col max-[767px]:items-start">
+            <p className="m-0 text-xs font-medium leading-[1.5] text-primary/48">
               © 2026 VCIIP. Visos teisės saugomos.
             </p>
 
-            <div className="flex flex-wrap gap-5">
+            <div className="flex flex-wrap gap-4">
               <FooterLink href="/privatumo-politika/">Privatumo politika</FooterLink>
               <FooterLink href="/slapuku-politika/">Slapukų politika</FooterLink>
             </div>
           </div>
-        </div>
       </div>
     </footer>
   );
@@ -124,11 +122,11 @@ export function Footer({
 
 function FooterColumn({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="reveal-item flex flex-col gap-5">
-      <p className="m-0 font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-primary/42">
+    <div className="reveal-item flex flex-col gap-3">
+      <p className="m-0 font-mono text-[0.6875rem] font-bold uppercase leading-4 tracking-[0.08em] text-primary/42">
         {title}
       </p>
-      <div className="flex flex-col gap-3">{children}</div>
+      <div className="flex flex-col gap-2">{children}</div>
     </div>
   );
 }
@@ -137,7 +135,7 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <a
       href={href}
-      className="text-base font-medium leading-[150%] text-primary/68 transition-colors duration-200 hover:text-primary"
+      className="text-sm font-medium leading-[1.5] text-primary/68 transition-colors duration-200 hover:text-primary"
     >
       {children}
     </a>
