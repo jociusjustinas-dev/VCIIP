@@ -104,12 +104,12 @@ export function NewsPostPage({ slug }: { slug: string }) {
         </section>
 
         {relatedPosts.length > 0 ? (
-          <section className="relative bg-background section-shell">
+          <section className="relative bg-white section-shell">
             <div className="site-container px-6 max-[479px]:px-4">
               <h2 className="section-heading m-0">Kitos naujienos</h2>
               <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
                 {relatedPosts.map((relatedPost) => (
-                  <NewsCard key={relatedPost.id} post={relatedPost} className="w-full" />
+                  <NewsCard key={relatedPost.id} post={relatedPost} className="w-full" variant="plain" />
                 ))}
               </div>
             </div>
@@ -170,7 +170,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
       </section>
 
       {relatedPosts.length > 0 ? (
-        <section className="relative border-t border-dashed border-primary/16 bg-background section-shell">
+        <section className="relative bg-white section-shell">
           <div className="site-container px-6 max-[479px]:px-4">
             <div className="flex flex-col gap-3 border-b border-dashed border-primary/28 pb-8" data-reveal-group>
               <p className="eyebrow reveal-item text-primary/62">VCIIP žiniasklaidoje</p>
@@ -184,7 +184,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
                   className="reveal-item h-full"
                   style={{ "--reveal-delay": `${index * 70}ms` } as CSSProperties}
                 >
-                  <NewsCard post={relatedPost} className="w-full" />
+                  <NewsCard post={relatedPost} className="w-full" variant="plain" />
                 </div>
               ))}
             </div>

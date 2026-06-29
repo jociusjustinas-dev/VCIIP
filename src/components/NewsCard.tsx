@@ -4,16 +4,20 @@ import type { NewsPost } from "../types/news";
 export function NewsCard({
   post,
   className = "",
+  variant = "default",
 }: {
   post: NewsPost;
   className?: string;
+  variant?: "default" | "plain";
 }) {
   const imageUrl = getNewsImageUrl(post.imageUrl);
 
   return (
     <a
       href={getNewsPostHref()}
-      className={`group flex h-full w-[min(88vw,360px)] shrink-0 snap-start flex-col bg-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 lg:w-auto lg:min-w-0 ${className}`}
+      className={`group flex h-full w-[min(88vw,360px)] shrink-0 snap-start flex-col transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 lg:w-auto lg:min-w-0 ${
+        variant === "default" ? "bg-white" : "bg-transparent"
+      } ${className}`}
     >
       <div className="aspect-video overflow-hidden bg-background">
         <img
