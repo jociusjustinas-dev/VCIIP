@@ -10,7 +10,6 @@ export function KodelVilniusHero() {
       description={kodelVilniusHero.description}
       primaryCta={kodelVilniusHero.primaryCta}
       secondaryCta={kodelVilniusHero.secondaryCta}
-      showEyebrowRule
       media={{ type: "image", src: vilniusImage, alt: "Vilniaus miesto panorama" }}
     />
   );
