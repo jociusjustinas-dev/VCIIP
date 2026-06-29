@@ -5,7 +5,6 @@ import { GatewayHero } from "./GatewayHero";
 import { TechHero } from "./TechHero";
 import { InvestorInquiry } from "./InvestorInquiry";
 import { ProofStats } from "./ProofStats";
-import { ReadyToGrow } from "./ReadyToGrow";
 import { SettleProcess } from "./SettleProcess";
 import { VilniusEcosystem } from "./VilniusEcosystem";
 import { WhyInvestors } from "./WhyInvestors";
@@ -24,7 +23,6 @@ export function InvestmentLandingPage({ variant = "tech" }: { variant?: "index" 
           <WhyInvestors />
           <EcosystemMarquee />
           <SettleProcess />
-          <ReadyToGrow />
           <VilniusEcosystem />
         </>
       )}
