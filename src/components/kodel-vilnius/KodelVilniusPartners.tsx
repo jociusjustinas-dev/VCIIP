@@ -4,11 +4,15 @@ export function KodelVilniusPartners() {
   return (
     <section className="relative bg-white section-shell">
       <div className="site-container px-6 max-[479px]:px-4">
-        <div className="section-intro max-w-3xl max-[767px]:mb-8" data-reveal-group>
+        <div className="vilnius-partners-intro max-[767px]:mb-8" data-reveal-group>
           <div className="section-eyebrow-rule" />
-          <p className="eyebrow reveal-item">{kodelVilniusPartners.eyebrow}</p>
-          <h2 className="section-heading reveal-item">{kodelVilniusPartners.title}</h2>
-          <p className="reveal-item m-0 text-base leading-loose text-muted">{kodelVilniusPartners.intro}</p>
+          <div className="vilnius-partners-intro__row">
+            <div className="vilnius-partners-intro__title-col">
+              <p className="eyebrow reveal-item">{kodelVilniusPartners.eyebrow}</p>
+              <h2 className="section-heading reveal-item">{kodelVilniusPartners.title}</h2>
+            </div>
+            <p className="vilnius-partners-intro__body reveal-item">{kodelVilniusPartners.intro}</p>
+          </div>
         </div>
 
         <div className="reveal-item vilnius-partners-grid" data-reveal="fade">

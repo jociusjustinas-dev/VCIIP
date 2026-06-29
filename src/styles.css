@@ -534,6 +534,53 @@
     border-top: 2px dashed color-mix(in srgb, var(--color-primary) 34%, transparent);
   }
 
+  .vilnius-partners-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .vilnius-partners-intro__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .vilnius-partners-intro__title-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 32rem;
+  }
+
+  .vilnius-partners-intro__body {
+    margin: 0;
+    max-width: 24rem;
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  @media (max-width: 767px) {
+    .vilnius-partners-intro__row {
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .vilnius-partners-intro__title-col,
+    .vilnius-partners-intro__body {
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .vilnius-partners-intro {
+      margin-bottom: 2rem;
+    }
+  }
+
   .vilnius-partners-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
