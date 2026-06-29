@@ -37,7 +37,7 @@ export function FeatureSplitHighlightsSection({
 
   return (
     <section id={id} className="relative bg-white p-2">
-      <div className="relative overflow-hidden rounded-none bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
+      <div className="relative overflow-hidden rounded-none bg-white section-shell">
         <div className="site-container px-6 max-[479px]:px-4">
           <div
             className="reveal-item mb-16 h-0 w-full border-b border-dashed border-primary/45 max-[991px]:mb-12"
@@ -57,7 +57,7 @@ export function FeatureSplitHighlightsSection({
               </h2>
             </div>
 
-            <p className="reveal-item m-0 max-w-xl justify-self-end text-xl font-medium leading-[150%] text-muted max-[479px]:text-base">
+            <p className="reveal-item m-0 max-w-xl justify-self-end text-lg font-medium leading-[1.58] text-muted max-[479px]:text-base">
               {intro}
             </p>
           </div>
@@ -116,7 +116,7 @@ export function FeatureSplitHighlightsSection({
             </div>
 
             <div
-              className="reveal-item relative min-h-[520px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[420px] max-[767px]:min-h-[360px] max-[479px]:min-h-[280px]"
+              className="reveal-item relative min-h-[420px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[360px] max-[767px]:min-h-[320px] max-[479px]:min-h-[260px]"
               data-reveal="scale"
             >
               <ParallaxImage

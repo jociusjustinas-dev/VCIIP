@@ -35,13 +35,13 @@ export function EcosystemMarquee() {
       {marqueeItems.map((item) => (
         <div
           key={`${copyIndex}-${item.logo}`}
-          className="mr-5 flex h-[280px] w-[440px] flex-none snap-start flex-col justify-between overflow-hidden rounded-none bg-primary px-9 py-8 text-white max-[767px]:h-[240px] max-[767px]:w-[340px] max-[767px]:px-6 max-[767px]:py-6 max-[479px]:mr-3 max-[479px]:h-[220px] max-[479px]:w-[300px]"
+          className="mr-5 flex h-[240px] w-[380px] flex-none snap-start flex-col justify-between overflow-hidden rounded-none bg-primary px-7 py-6 text-white max-[767px]:h-[220px] max-[767px]:w-[320px] max-[479px]:mr-3 max-[479px]:h-[200px] max-[479px]:w-[280px]"
         >
           <p className="m-0 max-w-[330px] text-xl font-medium leading-[1.22] tracking-[-0.02em] text-white/78 max-[767px]:text-lg">
             {item.description}
           </p>
           <div className="flex items-end justify-between gap-6">
-            <span className="font-sans text-[43px] font-black leading-none tracking-[-0.08em] text-white max-[767px]:text-[34px] max-[479px]:text-[30px]">
+            <span className="font-sans text-[clamp(1.75rem,2.5vw,2.5rem)] font-semibold leading-none tracking-[-0.04em] text-white max-[767px]:text-[1.75rem] max-[479px]:text-[1.625rem]">
               {item.logo}
             </span>
             <span className="mb-1 size-3 shrink-0 rounded-none bg-accent" />
@@ -60,9 +60,9 @@ export function EcosystemMarquee() {
 
   return (
     <section id="ekosistema-verta-atsirasti" className="relative bg-white">
-      <div className="relative overflow-hidden bg-white py-24 text-primary max-[991px]:py-16 max-[479px]:py-12">
+      <div className="relative overflow-hidden bg-white section-shell text-primary">
         <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
-          <div className="mb-24 grid items-end gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,0.58fr)] max-[991px]:mb-16 max-[479px]:mb-12" data-reveal-group>
+          <div className="mb-10 grid items-end gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,0.58fr)] max-[479px]:mb-8" data-reveal-group>
             <h2 className="section-heading reveal-item max-w-4xl">
               <span className="heading-highlight">Ekosistema,</span>
               <br />
@@ -70,7 +70,7 @@ export function EcosystemMarquee() {
             </h2>
 
             <div className="reveal-item flex max-w-xl flex-col items-start gap-7 justify-self-end">
-              <p className="m-0 text-xl font-medium leading-[150%] text-muted max-[479px]:text-base">
+              <p className="m-0 text-lg font-medium leading-[1.58] text-muted max-[479px]:text-base">
                 Įsikūrę VCIIP, atsiduriate tarp savo srities lyderių. Bendra aplinka skatina
                 bendradarbiavimą, dalijimąsi žiniomis ir spartesnį augimą.
               </p>

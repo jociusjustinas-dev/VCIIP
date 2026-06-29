@@ -61,12 +61,12 @@ export function GatewayHero() {
 
         <div className="site-container relative z-[2] flex flex-1 px-6 max-[479px]:px-4">
           <div
-            className="grid w-full items-end gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(380px,0.82fr)] lg:gap-14 xl:grid-cols-[minmax(0,1fr)_minmax(440px,0.88fr)]"
+            className="grid w-full items-end gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(380px,0.82fr)] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(440px,0.88fr)]"
             data-reveal-group
           >
-            <div className="flex max-w-[920px] flex-col items-start gap-8 max-[991px]:gap-6">
+            <div className="flex max-w-[920px] flex-col items-start gap-6 max-[991px]:gap-5">
               <ul
-                className="reveal-item flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-white/62 max-[479px]:text-[0.66rem]"
+                className="reveal-item flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-white/62"
                 aria-label="VCIIP faktai"
               >
                 {metadata.map((item, index) => (
@@ -77,7 +77,7 @@ export function GatewayHero() {
                 ))}
               </ul>
 
-              <h1 className="reveal-item max-w-[920px] font-sans text-[clamp(2.65rem,5.1vw,5.75rem)] font-medium leading-[1.1] tracking-normal text-white">
+              <h1 className="display-h1 reveal-item max-w-[920px] text-white">
                 <span
                   className={`heading-highlight-animated -ml-6 -mr-4 py-1 pl-6 pr-4 backdrop-blur-[1px] ${
                     visible ? "is-visible" : ""
@@ -88,7 +88,7 @@ export function GatewayHero() {
                 <span className="block">augimui Vilniuje.</span>
               </h1>
 
-              <p className="reveal-item m-0 max-w-[720px] text-lg font-medium leading-[150%] text-white/82 md:text-xl">
+              <p className="reveal-item body-lead m-0 max-w-[720px] text-white/82">
                 VCIIP jungia dvi specializuotas teritorijas – gyvybės mokslų ekosistemą Vismaliukuose
                 ir technologijų bei pažangios gamybos plėtros teritoriją Liepkalnyje.
               </p>
@@ -104,7 +104,7 @@ export function GatewayHero() {
                   className="reveal-item group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-none bg-white/20 p-6 text-white backdrop-blur-md transition duration-300 hover:bg-white/26 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px] max-[479px]:p-5"
                 >
                   <div className="flex flex-col gap-3">
-                    <h2 className="m-0 font-sans text-[1.35rem] font-semibold leading-[1.15] tracking-normal text-white">
+                    <h2 className="heading-h3 m-0 font-semibold text-white">
                       {destination.title}
                     </h2>
                     <p className="m-0 font-mono text-[0.68rem] font-semibold uppercase leading-[1.3] tracking-[0.1em] text-white/58">

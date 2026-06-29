@@ -12,18 +12,16 @@ const sectionLinks = strategyItems
 export function StrategyPage() {
   return (
     <main className="bg-white p-2">
-      <section className="relative overflow-hidden rounded-none bg-background pb-24 pt-36 max-[991px]:pb-16 max-[479px]:pt-28">
+      <section className="relative overflow-hidden rounded-none bg-background pb-16 pt-28 max-[991px]:pb-14 max-[479px]:pt-24">
         <div className="site-container px-6 max-[479px]:px-4">
-          <div className="mb-20 border-b border-dashed border-primary/28 pb-12">
-            <div className="flex max-w-5xl flex-col items-start gap-7">
+          <div className="mb-14 border-b border-dashed border-primary/28 pb-10">
+            <div className="flex max-w-5xl flex-col items-start gap-5">
               <p className="eyebrow text-primary/62">Strategija</p>
-              <h1 className="section-heading max-w-5xl text-[clamp(3rem,7vw,7.8rem)] leading-[1.04]">
-                VCIIP svetainės strateginis dokumentas
-              </h1>
+              <h1 className="display-h1 max-w-5xl">VCIIP svetainės strateginis dokumentas</h1>
             </div>
           </div>
 
-          <div className="grid items-start gap-14 lg:grid-cols-[280px_minmax(0,1fr)]">
+          <div className="grid items-start gap-10 lg:grid-cols-[280px_minmax(0,1fr)]">
             <aside className="sticky top-28 hidden rounded-none border border-primary/10 bg-white/70 p-4 backdrop-blur lg:block">
               <p className="m-0 mb-4 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary/44">
                 Turinys

@@ -31,10 +31,10 @@ export function FeatureAccordionSection({
 
   return (
     <section id={id} className="relative bg-white p-2">
-      <div className="relative overflow-hidden rounded-none bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
+      <div className="relative overflow-hidden rounded-none bg-white section-shell">
         <div className="site-container px-6 max-[479px]:px-4">
-          <div className="grid items-stretch gap-16 lg:grid-cols-[minmax(0,0.92fr)_minmax(460px,0.78fr)] lg:gap-24">
-            <div className="flex min-w-0 w-full flex-col gap-14">
+          <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(460px,0.78fr)] lg:gap-16">
+            <div className="flex min-w-0 w-full flex-col gap-10">
               <div className="flex flex-col gap-8" data-reveal-group>
                 <div className="h-0 w-full border-b border-dashed border-primary/45" />
                 <p className="eyebrow reveal-item text-primary/62">{eyebrow}</p>
@@ -44,7 +44,7 @@ export function FeatureAccordionSection({
                     <br />
                     {titleRest}
                   </h2>
-                  <p className="reveal-item m-0 max-w-2xl text-xl font-medium leading-[150%] text-muted max-[479px]:text-base">
+                  <p className="reveal-item m-0 max-w-2xl text-lg font-medium leading-[1.58] text-muted max-[479px]:text-base">
                     {intro}
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export function FeatureAccordionSection({
             </div>
 
             <div
-              className="reveal-item relative h-full min-h-[520px] overflow-hidden rounded-none bg-primary max-[991px]:h-[520px] max-[767px]:h-[420px] max-[479px]:h-[340px]"
+              className="reveal-item relative h-full min-h-[420px] overflow-hidden rounded-none bg-primary max-[991px]:h-[420px] max-[767px]:h-[360px] max-[479px]:h-[300px]"
               data-reveal="scale"
             >
               <ParallaxImage

@@ -132,7 +132,7 @@ export function ReadyToGrow() {
   };
 
   return (
-    <section ref={sectionRef} id="sklypai" className="relative bg-white pt-24 max-[991px]:pt-16 max-[479px]:pt-12">
+    <section ref={sectionRef} id="sklypai" className="relative bg-white pt-16 max-[991px]:pt-14 max-[479px]:pt-12">
       <div className="mb-12 overflow-hidden pb-8 pt-4 max-[479px]:mb-8 max-[479px]:pb-5">
         <div
           className={`flex w-max transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
@@ -145,7 +145,7 @@ export function ReadyToGrow() {
                 key={index}
                 className="mr-10 flex flex-none items-center gap-10 max-[479px]:mr-6 max-[479px]:gap-6"
               >
-                <h2 className="m-0 font-sans text-[clamp(4.75rem,12vw,13rem)] font-medium leading-[1.05] tracking-[-0.035em] text-primary max-[479px]:text-[3.5rem]">
+                <h2 className="m-0 font-sans text-[clamp(2.5rem,6vw,4rem)] font-medium leading-[1.02] tracking-[-0.02em] text-primary max-[479px]:text-[2.25rem]">
                   Paruošta augti
                 </h2>
                 <span className="mt-5 size-6 flex-none rounded-none bg-accent max-[767px]:size-4 max-[479px]:mt-3 max-[479px]:size-3" />
@@ -189,7 +189,7 @@ export function ReadyToGrow() {
               transform: `translateY(${introTranslateY}px)`,
             }}
           >
-            <p className="m-0 max-w-4xl text-[clamp(2rem,4.2vw,4.8rem)] font-medium leading-[1.08] tracking-[-0.04em] text-white">
+            <p className="m-0 max-w-3xl text-[clamp(1.375rem,2.4vw,2.25rem)] font-medium leading-[1.18] tracking-[-0.02em] text-white">
               Liepkalnio teritorijoje plėtojami išskirtiniai inžinerinės infrastruktūros
               pajėgumai, pritaikyti reikliausioms inovacijų ir gamybos veikloms.
             </p>

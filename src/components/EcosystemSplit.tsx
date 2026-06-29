@@ -17,7 +17,7 @@ export function EcosystemSplit() {
                   Viena ekosistema.
                 </span>
               </h2>
-              <p className="reveal-item m-0 max-w-xl justify-self-end text-xl font-medium leading-[150%] text-white/74 max-[479px]:text-base">
+              <p className="reveal-item m-0 max-w-xl justify-self-end text-lg font-medium leading-[1.58] text-white/74 max-[479px]:text-base">
                 VCIIP – tai dvi viena kitą papildančios teritorijos: veikianti ekosistema
                 Vismaliukuose ir nauja plėtra Liepkalnyje.
               </p>
@@ -26,19 +26,19 @@ export function EcosystemSplit() {
 
           <div className="flex gap-8 max-[767px]:flex-col" data-reveal-group>
             <div className="w-1/2 px-4 max-[767px]:w-full max-[767px]:px-0">
-              <div className="reveal-item flex h-full max-w-[620px] flex-col items-start justify-between gap-16 max-[767px]:gap-10">
+              <div className="reveal-item flex h-full max-w-[620px] flex-col items-start justify-between gap-10 max-[767px]:gap-8">
                 <div className="flex w-full flex-col gap-8">
                   <div className="h-0 w-full border-b border-dashed border-white/48" />
                   <p className="font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-white/72">
                     BIO
                   </p>
-                  <h3 className="m-0 max-w-xl font-sans text-[48px] font-medium leading-[1.08] tracking-normal text-white max-[991px]:text-[40px] max-[767px]:text-[32px]">
+                  <h3 className="heading-h3 max-w-xl text-white">
                     Veikianti ekosistema
                   </h3>
                 </div>
 
                 <div className="flex flex-col gap-6">
-                  <p className="m-0 max-w-xl text-xl font-medium leading-[145%] text-white/72 max-[479px]:text-base">
+                  <p className="m-0 max-w-xl text-lg font-medium leading-[1.58] text-white/72 max-[479px]:text-base">
                     Vismaliukų teritorijoje jau veikia 30+ inovatyvių kompanijų ir gyvybės
                     mokslų klasteris. Tai įrodymas, kad VCIIP modelis veikia ir kuria realią
                     vertę.
@@ -90,7 +90,7 @@ export function EcosystemSplit() {
             </div>
 
             <div className="flex w-1/2 justify-end px-4 max-[767px]:w-full max-[767px]:px-0">
-              <div className="reveal-item flex h-full max-w-[620px] flex-col items-start justify-between gap-16 max-[767px]:gap-10">
+              <div className="reveal-item flex h-full max-w-[620px] flex-col items-start justify-between gap-10 max-[767px]:gap-8">
                 <div className="flex w-full flex-col gap-8">
                   <div className="h-0 w-full border-b border-dashed border-white/48" />
                   <div className="flex flex-wrap items-center gap-3">
@@ -101,13 +101,13 @@ export function EcosystemSplit() {
                       Prieinama dabar
                     </span>
                   </div>
-                  <h3 className="m-0 max-w-xl font-sans text-[48px] font-medium leading-[1.08] tracking-normal text-white max-[991px]:text-[40px] max-[767px]:text-[32px]">
+                  <h3 className="heading-h3 max-w-xl text-white">
                     Naujos galimybės Liepkalnyje
                   </h3>
                 </div>
 
                 <div className="flex flex-col gap-6">
-                  <p className="m-0 max-w-xl text-xl font-medium leading-[145%] text-white/72 max-[479px]:text-base">
+                  <p className="m-0 max-w-xl text-lg font-medium leading-[1.58] text-white/72 max-[479px]:text-base">
                     Beveik 39 ha nauja teritorija su plėtojama inžinerine infrastruktūra.
                     Vieta jūsų gamybai, laboratorijoms ar tyrimų centrui.
                   </p>

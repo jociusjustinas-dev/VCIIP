@@ -63,7 +63,7 @@ export function Hero() {
             data-reveal-group
           >
             <div className="flex max-w-[1160px] flex-col items-start">
-              <h1 className="reveal-item max-w-[980px] font-sans text-[clamp(2.85rem,5.45vw,6.45rem)] font-medium leading-[1.12] tracking-normal text-white max-[991px]:mb-8">
+              <h1 className="display-h1 reveal-item max-w-[980px] text-white max-[991px]:mb-6">
                 <span
                   className={`heading-highlight-animated -ml-6 -mr-4 py-1 pl-6 pr-4 backdrop-blur-[1px] ${
                     visible ? "is-visible" : ""
@@ -100,7 +100,7 @@ export function Hero() {
                 </div>
               </div>
 
-              <p className="reveal-item text-lg font-medium leading-[150%] text-white/82 md:text-xl">
+              <p className="reveal-item body-lead text-white/82">
                 Pirmasis ir vienintelis parkas Vilniuje, skirtas aukštos pridėtinės vertės
                 inovacijoms. Paruošta infrastruktūra, valstybės parama ir operatoriaus pagalba
                 viso proceso metu.

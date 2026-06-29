@@ -33,8 +33,8 @@ export function InvestorInquiry({
 
   const content = (
     <div className="site-container px-6 max-[479px]:px-4">
-      <div className="grid gap-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(560px,1fr)] lg:gap-24" data-reveal-group>
-        <div className="flex flex-col justify-between gap-16">
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(560px,1fr)] lg:gap-16" data-reveal-group>
+        <div className="flex flex-col justify-between gap-10">
           <div className="reveal-item flex max-w-2xl flex-col gap-7">
             {showEyebrow && (
               <p className={`eyebrow ${isLight ? "text-primary/62" : "text-white"}`}>
@@ -45,7 +45,7 @@ export function InvestorInquiry({
               Papasakokite apie savo planus
             </h2>
             <p
-              className={`m-0 text-xl font-medium leading-[150%] max-[479px]:text-base ${
+              className={`m-0 text-lg font-medium leading-[1.58] max-[479px]:text-base ${
                 isLight ? "text-muted" : "text-white/72"
               }`}
             >
@@ -60,7 +60,11 @@ export function InvestorInquiry({
             }`}
           >
             <div className="flex flex-col gap-3">
-              <p className={`m-0 text-2xl font-medium leading-[1.15] ${isLight ? "text-primary" : "text-white"}`}>
+              <p
+                className={`m-0 text-xl font-medium leading-[1.5] max-[479px]:text-base ${
+                  isLight ? "text-primary" : "text-white"
+                }`}
+              >
                 Turite klausimų?
               </p>
               <p className={`m-0 text-base font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/62"}`}>
@@ -108,7 +112,7 @@ export function InvestorInquiry({
         >
               {formState === "success" ? (
                 <div className="flex min-h-[420px] flex-col justify-center gap-4 text-center">
-                  <p className="m-0 text-3xl font-medium leading-[1.12]">
+                  <p className="m-0 text-2xl font-medium leading-[1.15]">
                     Užklausa paruošta.
                   </p>
                   <p className="m-0 text-lg font-medium leading-[150%] text-muted">
@@ -222,11 +226,11 @@ export function InvestorInquiry({
   return (
     <section id="investuotojo-uzklausa" className="relative bg-white p-2">
       {isLight ? (
-        <div className="relative overflow-hidden rounded-none bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
+        <div className="relative overflow-hidden rounded-none bg-white section-shell">
           {content}
         </div>
       ) : (
-        <div className="relative overflow-hidden rounded-none bg-primary py-24 text-white max-[991px]:py-16 max-[479px]:py-12">
+        <div className="relative overflow-hidden rounded-none bg-primary section-shell text-white">
           {content}
         </div>
       )}

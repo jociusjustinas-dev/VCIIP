@@ -30,7 +30,7 @@ export function EcosystemHero() {
   return (
     <section
       id="apie-vciip-bio"
-      className="relative overflow-hidden bg-white pb-8 pt-32 max-[991px]:pb-8 max-[991px]:pt-28 max-[479px]:pb-6 max-[479px]:pt-24"
+      className="relative overflow-hidden bg-white pb-8 pt-28 max-[991px]:pb-8 max-[991px]:pt-24 max-[479px]:pb-6 max-[479px]:pt-20"
     >
       <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
         <div className="grid items-start gap-8 lg:grid-cols-2 max-[991px]:grid-cols-1">
@@ -40,7 +40,7 @@ export function EcosystemHero() {
             <div className="max-w-[600px]">
               <h1
                 ref={headingRef}
-                className="reveal-item m-0 font-sans text-[clamp(2.75rem,5vw,4.5rem)] font-medium leading-[1.06] tracking-normal text-primary max-[991px]:text-[64px] max-[767px]:text-[56px] max-[479px]:text-[13vw]"
+                className="reveal-item display-h1 m-0 text-primary max-[991px]:text-[clamp(2rem,6vw,3rem)] max-[767px]:text-[clamp(1.875rem,7vw,2.25rem)]"
               >
                 Gyvybės mokslų{" "}
                 <span
