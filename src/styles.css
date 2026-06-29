@@ -508,8 +508,11 @@
 
   .plot-detail-card__header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     gap: 0.75rem;
+    flex-wrap: wrap;
   }
 
   .plot-detail-card__title {
@@ -523,6 +526,10 @@
 
   .plot-detail-card .plot-status {
     color: var(--color-white);
+  }
+
+  .plot-detail-card .plot-status--planned .plot-status__dot {
+    background: color-mix(in srgb, var(--color-white) 58%, transparent);
   }
 
   .plot-detail-card__meta {
