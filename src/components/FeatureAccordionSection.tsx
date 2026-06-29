@@ -78,7 +78,7 @@ export function FeatureAccordionSection({
                         >
                           {String(index + 1).padStart(2, "0")}
                         </span>
-                        <span className="min-w-0 flex-1 text-2xl font-normal leading-tight text-primary max-[479px]:text-xl">
+                        <span className="min-w-0 flex-1 font-display text-2xl font-bold leading-tight tracking-tight text-primary max-[479px]:text-xl">
                           {item.title}
                         </span>
                         <ChevronDown
