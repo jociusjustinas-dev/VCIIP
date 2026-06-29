@@ -27,7 +27,7 @@ function ShareIconButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="group inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-[#c5c5cb] bg-white text-primary transition-colors duration-150 hover:border-accent hover:bg-accent hover:text-white"
+      className="group inline-flex size-10 shrink-0 items-center justify-center rounded-none border border-[#c5c5cb] bg-white text-primary transition-colors duration-150 hover:border-accent hover:bg-accent hover:text-white"
     >
       <Icon className="block size-3" />
     </a>
