@@ -61,6 +61,7 @@ export function usesVciipIndexTheme(currentPath: string) {
     path === "/" ||
     path === "/kodel-vilnius" ||
     path === "/apie-vciip" ||
+    path === "/kontaktai" ||
     path === "/naujienos" ||
     path.startsWith("/naujienos/")
   );

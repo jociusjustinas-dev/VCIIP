@@ -1,16 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
+
+import { CONTACT_INTEREST_OPTIONS, getInterestFromSearchParams } from "../lib/contactInterest";
 
 type FormState = "idle" | "success";
 
 const fields = {
-  interest: [
-    "Gyvybės mokslai (BIO)",
-    "Technologijos ir gamyba (TECH)",
-    "Tyrimai ir plėtra",
-    "Kita",
-  ],
+  interest: [...CONTACT_INTEREST_OPTIONS],
   stage: ["Vertiname galimybes", "Ieškome teritorijos", "Planuojame plėtrą", "Kita"],
 };
 
@@ -25,6 +22,11 @@ export function InvestorInquiry({
   const [interest, setInterest] = useState("");
   const [stage, setStage] = useState("");
   const isLight = tone === "light";
+
+  useEffect(() => {
+    const presetInterest = getInterestFromSearchParams(window.location.search);
+    if (presetInterest) setInterest(presetInterest);
+  }, []);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -105,6 +107,7 @@ export function InvestorInquiry({
         </div>
 
         <div
+          id="forma"
           className={`reveal-item rounded-none p-8 text-primary max-[767px]:p-6 max-[479px]:p-5 ${
             isLight
               ? "border border-primary/12 bg-white shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_8%,transparent)]"

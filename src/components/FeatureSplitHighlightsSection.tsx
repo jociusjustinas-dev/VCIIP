@@ -11,11 +11,12 @@ type CtaLink = {
 type FeatureSplitHighlightsSectionProps = {
   id: string;
   eyebrow: string;
-  titleHighlight: string;
-  titleRest: string;
+  title?: string;
+  titleHighlight?: string;
+  titleRest?: string;
   intro: string;
-  highlights: string[];
-  note: string;
+  highlights?: string[];
+  note?: string;
   primaryCta: CtaLink;
   secondaryCta: CtaLink;
   imageSrc: string;
@@ -24,10 +25,11 @@ type FeatureSplitHighlightsSectionProps = {
 export function FeatureSplitHighlightsSection({
   id,
   eyebrow,
+  title,
   titleHighlight,
   titleRest,
   intro,
-  highlights,
+  highlights = [],
   note,
   primaryCta,
   secondaryCta,
@@ -51,9 +53,15 @@ export function FeatureSplitHighlightsSection({
             <div className="flex flex-col items-start gap-7">
               <p className="eyebrow reveal-item text-primary/62">{eyebrow}</p>
               <h2 className="section-heading reveal-item max-w-4xl">
-                {titleHighlight}
-                <br />
-                {titleRest}
+                {title ? (
+                  title
+                ) : (
+                  <>
+                    {titleHighlight}
+                    <br />
+                    {titleRest}
+                  </>
+                )}
               </h2>
             </div>
 
@@ -67,21 +75,25 @@ export function FeatureSplitHighlightsSection({
             data-reveal-group
           >
             <div className="reveal-item flex flex-col justify-between gap-10">
-              <ul className="m-0 grid list-none gap-0 p-0">
-                {highlights.map((item) => (
-                  <li
-                    key={item}
-                    className="border-t border-dashed border-primary/22 py-4 text-base leading-loose text-primary"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              {highlights.length > 0 ? (
+                <ul className="m-0 grid list-none gap-0 p-0">
+                  {highlights.map((item) => (
+                    <li
+                      key={item}
+                      className="border-t border-dashed border-primary/22 py-4 text-base leading-loose text-primary"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
 
-              <div className="flex flex-col gap-8">
-                <p className="m-0 max-w-lg text-sm font-medium leading-[150%] text-muted">
-                  {note}
-                </p>
+              <div className={`flex flex-col gap-8 ${highlights.length === 0 ? "mt-auto" : ""}`}>
+                {note ? (
+                  <p className="m-0 max-w-lg text-sm font-medium leading-[150%] text-muted">
+                    {note}
+                  </p>
+                ) : null}
 
                 <div className="flex flex-wrap gap-3 max-[479px]:flex-col">
                   <a

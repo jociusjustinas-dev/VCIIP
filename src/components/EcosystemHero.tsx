@@ -11,7 +11,7 @@ export function EcosystemHero() {
       title="Gyvybės mokslų ekosistema Vilniuje."
       description="VCIIP BIO teritorijoje jau šiandien veikia gyvybės mokslų, tyrimų ir inovacijų organizacijos, formuojančios vieną stipriausių ekosistemų regione."
       primaryCta={{ label: "Tyrinėti ekosistemą", href: "#ekosistema-turinys" }}
-      secondaryCta={{ label: "Susisiekti", href: "#kontaktai" }}
+      secondaryCta={{ label: "Susisiekti", href: "/kontaktai?interest=bio" }}
       media={{ type: "video", src: ecosystemHeroVideoSrc }}
     />
   );
