@@ -400,6 +400,171 @@
     }
   }
 
+  .vilnius-advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border: 1px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
+  }
+
+  .vilnius-advantages-grid__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+  }
+
+  .vilnius-advantages-grid__item:last-child {
+    border-right: 0;
+  }
+
+  .vilnius-advantages-grid__number {
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    color: var(--color-accent);
+  }
+
+  .vilnius-europe-map {
+    height: 100%;
+    min-height: 280px;
+  }
+
+  .vilnius-city-pin {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transform: translate(-0.25rem, -50%);
+  }
+
+  .vilnius-city-pin__dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    flex-shrink: 0;
+    background: var(--color-accent);
+  }
+
+  .vilnius-city-pin__label {
+    padding: 0.25rem 0.5rem;
+    background: color-mix(in srgb, var(--color-primary) 82%, transparent);
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .vilnius-partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border: 1px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
+  }
+
+  .vilnius-partners-grid__item {
+    display: flex;
+    min-height: 5.5rem;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    padding: 1.25rem 1.5rem;
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+
+  .vilnius-partners-grid__item:nth-child(3n) {
+    border-right: 0;
+  }
+
+  .vilnius-partners-grid__item:nth-last-child(-n + 3) {
+    border-bottom: 0;
+  }
+
+  .vilnius-partners-grid__item:hover {
+    background: color-mix(in srgb, var(--color-primary) 4%, white);
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 991px) {
+    .vilnius-advantages-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .vilnius-advantages-grid__item {
+      border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    }
+
+    .vilnius-advantages-grid__item:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .vilnius-advantages-grid__item:nth-last-child(-n + 2) {
+      border-bottom: 0;
+    }
+
+    .vilnius-partners-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .vilnius-partners-grid__item:nth-child(3n) {
+      border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    }
+
+    .vilnius-partners-grid__item:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .vilnius-partners-grid__item:nth-last-child(-n + 3) {
+      border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    }
+
+    .vilnius-partners-grid__item:nth-last-child(-n + 2) {
+      border-bottom: 0;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .vilnius-advantages-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .vilnius-advantages-grid__item {
+      border-right: 0;
+    }
+
+    .vilnius-advantages-grid__item:not(:last-child) {
+      border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    }
+
+    .vilnius-partners-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .vilnius-partners-grid__item {
+      border-right: 0 !important;
+    }
+
+    .vilnius-partners-grid__item:not(:last-child) {
+      border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    }
+
+    .vilnius-partners-grid__item:last-child {
+      border-bottom: 0;
+    }
+  }
+
   .plot-section__intro {
     display: grid;
     gap: 1.5rem;
