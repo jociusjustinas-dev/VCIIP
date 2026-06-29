@@ -21,13 +21,15 @@ export function KodelVilniusPartners() {
               className="vilnius-partners-grid__item"
               aria-label={partner.label}
             >
-              <img
-                src={partner.logo}
-                alt={partner.logoAlt}
-                className="vilnius-partners-grid__logo"
-                loading="lazy"
-                decoding="async"
-              />
+              <span className="vilnius-partners-grid__logo-wrap">
+                <img
+                  src={partner.logo}
+                  alt={partner.logoAlt}
+                  className="vilnius-partners-grid__logo"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
             </a>
           ))}
         </div>
