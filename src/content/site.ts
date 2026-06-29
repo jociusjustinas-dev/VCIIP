@@ -58,7 +58,7 @@ export function getBrandVariantFromPath(currentPath: string): "vciip" | "bio" | 
 export function usesVciipIndexTheme(currentPath: string) {
   const path = currentPath.replace(/\/$/, "") || "/";
 
-  return path === "/" || path === "/kodel-vilnius" || path === "/apie-vciip";
+  return path === "/" || path === "/kodel-vilnius" || path === "/apie-vciip" || path === "/naujienos";
 }
 
 export function usesLegacyGreenTheme(currentPath: string) {

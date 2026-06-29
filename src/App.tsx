@@ -5,6 +5,7 @@ import { HashScroll } from "./components/HashScroll";
 import { HomePage } from "./components/HomePage";
 import { KodelVilniusPage } from "./components/KodelVilniusPage";
 import { Navigation } from "./components/Navigation";
+import { NewsPage } from "./components/NewsPage";
 import { ScrollReveal } from "./components/ScrollReveal";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { StrategyPage } from "./components/StrategyPage";
@@ -18,6 +19,7 @@ function App() {
   const isBioHub = currentPath === "/ekosistema" || currentPath === "/bio";
   const isKodelVilniusPage = currentPath === "/kodel-vilnius";
   const isApieVciipPage = currentPath === "/apie-vciip";
+  const isNewsPage = currentPath === "/naujienos";
   const brandVariant = getBrandVariantFromPath(currentPath);
   const hubHref = getHubHrefFromPath(currentPath);
   const pageThemeClass = usesLegacyGreenTheme(currentPath) ? "legacy-green-page" : undefined;
@@ -39,6 +41,8 @@ function App() {
         <KodelVilniusPage />
       ) : isApieVciipPage ? (
         <ApieVciipPage />
+      ) : isNewsPage ? (
+        <NewsPage />
       ) : (
         <HomePage />
       )}
