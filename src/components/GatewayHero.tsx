@@ -45,7 +45,7 @@ export function GatewayHero() {
     <section id="apie-vciip" ref={sectionRef} className="relative bg-white p-2 text-white">
       <div
         data-nav-theme="dark"
-        className="relative z-[1] flex min-h-[calc(100svh-16px)] flex-col overflow-hidden rounded-2xl pb-14 pt-32 max-[991px]:pb-12 max-[479px]:pt-28"
+        className="relative z-[1] flex min-h-[calc(100svh-16px)] flex-col overflow-hidden rounded-none pb-14 pt-32 max-[991px]:pb-12 max-[479px]:pt-28"
       >
         <img
           src={vciipOverviewImage}
@@ -71,7 +71,7 @@ export function GatewayHero() {
               >
                 {metadata.map((item, index) => (
                   <li key={item} className="flex items-center gap-3">
-                    {index > 0 && <span className="size-1 rounded-full bg-white/28" aria-hidden="true" />}
+                    {index > 0 && <span className="size-1 rounded-[4px] bg-white/28" aria-hidden="true" />}
                     <span>{item}</span>
                   </li>
                 ))}
@@ -101,7 +101,7 @@ export function GatewayHero() {
                   href={destination.href}
                   data-reveal="scale"
                   data-reveal-delay={`${index * 110}ms`}
-                  className="reveal-item group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-2xl bg-white/20 p-6 text-white backdrop-blur-md transition duration-300 hover:bg-white/26 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px] max-[479px]:p-5"
+                  className="reveal-item group flex min-h-[248px] flex-col justify-between gap-5 overflow-hidden rounded-none bg-white/20 p-6 text-white backdrop-blur-md transition duration-300 hover:bg-white/26 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/20 max-[479px]:min-h-[220px] max-[479px]:p-5"
                 >
                   <div className="flex flex-col gap-3">
                     <h2 className="m-0 font-sans text-[1.35rem] font-semibold leading-[1.15] tracking-normal text-white">

@@ -20,9 +20,15 @@
   --color-border: #d9e2df;
   --color-muted: #5a7176;
 
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.5rem;
+  --radius-section: 0px;
+  --radius-card: 0px;
+  --radius-image: 0px;
+  --radius-input: 4px;
+  --radius-button: 6px;
+  --radius-chip: 4px;
+  --radius-sm: var(--radius-input);
+  --radius-md: var(--radius-input);
+  --radius-lg: var(--radius-button);
 }
 
 @layer base {
@@ -76,7 +82,7 @@
     align-items: center;
     gap: 0.65rem;
     border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-chip);
     background: color-mix(in srgb, currentColor 3%, transparent);
     color: var(--color-primary);
     font-family: var(--font-mono);
@@ -115,7 +121,7 @@
     display: inline;
     margin-left: -0.9rem;
     margin-right: -0.55rem;
-    border-radius: 999px;
+    border-radius: var(--radius-chip);
     background: linear-gradient(
       90deg,
       color-mix(in srgb, var(--color-accent) 34%, transparent) 0%,
@@ -140,7 +146,7 @@
     width: fit-content;
     margin-left: -0.9rem;
     margin-right: -0.55rem;
-    border-radius: 999px;
+    border-radius: var(--radius-chip);
     padding: 0.28rem 0.55rem 0.28rem 0.9rem;
   }
 
@@ -179,7 +185,7 @@
     justify-content: center;
     gap: 0.5rem;
     border: 1px solid var(--color-accent);
-    border-radius: 999px;
+    border-radius: var(--radius-button);
     background: var(--color-accent);
     color: var(--color-white);
     padding: 0.85rem 1.2rem;
@@ -198,7 +204,7 @@
     align-items: center;
     justify-content: center;
     border: 1px solid rgb(255 255 255 / 28%);
-    border-radius: 999px;
+    border-radius: var(--radius-button);
     color: var(--color-white);
     padding: 0.85rem 1.2rem;
     font-weight: 800;
@@ -218,7 +224,7 @@
     align-items: center;
     gap: 0.45rem;
     border: 1px solid color-mix(in srgb, var(--color-accent) 34%, transparent);
-    border-radius: 999px;
+    border-radius: var(--radius-chip);
     background: color-mix(in srgb, var(--color-accent) 16%, transparent);
     color: var(--color-accent);
     font-family: var(--font-mono);
@@ -234,7 +240,7 @@
     content: "";
     width: 0.44rem;
     height: 0.44rem;
-    border-radius: 999px;
+    border-radius: var(--radius-chip);
     background: var(--color-accent);
     box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 44%, transparent);
     animation: availability-pulse 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
@@ -256,7 +262,7 @@
     min-height: 3rem;
     width: 100%;
     border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-input);
     background: var(--color-background);
     color: var(--color-primary);
     padding: 0.72rem 1rem;
@@ -323,19 +329,26 @@
 }
 
 @layer utilities {
-  .rounded-xl,
-  .rounded-2xl {
-    border-radius: var(--radius-md);
+  .rounded-none {
+    border-radius: var(--radius-card);
   }
 
-  .rounded-t-2xl {
-    border-top-left-radius: var(--radius-md);
-    border-top-right-radius: var(--radius-md);
+  .rounded-\[4px\] {
+    border-radius: var(--radius-chip);
   }
 
-  .rounded-b-2xl {
-    border-bottom-right-radius: var(--radius-md);
-    border-bottom-left-radius: var(--radius-md);
+  .rounded-\[6px\] {
+    border-radius: var(--radius-button);
+  }
+
+  .rounded-t-none {
+    border-top-left-radius: var(--radius-section);
+    border-top-right-radius: var(--radius-section);
+  }
+
+  .rounded-b-none {
+    border-bottom-right-radius: var(--radius-section);
+    border-bottom-left-radius: var(--radius-section);
   }
 }
 

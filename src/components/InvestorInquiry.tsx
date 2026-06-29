@@ -99,7 +99,7 @@ export function InvestorInquiry({
         </div>
 
         <div
-          className={`reveal-item rounded-2xl p-8 text-primary max-[767px]:p-6 max-[479px]:p-5 ${
+          className={`reveal-item rounded-none p-8 text-primary max-[767px]:p-6 max-[479px]:p-5 ${
             isLight
               ? "border border-primary/12 bg-white shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_8%,transparent)]"
               : "bg-white"
@@ -193,7 +193,7 @@ export function InvestorInquiry({
                   <div className="flex flex-col gap-4">
                     <button
                       type="submit"
-                      className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
+                      className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
                     >
                       <span className="h-5 overflow-hidden py-px">
                         <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
@@ -222,11 +222,11 @@ export function InvestorInquiry({
   return (
     <section id="investuotojo-uzklausa" className="relative bg-white p-2">
       {isLight ? (
-        <div className="relative overflow-hidden rounded-2xl bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
+        <div className="relative overflow-hidden rounded-none bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
           {content}
         </div>
       ) : (
-        <div className="relative overflow-hidden rounded-2xl bg-primary py-24 text-white max-[991px]:py-16 max-[479px]:py-12">
+        <div className="relative overflow-hidden rounded-none bg-primary py-24 text-white max-[991px]:py-16 max-[479px]:py-12">
           {content}
         </div>
       )}
@@ -290,7 +290,7 @@ function CustomSelect({
       {open && (
         <div
           role="listbox"
-          className="absolute left-0 right-0 top-full z-30 mt-2 overflow-hidden rounded-2xl border border-primary/12 bg-white p-1 shadow-[0_22px_70px_color-mix(in_srgb,var(--color-primary)_16%,transparent)]"
+          className="absolute left-0 right-0 top-full z-30 mt-2 overflow-hidden rounded-none border border-primary/12 bg-white p-1 shadow-[0_22px_70px_color-mix(in_srgb,var(--color-primary)_16%,transparent)]"
         >
           {options.map((option) => {
             const selected = value === option;
@@ -305,7 +305,7 @@ function CustomSelect({
                   onChange(option);
                   setOpen(false);
                 }}
-                className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-semibold leading-[1.2] transition-colors duration-200 ${
+                className={`flex w-full items-center justify-between rounded-none px-4 py-3 text-left text-base font-semibold leading-[1.2] transition-colors duration-200 ${
                   selected
                     ? "bg-accent text-white"
                     : "text-primary/72 hover:bg-background hover:text-primary"

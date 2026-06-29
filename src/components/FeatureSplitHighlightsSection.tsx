@@ -37,7 +37,7 @@ export function FeatureSplitHighlightsSection({
 
   return (
     <section id={id} className="relative bg-white p-2">
-      <div className="relative overflow-hidden rounded-2xl bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
+      <div className="relative overflow-hidden rounded-none bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
         <div className="site-container px-6 max-[479px]:px-4">
           <div
             className="reveal-item mb-16 h-0 w-full border-b border-dashed border-primary/45 max-[991px]:mb-12"
@@ -86,7 +86,7 @@ export function FeatureSplitHighlightsSection({
                 <div className="flex flex-wrap gap-3 max-[479px]:flex-col">
                   <a
                     href={primaryCta.href}
-                    className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
+                    className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
                     onMouseEnter={() => setPrimaryHovered(true)}
                     onMouseLeave={() => setPrimaryHovered(false)}
                   >
@@ -107,7 +107,7 @@ export function FeatureSplitHighlightsSection({
 
                   <a
                     href={secondaryCta.href}
-                    className="inline-flex min-h-12 w-fit items-center justify-center rounded-full border border-primary/18 px-5 py-3 text-base font-semibold leading-none text-primary transition hover:border-accent hover:text-accent"
+                    className="inline-flex min-h-12 w-fit items-center justify-center rounded-[4px] border border-primary/18 px-5 py-3 text-base font-semibold leading-none text-primary transition hover:border-accent hover:text-accent"
                   >
                     {secondaryCta.label}
                   </a>
@@ -116,7 +116,7 @@ export function FeatureSplitHighlightsSection({
             </div>
 
             <div
-              className="reveal-item relative min-h-[520px] overflow-hidden rounded-2xl bg-primary max-[991px]:min-h-[420px] max-[767px]:min-h-[360px] max-[479px]:min-h-[280px]"
+              className="reveal-item relative min-h-[520px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[420px] max-[767px]:min-h-[360px] max-[479px]:min-h-[280px]"
               data-reveal="scale"
             >
               <ParallaxImage

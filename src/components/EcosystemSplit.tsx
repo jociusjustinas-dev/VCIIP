@@ -6,7 +6,7 @@ import { ParallaxImage } from "./ParallaxImage";
 export function EcosystemSplit() {
   return (
     <section className="relative bg-white p-2" id="lokacija">
-      <div className="relative overflow-hidden rounded-2xl bg-primary py-20 text-white max-[991px]:py-16 max-[479px]:py-12">
+      <div className="relative overflow-hidden rounded-none bg-primary py-20 text-white max-[991px]:py-16 max-[479px]:py-12">
         <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
           <div className="mb-20 flex flex-col gap-12 px-4 max-[767px]:px-0 max-[479px]:mb-12" data-reveal-group>
             <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)]">
@@ -46,7 +46,7 @@ export function EcosystemSplit() {
 
                   <a
                     href="/ekosistema/"
-                    className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent hover:text-white"
+                    className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent hover:text-white"
                   >
                     <span className="h-5 overflow-hidden py-px">
                       <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
@@ -64,7 +64,7 @@ export function EcosystemSplit() {
             </div>
 
             <div className="flex w-1/2 items-center justify-end px-4 max-[767px]:w-full max-[767px]:px-0">
-              <div className="reveal-item relative w-full overflow-hidden rounded-2xl bg-primary" data-reveal="scale">
+              <div className="reveal-item relative w-full overflow-hidden rounded-none bg-primary" data-reveal="scale">
                 <ParallaxImage
                   src={ecosystemBioImage}
                   alt=""
@@ -78,7 +78,7 @@ export function EcosystemSplit() {
 
           <div className="mt-32 flex gap-8 max-[991px]:mt-24 max-[767px]:mt-16 max-[767px]:flex-col-reverse" data-reveal-group>
             <div className="flex w-1/2 items-center justify-start px-4 max-[767px]:w-full max-[767px]:px-0">
-              <div className="reveal-item relative w-full overflow-hidden rounded-2xl bg-primary" data-reveal="scale">
+              <div className="reveal-item relative w-full overflow-hidden rounded-none bg-primary" data-reveal="scale">
                 <ParallaxImage
                   src={ecosystemTechImage}
                   alt=""
@@ -114,7 +114,7 @@ export function EcosystemSplit() {
 
                   <a
                     href="/sklypai/"
-                    className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent hover:text-white"
+                    className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent hover:text-white"
                   >
                     <span className="h-5 overflow-hidden py-px">
                       <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">

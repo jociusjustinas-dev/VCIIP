@@ -31,7 +31,7 @@ export function FeatureAccordionSection({
 
   return (
     <section id={id} className="relative bg-white p-2">
-      <div className="relative overflow-hidden rounded-2xl bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
+      <div className="relative overflow-hidden rounded-none bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
         <div className="site-container px-6 max-[479px]:px-4">
           <div className="grid items-stretch gap-16 lg:grid-cols-[minmax(0,0.92fr)_minmax(460px,0.78fr)] lg:gap-24">
             <div className="flex min-w-0 w-full flex-col gap-14">
@@ -57,7 +57,7 @@ export function FeatureAccordionSection({
                   return (
                     <article
                       key={item.title}
-                      className={`group w-full rounded-2xl border transition-all duration-300 ${
+                      className={`group w-full rounded-none border transition-all duration-300 ${
                         isOpen
                           ? "border-primary/12 bg-white shadow-[0_24px_70px_color-mix(in_srgb,var(--color-primary)_12%,transparent)]"
                           : "border-transparent hover:border-primary/12 hover:bg-white hover:shadow-[0_24px_70px_color-mix(in_srgb,var(--color-primary)_12%,transparent)]"
@@ -70,7 +70,7 @@ export function FeatureAccordionSection({
                         className="flex w-full items-center gap-5 px-5 py-5 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:gap-4 max-[479px]:px-4"
                       >
                         <span
-                          className={`flex size-11 shrink-0 items-center justify-center rounded-full border font-mono text-xs font-bold transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white ${
+                          className={`flex size-11 shrink-0 items-center justify-center rounded-[4px] border font-mono text-xs font-bold transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white ${
                             isOpen
                               ? "border-accent bg-accent text-white"
                               : "border-primary/18 bg-white text-primary"
@@ -106,7 +106,7 @@ export function FeatureAccordionSection({
             </div>
 
             <div
-              className="reveal-item relative h-full min-h-[520px] overflow-hidden rounded-2xl bg-primary max-[991px]:h-[520px] max-[767px]:h-[420px] max-[479px]:h-[340px]"
+              className="reveal-item relative h-full min-h-[520px] overflow-hidden rounded-none bg-primary max-[991px]:h-[520px] max-[767px]:h-[420px] max-[479px]:h-[340px]"
               data-reveal="scale"
             >
               <ParallaxImage

@@ -149,7 +149,7 @@ export function ReadyToGrow() {
                 <h2 className="m-0 font-sans text-[clamp(4.75rem,12vw,13rem)] font-medium leading-[1.05] tracking-[-0.035em] text-primary max-[479px]:text-[3.5rem]">
                   Paruošta augti
                 </h2>
-                <span className="mt-5 size-6 flex-none rounded-full bg-accent max-[767px]:size-4 max-[479px]:mt-3 max-[479px]:size-3" />
+                <span className="mt-5 size-6 flex-none rounded-[4px] bg-accent max-[767px]:size-4 max-[479px]:mt-3 max-[479px]:size-3" />
               </div>
             ))}
           </div>
@@ -201,7 +201,7 @@ export function ReadyToGrow() {
             <button
               type="button"
               key={label}
-              className={`group absolute ${className} flex w-fit items-center overflow-hidden rounded-2xl border border-white/55 bg-white/94 px-3 py-1.5 text-left text-primary backdrop-blur-md transition-colors duration-500 ease-out hover:bg-white focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent max-[767px]:hidden`}
+              className={`group absolute ${className} flex w-fit items-center overflow-hidden rounded-none border border-white/55 bg-white/94 px-3 py-1.5 text-left text-primary backdrop-blur-md transition-colors duration-500 ease-out hover:bg-white focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent max-[767px]:hidden`}
               style={{
                 ...hotspotStyle(index),
               }}
@@ -228,7 +228,7 @@ export function ReadyToGrow() {
 
           <button
             type="button"
-            className={`group absolute ${plotHotspot.className} z-[2] hidden w-fit items-center overflow-hidden rounded-2xl border border-white/55 bg-white/94 px-3 py-1.5 text-left text-primary backdrop-blur-md transition-colors duration-500 ease-out hover:bg-white focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:flex`}
+            className={`group absolute ${plotHotspot.className} z-[2] hidden w-fit items-center overflow-hidden rounded-none border border-white/55 bg-white/94 px-3 py-1.5 text-left text-primary backdrop-blur-md transition-colors duration-500 ease-out hover:bg-white focus-visible:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:flex`}
             style={{
               ...hotspotStyle(infrastructureStats.length),
             }}
@@ -255,7 +255,7 @@ export function ReadyToGrow() {
             {infrastructureStats.map(({ value, label, title, Icon }, index) => (
               <div
                 key={`mobile-${label}`}
-                className="pointer-events-auto flex flex-col gap-4 rounded-2xl border border-white/18 bg-white/12 p-5 text-white backdrop-blur-md"
+                className="pointer-events-auto flex flex-col gap-4 rounded-none border border-white/18 bg-white/12 p-5 text-white backdrop-blur-md"
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? "translateY(0)" : "translateY(28px)",
@@ -263,7 +263,7 @@ export function ReadyToGrow() {
                 }}
               >
                 <div className="flex items-center gap-3">
-                  <span className="grid size-9 place-items-center rounded-xl bg-white text-accent">
+                  <span className="grid size-9 place-items-center rounded-none bg-white text-accent">
                     <span className="text-2xl font-medium leading-none transition-transform duration-500 ease-out group-hover:rotate-45">
                       +
                     </span>
@@ -293,7 +293,7 @@ export function ReadyToGrow() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#sklypai"
-                className="group inline-flex min-h-14 w-fit items-center justify-center overflow-hidden rounded-full bg-accent px-7 py-4 text-lg font-semibold leading-none text-white transition hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
+                className="group inline-flex min-h-14 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-accent px-7 py-4 text-lg font-semibold leading-none text-white transition hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
               >
                 <span className="h-5 overflow-hidden py-px">
                   <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
@@ -308,7 +308,7 @@ export function ReadyToGrow() {
               </a>
               <a
                 href="#kontaktai"
-                className="inline-flex min-h-14 w-fit items-center justify-center rounded-full border border-white/42 bg-white/10 px-7 py-4 text-lg font-semibold leading-none text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
+                className="inline-flex min-h-14 w-fit items-center justify-center rounded-[4px] border border-white/42 bg-white/10 px-7 py-4 text-lg font-semibold leading-none text-white backdrop-blur-sm transition hover:border-white hover:bg-white hover:text-primary max-[479px]:min-h-12 max-[479px]:px-5 max-[479px]:py-3 max-[479px]:text-base"
               >
                 Susisiekti
               </a>

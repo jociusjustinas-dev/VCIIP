@@ -43,7 +43,7 @@ export function Hero() {
     <section id="apie-vciip-tech" ref={sectionRef} className="relative bg-white p-2 text-white">
       <div
         data-nav-theme="dark"
-        className="relative z-[1] flex min-h-[calc(100svh-16px)] flex-col overflow-hidden rounded-2xl pb-14 pt-32"
+        className="relative z-[1] flex min-h-[calc(100svh-16px)] flex-col overflow-hidden rounded-none pb-14 pt-32"
       >
         <img
           src={vciipOverviewImage}
@@ -78,7 +78,7 @@ export function Hero() {
             </div>
 
             <div className="flex max-w-[680px] flex-col items-start gap-6 lg:justify-self-end" data-reveal-group>
-              <div className="reveal-item mb-[60px] w-[252px] self-end overflow-hidden rounded-2xl bg-white/20 p-2 text-center text-white backdrop-blur-md max-[479px]:mb-8 max-[479px]:w-[180px]" data-reveal="scale">
+              <div className="reveal-item mb-[60px] w-[252px] self-end overflow-hidden rounded-none bg-white/20 p-2 text-center text-white backdrop-blur-md max-[479px]:mb-8 max-[479px]:w-[180px]" data-reveal="scale">
                 <button
                   type="button"
                   className="relative flex h-[126px] w-full items-center justify-center overflow-hidden rounded-lg bg-primary max-[479px]:h-[92px]"
@@ -90,7 +90,7 @@ export function Hero() {
                   onClick={() => setVideoOpen(true)}
                   aria-label="Žiūrėti pristatymą"
                 >
-                  <span className="grid size-12 place-items-center rounded-full bg-white text-primary transition-transform hover:scale-105 max-[479px]:size-8">
+                  <span className="grid size-12 place-items-center rounded-[4px] bg-white text-primary transition-transform hover:scale-105 max-[479px]:size-8">
                     <Play size={18} fill="currentColor" aria-hidden="true" />
                   </span>
                 </button>
@@ -109,7 +109,7 @@ export function Hero() {
               <div className="reveal-item flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#kontaktai"
-                  className="relative flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent hover:text-white"
+                  className="relative flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent hover:text-white"
                   onMouseEnter={() => setBtnHovered(true)}
                   onMouseLeave={() => setBtnHovered(false)}
                 >
@@ -130,7 +130,7 @@ export function Hero() {
 
                 <a
                   href="#sklypai"
-                  className="inline-flex min-h-10 w-fit items-center gap-2 rounded-full border border-white/28 px-5 py-2 text-base font-semibold text-white transition hover:border-accent hover:text-accent"
+                  className="inline-flex min-h-10 w-fit items-center gap-2 rounded-[4px] border border-white/28 px-5 py-2 text-base font-semibold text-white transition hover:border-accent hover:text-accent"
                 >
                   <MapPinned size={17} aria-hidden="true" />
                   Žiūrėti sklypus
@@ -150,12 +150,12 @@ export function Hero() {
           onClick={() => setVideoOpen(false)}
         >
           <div
-            className="modal-scale relative w-full max-w-5xl overflow-hidden rounded-2xl border border-white/16 bg-black shadow-2xl shadow-black/40"
+            className="modal-scale relative w-full max-w-5xl overflow-hidden rounded-none border border-white/16 bg-black shadow-2xl shadow-black/40"
             onClick={(event) => event.stopPropagation()}
           >
             <button
               type="button"
-              className="absolute right-3 top-3 z-10 grid size-10 place-items-center rounded-full bg-white text-primary transition hover:bg-accent hover:text-white"
+              className="absolute right-3 top-3 z-10 grid size-10 place-items-center rounded-[4px] bg-white text-primary transition hover:bg-accent hover:text-white"
               onClick={() => setVideoOpen(false)}
               aria-label="Uždaryti video"
             >

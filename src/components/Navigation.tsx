@@ -159,7 +159,7 @@ export function Navigation({
       <div
         className={`relative mx-auto flex items-center justify-between gap-3 border-b py-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] max-[991px]:gap-2 max-[991px]:py-3 ${
           options.sticky
-            ? `rounded-b-2xl border-solid bg-white/78 px-5 shadow-[0_18px_54px_color-mix(in_srgb,var(--color-primary)_12%,transparent)] backdrop-blur-xl ${tone.border}`
+            ? `rounded-b-none border-solid bg-white/78 px-5 shadow-[0_18px_54px_color-mix(in_srgb,var(--color-primary)_12%,transparent)] backdrop-blur-xl ${tone.border}`
             : `border-dashed ${tone.border}`
         }`}
       >
@@ -198,7 +198,7 @@ export function Navigation({
 
         <div className="flex shrink-0 items-center gap-2 max-[479px]:gap-1.5">
           <div
-            className={`hidden items-center rounded-full border p-1 max-[991px]:hidden sm:flex ${
+            className={`hidden items-center rounded-[4px] border p-1 max-[991px]:hidden sm:flex ${
               options.sticky || !onDarkSurface
                 ? "border-primary/14 bg-primary/5"
                 : "border-white/22 bg-white/10"
@@ -208,7 +208,7 @@ export function Navigation({
             <a
               href="#"
               aria-current="true"
-              className={`rounded-full px-3 py-2 font-mono text-xs font-semibold uppercase leading-none tracking-[0.08em] transition ${
+              className={`rounded-[4px] px-3 py-2 font-mono text-xs font-semibold uppercase leading-none tracking-[0.08em] transition ${
                 options.sticky || !onDarkSurface
                   ? "bg-primary text-white"
                   : "bg-white text-primary"
@@ -218,7 +218,7 @@ export function Navigation({
             </a>
             <a
               href="#"
-              className={`rounded-full px-3 py-2 font-mono text-xs font-semibold uppercase leading-none tracking-[0.08em] transition ${
+              className={`rounded-[4px] px-3 py-2 font-mono text-xs font-semibold uppercase leading-none tracking-[0.08em] transition ${
                 options.sticky || !onDarkSurface
                   ? "text-primary/52 hover:text-primary"
                   : "text-white/62 hover:text-white"
@@ -229,7 +229,7 @@ export function Navigation({
           </div>
 
           <a
-            className={`group inline-flex min-h-12 shrink-0 items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 text-base font-semibold leading-none transition max-[991px]:min-h-10 max-[991px]:px-3.5 max-[991px]:py-2 max-[991px]:text-sm max-[479px]:min-h-9 max-[479px]:px-3 ${tone.cta}`}
+            className={`group inline-flex min-h-12 shrink-0 items-center justify-center gap-2 overflow-hidden rounded-[4px] px-5 py-3 text-base font-semibold leading-none transition max-[991px]:min-h-10 max-[991px]:px-3.5 max-[991px]:py-2 max-[991px]:text-sm max-[479px]:min-h-9 max-[479px]:px-3 ${tone.cta}`}
             href={contactHref}
             aria-label="Susisiekti"
           >
@@ -273,14 +273,14 @@ export function Navigation({
             </a>
             <div className="flex shrink-0 items-center gap-2">
               <a
-                className="inline-flex min-h-9 items-center justify-center rounded-full bg-primary px-3.5 py-2 text-sm font-semibold leading-none text-white"
+                className="inline-flex min-h-9 items-center justify-center rounded-[4px] bg-primary px-3.5 py-2 text-sm font-semibold leading-none text-white"
                 href={contactHref}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Susisiekti
               </a>
               <button
-                className="inline-flex size-9 items-center justify-center rounded-full border border-primary/14 text-primary"
+                className="inline-flex size-9 items-center justify-center rounded-[4px] border border-primary/14 text-primary"
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label="Uždaryti navigaciją"
               >
@@ -355,7 +355,7 @@ function NavAnchor({
     <a
       href={href}
       onClick={onClick}
-      className={`shrink-0 rounded-full px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${className}`}
+      className={`shrink-0 rounded-[4px] px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${className}`}
     >
       {children}
     </a>
@@ -485,14 +485,14 @@ function NavDropdown({
   const menuPanel = (
     <div
       ref={menuRef}
-      className="overflow-hidden rounded-2xl border border-primary/12 bg-white p-1.5 shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_18%,transparent)]"
+      className="overflow-hidden rounded-none border border-primary/12 bg-white p-1.5 shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_18%,transparent)]"
       style={{ minWidth: menuPosition?.width }}
     >
       {group.items.map((item) => (
         <a
           key={item.href}
           href={resolveNavHref(group.pageHref, item.href)}
-          className="block rounded-xl px-3 py-2.5 text-sm font-semibold leading-[140%] text-primary/72 transition hover:bg-primary/6 hover:text-primary"
+          className="block rounded-none px-3 py-2.5 text-sm font-semibold leading-[140%] text-primary/72 transition hover:bg-primary/6 hover:text-primary"
           onClick={(event) => handleItemClick(event, resolveNavHref(group.pageHref, item.href))}
         >
           {item.label}
@@ -506,7 +506,7 @@ function NavDropdown({
       <button
         ref={triggerRef}
         type="button"
-        className={`inline-flex cursor-pointer items-center gap-0.5 rounded-full border-0 bg-transparent px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${tone.menuText}`}
+        className={`inline-flex cursor-pointer items-center gap-0.5 rounded-[4px] border-0 bg-transparent px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${tone.menuText}`}
         aria-expanded={open}
         aria-haspopup="menu"
         aria-controls={`nav-menu-${group.id}`}

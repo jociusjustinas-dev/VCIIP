@@ -35,7 +35,7 @@ export function EcosystemMarquee() {
       {marqueeItems.map((item) => (
         <div
           key={`${copyIndex}-${item.logo}`}
-          className="mr-5 flex h-[280px] w-[440px] flex-none snap-start flex-col justify-between overflow-hidden rounded-2xl bg-primary px-9 py-8 text-white max-[767px]:h-[240px] max-[767px]:w-[340px] max-[767px]:px-6 max-[767px]:py-6 max-[479px]:mr-3 max-[479px]:h-[220px] max-[479px]:w-[300px]"
+          className="mr-5 flex h-[280px] w-[440px] flex-none snap-start flex-col justify-between overflow-hidden rounded-none bg-primary px-9 py-8 text-white max-[767px]:h-[240px] max-[767px]:w-[340px] max-[767px]:px-6 max-[767px]:py-6 max-[479px]:mr-3 max-[479px]:h-[220px] max-[479px]:w-[300px]"
         >
           <p className="m-0 max-w-[330px] text-xl font-medium leading-[1.22] tracking-[-0.02em] text-white/78 max-[767px]:text-lg">
             {item.description}
@@ -44,7 +44,7 @@ export function EcosystemMarquee() {
             <span className="font-sans text-[43px] font-black leading-none tracking-[-0.08em] text-white max-[767px]:text-[34px] max-[479px]:text-[30px]">
               {item.logo}
             </span>
-            <span className="mb-1 size-3 shrink-0 rounded-full bg-accent" />
+            <span className="mb-1 size-3 shrink-0 rounded-[4px] bg-accent" />
           </div>
         </div>
       ))}
@@ -77,7 +77,7 @@ export function EcosystemMarquee() {
 
               <a
                 href="/ekosistema/"
-                className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
+                className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-[4px] bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
               >
                 <span className="h-5 overflow-hidden py-px">
                   <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
@@ -112,7 +112,7 @@ export function EcosystemMarquee() {
             type="button"
             aria-label="Ankstesnės kortelės"
             onClick={() => scrollCarousel("previous")}
-            className="flex size-12 items-center justify-center rounded-full border border-primary/16 bg-white text-primary transition hover:border-accent hover:bg-accent hover:text-white"
+            className="flex size-12 items-center justify-center rounded-[4px] border border-primary/16 bg-white text-primary transition hover:border-accent hover:bg-accent hover:text-white"
           >
             <ChevronLeft size={22} aria-hidden="true" />
           </button>
@@ -120,7 +120,7 @@ export function EcosystemMarquee() {
             type="button"
             aria-label="Kitos kortelės"
             onClick={() => scrollCarousel("next")}
-            className="flex size-12 items-center justify-center rounded-full border border-primary/16 bg-white text-primary transition hover:border-accent hover:bg-accent hover:text-white"
+            className="flex size-12 items-center justify-center rounded-[4px] border border-primary/16 bg-white text-primary transition hover:border-accent hover:bg-accent hover:text-white"
           >
             <ChevronRight size={22} aria-hidden="true" />
           </button>

@@ -34,7 +34,7 @@ export function FeatureTabsSection({
 
   return (
     <section id={id} className="relative bg-white p-2">
-      <div className="relative overflow-hidden rounded-2xl bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
+      <div className="relative overflow-hidden rounded-none bg-white py-24 max-[991px]:py-16 max-[479px]:py-12">
         <div className="site-container px-6 max-[479px]:px-4">
           <div
             className="mx-auto mb-14 flex max-w-5xl flex-col items-center gap-7 text-center max-[767px]:items-start max-[767px]:text-left"
@@ -53,7 +53,7 @@ export function FeatureTabsSection({
 
           <div className="reveal-item mb-16 flex justify-center max-[767px]:mb-10 max-[767px]:justify-start">
             <div
-              className="flex max-w-full gap-1 overflow-x-auto rounded-full bg-background p-1 [scrollbar-width:none] max-[479px]:w-full [&::-webkit-scrollbar]:hidden"
+              className="flex max-w-full gap-1 overflow-x-auto rounded-[4px] bg-background p-1 [scrollbar-width:none] max-[479px]:w-full [&::-webkit-scrollbar]:hidden"
               role="tablist"
               aria-label={tablistLabel}
             >
@@ -67,7 +67,7 @@ export function FeatureTabsSection({
                     role="tab"
                     aria-selected={isActive}
                     onClick={() => setActiveTab(index)}
-                    className={`flex-none rounded-full px-8 py-4 text-left text-lg font-medium leading-none transition-colors duration-300 outline-none max-[767px]:px-6 max-[479px]:px-5 max-[479px]:text-base ${
+                    className={`flex-none rounded-[4px] px-8 py-4 text-left text-lg font-medium leading-none transition-colors duration-300 outline-none max-[767px]:px-6 max-[479px]:px-5 max-[479px]:text-base ${
                       isActive
                         ? "bg-primary text-white"
                         : "text-primary/62 hover:bg-primary/8 hover:text-primary"
@@ -84,7 +84,7 @@ export function FeatureTabsSection({
             className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(360px,1fr)] max-[767px]:grid-cols-1 max-[479px]:gap-6"
             data-reveal-group
           >
-            <div className="reveal-item flex min-h-[500px] flex-col justify-between gap-14 rounded-2xl bg-[linear-gradient(90deg,color-mix(in_srgb,var(--color-accent)_20%,transparent),color-mix(in_srgb,var(--color-accent)_4%,transparent))] p-10 max-[991px]:min-h-0 max-[767px]:p-8 max-[479px]:gap-8 max-[479px]:p-6">
+            <div className="reveal-item flex min-h-[500px] flex-col justify-between gap-14 rounded-none bg-[linear-gradient(90deg,color-mix(in_srgb,var(--color-accent)_20%,transparent),color-mix(in_srgb,var(--color-accent)_4%,transparent))] p-10 max-[991px]:min-h-0 max-[767px]:p-8 max-[479px]:gap-8 max-[479px]:p-6">
               <div className="flex max-w-3xl flex-col gap-7">
                 <p className="m-0 font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-primary/52">
                   {String(activeTab + 1).padStart(2, "0")}
@@ -110,7 +110,7 @@ export function FeatureTabsSection({
             </div>
 
             <div
-              className="reveal-item relative min-h-[500px] overflow-hidden rounded-2xl bg-primary max-[991px]:min-h-[420px] max-[767px]:order-first max-[767px]:min-h-[360px] max-[479px]:min-h-[280px]"
+              className="reveal-item relative min-h-[500px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[420px] max-[767px]:order-first max-[767px]:min-h-[360px] max-[479px]:min-h-[280px]"
               data-reveal="scale"
             >
               <ParallaxImage
