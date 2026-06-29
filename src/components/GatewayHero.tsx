@@ -50,12 +50,12 @@ export function GatewayHero() {
           >
             <div className="flex max-w-[920px] flex-col items-start gap-6 max-[991px]:gap-5">
               <ul
-                className="reveal-item flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-sm font-bold uppercase leading-tight tracking-wide text-white/62"
+                className="reveal-item flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-sm font-bold uppercase leading-tight tracking-wide text-accent"
                 aria-label="VCIIP faktai"
               >
                 {metadata.map((item, index) => (
                   <li key={item} className="flex items-center gap-3">
-                    {index > 0 && <span className="size-1 rounded-none bg-white/28" aria-hidden="true" />}
+                    {index > 0 && <span className="size-1 rounded-none bg-accent/60" aria-hidden="true" />}
                     <span>{item}</span>
                   </li>
                 ))}
