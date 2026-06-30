@@ -35,9 +35,9 @@ export function FeatureTabsSection({
   const tab = tabs[activeTab];
 
   return (
-    <section id={id} className="relative bg-white p-2">
+    <section id={id} className="relative bg-white">
       <div className="relative overflow-hidden rounded-none bg-white section-shell">
-        <div className="site-container px-6 max-[479px]:px-4">
+        <div className="site-container">
           <div
             className="section-intro mx-auto mb-14 w-full max-w-5xl gap-7 items-center text-center max-[767px]:mb-10 max-[767px]:items-start max-[767px]:text-left"
             data-reveal-group
@@ -84,7 +84,7 @@ export function FeatureTabsSection({
           </div>
 
           <div
-            className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(360px,1fr)] max-[767px]:grid-cols-1 max-[479px]:gap-6"
+            className="grid items-stretch gap-8 xl:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] max-[767px]:grid-cols-1 max-[479px]:gap-6"
             data-reveal-group
           >
             <div className="reveal-item flex min-h-[420px] flex-col justify-between gap-10 rounded-none bg-[linear-gradient(90deg,color-mix(in_srgb,var(--color-accent)_20%,transparent),color-mix(in_srgb,var(--color-accent)_4%,transparent))] p-8 max-[991px]:min-h-0 max-[767px]:p-7 max-[479px]:gap-6 max-[479px]:p-6">

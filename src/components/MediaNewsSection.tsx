@@ -30,7 +30,7 @@ export function MediaNewsSection() {
 
   return (
     <section id="naujienos" className="relative bg-white section-shell">
-      <div className="site-container px-6 max-[479px]:px-4">
+      <div className="site-container">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4 border-b border-dashed border-primary/28 pb-8" data-reveal-group>
           <p className="eyebrow reveal-item">VCIIP žiniasklaidoje</p>
           <h2 className="section-heading reveal-item m-0">Naujienos</h2>
@@ -55,7 +55,7 @@ export function MediaNewsSection() {
           </div>
         ) : (
           <div
-            className="flex gap-6 overflow-x-auto pb-1 [scrollbar-width:none] lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible [&::-webkit-scrollbar]:hidden"
+            className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-1 [scrollbar-width:none] lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible [&::-webkit-scrollbar]:hidden"
             data-reveal-group
           >
             {posts.map((post, index) => (

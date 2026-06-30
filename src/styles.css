@@ -35,6 +35,9 @@
   --radius-sm: var(--radius-input);
   --radius-md: var(--radius-input);
   --radius-lg: var(--radius-button);
+
+  --page-gutter: 1rem;
+  --page-gutter-sm: 0.75rem;
 }
 
 @layer base {
@@ -44,6 +47,7 @@
 
   body {
     margin: 0;
+    overflow-x: clip;
     background: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
@@ -86,13 +90,19 @@
   }
 
   .site-container {
-    width: min(100% - 2rem, 1800px);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1800px;
     margin-inline: auto;
+    padding-inline: var(--page-gutter);
   }
 
   .content-container {
-    width: min(100% - 2rem, 1180px);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1180px;
     margin-inline: auto;
+    padding-inline: var(--page-gutter);
   }
 
   .font-display {
@@ -320,7 +330,7 @@
   }
 
   .section-shell {
-    padding-block: 5rem;
+    padding-block: 4rem;
   }
 
   .hub-split-hero {
@@ -738,7 +748,7 @@
     justify-content: center;
     border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
     border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
-    padding: 1.5rem 1.75rem;
+    padding: 1.25rem 1rem;
     transition: background-color 160ms ease;
   }
 
@@ -1454,15 +1464,20 @@
 @media (max-width: 991px) {
   @layer components {
     .section-shell {
-      padding-block: 3.5rem;
+      padding-block: 3rem;
     }
   }
 }
 
 @media (max-width: 479px) {
   @layer components {
+    .site-container,
+    .content-container {
+      padding-inline: var(--page-gutter-sm);
+    }
+
     .section-shell {
-      padding-block: 3rem;
+      padding-block: 2.5rem;
     }
   }
 }

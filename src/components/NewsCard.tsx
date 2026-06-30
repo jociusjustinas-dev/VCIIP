@@ -15,7 +15,7 @@ export function NewsCard({
   return (
     <a
       href={getNewsPostHref()}
-      className={`group flex h-full w-[min(88vw,360px)] shrink-0 snap-start flex-col transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 lg:w-auto lg:min-w-0 ${
+      className={`group flex h-full w-[min(82vw,20rem)] shrink-0 snap-start flex-col transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 lg:w-auto lg:min-w-0 ${
         variant === "default" ? "bg-white" : "bg-transparent"
       } ${className}`}
     >

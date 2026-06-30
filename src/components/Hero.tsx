@@ -41,9 +41,9 @@ export function Hero() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[58%] bg-primary/10 backdrop-blur-[2px] [mask-image:linear-gradient(90deg,black_0%,rgba(0,0,0,0.55)_44%,transparent_100%)]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[34%] bg-primary/8 backdrop-blur-[1.5px] [mask-image:linear-gradient(0deg,black_0%,transparent_100%)]" />
 
-        <div className="site-container relative z-[2] flex flex-1 px-6 max-[479px]:px-4">
+        <div className="site-container relative z-[2] flex flex-1">
           <div
-            className="grid min-h-[calc(100svh-8rem-4.5rem)] w-full items-end gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(560px,0.72fr)]"
+            className="grid min-h-[calc(100svh-8rem-4.5rem)] w-full items-end gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)]"
             data-reveal-group
           >
             <div className="flex max-w-[1160px] flex-col items-start">

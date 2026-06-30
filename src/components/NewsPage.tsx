@@ -38,7 +38,7 @@ export function NewsPage() {
       />
 
       <section className="relative bg-white section-shell">
-        <div className="site-container px-6 max-[479px]:px-4">
+        <div className="site-container">
           {isLoading ? (
             <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
               {Array.from({ length: 6 }, (_, index) => (

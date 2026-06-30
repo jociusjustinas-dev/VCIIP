@@ -54,7 +54,7 @@ export function ApieVciipTimeline() {
 
   return (
     <section className="relative bg-white section-shell">
-      <div className="site-container px-6 max-[479px]:px-4">
+      <div className="site-container">
         <div
           className="mb-10 flex items-end justify-between gap-6 max-[767px]:mb-8 max-[767px]:flex-col max-[767px]:items-start"
           data-reveal-group

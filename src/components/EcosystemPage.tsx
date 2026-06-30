@@ -10,7 +10,7 @@ export function EcosystemPage() {
       <EcosystemHero />
       <ProofStats showTopDivider={false} sectionId={false} />
       <section className="relative bg-white pb-16 max-[479px]:pb-14">
-        <div className="site-container px-6 max-[479px]:px-4" data-reveal-group>
+        <div className="site-container" data-reveal-group>
           <p className="reveal-item body-lead m-0 max-w-3xl text-muted">{bioApieIntro}</p>
         </div>
       </section>

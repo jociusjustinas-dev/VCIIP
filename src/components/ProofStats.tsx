@@ -55,7 +55,7 @@ export function ProofStats({
       {...(sectionId ? { id: sectionId } : {})}
       className="relative bg-white section-shell"
     >
-      <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
+      <div className="site-container relative z-[2]">
         <div className="section-intro max-[479px]:mb-8" data-reveal-group>
           {showTopDivider ? <div className="section-eyebrow-rule" /> : null}
 

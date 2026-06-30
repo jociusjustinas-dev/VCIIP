@@ -8,9 +8,9 @@ function LegendSymbol({ type }: { type: string }) {
 export function KodelVilniusCityLocation() {
   return (
     <section className="relative bg-white section-shell">
-      <div className="site-container px-6 max-[479px]:px-4">
+      <div className="site-container">
         <div
-          className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:gap-14"
+          className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14"
           data-reveal-group
         >
           <div className="reveal-item" data-reveal="scale">

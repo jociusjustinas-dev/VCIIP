@@ -45,8 +45,8 @@ export function InvestorInquiry({
   };
 
   const content = (
-    <div className="site-container px-6 max-[479px]:px-4">
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(560px,1fr)] lg:gap-16" data-reveal-group>
+    <div className="site-container">
+      <div className="grid gap-10 xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] xl:gap-16" data-reveal-group>
         <div className="reveal-item flex max-w-2xl flex-col gap-5 lg:max-w-none">
             {showEyebrow && (
               <p className={`eyebrow ${isLight ? "" : "eyebrow-on-dark"}`}>

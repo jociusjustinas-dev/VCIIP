@@ -134,7 +134,7 @@ export function AvailablePlotsSection() {
   if (isLoading) {
     return (
       <section id="sklypai" className="plot-section relative bg-white section-shell">
-        <div className="site-container px-6 max-[479px]:px-4">
+        <div className="site-container">
           <div className="plot-section__intro" data-reveal-group>
             <div className="plot-section__intro-heading">
               <p className="eyebrow reveal-item">{plotsSectionCopy.eyebrow}</p>
@@ -157,7 +157,7 @@ export function AvailablePlotsSection() {
 
   return (
     <section id="sklypai" className="plot-section relative bg-white section-shell">
-      <div className="site-container px-6 max-[479px]:px-4">
+      <div className="site-container">
         <div className="plot-section__intro" data-reveal-group>
           <div className="plot-section__intro-heading">
             <p className="eyebrow reveal-item">{plotsSectionCopy.eyebrow}</p>

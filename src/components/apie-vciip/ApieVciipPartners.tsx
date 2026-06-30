@@ -3,7 +3,7 @@ import { apieVciipPartners } from "../../content/apieVciip";
 export function ApieVciipPartners() {
   return (
     <section className="relative bg-white section-shell">
-      <div className="site-container px-6 max-[479px]:px-4">
+      <div className="site-container">
         <div className="section-intro max-[479px]:mb-8" data-reveal-group>
           <div className="section-eyebrow-rule" />
           <p className="eyebrow reveal-item">{apieVciipPartners.eyebrow}</p>

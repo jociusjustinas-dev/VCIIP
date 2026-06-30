@@ -26,9 +26,9 @@ export function GatewayHero() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[58%] bg-primary/10 backdrop-blur-[2px] [mask-image:linear-gradient(90deg,black_0%,rgba(0,0,0,0.55)_44%,transparent_100%)]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[34%] bg-primary/8 backdrop-blur-[1.5px] [mask-image:linear-gradient(0deg,black_0%,transparent_100%)]" />
 
-        <div className="site-container relative z-[2] flex flex-1 px-6 max-[479px]:px-4">
+        <div className="site-container relative z-[2] flex flex-1">
           <div
-            className="grid w-full items-end gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(380px,0.82fr)] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(440px,0.88fr)]"
+            className="grid w-full items-end gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.82fr)] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,0.88fr)]"
             data-reveal-group
           >
             <div className="flex max-w-[920px] flex-col items-start gap-6 max-[991px]:gap-5">

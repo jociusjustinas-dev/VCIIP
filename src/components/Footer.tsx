@@ -55,8 +55,8 @@ export function Footer({
 
   return (
     <footer className="relative border-t border-dashed border-primary/12 bg-white">
-      <div className="site-container px-6 py-14 text-primary max-[767px]:py-12 max-[479px]:px-4 max-[479px]:py-12">
-          <div className="grid gap-8 border-b border-dashed border-primary/12 pb-8 lg:grid-cols-[minmax(240px,1.1fr)_0.72fr_0.9fr_0.82fr] lg:gap-10">
+      <div className="site-container py-14 text-primary max-[767px]:py-12 max-[479px]:py-10">
+          <div className="grid gap-8 border-b border-dashed border-primary/12 pb-8 md:grid-cols-2 xl:grid-cols-[minmax(220px,1.1fr)_0.72fr_0.9fr_0.82fr] xl:gap-10">
             <div className="flex max-w-md flex-col gap-4">
               <a href={hubHref} aria-label={logo.alt} className="inline-flex w-fit">
                 <img src={logo.src} alt={logo.alt} className="h-9 w-auto" />

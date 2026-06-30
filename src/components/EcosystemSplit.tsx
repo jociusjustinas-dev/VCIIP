@@ -8,9 +8,9 @@ import { ParallaxImage } from "./ParallaxImage";
 export function EcosystemSplit() {
   return (
     <section className="relative overflow-hidden bg-primary text-white section-shell" id="lokacija">
-      <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
-          <div className="mb-12 flex flex-col gap-6 px-4 max-[767px]:px-0 max-[479px]:mb-8" data-reveal-group>
-            <div className="grid items-end gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)]">
+      <div className="site-container relative z-[2]">
+          <div className="mb-12 flex flex-col gap-6 max-[479px]:mb-8" data-reveal-group>
+            <div className="grid items-end gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.62fr)]">
               <h2 className="section-heading reveal-item max-w-4xl text-white">
                 Du parkai.
                 <br />
@@ -23,8 +23,8 @@ export function EcosystemSplit() {
             </div>
           </div>
 
-          <div className="flex items-center gap-6 max-[767px]:flex-col max-[767px]:items-stretch" data-reveal-group>
-            <div className="flex w-1/2 items-center px-4 max-[767px]:w-full max-[767px]:px-0">
+          <div className="grid items-center gap-6 max-[767px]:gap-8 lg:grid-cols-2" data-reveal-group>
+            <div className="flex items-center max-[767px]:w-full">
               <div className="reveal-item flex max-w-[620px] flex-col items-start gap-5 max-[767px]:gap-4">
                 <div className="flex w-full flex-col gap-4">
                   <img
@@ -63,7 +63,7 @@ export function EcosystemSplit() {
               </div>
             </div>
 
-            <div className="flex w-1/2 items-center justify-end px-4 max-[767px]:w-full max-[767px]:px-0">
+            <div className="flex items-center justify-end max-[767px]:w-full">
               <div className="reveal-item relative w-full overflow-hidden rounded-none bg-primary" data-reveal="scale">
                 <ParallaxImage
                   src={ecosystemBioImage}
@@ -76,8 +76,8 @@ export function EcosystemSplit() {
             </div>
           </div>
 
-          <div className="mt-16 flex items-center gap-6 max-[991px]:mt-14 max-[767px]:mt-12 max-[767px]:flex-col-reverse max-[767px]:items-stretch" data-reveal-group>
-            <div className="flex w-1/2 items-center justify-start px-4 max-[767px]:w-full max-[767px]:px-0">
+          <div className="mt-16 grid items-center gap-6 max-[991px]:mt-14 max-[767px]:mt-12 max-[767px]:gap-8 lg:grid-cols-2" data-reveal-group>
+            <div className="flex items-center justify-start max-[767px]:w-full">
               <div className="reveal-item relative w-full overflow-hidden rounded-none bg-primary" data-reveal="scale">
                 <ParallaxImage
                   src={ecosystemTechImage}
@@ -89,7 +89,7 @@ export function EcosystemSplit() {
               </div>
             </div>
 
-            <div className="flex w-1/2 items-center justify-end px-4 max-[767px]:w-full max-[767px]:px-0">
+            <div className="flex items-center justify-end max-[767px]:w-full">
               <div className="reveal-item flex max-w-[620px] flex-col items-start gap-5 max-[767px]:gap-4">
                 <div className="flex w-full flex-col gap-4">
                   <div className="flex flex-wrap items-center gap-3">

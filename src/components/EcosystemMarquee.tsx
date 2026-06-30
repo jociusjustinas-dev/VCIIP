@@ -61,8 +61,8 @@ export function EcosystemMarquee() {
   return (
     <section id="ekosistema-verta-atsirasti" className="relative bg-white">
       <div className="relative overflow-hidden bg-white section-shell text-primary">
-        <div className="site-container relative z-[2] px-6 max-[479px]:px-4">
-          <div className="mb-10 grid items-end gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,0.58fr)] max-[479px]:mb-8" data-reveal-group>
+        <div className="site-container relative z-[2]">
+          <div className="mb-10 grid items-end gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,0.58fr)] max-[479px]:mb-8" data-reveal-group>
             <h2 className="section-heading reveal-item max-w-4xl">
               Ekosistema,
               <br />
@@ -107,7 +107,7 @@ export function EcosystemMarquee() {
           </div>
         </div>
 
-        <div className="reveal-item site-container relative z-[2] mt-8 flex justify-end gap-3 px-6 max-[479px]:justify-start max-[479px]:px-4">
+        <div className="reveal-item site-container relative z-[2] mt-8 flex justify-end gap-3 max-[479px]:justify-start">
           <button
             type="button"
             aria-label="Ankstesnės kortelės"

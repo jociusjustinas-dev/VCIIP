@@ -30,10 +30,10 @@ export function FeatureAccordionSection({
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id={id} className="relative bg-white p-2">
+    <section id={id} className="relative bg-white">
       <div className="relative overflow-hidden rounded-none bg-white section-shell">
-        <div className="site-container px-6 max-[479px]:px-4">
-          <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(460px,0.78fr)] lg:gap-16">
+        <div className="site-container">
+          <div className="grid items-stretch gap-10 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,0.78fr)] xl:gap-16">
             <div className="flex min-w-0 w-full flex-col gap-10">
               <div className="flex flex-col gap-8" data-reveal-group>
                 <div className="h-0 w-full border-b border-dashed border-primary/45" />

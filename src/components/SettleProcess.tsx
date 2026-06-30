@@ -69,9 +69,9 @@ export function SettleProcess({
       id={id}
       className={`relative overflow-hidden section-shell ${isLight ? "bg-white" : "bg-background"}`}
     >
-      <div className="site-container px-6 max-[479px]:px-4">
+      <div className="site-container">
           <div
-            className="mb-20 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)] max-[991px]:mb-14"
+            className="mb-20 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.62fr)] max-[991px]:mb-14"
             data-reveal-group
           >
             <div className="flex flex-col items-start gap-7">
@@ -89,7 +89,7 @@ export function SettleProcess({
           <div
             className={`grid items-stretch gap-10 max-[991px]:gap-12 ${
               showImage
-                ? "lg:grid-cols-[minmax(0,1fr)_minmax(540px,1fr)] lg:gap-16"
+                ? "xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] xl:gap-16"
                 : "lg:grid-cols-1"
             }`}
             data-reveal-group

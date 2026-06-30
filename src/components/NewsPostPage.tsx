@@ -55,8 +55,8 @@ export function NewsPostPage({ slug }: { slug: string }) {
   if (isLoading) {
     return (
       <main>
-        <section className={`relative bg-white p-2 ${articleTopSpacing}`}>
-          <div className="content-container px-6 max-[479px]:px-4">
+        <section className={`relative bg-white ${articleTopSpacing}`}>
+          <div className="content-container">
             <div className={articleColumnClass}>
               <div className="border-b border-dashed border-primary/28 pb-10 pt-2">
                 <div className="h-3 w-24 bg-primary/8" />
@@ -68,7 +68,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
         </section>
 
         <section className="relative bg-white pb-16 pt-10">
-          <div className="content-container px-6 max-[479px]:px-4">
+          <div className="content-container">
             <div className={articleColumnClass}>
               <div className="aspect-[16/9] bg-background" />
               <div className="mt-10 space-y-4">
@@ -86,8 +86,8 @@ export function NewsPostPage({ slug }: { slug: string }) {
   if (notFound || !post) {
     return (
       <main>
-        <section className={`relative bg-white p-2 ${articleTopSpacing}`}>
-          <div className="content-container px-6 max-[479px]:px-4">
+        <section className={`relative bg-white ${articleTopSpacing}`}>
+          <div className="content-container">
             <div className={`${articleColumnClass} border-b border-dashed border-primary/28 pb-10 pt-2`} data-reveal-group>
               <a
                 href="/naujienos"
@@ -106,7 +106,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
 
         {relatedPosts.length > 0 ? (
           <section className="relative bg-white section-shell">
-            <div className="site-container px-6 max-[479px]:px-4">
+            <div className="site-container">
               <h2 className="section-heading m-0">Kitos naujienos</h2>
               <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
                 {relatedPosts.map((relatedPost) => (
@@ -124,8 +124,8 @@ export function NewsPostPage({ slug }: { slug: string }) {
 
   return (
     <main>
-      <section className={`relative bg-white p-2 ${articleTopSpacing}`}>
-        <div className="content-container px-6 max-[479px]:px-4">
+      <section className={`relative bg-white ${articleTopSpacing}`}>
+        <div className="content-container">
           <div className={`${articleColumnClass} border-b border-dashed border-primary/28 pb-10 pt-2`} data-reveal-group>
             <p className="eyebrow reveal-item">Naujienos</p>
             <h1 className="display-h1 reveal-item mt-5">{post.title}</h1>
@@ -141,7 +141,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
       </section>
 
       <section className="relative bg-white pb-16 pt-10 max-[479px]:pb-14">
-        <div className="content-container px-6 max-[479px]:px-4">
+        <div className="content-container">
           <div className={articleColumnClass} data-reveal-group>
             <figure className="reveal-item m-0 overflow-hidden bg-background">
               <img
@@ -172,7 +172,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
 
       {relatedPosts.length > 0 ? (
         <section className="relative bg-white section-shell">
-          <div className="site-container px-6 max-[479px]:px-4">
+          <div className="site-container">
             <div className="flex flex-col gap-3 border-b border-dashed border-primary/28 pb-8" data-reveal-group>
               <p className="eyebrow reveal-item">VCIIP žiniasklaidoje</p>
               <h2 className="section-heading reveal-item m-0">Kitos naujienos</h2>

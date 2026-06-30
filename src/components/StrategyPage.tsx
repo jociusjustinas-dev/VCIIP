@@ -11,9 +11,9 @@ const sectionLinks = strategyItems
 
 export function StrategyPage() {
   return (
-    <main className="bg-white p-2">
+    <main className="bg-white">
       <section className="relative overflow-hidden rounded-none bg-background pb-16 pt-28 max-[991px]:pb-14 max-[479px]:pt-24">
-        <div className="site-container px-6 max-[479px]:px-4">
+        <div className="site-container">
           <div className="mb-14 border-b border-dashed border-primary/28 pb-10">
             <div className="flex max-w-5xl flex-col items-start gap-5">
               <p className="eyebrow">Strategija</p>

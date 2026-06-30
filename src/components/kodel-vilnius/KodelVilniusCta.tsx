@@ -6,7 +6,7 @@ import { kodelVilniusCta } from "../../content/kodelVilnius";
 export function KodelVilniusCta() {
   return (
     <section className="relative bg-primary section-shell text-white">
-      <div className="site-container px-6 max-[479px]:px-4">
+      <div className="site-container">
         <div
           className="grid items-start gap-10 border-t border-dashed border-white/20 pt-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-12"
           data-reveal-group

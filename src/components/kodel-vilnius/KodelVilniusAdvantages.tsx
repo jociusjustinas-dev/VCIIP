@@ -3,7 +3,7 @@ import { kodelVilniusAdvantages } from "../../content/kodelVilnius";
 export function KodelVilniusAdvantages() {
   return (
     <section className="relative bg-white section-shell">
-      <div className="site-container px-6 max-[479px]:px-4">
+      <div className="site-container">
         <div className="section-intro max-[479px]:mb-8" data-reveal-group>
           <p className="eyebrow reveal-item">{kodelVilniusAdvantages.eyebrow}</p>
           <h2 className="section-heading reveal-item max-w-3xl">{kodelVilniusAdvantages.title}</h2>

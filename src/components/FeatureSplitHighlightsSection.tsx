@@ -38,16 +38,16 @@ export function FeatureSplitHighlightsSection({
   const [primaryHovered, setPrimaryHovered] = useState(false);
 
   return (
-    <section id={id} className="relative bg-white p-2">
+    <section id={id} className="relative bg-white">
       <div className="relative overflow-hidden rounded-none bg-white section-shell">
-        <div className="site-container px-6 max-[479px]:px-4">
+        <div className="site-container">
           <div
             className="reveal-item mb-16 h-0 w-full border-b border-dashed border-primary/45 max-[991px]:mb-12"
             data-reveal="fade"
           />
 
           <div
-            className="mb-16 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)] max-[991px]:mb-12"
+            className="mb-16 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.62fr)] max-[991px]:mb-12"
             data-reveal-group
           >
             <div className="flex flex-col items-start gap-7">
@@ -71,7 +71,7 @@ export function FeatureSplitHighlightsSection({
           </div>
 
           <div
-            className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(460px,0.78fr)] lg:gap-16"
+            className="grid items-stretch gap-8 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,0.78fr)] xl:gap-16"
             data-reveal-group
           >
             <div className="reveal-item flex flex-col justify-between gap-10">
