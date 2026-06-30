@@ -45,7 +45,9 @@ export function HubSplitHero({
               <h1 className="reveal-item display-h1 m-0 text-primary">{title}</h1>
             </div>
 
-            <p className="reveal-item body-lead m-0 max-w-xl text-muted">{description}</p>
+            <p className="reveal-item m-0 max-w-xl text-base font-normal leading-loose text-muted">
+              {description}
+            </p>
 
             <div className="reveal-item flex flex-wrap gap-3 max-[479px]:flex-col">
               <a

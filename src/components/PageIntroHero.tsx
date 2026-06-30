@@ -21,7 +21,7 @@ export function PageIntroHero({
           <p className="eyebrow reveal-item">{eyebrow}</p>
           <h1 className="display-h1 reveal-item mt-5 max-w-4xl">{title}</h1>
           {intro ? (
-            <p className="reveal-item body-lead m-0 mt-5 max-w-3xl text-muted max-[479px]:text-base">
+            <p className="reveal-item m-0 mt-5 max-w-3xl text-base font-normal leading-loose text-muted">
               {intro}
             </p>
           ) : null}

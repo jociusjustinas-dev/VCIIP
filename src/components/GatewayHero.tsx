@@ -49,7 +49,7 @@ export function GatewayHero() {
                 <span className="block">augimui Vilniuje.</span>
               </h1>
 
-              <p className="reveal-item body-lead m-0 max-w-[720px] text-white/82">
+              <p className="reveal-item m-0 max-w-[720px] text-base font-normal leading-loose text-white/82">
                 VCIIP jungia dvi specializuotas teritorijas – gyvybės mokslų ekosistemą Vismaliukuose
                 ir technologijų bei pažangios gamybos plėtros teritoriją Liepkalnyje.
               </p>

@@ -210,12 +210,6 @@
     color: var(--color-accent);
   }
 
-  .body-lead {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 2;
-  }
-
   .article-body {
     width: 100%;
     color: var(--color-muted);
@@ -1421,6 +1415,12 @@
 }
 
 @layer utilities {
+  .body-lead {
+    font-size: var(--text-base);
+    font-weight: 400;
+    line-height: var(--leading-loose);
+  }
+
   .rounded-none {
     border-radius: var(--radius-card);
   }

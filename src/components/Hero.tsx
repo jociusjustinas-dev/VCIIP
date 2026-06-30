@@ -76,7 +76,7 @@ export function Hero() {
                 </div>
               </div>
 
-              <p className="reveal-item body-lead text-white/82">
+              <p className="reveal-item text-base font-normal leading-loose text-white/82">
                 Pirmasis ir vienintelis parkas Vilniuje, skirtas aukštos pridėtinės vertės
                 inovacijoms. Paruošta infrastruktūra, valstybės parama ir operatoriaus pagalba
                 viso proceso metu.
