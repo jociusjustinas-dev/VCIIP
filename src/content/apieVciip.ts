@@ -1,5 +1,3 @@
-import bioLogo from "../assets/logos/bio.svg";
-import techLogo from "../assets/logos/tech.svg";
 import goVilniusLogo from "../assets/logos/partners/go-vilnius.png";
 import investLithuaniaLogo from "../assets/logos/partners/invest-lithuania.svg";
 import lifeSciencesLithuaniaLogo from "../assets/logos/partners/life-sciences-lithuania.png";
@@ -13,31 +11,6 @@ export const apieVciipHero = {
     "VCIIP – Vilniaus miesto inovacijų ir pramonės parkas, vystantis specializuotas teritorijas gyvybės mokslams, technologijoms ir pažangiai gamybai. Mūsų tikslas – padėti organizacijoms augti suteikiant tinkamą infrastruktūrą, partnerystes ir operatoriaus pagalbą.",
   primaryCta: { label: "Susisiekti", href: "/kontaktai" },
   secondaryCta: { label: "Peržiūrėti VCIIP Tech", href: "/tech" },
-};
-
-export const apieVciipTerritories = {
-  eyebrow: "Kas yra VCIIP",
-  title: "Dvi teritorijos. Viena ekosistema.",
-  intro:
-    "VCIIP jungia dvi specializuotas teritorijas, kurios papildo viena kitą ir kuria vientisą inovacijų ekosistemą.",
-  cards: [
-    {
-      href: "/ekosistema",
-      logo: bioLogo,
-      logoAlt: "VCIIP BIO",
-      subtitle: "VCIIP BIO",
-      text: "Veikianti gyvybės mokslų ir inovacijų ekosistema Vismaliukuose.",
-      cta: "Plačiau apie BIO",
-    },
-    {
-      href: "/tech",
-      logo: techLogo,
-      logoAlt: "VCIIP TECH",
-      subtitle: "VCIIP TECH",
-      text: "Nauja plėtros teritorija Liepkalnyje pažangiai gamybai ir technologijoms.",
-      cta: "Plačiau apie TECH",
-    },
-  ],
 };
 
 export const apieVciipTimeline = {

@@ -6,8 +6,8 @@ import {
 import { ApieVciipHero } from "./apie-vciip/ApieVciipHero";
 import { ApieVciipOperator } from "./apie-vciip/ApieVciipOperator";
 import { ApieVciipPartners } from "./apie-vciip/ApieVciipPartners";
-import { ApieVciipTerritories } from "./apie-vciip/ApieVciipTerritories";
 import { ApieVciipTimeline } from "./apie-vciip/ApieVciipTimeline";
+import { EcosystemSplit } from "./EcosystemSplit";
 import { InvestorInquiry } from "./InvestorInquiry";
 import { ProofStats } from "./ProofStats";
 import { SettleProcess } from "./SettleProcess";
@@ -16,7 +16,7 @@ export function ApieVciipPage() {
   return (
     <main className="bg-white">
       <ApieVciipHero />
-      <ApieVciipTerritories />
+      <EcosystemSplit />
       <ApieVciipTimeline />
       <ProofStats
         showTopDivider={false}
