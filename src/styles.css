@@ -713,7 +713,7 @@
     min-height: 16rem;
     align-items: center;
     justify-content: center;
-    background: var(--color-white);
+    background: #ffffff;
     padding: 2.5rem;
   }
 

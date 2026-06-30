@@ -7,7 +7,7 @@ export function ApieVciipOperator() {
   const [ctaHovered, setCtaHovered] = useState(false);
 
   return (
-    <section className="relative bg-white section-shell">
+    <section className="relative bg-background section-shell">
       <div className="site-container px-6 max-[479px]:px-4">
         <div
           className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(300px,0.72fr)] lg:gap-16"
