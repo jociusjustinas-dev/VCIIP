@@ -10,7 +10,7 @@ export function ApieVciipOperator() {
     <section className="relative bg-white section-shell">
       <div className="site-container px-6 max-[479px]:px-4">
         <div
-          className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(300px,0.72fr)] lg:gap-16"
+          className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(300px,0.72fr)] lg:gap-16"
           data-reveal-group
         >
           <div className="reveal-item flex flex-col gap-8">

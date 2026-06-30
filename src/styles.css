@@ -709,18 +709,19 @@
 
   .apie-vciip-operator-logo {
     display: flex;
+    height: 100%;
     min-height: 16rem;
     align-items: center;
     justify-content: center;
-    border: 1px dashed color-mix(in srgb, var(--color-primary) 24%, transparent);
     background: var(--color-white);
     padding: 2.5rem;
   }
 
   .apie-vciip-operator-logo__image {
     display: block;
-    width: min(100%, 18rem);
+    width: min(100%, 22rem);
     height: auto;
+    max-height: 100%;
     object-fit: contain;
   }
 

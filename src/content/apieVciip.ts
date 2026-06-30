@@ -1,5 +1,5 @@
 import goVilniusLogo from "../assets/logos/partners/go-vilnius.png";
-import northtownVilniusLogo from "../assets/logos/northtown-vilnius.png";
+import northtownVilniusLogo from "../assets/logos/northtown-vilnius.svg";
 import investLithuaniaLogo from "../assets/logos/partners/invest-lithuania.svg";
 import lifeSciencesLithuaniaLogo from "../assets/logos/partners/life-sciences-lithuania.png";
 import vilniausUniversitetasLogo from "../assets/logos/partners/vilniaus-universitetas.png";
