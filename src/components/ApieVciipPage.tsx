@@ -16,6 +16,7 @@ export function ApieVciipPage() {
   return (
     <main className="bg-white">
       <ApieVciipHero />
+      <div className="bg-white pt-16 max-[991px]:pt-12 max-[479px]:pt-10" aria-hidden="true" />
       <EcosystemSplit />
       <ApieVciipTimeline />
       <ProofStats

@@ -6,7 +6,6 @@ export function ApieVciipHero() {
   return (
     <HubSplitHero
       id="apie-vciip"
-      className="hub-split-hero--apie-vciip"
       eyebrow={apieVciipHero.eyebrow}
       title={apieVciipHero.title}
       description={apieVciipHero.description}

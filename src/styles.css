@@ -333,10 +333,6 @@
     background: var(--color-white);
   }
 
-  .hub-split-hero--apie-vciip {
-    --hero-pad-bottom: 5rem;
-  }
-
   .hub-split-hero__grid {
     display: grid;
     width: 100%;
@@ -375,10 +371,6 @@
       --hero-pad-bottom: 20px;
     }
 
-    .hub-split-hero--apie-vciip {
-      --hero-pad-bottom: 4rem;
-    }
-
     .hub-split-hero__media {
       min-height: min(360px, 45svh);
     }
@@ -388,10 +380,6 @@
     .hub-split-hero {
       --hero-pad-top: 5rem;
       --hero-pad-bottom: 20px;
-    }
-
-    .hub-split-hero--apie-vciip {
-      --hero-pad-bottom: 3rem;
     }
 
     .hub-split-hero__grid {
