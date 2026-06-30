@@ -715,16 +715,13 @@
     border: 1px dashed color-mix(in srgb, var(--color-primary) 24%, transparent);
     background: var(--color-white);
     padding: 2.5rem;
-    text-align: center;
   }
 
-  .apie-vciip-operator-logo__placeholder {
-    margin: 0;
-    max-width: 14rem;
-    color: color-mix(in srgb, var(--color-primary) 52%, transparent);
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 1.5;
+  .apie-vciip-operator-logo__image {
+    display: block;
+    width: min(100%, 18rem);
+    height: auto;
+    object-fit: contain;
   }
 
   .vilnius-partners-grid {

@@ -33,6 +33,8 @@ export function ApieVciipOperator() {
 
             <a
               href={apieVciipOperator.cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent hover:text-white"
               onMouseEnter={() => setCtaHovered(true)}
               onMouseLeave={() => setCtaHovered(false)}
@@ -54,7 +56,13 @@ export function ApieVciipOperator() {
           </div>
 
           <div className="apie-vciip-operator-logo reveal-item" data-reveal="scale">
-            <p className="apie-vciip-operator-logo__placeholder">Northtown Vilnius logotipas</p>
+            <img
+              src={apieVciipOperator.logo}
+              alt={apieVciipOperator.logoAlt}
+              className="apie-vciip-operator-logo__image"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       </div>

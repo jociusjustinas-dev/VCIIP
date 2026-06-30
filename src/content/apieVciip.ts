@@ -1,4 +1,5 @@
 import goVilniusLogo from "../assets/logos/partners/go-vilnius.png";
+import northtownVilniusLogo from "../assets/logos/northtown-vilnius.png";
 import investLithuaniaLogo from "../assets/logos/partners/invest-lithuania.svg";
 import lifeSciencesLithuaniaLogo from "../assets/logos/partners/life-sciences-lithuania.png";
 import vilniausUniversitetasLogo from "../assets/logos/partners/vilniaus-universitetas.png";
@@ -141,6 +142,10 @@ export const apieVciipOperator = {
     "Teritorijos vystymo koordinavimas",
     "Partnerystės su viešuoju sektoriumi",
   ],
-  cta: { label: "Plačiau apie įsikūrimo procesą", href: "/tech#kaip-isikurti" },
+  cta: {
+    label: "Plačiau apie operatorių",
+    href: "https://northtownvilnius.lt/sveiki/",
+  },
+  logo: northtownVilniusLogo,
   logoAlt: "VšĮ Northtown Vilnius",
 };
