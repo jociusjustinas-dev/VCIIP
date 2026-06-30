@@ -31,7 +31,6 @@ export function ApieVciipPage() {
         title={apieVciipProcess.title}
         intro={apieVciipProcess.intro}
         steps={apieVciipProcess.steps}
-        showImage={false}
         cta={apieVciipProcess.cta}
       />
       <ApieVciipPartners />
