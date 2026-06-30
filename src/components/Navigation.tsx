@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type MouseEvent, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 
@@ -50,6 +50,7 @@ export function Navigation({
   const [onDarkSurface, setOnDarkSurface] = useState(true);
   const [stickyVisible, setStickyVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuClosing, setMobileMenuClosing] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<"bio" | "tech" | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const logos =
@@ -105,6 +106,30 @@ export function Navigation({
     if (!mobileMenuOpen) setMobileExpanded(null);
   }, [mobileMenuOpen]);
 
+  useEffect(() => {
+    if (!mobileMenuOpen && !mobileMenuClosing) return;
+
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen, mobileMenuClosing]);
+
+  const openMobileMenu = () => {
+    setMobileMenuClosing(false);
+    setMobileMenuOpen(true);
+  };
+
+  const closeMobileMenu = () => {
+    if (!mobileMenuOpen || mobileMenuClosing) return;
+
+    setMobileMenuClosing(true);
+    window.setTimeout(() => {
+      setMobileMenuOpen(false);
+      setMobileMenuClosing(false);
+    }, 280);
+  };
+
   const navTone: NavTone = onDarkSurface
     ? {
         border: "border-white/28",
@@ -140,7 +165,7 @@ export function Navigation({
           key={item.href}
           href={item.href}
           className={tone.menuText}
-          onClick={() => setMobileMenuOpen(false)}
+          onClick={closeMobileMenu}
         >
           {item.label}
         </NavAnchor>
@@ -245,7 +270,7 @@ export function Navigation({
                 ? "border-primary/14 text-primary"
                 : "border-white/22 text-white"
             }`}
-            onClick={() => setMobileMenuOpen((value) => !value)}
+            onClick={() => (mobileMenuOpen ? closeMobileMenu() : openMobileMenu())}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Uždaryti navigaciją" : "Atidaryti navigaciją"}
           >
@@ -273,83 +298,119 @@ export function Navigation({
         {renderNavBar(activeTone, { sticky: activeSticky })}
       </div>
 
-      {mobileMenuOpen && (
-        <div className="pointer-events-auto fixed inset-x-0 top-0 z-[997] hidden max-h-[89svh] overflow-auto bg-white px-[var(--page-gutter)] pb-6 pt-[4.75rem] shadow-2xl shadow-primary/16 max-[991px]:block max-[767px]:px-[var(--page-gutter-sm)] max-[479px]:pt-[4.5rem]">
-          <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 border-y border-primary/16 bg-background px-[var(--page-gutter)] py-3 max-[767px]:px-[var(--page-gutter-sm)] max-[479px]:gap-2">
-            <a
-              href={hubHref}
-              onClick={handleLogoClick}
-              aria-label={`${logos.alt} pradinis puslapis`}
-              className="inline-flex min-w-0 max-w-[min(100%,10rem)]"
-            >
-              <img src={logos.dark} alt={logos.alt} className="h-7 w-auto max-w-full object-contain object-left max-[479px]:h-[1.625rem]" />
-            </a>
-            <div className="flex shrink-0 items-center gap-2">
+      {(mobileMenuOpen || mobileMenuClosing) && (
+        <div
+          className={`mobile-nav-drawer pointer-events-auto fixed inset-0 z-[997] hidden max-[991px]:block ${
+            mobileMenuClosing ? "mobile-nav-drawer--closing" : ""
+          }`}
+        >
+          <button
+            type="button"
+            className="mobile-nav-drawer__backdrop absolute inset-0 bg-primary/18 backdrop-blur-[2px]"
+            onClick={closeMobileMenu}
+            aria-label="Uždaryti navigaciją"
+          />
+
+          <div className="mobile-nav-drawer__panel pointer-events-auto absolute inset-x-0 top-0 max-h-[89svh] overflow-auto bg-white px-[var(--page-gutter)] pb-6 pt-[4.75rem] shadow-2xl shadow-primary/16 max-[767px]:px-[var(--page-gutter-sm)] max-[479px]:pt-[4.5rem]">
+            <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 bg-background px-[var(--page-gutter)] py-3 max-[767px]:px-[var(--page-gutter-sm)] max-[479px]:gap-2">
               <a
-                className="inline-flex min-h-9 items-center justify-center rounded-none bg-primary px-3.5 py-2 text-sm font-semibold leading-none text-white"
-                href={contactHref}
-                onClick={() => setMobileMenuOpen(false)}
+                href={hubHref}
+                onClick={handleLogoClick}
+                aria-label={`${logos.alt} pradinis puslapis`}
+                className="inline-flex min-w-0 max-w-[min(100%,10rem)]"
               >
-                Susisiekti
+                <img src={logos.dark} alt={logos.alt} className="h-7 w-auto max-w-full object-contain object-left max-[479px]:h-[1.625rem]" />
               </a>
-              <button
-                className="inline-flex size-9 items-center justify-center rounded-none border border-primary/14 text-primary"
-                onClick={() => setMobileMenuOpen(false)}
-                aria-label="Uždaryti navigaciją"
-              >
-                <X size={18} />
-              </button>
-            </div>
-          </div>
-
-          <div className="my-5 h-px w-full bg-primary/16" />
-
-          {[bioNavGroup, techNavGroup].map((group) => {
-            const isExpanded = mobileExpanded === group.id;
-
-            return (
-              <div key={group.id} className="mb-2 border-b border-primary/10 pb-2">
-                <button
-                  type="button"
-                  className="flex w-full items-center justify-between py-2 text-base font-bold leading-[150%] text-primary"
-                  onClick={() => setMobileExpanded((current) => (current === group.id ? null : group.id))}
-                  aria-expanded={isExpanded}
+              <div className="flex shrink-0 items-center gap-2">
+                <a
+                  className="inline-flex min-h-9 items-center justify-center rounded-none bg-primary px-3.5 py-2 text-sm font-semibold leading-none text-white"
+                  href={contactHref}
+                  onClick={closeMobileMenu}
                 >
-                  {group.label}
-                  <ChevronDown
-                    size={18}
-                    className={`transition-transform ${isExpanded ? "rotate-180" : ""}`}
-                  />
+                  Susisiekti
+                </a>
+                <button
+                  className="inline-flex size-9 items-center justify-center rounded-none border border-primary/14 text-primary"
+                  onClick={closeMobileMenu}
+                  aria-label="Uždaryti navigaciją"
+                >
+                  <X size={18} />
                 </button>
-                {isExpanded && (
-                  <div className="flex flex-col gap-1 pb-2 pl-3">
-                    {group.items.map((item) => (
-                      <MobileNavLink
-                        key={item.href}
-                        item={item}
-                        pageHref={group.pageHref}
-                        onNavigate={() => setMobileMenuOpen(false)}
-                      />
-                    ))}
-                  </div>
-                )}
               </div>
-            );
-          })}
+            </div>
 
-          {sharedNavItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-semibold leading-[150%] text-primary/82"
-            >
-              {item.label}
-            </a>
-          ))}
+            <div className="mobile-nav-drawer__content pt-5">
+              {[bioNavGroup, techNavGroup].map((group, groupIndex) => {
+                const isExpanded = mobileExpanded === group.id;
 
-          <div className="mt-6 border-t border-primary/10 pt-5">
-            {renderLanguageSwitcher({ sticky: true, onDark: false, className: "w-fit" })}
+                return (
+                  <div
+                    key={group.id}
+                    className="mobile-nav-drawer__item mb-2 border-b border-primary/10 pb-2"
+                    style={{ "--item-index": groupIndex } as CSSProperties}
+                  >
+                    <button
+                      type="button"
+                      className="flex w-full items-center justify-between py-2 text-base font-bold leading-[150%] text-primary"
+                      onClick={() => setMobileExpanded((current) => (current === group.id ? null : group.id))}
+                      aria-expanded={isExpanded}
+                    >
+                      {group.label}
+                      <ChevronDown
+                        size={18}
+                        className={`transition-transform duration-300 ease-out ${isExpanded ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    <div
+                      className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+                        isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="flex flex-col gap-1 pb-2 pl-3">
+                          {group.items.map((item) => (
+                            <MobileNavLink
+                              key={item.href}
+                              item={item}
+                              pageHref={group.pageHref}
+                              onNavigate={closeMobileMenu}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+
+              <a
+                href="/"
+                onClick={closeMobileMenu}
+                className="mobile-nav-drawer__item block py-2 text-base font-semibold leading-[150%] text-primary/82"
+                style={{ "--item-index": 2 } as CSSProperties}
+              >
+                Pagrindinis
+              </a>
+
+              {sharedNavItems.map((item, index) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMobileMenu}
+                  className="mobile-nav-drawer__item block py-2 text-base font-semibold leading-[150%] text-primary/82"
+                  style={{ "--item-index": index + 3 } as CSSProperties}
+                >
+                  {item.label}
+                </a>
+              ))}
+
+              <div
+                className="mobile-nav-drawer__item mt-6 border-t border-primary/10 pt-5"
+                style={{ "--item-index": sharedNavItems.length + 3 } as CSSProperties}
+              >
+                {renderLanguageSwitcher({ sticky: true, onDark: false, className: "w-fit" })}
+              </div>
+            </div>
           </div>
         </div>
       )}
