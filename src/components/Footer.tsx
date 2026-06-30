@@ -8,6 +8,7 @@ import type { BrandVariant } from "./Navigation";
 
 const footerNavigation = [
   { label: "VCIIP Bio", href: "/ekosistema" },
+  { label: "VCIIP Tech", href: "/tech" },
   { label: "Kodėl Vilnius", href: "/kodel-vilnius" },
   { label: "Naujienos", href: "/naujienos" },
   { label: "Investavimo procesas", href: "/tech#kaip-isikurti" },
