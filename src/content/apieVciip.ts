@@ -144,10 +144,3 @@ export const apieVciipOperator = {
   cta: { label: "Plačiau apie įsikūrimo procesą", href: "/tech#kaip-isikurti" },
   logoAlt: "VšĮ Northtown Vilnius",
 };
-
-export const apieVciipCta = {
-  eyebrow: "Pradėkime pokalbį",
-  title: "Pasikalbėkime apie jūsų planus Vilniuje.",
-  description:
-    "Padėsime įvertinti jūsų poreikius ir pasiūlysime tinkamiausią sprendimą VCIIP teritorijoje.",
-};

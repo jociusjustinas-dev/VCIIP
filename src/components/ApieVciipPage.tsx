@@ -1,5 +1,4 @@
 import {
-  apieVciipCta,
   apieVciipProcess,
   apieVciipStats,
 } from "../content/apieVciip";
@@ -8,7 +7,7 @@ import { ApieVciipOperator } from "./apie-vciip/ApieVciipOperator";
 import { ApieVciipPartners } from "./apie-vciip/ApieVciipPartners";
 import { ApieVciipTimeline } from "./apie-vciip/ApieVciipTimeline";
 import { EcosystemSplit } from "./EcosystemSplit";
-import { InvestorInquiry } from "./InvestorInquiry";
+import { KodelVilniusCta } from "./kodel-vilnius/KodelVilniusCta";
 import { ProofStats } from "./ProofStats";
 import { SettleProcess } from "./SettleProcess";
 
@@ -37,12 +36,7 @@ export function ApieVciipPage() {
       />
       <ApieVciipPartners />
       <ApieVciipOperator />
-      <InvestorInquiry
-        tone="light"
-        eyebrow={apieVciipCta.eyebrow}
-        title={apieVciipCta.title}
-        description={apieVciipCta.description}
-      />
+      <KodelVilniusCta />
     </main>
   );
 }
