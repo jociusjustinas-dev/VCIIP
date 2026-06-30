@@ -36,7 +36,7 @@
   --radius-md: var(--radius-input);
   --radius-lg: var(--radius-button);
 
-  --page-gutter: 1rem;
+  --page-gutter: 1.5rem;
   --page-gutter-sm: 0.75rem;
 }
 
@@ -91,16 +91,14 @@
 
   .site-container {
     box-sizing: border-box;
-    width: 100%;
-    max-width: 1800px;
+    width: min(100% - 2rem, 1800px);
     margin-inline: auto;
     padding-inline: var(--page-gutter);
   }
 
   .content-container {
     box-sizing: border-box;
-    width: 100%;
-    max-width: 1180px;
+    width: min(100% - 2rem, 1180px);
     margin-inline: auto;
     padding-inline: var(--page-gutter);
   }
