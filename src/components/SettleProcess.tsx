@@ -51,6 +51,7 @@ export function SettleProcess({
   steps = defaultSettleSteps,
   showImage = true,
   cta = { label: "Sužinokite daugiau", href: "#kontaktai" },
+  tone = "muted",
 }: {
   id?: string;
   eyebrow?: string;
@@ -59,9 +60,15 @@ export function SettleProcess({
   steps?: ProcessStep[];
   showImage?: boolean;
   cta?: ProcessCta;
+  tone?: "light" | "muted";
 }) {
+  const isLight = tone === "light";
+
   return (
-    <section id={id} className="relative overflow-hidden bg-background section-shell">
+    <section
+      id={id}
+      className={`relative overflow-hidden section-shell ${isLight ? "bg-white" : "bg-background"}`}
+    >
       <div className="site-container px-6 max-[479px]:px-4">
           <div
             className="mb-20 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.62fr)] max-[991px]:mb-14"
@@ -89,7 +96,9 @@ export function SettleProcess({
           >
             {showImage ? (
               <div
-                className="reveal-item relative h-full min-h-[260px] overflow-hidden rounded-none bg-background max-[767px]:min-h-[320px] max-[991px]:min-h-[360px] lg:min-h-0"
+                className={`reveal-item relative h-full min-h-[260px] overflow-hidden rounded-none max-[767px]:min-h-[320px] max-[991px]:min-h-[360px] lg:min-h-0 ${
+                  isLight ? "bg-white" : "bg-background"
+                }`}
                 data-reveal="scale"
               >
                 <img

@@ -33,6 +33,7 @@ export function ApieVciipPage() {
         intro={apieVciipProcess.intro}
         steps={apieVciipProcess.steps}
         cta={apieVciipProcess.cta}
+        tone="light"
       />
       <ApieVciipPartners />
       <ApieVciipOperator />
