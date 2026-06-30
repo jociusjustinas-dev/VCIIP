@@ -26,12 +26,28 @@ export const apieVciipTimeline = {
       label: "Pradeda veikti VCIIP BIO",
     },
     {
+      year: "2020",
+      label: "Pirmosios gyvybės mokslų laboratorijos",
+    },
+    {
+      year: "2022",
+      label: "Pradėta TECH teritorijos planavimo programa",
+    },
+    {
       year: "2024",
       label: "30+ organizacijų ekosistema",
     },
     {
       year: "2027+",
       label: "VCIIP TECH plėtra",
+    },
+    {
+      year: "2030",
+      label: "Nauja infrastruktūra Liepkalnyje",
+    },
+    {
+      year: "2032",
+      label: "Integruota BIO ir TECH ekosistema",
     },
   ],
 };

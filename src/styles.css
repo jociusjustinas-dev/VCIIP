@@ -584,6 +584,7 @@
 
   .apie-vciip-timeline {
     position: relative;
+    --timeline-visible-slots: 3.25;
   }
 
   .apie-vciip-timeline__viewport {
@@ -591,21 +592,23 @@
   }
 
   .apie-vciip-timeline__track {
-    position: relative;
     display: flex;
     width: max-content;
     min-width: 100%;
-    padding-bottom: 0.25rem;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .apie-vciip-timeline__rail {
-    position: absolute;
-    top: 3.35rem;
-    right: 0;
-    left: 0;
-    z-index: 0;
-    height: 0.625rem;
-    pointer-events: none;
+  .apie-vciip-timeline__row {
+    display: flex;
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .apie-vciip-timeline__row--rail {
+    position: relative;
+    align-items: center;
+    min-height: 0.625rem;
   }
 
   .apie-vciip-timeline__rail-line {
@@ -613,28 +616,26 @@
     top: 50%;
     right: 0;
     left: 0.3125rem;
+    z-index: 0;
     height: 0;
     border-top: 1px dashed color-mix(in srgb, var(--color-primary) 48%, transparent);
     transform: translateY(-50%);
   }
 
-  .apie-vciip-timeline__milestone {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    flex: 0 0 calc(100% / 3);
-    width: calc(100% / 3);
-    min-width: 17.5rem;
-    grid-template-rows: auto 0.625rem auto;
-    gap: 1rem;
+  .apie-vciip-timeline__slot {
+    display: flex;
+    flex: 0 0 calc(var(--timeline-viewport, 100%) / var(--timeline-visible-slots));
+    width: calc(var(--timeline-viewport, 100%) / var(--timeline-visible-slots));
+    min-width: 14rem;
+    padding-right: 1.5rem;
     scroll-snap-align: start;
-    border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
-    padding: 0 1.5rem 0 0;
   }
 
-  .apie-vciip-timeline__milestone:last-child {
-    border-right: 0;
-    padding-right: 0;
+  .apie-vciip-timeline__slot--rail {
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    padding-right: 1.5rem;
   }
 
   .apie-vciip-timeline__year {
@@ -651,6 +652,7 @@
     display: block;
     width: 0.625rem;
     height: 0.625rem;
+    flex-shrink: 0;
     background: var(--color-accent);
   }
 
@@ -696,14 +698,12 @@
   }
 
   @media (max-width: 767px) {
-    .apie-vciip-timeline__milestone {
-      flex-basis: calc(100% / 1.2);
-      width: calc(100% / 1.2);
-      min-width: 14.5rem;
+    .apie-vciip-timeline {
+      --timeline-visible-slots: 1.2;
     }
 
-    .apie-vciip-timeline__rail {
-      top: 3rem;
+    .apie-vciip-timeline__slot {
+      min-width: 12.5rem;
     }
   }
 
