@@ -52,38 +52,39 @@ export function ApieVciipTimeline() {
     });
   };
 
+  const timelineControls = (
+    <div className="apie-vciip-timeline__controls">
+      <button
+        type="button"
+        aria-label="Ankstesni metai"
+        onClick={() => scrollTimeline("previous")}
+        disabled={!canScrollPrev}
+        className="apie-vciip-timeline__control"
+      >
+        <ChevronLeft size={22} aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        aria-label="Vėlesni metai"
+        onClick={() => scrollTimeline("next")}
+        disabled={!canScrollNext}
+        className="apie-vciip-timeline__control"
+      >
+        <ChevronRight size={22} aria-hidden="true" />
+      </button>
+    </div>
+  );
+
   return (
     <section className="relative bg-white section-shell">
       <div className="site-container">
-        <div
-          className="mb-10 flex items-end justify-between gap-6 max-[767px]:mb-8 max-[767px]:flex-col max-[767px]:items-start"
-          data-reveal-group
-        >
-          <div className="section-intro m-0 max-[479px]:mb-0">
+        <div className="mb-10 flex items-end justify-between gap-6 max-[767px]:mb-8" data-reveal-group>
+          <div className="section-intro m-0">
             <p className="eyebrow reveal-item">{apieVciipTimeline.eyebrow}</p>
             <h2 className="section-heading reveal-item max-w-3xl">{apieVciipTimeline.title}</h2>
           </div>
 
-          <div className="apie-vciip-timeline__controls reveal-item">
-            <button
-              type="button"
-              aria-label="Ankstesni metai"
-              onClick={() => scrollTimeline("previous")}
-              disabled={!canScrollPrev}
-              className="apie-vciip-timeline__control"
-            >
-              <ChevronLeft size={22} aria-hidden="true" />
-            </button>
-            <button
-              type="button"
-              aria-label="Vėlesni metai"
-              onClick={() => scrollTimeline("next")}
-              disabled={!canScrollNext}
-              className="apie-vciip-timeline__control"
-            >
-              <ChevronRight size={22} aria-hidden="true" />
-            </button>
-          </div>
+          <div className="reveal-item hidden min-[768px]:block">{timelineControls}</div>
         </div>
 
         <div className="reveal-item apie-vciip-timeline" data-reveal="fade">
@@ -118,6 +119,10 @@ export function ApieVciipTimeline() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="reveal-item mt-4 flex justify-end min-[768px]:hidden" data-reveal="fade">
+          {timelineControls}
         </div>
       </div>
     </section>
