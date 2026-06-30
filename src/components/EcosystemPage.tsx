@@ -1,5 +1,6 @@
 import { bioApieIntro, bioGrowthContent, bioTabsContent } from "../content/ecosystem";
 import { EcosystemHero } from "./EcosystemHero";
+import { EcosystemMarquee } from "./EcosystemMarquee";
 import { FeatureSplitHighlightsSection } from "./FeatureSplitHighlightsSection";
 import { FeatureTabsSection } from "./FeatureTabsSection";
 import { ProofStats } from "./ProofStats";
@@ -14,6 +15,7 @@ export function EcosystemPage() {
           <p className="reveal-item body-lead m-0 max-w-3xl text-muted">{bioApieIntro}</p>
         </div>
       </section>
+      <EcosystemMarquee />
       <FeatureTabsSection {...bioTabsContent} showEyebrowRule={false} />
       <FeatureSplitHighlightsSection {...bioGrowthContent} />
     </main>
