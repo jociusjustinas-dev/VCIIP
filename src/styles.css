@@ -37,7 +37,7 @@
   --radius-lg: var(--radius-button);
 
   --page-gutter: 1.5rem;
-  --page-gutter-sm: 0.75rem;
+  --page-gutter-sm: 0.625rem;
 }
 
 @layer base {
@@ -1461,13 +1461,18 @@
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 767px) {
   @layer components {
     .site-container,
     .content-container {
+      width: 100%;
       padding-inline: var(--page-gutter-sm);
     }
+  }
+}
 
+@media (max-width: 479px) {
+  @layer components {
     .section-shell {
       padding-block: 2.5rem;
     }

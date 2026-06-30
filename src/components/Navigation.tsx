@@ -263,8 +263,8 @@ export function Navigation({
       </div>
 
       {mobileMenuOpen && (
-        <div className="pointer-events-auto fixed inset-x-0 top-0 z-[997] hidden max-h-[89svh] overflow-auto bg-white px-[var(--page-gutter)] pb-6 pt-[4.75rem] shadow-2xl shadow-primary/16 max-[991px]:block max-[479px]:px-[var(--page-gutter-sm)] max-[479px]:pt-[4.5rem]">
-          <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 border-y border-primary/16 bg-background px-[var(--page-gutter)] py-3 max-[479px]:gap-2 max-[479px]:px-[var(--page-gutter-sm)]">
+        <div className="pointer-events-auto fixed inset-x-0 top-0 z-[997] hidden max-h-[89svh] overflow-auto bg-white px-[var(--page-gutter)] pb-6 pt-[4.75rem] shadow-2xl shadow-primary/16 max-[991px]:block max-[767px]:px-[var(--page-gutter-sm)] max-[479px]:pt-[4.5rem]">
+          <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 border-y border-primary/16 bg-background px-[var(--page-gutter)] py-3 max-[767px]:px-[var(--page-gutter-sm)] max-[479px]:gap-2">
             <a
               href={hubHref}
               onClick={handleLogoClick}
