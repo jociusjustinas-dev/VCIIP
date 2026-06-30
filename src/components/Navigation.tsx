@@ -151,6 +151,37 @@ export function Navigation({
   const activeTone = stickyVisible ? stickyTone : navTone;
   const activeSticky = stickyVisible;
 
+  const renderLanguageSwitcher = (options: { sticky?: boolean; onDark?: boolean; className?: string }) => {
+    const isLightSurface = options.sticky || !options.onDark;
+
+    return (
+      <div
+        className={`flex h-12 items-stretch rounded-none border p-1 ${
+          isLightSurface ? "border-primary/14 bg-primary/5" : "border-white/22 bg-white/10"
+        } ${options.className ?? ""}`}
+        aria-label="Kalbos pasirinkimas"
+      >
+        <a
+          href="#"
+          aria-current="true"
+          className={`flex items-center rounded-none px-3 font-display text-sm font-bold uppercase leading-none tracking-wide transition ${
+            isLightSurface ? "bg-primary text-white" : "bg-white text-primary"
+          }`}
+        >
+          LT
+        </a>
+        <a
+          href="#"
+          className={`flex items-center rounded-none px-3 font-display text-sm font-bold uppercase leading-none tracking-wide transition ${
+            isLightSurface ? "text-primary/52 hover:text-primary" : "text-white/62 hover:text-white"
+          }`}
+        >
+          EN
+        </a>
+      </div>
+    );
+  };
+
   const renderNavBar = (tone: NavTone, options: { sticky?: boolean } = {}) => (
     <div className="site-container">
       <div
@@ -159,15 +190,6 @@ export function Navigation({
         }`}
       >
         <div className="flex min-w-0 flex-1 items-center gap-12 max-[991px]:gap-2.5">
-          <button
-            className={`hidden shrink-0 items-center border-0 bg-transparent p-0 transition-colors max-[991px]:flex ${tone.iconText}`}
-            onClick={() => setMobileMenuOpen((value) => !value)}
-            aria-expanded={mobileMenuOpen}
-            aria-label="Atidaryti navigaciją"
-          >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-
           <a
             href={hubHref}
             onClick={handleLogoClick}
@@ -192,36 +214,11 @@ export function Navigation({
         </div>
 
         <div className="flex shrink-0 items-center gap-2 max-[479px]:gap-1.5">
-          <div
-            className={`hidden h-12 items-stretch rounded-none border p-1 max-[991px]:hidden sm:flex ${
-              options.sticky || !onDarkSurface
-                ? "border-primary/14 bg-primary/5"
-                : "border-white/22 bg-white/10"
-            }`}
-            aria-label="Kalbos pasirinkimas"
-          >
-            <a
-              href="#"
-              aria-current="true"
-              className={`flex items-center rounded-none px-3 font-display text-sm font-bold uppercase leading-none tracking-wide transition ${
-                options.sticky || !onDarkSurface
-                  ? "bg-primary text-white"
-                  : "bg-white text-primary"
-              }`}
-            >
-              LT
-            </a>
-            <a
-              href="#"
-              className={`flex items-center rounded-none px-3 font-display text-sm font-bold uppercase leading-none tracking-wide transition ${
-                options.sticky || !onDarkSurface
-                  ? "text-primary/52 hover:text-primary"
-                  : "text-white/62 hover:text-white"
-              }`}
-            >
-              EN
-            </a>
-          </div>
+          {renderLanguageSwitcher({
+            sticky: options.sticky,
+            onDark: onDarkSurface,
+            className: "max-[991px]:hidden sm:flex",
+          })}
 
           <a
             className={`group inline-flex min-h-12 shrink-0 items-center justify-center gap-2 overflow-hidden rounded-none px-5 py-3 text-base font-semibold leading-none transition max-[991px]:min-h-10 max-[991px]:px-3.5 max-[991px]:py-2 max-[991px]:text-sm max-[479px]:min-h-9 max-[479px]:px-3 ${tone.cta}`}
@@ -240,6 +237,20 @@ export function Navigation({
             </span>
             <ArrowUpRight size={18} className="hidden max-[400px]:block" aria-hidden="true" />
           </a>
+
+          <button
+            type="button"
+            className={`hidden size-10 shrink-0 items-center justify-center rounded-none border bg-transparent transition-colors max-[991px]:inline-flex ${
+              options.sticky || !onDarkSurface
+                ? "border-primary/14 text-primary"
+                : "border-white/22 text-white"
+            }`}
+            onClick={() => setMobileMenuOpen((value) => !value)}
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Uždaryti navigaciją" : "Atidaryti navigaciją"}
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </div>
     </div>
@@ -336,6 +347,10 @@ export function Navigation({
               {item.label}
             </a>
           ))}
+
+          <div className="mt-6 border-t border-primary/10 pt-5">
+            {renderLanguageSwitcher({ sticky: true, onDark: false, className: "w-fit" })}
+          </div>
         </div>
       )}
     </div>
