@@ -1,5 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
-
 import { apieVciipOperator } from "../../content/apieVciip";
 
 export function ApieVciipOperator() {
@@ -41,22 +39,6 @@ export function ApieVciipOperator() {
                 {apieVciipOperator.phone}
               </a>
             </div>
-
-            <a
-              href={apieVciipOperator.cta.href}
-              className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent hover:text-white"
-            >
-              <span className="h-5 overflow-hidden py-px">
-                <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
-                  {[apieVciipOperator.cta.label, apieVciipOperator.cta.label].map((label, index) => (
-                    <span key={index} className="flex h-5 items-center gap-2">
-                      {label}
-                      <ArrowUpRight size={16} aria-hidden="true" />
-                    </span>
-                  ))}
-                </span>
-              </span>
-            </a>
           </div>
 
           <div

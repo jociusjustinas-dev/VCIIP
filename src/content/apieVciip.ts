@@ -124,7 +124,6 @@ export const apieVciipOperator = {
   role: "Direktorius",
   email: "el.paštas@vciip.lt",
   phone: "+370 XXX XXXXX",
-  cta: { label: "Plačiau apie operatorių", href: "/kontaktai" },
 };
 
 export const apieVciipCta = {
