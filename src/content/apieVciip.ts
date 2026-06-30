@@ -147,7 +147,7 @@ export const apieVciipOperator = {
 
 export const apieVciipCta = {
   eyebrow: "Pradėkime pokalbį",
-  title: "Papasakokite apie savo planus.",
+  title: "Pasikalbėkime apie jūsų planus Vilniuje.",
   description:
     "Padėsime įvertinti jūsų poreikius ir pasiūlysime tinkamiausią sprendimą VCIIP teritorijoje.",
 };
