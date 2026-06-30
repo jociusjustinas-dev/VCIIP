@@ -583,29 +583,53 @@
   }
 
   .apie-vciip-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    position: relative;
   }
 
   .apie-vciip-timeline__viewport {
-    border-top: 1px dashed color-mix(in srgb, var(--color-primary) 48%, transparent);
+    position: relative;
   }
 
   .apie-vciip-timeline__track {
+    position: relative;
     display: flex;
     width: max-content;
     min-width: 100%;
+    padding-bottom: 0.25rem;
+  }
+
+  .apie-vciip-timeline__rail {
+    position: absolute;
+    top: 3.35rem;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    height: 0.625rem;
+    pointer-events: none;
+  }
+
+  .apie-vciip-timeline__rail-line {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0.3125rem;
+    height: 0;
+    border-top: 1px dashed color-mix(in srgb, var(--color-primary) 48%, transparent);
+    transform: translateY(-50%);
   }
 
   .apie-vciip-timeline__milestone {
-    display: flex;
-    flex: 0 0 min(100%, 16.5rem);
-    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    flex: 0 0 calc(100% / 3);
+    width: calc(100% / 3);
+    min-width: 17.5rem;
+    grid-template-rows: auto 0.625rem auto;
     gap: 1rem;
     scroll-snap-align: start;
     border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
-    padding: 1.25rem 1.5rem 0 0;
+    padding: 0 1.5rem 0 0;
   }
 
   .apie-vciip-timeline__milestone:last-child {
@@ -623,36 +647,16 @@
     color: var(--color-accent);
   }
 
-  .apie-vciip-timeline__connector {
-    position: relative;
-    display: flex;
-    align-items: center;
-    min-height: 1rem;
-  }
-
   .apie-vciip-timeline__dot {
-    position: relative;
-    z-index: 1;
     display: block;
     width: 0.625rem;
     height: 0.625rem;
-    flex-shrink: 0;
     background: var(--color-accent);
-  }
-
-  .apie-vciip-timeline__line {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0.625rem;
-    height: 0;
-    border-top: 1px dashed color-mix(in srgb, var(--color-primary) 48%, transparent);
-    transform: translateY(-50%);
   }
 
   .apie-vciip-timeline__label {
     margin: 0;
-    max-width: 13rem;
+    max-width: 14.5rem;
     color: var(--color-muted);
     font-size: 0.9375rem;
     line-height: 1.5;
@@ -660,7 +664,7 @@
 
   .apie-vciip-timeline__controls {
     display: flex;
-    justify-content: flex-end;
+    flex-shrink: 0;
     gap: 0.75rem;
   }
 
@@ -691,15 +695,15 @@
     opacity: 0.38;
   }
 
-  @media (min-width: 768px) {
-    .apie-vciip-timeline__milestone {
-      flex-basis: 25%;
-    }
-  }
-
   @media (max-width: 767px) {
-    .apie-vciip-timeline__controls {
-      justify-content: flex-start;
+    .apie-vciip-timeline__milestone {
+      flex-basis: calc(100% / 1.2);
+      width: calc(100% / 1.2);
+      min-width: 14.5rem;
+    }
+
+    .apie-vciip-timeline__rail {
+      top: 3rem;
     }
   }
 
