@@ -37,7 +37,7 @@
   --radius-lg: var(--radius-button);
 
   --page-gutter: 1.5rem;
-  --page-gutter-sm: 0.625rem;
+  --page-gutter-sm: 1rem;
 }
 
 @layer base {
