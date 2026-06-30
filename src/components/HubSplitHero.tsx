@@ -8,6 +8,7 @@ type CtaLink = {
 
 type HubSplitHeroProps = {
   id?: string;
+  className?: string;
   eyebrow: string;
   title: ReactNode;
   description: string;
@@ -21,6 +22,7 @@ type HubSplitHeroProps = {
 
 export function HubSplitHero({
   id,
+  className = "",
   eyebrow,
   title,
   description,
@@ -32,7 +34,7 @@ export function HubSplitHero({
   const [primaryHovered, setPrimaryHovered] = useState(false);
 
   return (
-    <section id={id} className="hub-split-hero relative">
+    <section id={id} className={`hub-split-hero relative ${className}`.trim()}>
       <div className="site-container px-6 max-[479px]:px-4">
         <div className="hub-split-hero__grid">
           <div className="hub-split-hero__content" data-reveal-group>
