@@ -809,20 +809,14 @@
   }
 
   @media (max-width: 639px) {
-    .vilnius-partners-grid {
-      grid-template-columns: 1fr;
-    }
-
     .vilnius-partners-grid__item {
-      border-right: 0 !important;
+      min-height: 5.5rem;
+      padding: 1rem 0.75rem;
     }
 
-    .vilnius-partners-grid__item:not(:last-child) {
-      border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
-    }
-
-    .vilnius-partners-grid__item:last-child {
-      border-bottom: 0;
+    .vilnius-partners-grid__logo-wrap {
+      width: min(100%, 6.5rem);
+      height: 2.5rem;
     }
   }
 
