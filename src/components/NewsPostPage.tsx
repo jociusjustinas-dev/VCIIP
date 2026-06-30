@@ -12,6 +12,7 @@ import { NewsCard } from "./NewsCard";
 import { ArticleShareActions } from "./ArticleShareActions";
 
 const articleColumnClass = "mx-auto w-full max-w-4xl";
+const articleTopSpacing = "pt-32 max-[991px]:pt-28 max-[479px]:pt-24";
 
 export function NewsPostPage({ slug }: { slug: string }) {
   const [post, setPost] = useState<NewsPostDetail | null>(null);
@@ -54,7 +55,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
   if (isLoading) {
     return (
       <main>
-        <section className="relative bg-white p-2 pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
+        <section className={`relative bg-white p-2 ${articleTopSpacing}`}>
           <div className="content-container px-6 max-[479px]:px-4">
             <div className={articleColumnClass}>
               <div className="border-b border-dashed border-primary/28 pb-10 pt-2">
@@ -85,7 +86,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
   if (notFound || !post) {
     return (
       <main>
-        <section className="relative bg-white p-2 pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
+        <section className={`relative bg-white p-2 ${articleTopSpacing}`}>
           <div className="content-container px-6 max-[479px]:px-4">
             <div className={`${articleColumnClass} border-b border-dashed border-primary/28 pb-10 pt-2`} data-reveal-group>
               <a
@@ -123,7 +124,7 @@ export function NewsPostPage({ slug }: { slug: string }) {
 
   return (
     <main>
-      <section className="relative bg-white p-2 pt-24 max-[991px]:pt-20 max-[479px]:pt-16">
+      <section className={`relative bg-white p-2 ${articleTopSpacing}`}>
         <div className="content-container px-6 max-[479px]:px-4">
           <div className={`${articleColumnClass} border-b border-dashed border-primary/28 pb-10 pt-2`} data-reveal-group>
             <p className="eyebrow reveal-item">Naujienos</p>
