@@ -14,7 +14,7 @@ export function EcosystemPage() {
           <p className="reveal-item body-lead m-0 max-w-3xl text-muted">{bioApieIntro}</p>
         </div>
       </section>
-      <FeatureTabsSection {...bioTabsContent} />
+      <FeatureTabsSection {...bioTabsContent} showEyebrowRule={false} />
       <FeatureSplitHighlightsSection {...bioGrowthContent} />
     </main>
   );
