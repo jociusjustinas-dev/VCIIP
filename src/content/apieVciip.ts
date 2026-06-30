@@ -2,6 +2,7 @@ import goVilniusLogo from "../assets/logos/partners/go-vilnius.png";
 import northtownVilniusLogo from "../assets/logos/northtown-vilnius.svg";
 import investLithuaniaLogo from "../assets/logos/partners/invest-lithuania.svg";
 import lifeSciencesLithuaniaLogo from "../assets/logos/partners/life-sciences-lithuania.png";
+import startupLithuaniaLogo from "../assets/logos/partners/startup-lithuania.png";
 import vilniausUniversitetasLogo from "../assets/logos/partners/vilniaus-universitetas.png";
 import vilniusTechLogo from "../assets/logos/partners/vilnius-tech.png";
 
@@ -128,6 +129,12 @@ export const apieVciipPartners = {
       href: "https://lithuanianlifesciences.com/",
       logo: lifeSciencesLithuaniaLogo,
       logoAlt: "Life Sciences in Lithuania",
+    },
+    {
+      label: "Startup Lithuania",
+      href: "https://www.startuplithuania.com/",
+      logo: startupLithuaniaLogo,
+      logoAlt: "Startup Lithuania",
     },
   ],
 };
