@@ -37,30 +37,29 @@ export function MediaNewsSection() {
         </div>
 
         {isLoading ? (
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="media-news-carousel" aria-hidden="true">
             {Array.from({ length: 3 }, (_, index) => (
-              <div
-                key={index}
-                className="flex flex-col bg-white"
-                aria-hidden="true"
-              >
-                <div className="aspect-video bg-background" />
-                <div className="flex flex-col gap-3 pt-4">
-                  <div className="h-3 w-24 bg-primary/8" />
-                  <div className="h-6 w-full bg-primary/8" />
-                  <div className="h-16 w-full bg-primary/6" />
+              <div key={index} className="media-news-carousel__slide">
+                <div className="flex flex-col bg-white">
+                  <div className="aspect-video bg-background" />
+                  <div className="flex flex-col gap-3 pt-4">
+                    <div className="h-3 w-24 bg-primary/8" />
+                    <div className="h-6 w-full bg-primary/8" />
+                    <div className="h-16 w-full bg-primary/6" />
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div
-            className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-1 [scrollbar-width:none] lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible [&::-webkit-scrollbar]:hidden"
-            data-reveal-group
-          >
+          <div className="media-news-carousel" data-reveal-group>
             {posts.map((post, index) => (
-              <div key={post.id} className="reveal-item h-full min-w-0" style={{ "--reveal-delay": `${index * 90}ms` } as CSSProperties}>
-                <NewsCard post={post} className="lg:w-full" />
+              <div
+                key={post.id}
+                className="media-news-carousel__slide reveal-item h-full"
+                style={{ "--reveal-delay": `${index * 90}ms` } as CSSProperties}
+              >
+                <NewsCard post={post} className="h-full w-full" />
               </div>
             ))}
           </div>
