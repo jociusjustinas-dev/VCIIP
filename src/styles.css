@@ -707,20 +707,20 @@
     }
   }
 
-  .apie-vciip-operator-photo {
+  .apie-vciip-operator-logo {
     display: flex;
-    min-height: 18rem;
-    flex-direction: column;
+    min-height: 16rem;
     align-items: center;
     justify-content: center;
     border: 1px dashed color-mix(in srgb, var(--color-primary) 24%, transparent);
     background: var(--color-white);
-    padding: 1.5rem;
+    padding: 2.5rem;
     text-align: center;
   }
 
-  .apie-vciip-operator-photo__label {
+  .apie-vciip-operator-logo__placeholder {
     margin: 0;
+    max-width: 14rem;
     color: color-mix(in srgb, var(--color-primary) 52%, transparent);
     font-size: 0.875rem;
     font-weight: 500;

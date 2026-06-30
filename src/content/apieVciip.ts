@@ -133,13 +133,16 @@ export const apieVciipPartners = {
 
 export const apieVciipOperator = {
   eyebrow: "Operatorius",
-  title: "Patikimas partneris viso proceso metu.",
+  title: "VCIIP vysto VšĮ „Northtown Vilnius“",
   description:
-    "VCIIP operatorius – pirmasis kontaktas investuotojams ir organizacijoms, ieškantiems vietos augimui Vilniuje. Padeda įvertinti poreikius, suderina sprendimus su teritorijų galimybėmis ir lydi visą įsikūrimo kelią.",
-  name: "Direktoriaus vardas pavardė",
-  role: "Direktorius",
-  email: "el.paštas@vciip.lt",
-  phone: "+370 XXX XXXXX",
+    "VšĮ „Northtown Vilnius“ yra Vilniaus miesto inovacijų pramonės parko operatorius. Organizacija koordinuoja teritorijos vystymą, bendradarbiauja su miesto ir valstybės institucijomis bei padeda investuotojams planuoti ir įgyvendinti įsikūrimo projektus.",
+  highlights: [
+    "Investuotojų konsultavimas",
+    "Teritorijos vystymo koordinavimas",
+    "Partnerystės su viešuoju sektoriumi",
+  ],
+  cta: { label: "Plačiau apie įsikūrimo procesą", href: "/tech#kaip-isikurti" },
+  logoAlt: "VšĮ Northtown Vilnius",
 };
 
 export const apieVciipCta = {
