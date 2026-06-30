@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const marqueeItems = [
   {
@@ -69,29 +69,11 @@ export function EcosystemMarquee() {
               kurioje verta atsirasti
             </h2>
 
-            <div className="reveal-item flex max-w-xl flex-col items-start gap-7 justify-self-end">
+            <div className="reveal-item max-w-xl justify-self-end">
               <p className="m-0 text-base font-normal leading-loose text-muted max-[479px]:text-base">
                 Įsikūrę VCIIP, atsiduriate tarp savo srities lyderių. Bendra aplinka skatina
                 bendradarbiavimą, dalijimąsi žiniomis ir spartesnį augimą.
               </p>
-
-              <a
-                href="/ekosistema/"
-                className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
-              >
-                <span className="h-5 overflow-hidden py-px">
-                  <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
-                    {["Pažinti visą ekosistemą", "Pažinti visą ekosistemą"].map(
-                      (label, index) => (
-                        <span key={index} className="flex h-5 items-center gap-2">
-                          {label}
-                          <ArrowUpRight size={16} aria-hidden="true" />
-                        </span>
-                      ),
-                    )}
-                  </span>
-                </span>
-              </a>
             </div>
           </div>
         </div>
