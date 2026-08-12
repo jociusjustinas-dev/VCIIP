@@ -1,4 +1,5 @@
 import { homeContent } from "../content/home";
+import homeAdvantagesImage from "../assets/images/home-advantages.jpg";
 import { ApplicationCtaSection } from "./ApplicationCtaSection";
 import { AdvantagesSection } from "./AdvantagesSection";
 import { ClientsLogoCarousel } from "./ClientsLogoCarousel";
@@ -17,7 +18,11 @@ export function HomePage() {
     <main>
       <HomeHero />
       <HomeAboutSection />
-      <AdvantagesSection title={advantages.title} items={advantages.items} />
+      <AdvantagesSection
+        title={advantages.title}
+        items={advantages.items}
+        imageSrc={homeAdvantagesImage}
+      />
 
       <div id="parkai">
         <ParkPairCards
