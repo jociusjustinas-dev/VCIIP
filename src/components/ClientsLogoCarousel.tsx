@@ -1,7 +1,45 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 
-import { clientDisplayName, klientaiAll, type ClientEntry } from "../content/klientai";
+import {
+  clientDisplayName,
+  klientaiAll,
+  parseClientDescription,
+  type ClientEntry,
+} from "../content/klientai";
+
+function ClientModalContent({ item }: { item: ClientEntry }) {
+  const { sections, website } = parseClientDescription(item.description);
+  const href = item.website ?? website;
+
+  return (
+    <>
+      <div className="mt-6 flex flex-col gap-6">
+        {sections.map((section, index) => (
+          <div key={`${item.id}-section-${index}`}>
+            {section.label ? (
+              <p className="m-0 text-base font-bold text-primary">{section.label}</p>
+            ) : null}
+            <p className={`m-0 text-base leading-relaxed text-muted ${section.label ? "mt-2" : ""}`}>
+              {section.body}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary mt-8"
+        >
+          Daugiau informacijos
+        </a>
+      ) : null}
+    </>
+  );
+}
 
 export function ClientsLogoCarousel({
   title,
@@ -77,7 +115,7 @@ export function ClientsLogoCarousel({
           onClick={() => setActive(null)}
         >
           <div
-            className="modal-scale relative max-h-[85svh] w-full max-w-2xl overflow-auto bg-white p-6 shadow-2xl max-[479px]:p-5"
+            className="modal-scale relative max-h-[85svh] w-full max-w-3xl overflow-auto bg-white p-6 shadow-2xl max-[479px]:p-5"
             onClick={(event) => event.stopPropagation()}
           >
             <button
@@ -92,9 +130,9 @@ export function ClientsLogoCarousel({
             <h3 className="heading-h3 mt-3 text-primary">{clientDisplayName(active)}</h3>
             {active.legalName ? <p className="m-0 mt-2 text-sm text-muted">{active.legalName}</p> : null}
             {active.categories.length ? (
-              <p className="m-0 mt-3 text-sm font-semibold text-primary/70">{active.categories.join(" · ")}</p>
+              <p className="m-0 mt-3 text-sm font-semibold text-primary/70">{active.categories[0]}</p>
             ) : null}
-            <p className="m-0 mt-5 whitespace-pre-line text-base leading-loose text-muted">{active.description}</p>
+            <ClientModalContent item={active} />
           </div>
         </div>
       ) : null}

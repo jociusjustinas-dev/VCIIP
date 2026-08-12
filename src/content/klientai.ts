@@ -233,6 +233,64 @@ export function clientDisplayName(item: ClientEntry) {
   return item.categories[0] ?? "Klientas";
 }
 
+const CLIENT_SECTION_LABELS = [
+  "Pagrindinės įmonės veiklos kryptys:",
+  "VCIIP vykdoma veikla:",
+] as const;
+
+const CLIENT_MORE_INFO_PATTERN = /\n?Daugiau informacijos\s*(?:->|:)\s*(https?:\/\/\S+)/i;
+
+export type ClientDescriptionSection = {
+  label?: string;
+  body: string;
+};
+
+function splitClientParagraphs(content: string) {
+  const byBlankLine = content
+    .split(/\n\n+/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  if (byBlankLine.length > 1) return byBlankLine;
+
+  return content
+    .split(/\n/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+export function parseClientDescription(description: string) {
+  const websiteMatch = description.match(CLIENT_MORE_INFO_PATTERN);
+  const website = websiteMatch?.[1]?.replace(/[)\].,;]+$/, "");
+  const content = description.replace(CLIENT_MORE_INFO_PATTERN, "").trim();
+  const sections: ClientDescriptionSection[] = [];
+
+  if (!CLIENT_SECTION_LABELS.some((label) => content.includes(label))) {
+    for (const paragraph of splitClientParagraphs(content)) {
+      sections.push({ body: paragraph });
+    }
+    return { sections, website };
+  }
+
+  for (const part of content.split(/(?=Pagrindinės įmonės veiklos kryptys:|VCIIP vykdoma veikla:)/)) {
+    const trimmed = part.trim();
+    if (!trimmed) continue;
+
+    const matchedLabel = CLIENT_SECTION_LABELS.find((label) => trimmed.startsWith(label));
+    if (matchedLabel) {
+      sections.push({
+        label: matchedLabel,
+        body: trimmed.slice(matchedLabel.length).trim(),
+      });
+      continue;
+    }
+
+    sections.push({ body: trimmed });
+  }
+
+  return { sections, website };
+}
+
 export const parkPairCta = {
   title: "Planuojate plėtrą? Kviečiame įsikurti VCIIP!",
   description: "Padėsime įvertinti, kuri VCIIP teritorija geriausiai atitinka jūsų veiklos poreikius.",
