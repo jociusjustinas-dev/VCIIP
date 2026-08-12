@@ -2,6 +2,14 @@ import { useEffect } from "react";
 
 const REVEAL_SELECTOR = ".reveal-item";
 
+/** Full-bleed heroes with bottom-aligned CTAs — reveal on load, not via IO. */
+const HERO_REVEAL_ROOTS = [
+  "#titulinis",
+  "#apie-vciip",
+  "#apie-vciip-tech",
+  ".hub-split-hero",
+];
+
 function setupRevealItem(
   item: HTMLElement,
   observer: IntersectionObserver,
@@ -27,9 +35,7 @@ function setupRevealItem(
     return;
   }
 
-  const isHeroItem =
-    item.closest("#apie") ||
-    item.closest("#apie-vciip");
+  const isHeroItem = HERO_REVEAL_ROOTS.some((selector) => item.closest(selector));
 
   if (isHeroItem) {
     item.classList.add("is-visible");
