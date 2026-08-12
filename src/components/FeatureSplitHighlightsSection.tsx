@@ -19,7 +19,9 @@ type FeatureSplitHighlightsSectionProps = {
   note?: string;
   primaryCta: CtaLink;
   secondaryCta?: CtaLink;
-  imageSrc: string;
+  imageSrc?: string;
+  /** Text/map placeholder instead of a photo */
+  mediaPlaceholder?: string;
   /** Wider media column for map / territory visuals */
   wideMedia?: boolean;
   /** Put eyebrow/title/intro beside the photo instead of above it */
@@ -38,6 +40,7 @@ export function FeatureSplitHighlightsSection({
   primaryCta,
   secondaryCta,
   imageSrc,
+  mediaPlaceholder,
   wideMedia = false,
   contentBesideMedia = false,
 }: FeatureSplitHighlightsSectionProps) {
@@ -89,26 +92,43 @@ export function FeatureSplitHighlightsSection({
 
   const media = (
     <div
-      className={`reveal-item relative overflow-hidden rounded-none bg-primary ${
+      className={`reveal-item relative overflow-hidden rounded-none ${
+        mediaPlaceholder
+          ? "border border-dashed border-primary/18 bg-background"
+          : "bg-primary"
+      } ${
         wideMedia
           ? "min-h-[28rem] max-[991px]:min-h-[22rem] max-[767px]:min-h-[18rem] max-[479px]:min-h-[14rem] lg:min-h-[34rem]"
           : "min-h-[420px] max-[991px]:min-h-[360px] max-[767px]:min-h-[320px] max-[479px]:min-h-[260px]"
       }`}
       data-reveal="scale"
     >
-      <ParallaxImage
-        src={imageSrc}
-        alt=""
-        className="absolute inset-0 h-full w-full"
-        loading="lazy"
-      />
-      <div
-        className={`absolute inset-0 ${
-          wideMedia
-            ? "bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_2%,transparent),color-mix(in_srgb,var(--color-primary)_18%,transparent))]"
-            : "bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]"
-        }`}
-      />
+      {mediaPlaceholder ? (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-8 text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.08em] text-muted">
+            Placeholder
+          </span>
+          <p className="m-0 max-w-sm text-base font-semibold leading-snug text-primary">
+            {mediaPlaceholder}
+          </p>
+        </div>
+      ) : imageSrc ? (
+        <>
+          <ParallaxImage
+            src={imageSrc}
+            alt=""
+            className="absolute inset-0 h-full w-full"
+            loading="lazy"
+          />
+          <div
+            className={`absolute inset-0 ${
+              wideMedia
+                ? "bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_2%,transparent),color-mix(in_srgb,var(--color-primary)_18%,transparent))]"
+                : "bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]"
+            }`}
+          />
+        </>
+      ) : null}
     </div>
   );
 

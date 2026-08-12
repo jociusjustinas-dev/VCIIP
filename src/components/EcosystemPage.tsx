@@ -43,7 +43,7 @@ export function EcosystemPage() {
         highlights={bioTerritory.highlights}
         primaryCta={bioTerritory.primaryCta}
         secondaryCta={bioTerritory.secondaryCta}
-        imageSrc={bioTerritory.imageSrc}
+        mediaPlaceholder={bioTerritory.mediaPlaceholder}
         wideMedia
       />
 

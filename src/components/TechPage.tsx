@@ -42,7 +42,7 @@ export function TechPage() {
         highlights={techTerritory.highlights}
         primaryCta={techTerritory.primaryCta}
         secondaryCta={techTerritory.secondaryCta}
-        imageSrc={techTerritory.imageSrc}
+        mediaPlaceholder={techTerritory.mediaPlaceholder}
         wideMedia
       />
 

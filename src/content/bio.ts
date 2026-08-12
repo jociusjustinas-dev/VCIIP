@@ -43,7 +43,7 @@ export const bioTerritory = {
   ],
   primaryCta: { label: "Žiūrėti patalpas nuomai", href: "#patalpos" },
   secondaryCta: { label: "Susisiekti", href: "/kontaktai?interest=bio" },
-  imageSrc: ecosystemBioImage,
+  mediaPlaceholder: "Teritorijos žemėlapis – sklypai pagal statusą ir funkciją",
 };
 
 export const bioPremises = {
