@@ -133,7 +133,7 @@ function PremiseImageSlider({
         />
       ))}
 
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,color-mix(in_srgb,var(--color-primary)_55%,transparent))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_62%,rgb(0_0_0_/0.28))]" />
 
       {count > 1 ? (
         <>
@@ -141,7 +141,7 @@ function PremiseImageSlider({
             type="button"
             aria-label={`Ankstesnė ${label} nuotrauka`}
             onClick={goPrev}
-            className="absolute left-3 top-1/2 z-[2] flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-white/30 bg-primary/55 text-white opacity-100 transition hover:bg-primary/75 max-[479px]:left-2 max-[479px]:h-8 max-[479px]:w-8 lg:opacity-0 lg:group-hover/slider:opacity-100 lg:group-focus-within/slider:opacity-100"
+            className="absolute left-3 top-1/2 z-[2] flex h-9 w-9 -translate-y-1/2 items-center justify-center bg-white text-primary shadow-[0_6px_18px_rgb(0_0_0_/0.18)] transition hover:bg-accent hover:text-white max-[479px]:left-2 max-[479px]:h-8 max-[479px]:w-8 lg:opacity-0 lg:group-hover/slider:opacity-100 lg:group-focus-within/slider:opacity-100"
           >
             <ChevronLeft size={18} aria-hidden="true" />
           </button>
@@ -149,7 +149,7 @@ function PremiseImageSlider({
             type="button"
             aria-label={`Kita ${label} nuotrauka`}
             onClick={goNext}
-            className="absolute right-3 top-1/2 z-[2] flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-white/30 bg-primary/55 text-white opacity-100 transition hover:bg-primary/75 max-[479px]:right-2 max-[479px]:h-8 max-[479px]:w-8 lg:opacity-0 lg:group-hover/slider:opacity-100 lg:group-focus-within/slider:opacity-100"
+            className="absolute right-3 top-1/2 z-[2] flex h-9 w-9 -translate-y-1/2 items-center justify-center bg-white text-primary shadow-[0_6px_18px_rgb(0_0_0_/0.18)] transition hover:bg-accent hover:text-white max-[479px]:right-2 max-[479px]:h-8 max-[479px]:w-8 lg:opacity-0 lg:group-hover/slider:opacity-100 lg:group-focus-within/slider:opacity-100"
           >
             <ChevronRight size={18} aria-hidden="true" />
           </button>
@@ -162,8 +162,8 @@ function PremiseImageSlider({
                 aria-label={`${label} nuotrauka ${dotIndex + 1}`}
                 aria-current={dotIndex === index}
                 onClick={() => setIndex(dotIndex)}
-                className={`h-1.5 transition-all ${
-                  dotIndex === index ? "w-5 bg-white" : "w-1.5 bg-white/45 hover:bg-white/75"
+                className={`h-1.5 shadow-[0_1px_4px_rgb(0_0_0_/0.35)] transition-all ${
+                  dotIndex === index ? "w-5 bg-accent" : "w-1.5 bg-white/90 hover:bg-white"
                 }`}
               />
             ))}
