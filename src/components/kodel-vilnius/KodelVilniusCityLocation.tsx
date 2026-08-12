@@ -39,7 +39,7 @@ export function KodelVilniusCityLocation({
               <div className="section-eyebrow-rule" />
               <p className="eyebrow">{eyebrow}</p>
               <h2 className="section-heading max-w-xl">{title}</h2>
-              <p className="m-0 text-base leading-loose text-muted">{intro}</p>
+              <p className="m-0 whitespace-pre-line text-base leading-loose text-muted">{intro}</p>
             </div>
 
             <ul className="vilnius-map-legend m-0 list-none p-0">
