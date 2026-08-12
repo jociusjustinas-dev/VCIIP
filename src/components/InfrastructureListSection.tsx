@@ -22,7 +22,7 @@ export function InfrastructureListSection({
             className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14 xl:gap-16"
             data-reveal-group
           >
-          <div className="flex flex-col gap-8 max-[479px]:gap-6">
+          <div className="flex h-full flex-col gap-10 max-[479px]:gap-6 lg:gap-[6.25rem]">
             <div className="section-intro mb-0 max-[479px]:mb-0">
               <div className="section-eyebrow-rule" />
               <p className="eyebrow reveal-item">{eyebrow}</p>
@@ -42,7 +42,7 @@ export function InfrastructureListSection({
           </div>
 
           <div
-            className="reveal-item relative min-h-[28rem] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[22rem] max-[767px]:min-h-[18rem] max-[479px]:min-h-[14rem] lg:min-h-full"
+            className="reveal-item relative min-h-[28rem] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[22rem] max-[767px]:min-h-[18rem] max-[479px]:min-h-[14rem] lg:h-full lg:min-h-full"
             data-reveal="scale"
           >
             <ParallaxImage
