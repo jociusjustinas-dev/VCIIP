@@ -8,6 +8,22 @@ type CtaLink = {
   href: string;
 };
 
+type HighlightItem =
+  | string
+  | {
+      label: string;
+      detail?: string;
+      /** Map legend / zone swatch color */
+      color?: string;
+    };
+
+function normalizeHighlight(item: HighlightItem) {
+  if (typeof item === "string") {
+    return { label: item, detail: undefined as string | undefined, color: undefined as string | undefined };
+  }
+  return item;
+}
+
 type FeatureSplitHighlightsSectionProps = {
   id: string;
   eyebrow: string;
@@ -15,7 +31,7 @@ type FeatureSplitHighlightsSectionProps = {
   titleHighlight?: string;
   titleRest?: string;
   intro: string;
-  highlights?: string[];
+  highlights?: readonly HighlightItem[];
   note?: string;
   primaryCta: CtaLink;
   secondaryCta?: CtaLink;
@@ -45,6 +61,8 @@ export function FeatureSplitHighlightsSection({
   contentBesideMedia = false,
 }: FeatureSplitHighlightsSectionProps) {
   const [primaryHovered, setPrimaryHovered] = useState(false);
+  const normalizedHighlights = highlights.map(normalizeHighlight);
+  const legendItems = normalizedHighlights.filter((item) => item.color);
 
   const heading = title ? (
     title
@@ -55,6 +73,32 @@ export function FeatureSplitHighlightsSection({
       {titleRest}
     </>
   );
+
+  const highlightsList =
+    normalizedHighlights.length > 0 ? (
+      <ul className="m-0 grid list-none gap-0 p-0">
+        {normalizedHighlights.map((item) => (
+          <li
+            key={`${item.label}-${item.detail ?? ""}`}
+            className="flex gap-3 border-t border-dashed border-primary/22 py-4 last:border-b sm:[&:last-child]:border-b"
+          >
+            {item.color ? (
+              <span
+                className="mt-1.5 h-3 w-3 shrink-0"
+                style={{ background: item.color }}
+                aria-hidden="true"
+              />
+            ) : null}
+            <div className="flex min-w-0 flex-col gap-1">
+              <p className="m-0 text-base font-semibold leading-snug text-primary">{item.label}</p>
+              {item.detail ? (
+                <p className="m-0 text-sm leading-relaxed text-muted">{item.detail}</p>
+              ) : null}
+            </div>
+          </li>
+        ))}
+      </ul>
+    ) : null;
 
   const ctaGroup = (
     <div className="flex flex-wrap gap-3 max-[479px]:flex-col">
@@ -104,13 +148,25 @@ export function FeatureSplitHighlightsSection({
       data-reveal="scale"
     >
       {mediaPlaceholder ? (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-8 text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.08em] text-muted">
-            Placeholder
-          </span>
-          <p className="m-0 max-w-sm text-base font-semibold leading-snug text-primary">
-            {mediaPlaceholder}
-          </p>
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-8 text-center">
+          <div className="flex flex-col items-center gap-3">
+            <span className="text-xs font-semibold uppercase tracking-[0.08em] text-muted">
+              Placeholder
+            </span>
+            <p className="m-0 max-w-sm text-base font-semibold leading-snug text-primary">
+              {mediaPlaceholder}
+            </p>
+          </div>
+          {legendItems.length > 0 ? (
+            <ul className="m-0 flex list-none flex-wrap items-center justify-center gap-x-5 gap-y-2 p-0">
+              {legendItems.map((item) => (
+                <li key={`legend-${item.label}`} className="inline-flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 shrink-0" style={{ background: item.color }} aria-hidden="true" />
+                  <span className="text-xs font-medium text-muted">{item.label}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       ) : imageSrc ? (
         <>
@@ -194,20 +250,9 @@ export function FeatureSplitHighlightsSection({
                 data-reveal-group
               >
                 <div className="reveal-item flex flex-col justify-between gap-10">
-                  {highlights.length > 0 ? (
-                    <ul className="m-0 grid list-none gap-0 p-0">
-                      {highlights.map((item) => (
-                        <li
-                          key={item}
-                          className="border-t border-dashed border-primary/22 py-4 text-base leading-loose text-primary"
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
+                  {highlightsList}
 
-                  <div className={`flex flex-col gap-8 ${highlights.length === 0 ? "mt-auto" : ""}`}>
+                  <div className={`flex flex-col gap-8 ${normalizedHighlights.length === 0 ? "mt-auto" : ""}`}>
                     {note ? (
                       <p className="m-0 max-w-lg text-sm font-medium leading-[150%] text-muted">
                         {note}

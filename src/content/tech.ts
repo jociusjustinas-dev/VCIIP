@@ -30,9 +30,21 @@ export const techTerritory = {
   intro:
     "VCIIP TECH teritorijoje formuojami skirtingo dydžio sklypai, pritaikyti pažangiai gamybai, technologijų ir laboratorijų veiklai.\n\nTeritorijoje numatyti trys sklypų tipai:",
   highlights: [
-    "Mokslo ir inovacijų zona (0,5–1 ha) – laboratorijoms ir aukštųjų technologijų verslo inkubatoriams",
-    "Švarios gamybos zona (1–3 ha) – medicinos prietaisų ar farmacijos produktų gamybai",
-    "Sunkiosios biotechnologinės gamybos zona (2,5–5 ha) – biofarmacinei gamybai bei pilotinėms gamykloms",
+    {
+      label: "Mokslo ir inovacijų zona (0,5–1 ha)",
+      detail: "Laboratorijoms ir aukštųjų technologijų verslo inkubatoriams",
+      color: "#6c8dfd",
+    },
+    {
+      label: "Švarios gamybos zona (1–3 ha)",
+      detail: "Medicinos prietaisų ar farmacijos produktų gamybai",
+      color: "#00bdae",
+    },
+    {
+      label: "Sunkiosios biotechnologinės gamybos zona (2,5–5 ha)",
+      detail: "Biofarmacinei gamybai bei pilotinėms gamykloms",
+      color: "#212248",
+    },
   ],
   primaryCta: { label: "Susisiekti dėl sklypų galimybių", href: "/kontaktai?interest=tech" },
   secondaryCta: { label: "Žiūrėti privalumus", href: "#privalumai" },
