@@ -36,10 +36,26 @@ export const bioTerritory = {
   intro:
     "VCIIP Bio teritorija Antakalnyje užima 24 ha, apsuptą valstybinių miškų, su pilnai išvystyta inžinerine ir susisiekimo infrastruktūra. Čia jau veikia daugiau nei 20 gyvybės mokslų įmonių ir organizacijų.\n\nVCIIP Bio laisvų sklypų nebėra, tačiau jūsų verslas gali įsikurti VCIIP operatoriaus valdomų inovacijų centrų A ir B patalpose arba VCIIP technologijų vystymo centre HUBIO.",
   highlights: [
-    "24 ha teritorija Antakalnyje",
-    "Pilnai išvystyta inžinerinė infrastruktūra",
-    "20+ gyvybės mokslų įmonių ir organizacijų",
-    "Laisvų sklypų nebėra – siūlome patalpas nuomai",
+    {
+      label: "Užimti sklypai",
+      detail: "Laisvų sklypų VCIIP Bio teritorijoje šiuo metu nėra",
+      color: "#212248",
+    },
+    {
+      label: "HUBIO",
+      detail: "Technologijų vystymo centras – laisvų patalpų ~3230 kv. m.",
+      color: "#00bdae",
+    },
+    {
+      label: "Inovacijų centras A",
+      detail: "Laboratorijos, gamyba ir biurai – laisvų patalpų ~268,41 kv. m.",
+      color: "#6c8dfd",
+    },
+    {
+      label: "Inovacijų centras B",
+      detail: "Laboratorijos, gamyba ir biurai – šiuo metu užimta",
+      color: "#94a3b8",
+    },
   ],
   primaryCta: { label: "Žiūrėti patalpas nuomai", href: "#patalpos" },
   secondaryCta: { label: "Susisiekti", href: "/kontaktai?interest=bio" },
