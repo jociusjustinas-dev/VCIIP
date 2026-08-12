@@ -36,11 +36,15 @@ export function ClientsLogoCarousel({
   return (
     <section id="klientai" className="section-shell bg-white">
       <div className="site-container">
-        <div className="section-intro max-[479px]:mb-8" data-reveal-group>
+        <div className="vilnius-partners-intro max-[767px]:mb-8" data-reveal-group>
           <div className="section-eyebrow-rule" />
-          <p className="eyebrow reveal-item">Klientai</p>
-          <h2 className="section-heading reveal-item max-w-3xl">{title}</h2>
-          <p className="reveal-item body-lead m-0 mt-5 max-w-3xl text-muted">{description}</p>
+          <div className="vilnius-partners-intro__row">
+            <div className="vilnius-partners-intro__title-col">
+              <p className="eyebrow reveal-item">Klientai</p>
+              <h2 className="section-heading reveal-item">{title}</h2>
+            </div>
+            <p className="vilnius-partners-intro__body reveal-item">{description}</p>
+          </div>
         </div>
 
         <div className="reveal-item vilnius-partners-grid" data-reveal="fade">
