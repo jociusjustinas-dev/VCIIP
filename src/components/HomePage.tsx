@@ -44,7 +44,7 @@ export function HomePage() {
         tone="light"
         eyebrow="Kontaktai"
         title={cta.contactTitle}
-        description={cta.applicationDescription}
+        description="Susisiekite tiesiogiai su VCIIP operatoriumi."
       />
     </main>
   );

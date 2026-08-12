@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import { CONTACT_INTEREST_OPTIONS, getInterestFromSearchParams } from "../lib/contactInterest";
+import { kontaktaiContent } from "../content/kontaktai";
 
 type FormState = "idle" | "success";
 
@@ -22,17 +23,20 @@ export function InvestorInquiry({
   ),
   description = "Padėsime įvertinti galimybes ir rasti jūsų veiklai tinkamiausią sprendimą VCIIP teritorijoje.",
   tone = "dark",
+  showContact = true,
 }: {
   showEyebrow?: boolean;
   eyebrow?: string;
   title?: ReactNode;
   description?: string;
   tone?: "dark" | "light";
+  showContact?: boolean;
 }) {
   const [formState, setFormState] = useState<FormState>("idle");
   const [interest, setInterest] = useState("");
   const [stage, setStage] = useState("");
   const isLight = tone === "light";
+  const contact = kontaktaiContent.primaryContact;
 
   useEffect(() => {
     const presetInterest = getInterestFromSearchParams(window.location.search);
@@ -63,6 +67,51 @@ export function InvestorInquiry({
             >
               {description}
             </p>
+
+            {showContact ? (
+              <div
+                className={`grid gap-6 border-t border-dashed pt-7 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 xl:gap-8 ${
+                  isLight ? "border-primary/16" : "border-white/24"
+                }`}
+              >
+                <div className="flex flex-col gap-3">
+                  <h3 className={`heading-h3 m-0 ${isLight ? "text-primary" : "text-white"}`}>
+                    Turite klausimų?
+                  </h3>
+                  <p className={`m-0 text-base font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/62"}`}>
+                    Susisiekite tiesiogiai su VCIIP operatoriumi.
+                  </p>
+                </div>
+                <div
+                  className={`flex flex-col gap-2 border-l border-dashed pl-8 max-[479px]:border-l-0 max-[479px]:pl-0 sm:pl-8 xl:pl-10 ${
+                    isLight ? "border-primary/14" : "border-white/18"
+                  }`}
+                >
+                  <h3 className={`heading-h3 m-0 ${isLight ? "text-primary" : "text-white"}`}>
+                    {contact.name}
+                  </h3>
+                  <p className={`m-0 text-sm font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/52"}`}>
+                    {contact.role}
+                  </p>
+                  <a
+                    className={`text-base font-medium leading-[150%] hover:text-accent ${
+                      isLight ? "text-primary/72" : "text-white/72"
+                    }`}
+                    href={`mailto:${contact.email}`}
+                  >
+                    {contact.emailDisplay}
+                  </a>
+                  <a
+                    className={`text-base font-medium leading-[150%] hover:text-accent ${
+                      isLight ? "text-primary/72" : "text-white/72"
+                    }`}
+                    href={`tel:${contact.phoneHref}`}
+                  >
+                    {contact.phone}
+                  </a>
+                </div>
+              </div>
+            ) : null}
           </div>
 
         <div
