@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import modernOfficeImage from "../assets/images/modern-office-work.png";
 import { ParallaxImage } from "./ParallaxImage";
@@ -78,7 +78,7 @@ export function AdvantagesSection({
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="group flex w-full items-center py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                      className="group flex w-full items-center gap-4 py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                     >
                       <span
                         className={`min-w-0 flex-1 font-display text-xl font-bold leading-tight tracking-tight transition-colors duration-300 max-[479px]:text-lg ${
@@ -87,6 +87,15 @@ export function AdvantagesSection({
                       >
                         {item.title}
                       </span>
+                      <ChevronDown
+                        size={20}
+                        aria-hidden="true"
+                        className={`shrink-0 transition-transform duration-300 ${
+                          isOpen
+                            ? "rotate-180 text-accent"
+                            : "text-primary/45 group-hover:text-accent"
+                        }`}
+                      />
                     </button>
 
                     <div

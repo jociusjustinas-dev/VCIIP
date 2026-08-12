@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import processWarmRoomImage from "../assets/images/process-warm-room.png";
 import { ParallaxImage } from "./ParallaxImage";
@@ -154,7 +154,7 @@ export function SettleProcess({
                         type="button"
                         aria-expanded={isOpen}
                         onClick={() => setOpenIndex(isOpen ? null : index)}
-                        className="group flex w-full items-start gap-5 py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                        className="group flex w-full items-start gap-5 py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:items-center"
                       >
                         <span
                           className={`shrink-0 font-display text-sm font-bold uppercase leading-tight tracking-wide transition-colors duration-300 ${
@@ -170,6 +170,15 @@ export function SettleProcess({
                         >
                           {step.title}
                         </span>
+                        <ChevronDown
+                          size={20}
+                          aria-hidden="true"
+                          className={`mt-1 shrink-0 transition-transform duration-300 sm:mt-0 ${
+                            isOpen
+                              ? "rotate-180 text-accent"
+                              : "text-primary/45 group-hover:text-accent"
+                          }`}
+                        />
                       </button>
 
                       <div
