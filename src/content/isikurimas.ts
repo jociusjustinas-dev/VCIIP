@@ -128,9 +128,18 @@ export const isikurimasContent = {
     intro:
       "Priežiūros ekspertų grupė prižiūri Parko veiklos rodiklius, teikia pasiūlymus operatoriui dėl strategijos ir priima galutinius sprendimus dėl investuotojų įsikūrimo.",
     competencies: [
-      "Prižiūrėti, kaip yra įgyvendinami Parko veiklos rodikliai nustatytais terminais, nagrinėti Parko veiklos rodiklių įgyvendinimo vėlavimo priežastis ir galimus jų šalinimo būdus",
-      "Svarstyti ir teikti pasiūlymus Parko operatoriui dėl Parko veiklos strategijos, Parko vystymo ir strateginio valdymo efektyvesniam Parko veiklos rodiklių įgyvendinimui užtikrinti",
-      "Vertinti Parko teritorijoje norinčius įsikurti investuotojus pagal atrankos kriterijus ir priimti galutinius sprendimus dėl leidimo jiems įsikurti Parko teritorijoje",
+      {
+        title: "Veiklos rodiklių priežiūra",
+        body: "Prižiūrėti, kaip yra įgyvendinami Parko veiklos rodikliai nustatytais terminais, nagrinėti Parko veiklos rodiklių įgyvendinimo vėlavimo priežastis ir galimus jų šalinimo būdus.",
+      },
+      {
+        title: "Strategija ir valdymas",
+        body: "Svarstyti ir teikti pasiūlymus Parko operatoriui dėl Parko veiklos strategijos, Parko vystymo ir strateginio valdymo efektyvesniam Parko veiklos rodiklių įgyvendinimui užtikrinti.",
+      },
+      {
+        title: "Investuotojų atranka",
+        body: "Vertinti Parko teritorijoje norinčius įsikurti investuotojus pagal atrankos kriterijus ir priimti galutinius sprendimus dėl leidimo jiems įsikurti Parko teritorijoje.",
+      },
     ],
     people: [
       {

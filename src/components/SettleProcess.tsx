@@ -70,6 +70,7 @@ export function SettleProcess({
   tone = "muted",
   variant = "list",
   imageSrc = processWarmRoomImage,
+  afterSteps,
 }: {
   id?: string;
   eyebrow?: string;
@@ -81,6 +82,7 @@ export function SettleProcess({
   tone?: "light" | "muted";
   variant?: "list" | "accordion";
   imageSrc?: string;
+  afterSteps?: ReactNode;
 }) {
   const isLight = tone === "light";
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -210,6 +212,8 @@ export function SettleProcess({
                     </a>
                   </div>
                 ) : null}
+
+                {afterSteps ? <div className="pt-10">{afterSteps}</div> : null}
               </div>
             </div>
 

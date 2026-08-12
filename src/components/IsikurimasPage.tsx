@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 
+import modernOfficeImage from "../assets/images/modern-office-work.png";
 import { isikurimasContent } from "../content/isikurimas";
 import { ApplicationCtaSection } from "./ApplicationCtaSection";
 import { DocumentsListSection } from "./DocumentsListSection";
@@ -99,50 +100,37 @@ export function IsikurimasPage() {
         showImage
       />
 
-      <section id={experts.id} className="section-shell bg-white">
-        <div className="site-container">
-          <div
-            className="mb-16 grid items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.62fr)] max-[991px]:mb-12"
-            data-reveal-group
-          >
-            <div className="flex flex-col items-start gap-7">
-              <p className="eyebrow reveal-item">{experts.eyebrow}</p>
-              <h2 className="section-heading reveal-item max-w-4xl">{experts.title}</h2>
-            </div>
-            <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-muted">
-              {experts.intro}
-            </p>
-          </div>
-
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-16" data-reveal-group>
-            <div className="reveal-item">
-              <p className="eyebrow m-0">Kompetencija</p>
-              <ul className="m-0 mt-5 grid list-none gap-0 p-0">
-                {experts.competencies.map((item) => (
-                  <li
-                    key={item}
-                    className="border-t border-dashed border-primary/22 py-4 text-base leading-loose text-muted last:border-b"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">
-              {experts.people.map((person) => (
+      <SettleProcess
+        id={experts.id}
+        eyebrow={experts.eyebrow}
+        title={experts.title}
+        intro={experts.intro}
+        steps={experts.people.map((person, index) => ({
+          number: String(index + 1).padStart(2, "0"),
+          title: person.name,
+          body: person.role,
+        }))}
+        cta={null}
+        tone="light"
+        variant="accordion"
+        imageSrc={modernOfficeImage}
+        afterSteps={
+          <div>
+            <p className="eyebrow m-0">Kompetencija</p>
+            <ul className="m-0 mt-5 grid list-none gap-0 p-0">
+              {experts.competencies.map((item) => (
                 <li
-                  key={person.name}
-                  className="reveal-item border border-dashed border-primary/16 p-5"
+                  key={item.title}
+                  className="border-t border-dashed border-primary/22 py-4 last:border-b"
                 >
-                  <p className="m-0 text-base font-semibold text-primary">{person.name}</p>
-                  <p className="m-0 mt-2 text-sm leading-loose text-muted">{person.role}</p>
+                  <p className="m-0 text-base font-semibold leading-snug text-primary">{item.title}</p>
+                  <p className="m-0 mt-2 text-sm leading-loose text-muted">{item.body}</p>
                 </li>
               ))}
             </ul>
           </div>
-        </div>
-      </section>
+        }
+      />
 
       <DocumentsListSection
         id={documents.id}
