@@ -18,10 +18,10 @@ export function InfrastructureListSection({
   return (
     <section id={id} className="section-shell bg-background">
       <div className="site-container">
-        <div
-          className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,0.88fr)] lg:gap-14 xl:gap-16"
-          data-reveal-group
-        >
+          <div
+            className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14 xl:gap-16"
+            data-reveal-group
+          >
           <div className="flex flex-col gap-8 max-[479px]:gap-6">
             <div className="section-intro mb-0 max-[479px]:mb-0">
               <div className="section-eyebrow-rule" />
@@ -29,11 +29,11 @@ export function InfrastructureListSection({
               <h2 className="section-heading reveal-item max-w-xl">{title}</h2>
             </div>
 
-            <ul className="reveal-item m-0 grid list-none gap-0 border-t border-dashed border-primary/22 p-0">
+            <ul className="reveal-item m-0 grid list-none gap-0 border-t border-dashed border-primary/22 p-0 sm:grid-cols-2">
               {items.map((item) => (
                 <li
                   key={item}
-                  className="border-b border-dashed border-primary/22 py-4 text-base leading-loose text-primary max-[479px]:py-3.5"
+                  className="border-b border-dashed border-primary/22 py-4 text-base leading-loose text-primary last:border-b-0 sm:odd:border-r sm:odd:pr-5 sm:even:pl-5 sm:[&:nth-last-child(-n+2)]:border-b-0 max-[479px]:py-3.5"
                 >
                   {item}
                 </li>
