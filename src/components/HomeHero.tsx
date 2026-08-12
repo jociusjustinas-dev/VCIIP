@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import { homeContent } from "../content/home";
@@ -7,6 +8,7 @@ const heroImage =
 
 export function HomeHero() {
   const { hero } = homeContent;
+  const [primaryHovered, setPrimaryHovered] = useState(false);
 
   return (
     <section id="titulinis" className="relative bg-white text-white">
@@ -36,19 +38,33 @@ export function HomeHero() {
             <p className="reveal-item m-0 max-w-2xl text-base font-normal leading-[1.55] text-white/82">
               {hero.description}
             </p>
-            <div className="reveal-item flex flex-wrap gap-3">
+            <div className="reveal-item flex flex-wrap gap-3 max-[479px]:flex-col">
               <a
                 href="#apie"
-                className="inline-flex min-h-12 items-center justify-center bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent hover:text-white"
+                className="group relative inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-white px-5 py-3 text-base font-semibold leading-none text-primary transition hover:bg-accent hover:text-white"
+                onMouseEnter={() => setPrimaryHovered(true)}
+                onMouseLeave={() => setPrimaryHovered(false)}
               >
-                Apie VCIIP
+                <span className="h-5 overflow-hidden py-px">
+                  <span
+                    className="flex flex-col transition-transform duration-200 ease-out"
+                    style={{ transform: primaryHovered ? "translateY(-50%)" : "translateY(0%)" }}
+                  >
+                    {["Apie VCIIP", "Apie VCIIP"].map((label, index) => (
+                      <span key={index} className="flex h-5 items-center gap-2">
+                        {label}
+                        <ArrowUpRight size={16} aria-hidden="true" />
+                      </span>
+                    ))}
+                  </span>
+                </span>
               </a>
+
               <a
                 href="/kontaktai"
-                className="inline-flex min-h-12 items-center gap-2 border border-white/28 px-5 py-3 text-base font-semibold text-white transition hover:border-accent hover:text-accent"
+                className="inline-flex min-h-12 w-fit items-center justify-center rounded-none border border-white/28 px-5 py-3 text-base font-semibold leading-none text-white transition hover:border-accent hover:text-accent"
               >
                 Susisiekti
-                <ArrowUpRight size={16} aria-hidden="true" />
               </a>
             </div>
           </div>
