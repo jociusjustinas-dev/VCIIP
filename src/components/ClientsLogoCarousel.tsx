@@ -126,12 +126,28 @@ export function ClientsLogoCarousel({
             >
               <X size={18} />
             </button>
-            <p className="eyebrow m-0 pr-12">{active.kind === "cluster" ? "Klasteris" : "Įmonė"}</p>
-            <h3 className="heading-h3 mt-3 text-primary">{clientDisplayName(active)}</h3>
-            {active.legalName ? <p className="m-0 mt-2 text-sm text-muted">{active.legalName}</p> : null}
-            {active.categories.length ? (
-              <p className="m-0 mt-3 text-sm font-semibold text-primary/70">{active.categories[0]}</p>
-            ) : null}
+
+            <div className="flex items-start gap-5 pr-12 max-[479px]:flex-col max-[479px]:gap-4">
+              {active.logo ? (
+                <div className="flex h-20 w-32 shrink-0 items-center justify-center border border-dashed border-primary/16 bg-white p-3 max-[479px]:h-16 max-[479px]:w-28">
+                  <img
+                    src={active.logo}
+                    alt={active.logoAlt ?? clientDisplayName(active)}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              ) : null}
+
+              <div className="min-w-0">
+                <p className="eyebrow m-0">{active.kind === "cluster" ? "Klasteris" : "Įmonė"}</p>
+                <h3 className="heading-h3 mt-3 text-primary">{clientDisplayName(active)}</h3>
+                {active.legalName ? <p className="m-0 mt-2 text-sm text-muted">{active.legalName}</p> : null}
+                {active.categories.length ? (
+                  <p className="m-0 mt-3 text-sm font-semibold text-primary/70">{active.categories[0]}</p>
+                ) : null}
+              </div>
+            </div>
+
             <ClientModalContent item={active} />
           </div>
         </div>
