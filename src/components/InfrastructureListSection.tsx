@@ -29,11 +29,11 @@ export function InfrastructureListSection({
               <h2 className="section-heading reveal-item max-w-xl">{title}</h2>
             </div>
 
-            <ul className="reveal-item m-0 grid list-none gap-0 border-t border-dashed border-primary/22 p-0 sm:grid-cols-2 sm:gap-x-8 lg:gap-x-10">
+            <ul className="reveal-item m-0 grid list-none gap-0 p-0 sm:grid-cols-2 sm:gap-x-8 lg:gap-x-10">
               {items.map((item) => (
                 <li
                   key={item}
-                  className="border-b border-dashed border-primary/22 py-4 text-base leading-loose text-primary last:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0 max-[479px]:py-3.5"
+                  className="border-t border-dashed border-primary/22 py-4 text-base leading-loose text-primary last:border-b max-[479px]:py-3.5 sm:[&:nth-last-child(-n+2)]:border-b"
                 >
                   {item}
                 </li>
