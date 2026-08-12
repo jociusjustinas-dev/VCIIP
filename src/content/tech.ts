@@ -1,4 +1,3 @@
-import ecosystemTechImage from "../assets/images/ecosystem-tech.jpg";
 import processLabImage from "../assets/images/process-lab.jpg";
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 
