@@ -8,17 +8,25 @@ export function HomeAboutSection() {
   return (
     <section id="apie" className="section-shell bg-white">
       <div className="site-container">
-        <div data-reveal-group>
-          <p className="eyebrow reveal-item">Apie VCIIP</p>
-          <h2 className="section-heading reveal-item mt-4 max-w-3xl">{about.title}</h2>
-          <p className="reveal-item body-lead m-0 mt-5 max-w-3xl whitespace-pre-line text-muted">{about.description}</p>
-          <a
-            href={about.cta.href}
-            className="reveal-item mt-6 inline-flex items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
-          >
-            {about.cta.label}
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
+        <div
+          className="grid items-end gap-8 lg:grid-cols-2 lg:gap-12"
+          data-reveal-group
+        >
+          <div>
+            <p className="eyebrow reveal-item">Apie VCIIP</p>
+            <h2 className="section-heading reveal-item mt-4 max-w-xl">{about.title}</h2>
+          </div>
+
+          <div>
+            <p className="reveal-item body-lead m-0 whitespace-pre-line text-muted">{about.description}</p>
+            <a
+              href={about.cta.href}
+              className="reveal-item mt-6 inline-flex items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
+            >
+              {about.cta.label}
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          </div>
         </div>
 
         <div
