@@ -10,7 +10,6 @@ export function EcosystemSplit() {
       id="lokacija"
       title="Du parkai. Viena ekosistema."
       description="VCIIP jungia dvi specializuotas teritorijas – VCIIP Bio Antakalnyje ir VCIIP Tech Liepkalnyje."
-      primaryCta={{ label: "Sužinoti daugiau", href: "/apie-vciip" }}
       bio={parks.bio}
       tech={parks.tech}
     />
