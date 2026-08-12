@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { apieVciipTimeline } from "../../content/apieVciip";
@@ -16,7 +16,7 @@ export function ApieVciipTimeline({
   items = apieVciipTimeline.items,
 }: {
   eyebrow?: string;
-  title?: string;
+  title?: ReactNode;
   items?: readonly TimelineItem[];
 } = {}) {
   const viewportRef = useRef<HTMLDivElement>(null);

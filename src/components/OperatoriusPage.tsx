@@ -41,7 +41,13 @@ export function OperatoriusPage() {
 
       <ApieVciipTimeline
         eyebrow={timeline.eyebrow}
-        title={timeline.title}
+        title={
+          <>
+            Operatoriaus
+            <br />
+            įsitraukimas VCIIP plėtroje
+          </>
+        }
         items={timeline.items}
       />
 
