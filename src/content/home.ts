@@ -1,3 +1,6 @@
+import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
+import { stats } from "./site";
+
 export const homeContent = {
   hero: {
     eyebrow: "Vilniaus miesto inovacijų pramonės parkas",
@@ -9,12 +12,7 @@ export const homeContent = {
     title: "Pirmasis ir vienintelis inovacijų pramonės parkas Vilniuje",
     description: "Vilniaus miesto inovacijų pramonės parkas (VCIIP) - pirmasis ir vienintelis inovacijų pramonės parkas Lietuvos sostinėje, vystomas išskirtinai inovatyvaus verslo plėtrai. 2015 m. VCIIP suteiktas valstybinės svarbos ekonominio projekto statusas.\n\nVCIIP - tai dvi teritorijos: VCIIP Bio, kurioje jau dabar buriasi gyvybės mokslų industrijos lyderiai ir nuo 2026 m. sparčiai vystoma VCIIP Tech, skirta technologijų ir pažangios gamybos industrijų plėtrai. \n\nAbi teritorijos skirtos Lietuvos ir užsienio aukšųjų technologijų įmonėms, norinčioms statyti mokslinių tyrimų centrus, laboratorijas ar gamyklas arba įsikurti VCIIP operatoriaus valdomuose pastatuose.",
     cta: { label: "Skaityti daugiau", href: "/apie-vciip" },
-    stats: [
-      { value: "200 mln. €", label: "pritraukta investicijų" },
-      { value: "30+", label: "organizacijų ekosistemoje" },
-      { value: "2 teritorijos", label: "BIO ir TECH" },
-      { value: "Nuo 2018", label: "veikiantis inovacijų parkas" },
-    ],
+    stats,
   },
   advantages: {
     title: "VCIIP privalumai",
@@ -22,12 +20,12 @@ export const homeContent = {
       {
         title: "Strategiškai patogi vieta ir susisiekimas",
         body: "VCIIP įsikūręs kiek atokiau nuo miesto šurmulio, tačiau vos per 30 min. lengvai pasieksite Vilniaus senamiestį, geležinkelio, autobusų stotis bei tarptautinį oro uostą. Puikus susisiekimas tiek viešuoju, tiek privačiu transportu, įskaitant ir esamus bei vystomus rekreacinius takus.",
-        href: "#kodel-vilnius",
+        href: "#vieta",
       },
       {
         title: "Išvystyta infrastruktūra greitam įsikūrimui",
         body: "Pramonės parke jau sukurta visapusiška infrastruktūra: nuo inžinerinių tinklų iki susisiekimo komunikacijų. Viskas, ką jums reikia padaryti – įsikurti ir prisijungti.",
-        href: "#parkai",
+        href: "#infrastruktura",
       },
       {
         title: "Dalis platesnės VCIIP ekosistemos",
@@ -98,5 +96,35 @@ export const homeContent = {
     applicationDescription: "Padėsime įvertinti galimybes ir rasti jūsų veiklai tinkamiausią sprendimą VCIIP teritorijoje.",
     applicationCta: { label: "Pildyti paraišką", href: "/isikurimas#paraiska" },
     contactTitle: "Turite klausimų? Susisiekime",
+  },
+  location: {
+    id: "vieta",
+    eyebrow: "Vieta",
+    title: "Vieta mieste",
+    intro:
+      "VCIIP įsikūręs pačiame Vilniaus mieste – per 30 min. iki senamiesčio, geležinkelio ir autobusų stočių bei tarptautinio oro uosto. Šalia įsikūrę geriausi šalies universitetai, studentų miesteliai ir mokslo centrai.\n\nVCIIP Bio veikia Antakalnyje, VCIIP Tech kuriama Liepkalnyje – prie tarptautinio oro uosto ir pagrindinių magistralių.",
+    legend: [
+      { label: "VCIIP Bio", symbol: "accent-dot" },
+      { label: "VCIIP Tech", symbol: "tech-dot" },
+      { label: "Universitetai ir mokslo centrai", symbol: "primary-dot" },
+      { label: "Artimiausios viešojo transporto stotelės", symbol: "muted-dot" },
+      { label: "Maršrutai iki oro uosto ir centro", symbol: "primary-line" },
+    ],
+  },
+  infrastructure: {
+    id: "infrastruktura",
+    eyebrow: "Infrastruktūra",
+    title: "Infrastruktūra ir pajėgumai",
+    imageSrc: vciipOverviewImage,
+    imageAlt: "VCIIP Bio ir Tech teritorijų infrastruktūra",
+    items: [
+      { label: "Dujotiekis", detail: "VCIIP Bio iki 600 m³/val., VCIIP Tech iki 2000 m³/val." },
+      { label: "Elektra", detail: "VCIIP Bio iki 12 MW, VCIIP Tech iki 50 MW." },
+      { label: "Vandentiekis", detail: "Tiekimas iki 48,5 m³/val." },
+      { label: "Nutekamieji vandenys", detail: "Nuotekų pajėgumas iki 48,5 m³/val." },
+      { label: "Telekomunikacijos", detail: "Duomenų perdavimas iki 1 GB/s." },
+      { label: "Užstatymo intensyvumas", detail: "Koeficientas iki 1,2." },
+      { label: "Pastatų aukštingumas", detail: "Iki 16 metrų (iki 4 aukštų)." },
+    ],
   },
 } as const;

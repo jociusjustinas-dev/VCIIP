@@ -30,13 +30,13 @@ export function HomeAboutSection() {
         </div>
 
         <div
-          className="mt-16 grid border-t border-dashed border-primary/48 pt-2 sm:grid-cols-2 max-[991px]:mt-14 lg:mt-20 lg:pt-4 lg:grid-cols-4"
+          className="mt-16 grid border-t border-dashed border-primary/48 pt-2 sm:grid-cols-3 max-[991px]:mt-14 lg:mt-20 lg:pt-4"
           data-reveal-group
         >
           {about.stats.map((stat) => (
             <div
               key={stat.label}
-              className="reveal-item flex flex-col gap-3 border-dashed border-primary/48 px-0 py-6 max-sm:[&:not(:first-child)]:border-t sm:px-5 sm:[&:nth-child(even)]:border-l sm:[&:nth-child(n+3)]:border-t lg:[&:not(:first-child)]:border-l lg:[&:nth-child(n+3)]:border-t-0 lg:px-6"
+              className="reveal-item flex flex-col gap-3 border-dashed border-primary/48 px-0 py-6 max-sm:[&:not(:first-child)]:border-t sm:px-5 sm:[&:not(:first-child)]:border-l sm:[&:nth-child(n+4)]:border-t lg:px-6"
             >
               <div className="stat-value-banner">{stat.value}</div>
               <div className="text-base leading-loose text-primary/78">{stat.label}</div>
