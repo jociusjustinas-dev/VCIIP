@@ -47,7 +47,6 @@ export const techTerritory = {
     },
   ],
   primaryCta: { label: "Susisiekti dėl sklypų galimybių", href: "/kontaktai?interest=tech" },
-  secondaryCta: { label: "Žiūrėti privalumus", href: "#privalumai" },
   mediaPlaceholder: "Teritorijos žemėlapis – sklypai pagal statusą ir funkciją",
 };
 
