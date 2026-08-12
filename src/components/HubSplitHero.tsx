@@ -1,6 +1,8 @@
 import { useState, type ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 
+import { withBase } from "../lib/paths";
+
 type CtaLink = {
   label: string;
   href: string;
@@ -51,7 +53,7 @@ export function HubSplitHero({
 
             <div className="reveal-item flex flex-wrap gap-3 max-[479px]:flex-col">
               <a
-                href={primaryCta.href}
+                href={withBase(primaryCta.href)}
                 className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
                 onMouseEnter={() => setPrimaryHovered(true)}
                 onMouseLeave={() => setPrimaryHovered(false)}
@@ -76,7 +78,7 @@ export function HubSplitHero({
 
               {secondaryCta ? (
                 <a
-                  href={secondaryCta.href}
+                  href={withBase(secondaryCta.href)}
                   className="inline-flex min-h-12 w-fit items-center justify-center rounded-none border border-primary/18 px-5 py-3 text-base font-semibold leading-none text-primary transition hover:border-accent hover:text-accent"
                 >
                   {secondaryCta.label}

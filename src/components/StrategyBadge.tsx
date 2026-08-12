@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { withBase } from "../lib/paths";
+
 export function StrategyBadge({ active = false }: { active?: boolean }) {
   const [visible, setVisible] = useState(true);
 
@@ -33,7 +35,7 @@ export function StrategyBadge({ active = false }: { active?: boolean }) {
 
   return (
     <a
-      href={active ? "/" : "/strategija"}
+      href={withBase(active ? "/" : "/strategija")}
       className={`fixed bottom-0 right-8 z-[996] flex items-center gap-2 rounded-t-none border border-primary/14 bg-white/88 px-5 py-3 font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary shadow-[0_18px_54px_color-mix(in_srgb,var(--color-primary)_14%,transparent)] backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-accent hover:bg-accent hover:text-white max-[767px]:right-4 max-[767px]:px-4 ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"
       }`}

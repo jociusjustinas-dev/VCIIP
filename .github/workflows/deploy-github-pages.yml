@@ -2,7 +2,11 @@ name: Deploy to GitHub Pages
 
 # Fallback when Vercel free-tier daily deploy limit is hit.
 # Publishes built site to the `gh-pages` branch.
-# One-time setup: GitHub → Settings → Pages → Deploy from branch → `gh-pages` / (root)
+#
+# One-time setup (required or the live URL stays 404):
+#   GitHub → Settings → Pages → Build and deployment
+#   Source: Deploy from a branch → Branch: `gh-pages` / (root)
+#
 # Live URL: https://jociusjustinas-dev.github.io/VCIIP/
 
 on:
