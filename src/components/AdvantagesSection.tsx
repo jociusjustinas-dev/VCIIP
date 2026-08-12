@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import modernOfficeImage from "../assets/images/modern-office-work.png";
@@ -24,12 +24,44 @@ export function AdvantagesSection({
   imageSrc?: string;
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [stableMinHeight, setStableMinHeight] = useState<number>();
+  const leftColRef = useRef<HTMLDivElement>(null);
+  const bodyRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      const left = leftColRef.current;
+      if (!left || window.innerWidth < 992) {
+        setStableMinHeight(undefined);
+        return;
+      }
+
+      const previousMinHeight = left.style.minHeight;
+      left.style.minHeight = "0px";
+
+      const bodyHeights = bodyRefs.current.map((element) => element?.offsetHeight ?? 0);
+      const maxBodyHeight = Math.max(0, ...bodyHeights);
+      const openBodyHeight = openIndex == null ? 0 : (bodyHeights[openIndex] ?? 0);
+      const nextHeight = Math.ceil(left.offsetHeight - openBodyHeight + maxBodyHeight);
+
+      left.style.minHeight = previousMinHeight;
+      setStableMinHeight((current) => (current === nextHeight ? current : nextHeight));
+    };
+
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [items, openIndex]);
 
   return (
     <section id={id} className="relative section-shell bg-white">
       <div className="site-container">
         <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-          <div className="flex min-w-0 flex-col justify-between gap-16 max-[991px]:gap-12">
+          <div
+            ref={leftColRef}
+            className="flex min-w-0 flex-col justify-between gap-16 max-[991px]:gap-12"
+            style={stableMinHeight ? { minHeight: stableMinHeight } : undefined}
+          >
             <div className="flex flex-col gap-6" data-reveal-group>
               <div className="h-0 w-full border-b border-dashed border-primary/45" />
               <p className="eyebrow reveal-item">{eyebrow}</p>
@@ -62,7 +94,12 @@ export function AdvantagesSection({
                         isOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
                       }`}
                     >
-                      <div className="max-w-2xl pb-6">
+                      <div
+                        ref={(element) => {
+                          bodyRefs.current[index] = element;
+                        }}
+                        className="max-w-2xl pb-6"
+                      >
                         <p className="m-0 whitespace-pre-line text-base leading-loose text-muted">{item.body}</p>
                         {item.href ? (
                           <a
@@ -83,7 +120,7 @@ export function AdvantagesSection({
           </div>
 
           <div
-            className="reveal-item relative min-h-[420px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[380px] max-[767px]:min-h-[320px] max-[479px]:min-h-[280px] lg:min-h-full"
+            className="reveal-item relative min-h-[420px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[380px] max-[767px]:min-h-[320px] max-[479px]:min-h-[280px] lg:h-full lg:min-h-0"
             data-reveal="scale"
           >
             <ParallaxImage
