@@ -37,7 +37,6 @@ export const bioTerritory = {
     "20+ gyvybės mokslų įmonių ir organizacijų",
     "Laisvų sklypų nebėra – siūlome patalpas nuomai",
   ],
-  note: "Teritorijos žemėlapis bus pritaikytas naujam svetainės stiliui.",
   primaryCta: { label: "Žiūrėti patalpas nuomai", href: "#patalpos" },
   secondaryCta: { label: "Susisiekti", href: "/kontaktai?interest=bio" },
   imageSrc: ecosystemBioImage,

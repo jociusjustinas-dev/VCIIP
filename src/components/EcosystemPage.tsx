@@ -41,7 +41,6 @@ export function EcosystemPage() {
         title={bioTerritory.title}
         intro={bioTerritory.intro}
         highlights={bioTerritory.highlights}
-        note={bioTerritory.note}
         primaryCta={bioTerritory.primaryCta}
         secondaryCta={bioTerritory.secondaryCta}
         imageSrc={bioTerritory.imageSrc}
