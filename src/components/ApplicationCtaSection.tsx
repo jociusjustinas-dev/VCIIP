@@ -14,17 +14,17 @@ export function ApplicationCtaSection({
   cta,
 }: ApplicationCtaSectionProps) {
   return (
-    <section className="section-shell bg-white">
+    <section className="section-shell bg-primary text-white">
       <div className="site-container">
         <div className="application-cta" data-reveal-group>
-          <div className="section-eyebrow-rule reveal-item" />
+          <div className="application-cta__rule reveal-item" />
           <div className="application-cta__row reveal-item">
             <div className="application-cta__content">
-              <p className="eyebrow">{eyebrow}</p>
-              <h2 className="section-heading mt-4 max-w-2xl">{title}</h2>
-              <p className="m-0 mt-4 max-w-xl text-base leading-loose text-muted">{description}</p>
+              <p className="eyebrow eyebrow-on-dark">{eyebrow}</p>
+              <h2 className="section-heading mt-4 max-w-2xl text-white">{title}</h2>
+              <p className="m-0 mt-4 max-w-xl text-base leading-loose text-white/72">{description}</p>
             </div>
-            <a href={cta.href} className="btn-primary application-cta__button">
+            <a href={cta.href} className="application-cta__button">
               {cta.label}
               <ArrowUpRight size={16} aria-hidden="true" />
             </a>
