@@ -24,7 +24,13 @@ export function ApplicationCtaSection({
               <h2 className="section-heading mt-4 max-w-2xl text-white">{title}</h2>
               <p className="m-0 mt-4 max-w-xl text-base leading-loose text-white/72">{description}</p>
             </div>
-            <a href={cta.href} className="application-cta__button">
+            <a
+              href={cta.href}
+              className="application-cta__button"
+              {...(cta.href.startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+            >
               {cta.label}
               <ArrowUpRight size={16} aria-hidden="true" />
             </a>
