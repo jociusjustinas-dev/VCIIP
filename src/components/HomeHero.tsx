@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
+import homeHeroImage from "../assets/images/home-hero.jpg";
 import { homeContent } from "../content/home";
 
 export function HomeHero() {
@@ -16,9 +16,9 @@ export function HomeHero() {
         className="relative z-[1] flex min-h-[100svh] flex-col overflow-hidden pb-14 pt-32 max-[991px]:pb-12 max-[479px]:pt-28"
       >
         <img
-          src={vciipOverviewImage}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
+          src={homeHeroImage}
+          alt="VCIIP teritorija miško apsuptyje, Vilniaus horizonte"
+          className="absolute inset-0 h-full w-full object-cover object-[70%_center]"
         />
         <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,color-mix(in_srgb,var(--color-primary)_68%,transparent)_0%,color-mix(in_srgb,var(--color-primary)_38%,transparent)_34%,color-mix(in_srgb,var(--color-primary)_8%,transparent)_68%,transparent_100%)]" />
         <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,transparent_38%,color-mix(in_srgb,var(--color-primary)_58%,transparent)_100%)]" />
