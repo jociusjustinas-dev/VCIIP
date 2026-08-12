@@ -21,7 +21,7 @@ export function TestimonialsCarousel() {
   }, [active]);
 
   return (
-    <section id="atsiliepimai" className="section-shell bg-background">
+    <section id="atsiliepimai" className="section-shell bg-white">
       <div className="site-container" data-reveal-group>
         <p className="eyebrow reveal-item">Atsiliepimai</p>
         <h2 className="section-heading reveal-item mt-4 max-w-3xl">Ką sako VCIIP bendruomenė</h2>
