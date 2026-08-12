@@ -29,14 +29,14 @@ export function AdvantagesSection({
     <section id={id} className="relative section-shell bg-white">
       <div className="site-container">
         <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-          <div className="flex min-w-0 flex-col justify-between gap-10">
+          <div className="flex min-w-0 flex-col justify-between gap-16 max-[991px]:gap-12">
             <div className="flex flex-col gap-6" data-reveal-group>
               <div className="h-0 w-full border-b border-dashed border-primary/45" />
               <p className="eyebrow reveal-item">{eyebrow}</p>
               <h2 className="section-heading reveal-item max-w-xl">{title}</h2>
             </div>
 
-            <div className="reveal-item flex w-full flex-col">
+            <div className="reveal-item mt-2 flex w-full flex-col">
               {items.map((item, index) => {
                 const isOpen = openIndex === index;
 
