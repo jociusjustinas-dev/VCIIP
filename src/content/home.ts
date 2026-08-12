@@ -10,9 +10,10 @@ export const homeContent = {
     description: "Vilniaus miesto inovacijų pramonės parkas (VCIIP) - pirmasis ir vienintelis inovacijų pramonės parkas Lietuvos sostinėje, vystomas išskirtinai inovatyvaus verslo plėtrai. 2015 m. VCIIP suteiktas valstybinės svarbos ekonominio projekto statusas.\n\nVCIIP - tai dvi teritorijos: VCIIP Bio, kurioje jau dabar buriasi gyvybės mokslų industrijos lyderiai ir nuo 2026 m. sparčiai vystoma VCIIP Tech, skirta technologijų ir pažangios gamybos industrijų plėtrai. \n\nAbi teritorijos skirtos Lietuvos ir užsienio aukšųjų technologijų įmonėms, norinčioms statyti mokslinių tyrimų centrus, laboratorijas ar gamyklas arba įsikurti VCIIP operatoriaus valdomuose pastatuose.",
     cta: { label: "Skaityti daugiau", href: "/apie-vciip" },
     stats: [
-      { value: "281+ mln. €", label: "pritraukta investicijų" },
-      { value: "30+", label: "investuotojų" },
-      { value: "700+", label: "naujų darbo vietų" },
+      { value: "200 mln. €", label: "pritraukta investicijų" },
+      { value: "30+", label: "organizacijų ekosistemoje" },
+      { value: "2 teritorijos", label: "BIO ir TECH" },
+      { value: "Nuo 2018", label: "veikiantis inovacijų parkas" },
     ],
   },
   advantages: {
