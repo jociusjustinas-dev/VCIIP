@@ -24,6 +24,7 @@ export function InvestorInquiry({
   description = "Padėsime įvertinti galimybes ir rasti jūsų veiklai tinkamiausią sprendimą VCIIP teritorijoje.",
   tone = "dark",
   showContact = true,
+  showContactIntro = true,
 }: {
   showEyebrow?: boolean;
   eyebrow?: string;
@@ -31,6 +32,7 @@ export function InvestorInquiry({
   description?: string;
   tone?: "dark" | "light";
   showContact?: boolean;
+  showContactIntro?: boolean;
 }) {
   const [formState, setFormState] = useState<FormState>("idle");
   const [interest, setInterest] = useState("");
@@ -70,21 +72,27 @@ export function InvestorInquiry({
 
             {showContact ? (
               <div
-                className={`grid gap-6 border-t border-dashed pt-7 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 xl:gap-8 ${
-                  isLight ? "border-primary/16" : "border-white/24"
-                }`}
+                className={`grid gap-6 border-t border-dashed pt-7 ${
+                  showContactIntro ? "sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 xl:gap-8" : ""
+                } ${isLight ? "border-primary/16" : "border-white/24"}`}
               >
-                <div className="flex flex-col gap-3">
-                  <h3 className={`heading-h3 m-0 ${isLight ? "text-primary" : "text-white"}`}>
-                    Turite klausimų?
-                  </h3>
-                  <p className={`m-0 text-base font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/62"}`}>
-                    Susisiekite tiesiogiai su VCIIP operatoriumi.
-                  </p>
-                </div>
+                {showContactIntro ? (
+                  <div className="flex flex-col gap-3">
+                    <h3 className={`heading-h3 m-0 ${isLight ? "text-primary" : "text-white"}`}>
+                      Turite klausimų?
+                    </h3>
+                    <p className={`m-0 text-base font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/62"}`}>
+                      Susisiekite tiesiogiai su VCIIP operatoriumi.
+                    </p>
+                  </div>
+                ) : null}
                 <div
-                  className={`flex flex-col gap-2 border-l border-dashed pl-8 max-[479px]:border-l-0 max-[479px]:pl-0 sm:pl-8 xl:pl-10 ${
-                    isLight ? "border-primary/14" : "border-white/18"
+                  className={`flex flex-col gap-2 ${
+                    showContactIntro
+                      ? `border-l border-dashed pl-8 max-[479px]:border-l-0 max-[479px]:pl-0 sm:pl-8 xl:pl-10 ${
+                          isLight ? "border-primary/14" : "border-white/18"
+                        }`
+                      : ""
                   }`}
                 >
                   <h3 className={`heading-h3 m-0 ${isLight ? "text-primary" : "text-white"}`}>
