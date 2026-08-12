@@ -20,6 +20,7 @@ export function ApieVciipTimeline({
   items?: readonly TimelineItem[];
 } = {}) {
   const viewportRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
 
@@ -29,13 +30,13 @@ export function ApieVciipTimeline({
 
     viewport.style.setProperty("--timeline-viewport", `${viewport.clientWidth}px`);
 
-    const container = viewport.closest("section")?.querySelector(".site-container");
-    if (container instanceof HTMLElement) {
-      const paddingLeft = Number.parseFloat(getComputedStyle(container).paddingLeft) || 0;
-      const offset = Math.round(
-        container.getBoundingClientRect().left - viewport.getBoundingClientRect().left + paddingLeft,
-      );
-      viewport.style.setProperty("--timeline-inline-start", `${Math.max(0, offset)}px`);
+    const heading = headingRef.current;
+    if (heading) {
+      const offset = Math.round(heading.getBoundingClientRect().left - viewport.getBoundingClientRect().left);
+      if (offset > 0) {
+        viewport.style.paddingLeft = `${offset}px`;
+        viewport.style.scrollPaddingLeft = `${offset}px`;
+      }
     }
 
     const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
@@ -51,6 +52,8 @@ export function ApieVciipTimeline({
 
     const resizeObserver = new ResizeObserver(updateScrollState);
     resizeObserver.observe(viewport);
+    const heading = headingRef.current;
+    if (heading) resizeObserver.observe(heading);
 
     viewport.addEventListener("scroll", updateScrollState, { passive: true });
     window.addEventListener("resize", updateScrollState);
@@ -103,7 +106,7 @@ export function ApieVciipTimeline({
         <div className="mb-10 flex items-end justify-between gap-6 max-[767px]:mb-8" data-reveal-group>
           <div className="section-intro m-0">
             <p className="eyebrow reveal-item">{eyebrow}</p>
-            <h2 className="section-heading reveal-item max-w-3xl">{title}</h2>
+            <h2 ref={headingRef} className="section-heading reveal-item max-w-3xl">{title}</h2>
           </div>
 
           <div className="reveal-item hidden min-[768px]:block">{timelineControls}</div>

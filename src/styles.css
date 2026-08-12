@@ -603,6 +603,10 @@
   .apie-vciip-timeline__viewport {
     position: relative;
     width: 100%;
+    /* Pad the scrollport, not the max-content track — otherwise 2015 snaps to the edge. */
+    padding-inline-start: var(--timeline-inline-start);
+    scroll-padding-inline-start: var(--timeline-inline-start);
+    box-sizing: border-box;
   }
 
   .apie-vciip-timeline__track {
@@ -611,9 +615,6 @@
     min-width: 100%;
     flex-direction: column;
     gap: 1rem;
-    /* First year/dot match the section title; rail may still bleed on the right. */
-    padding-inline-start: var(--timeline-inline-start);
-    padding-inline-end: 0;
   }
 
   .apie-vciip-timeline__row {
