@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 type WhyItem = {
   title: string;
   body: string;
+  href?: string;
+  ctaLabel?: string;
 };
 
 function NavButtons({
@@ -101,8 +103,19 @@ export function WhyVilniusCarousel({
           >
             {items.map((item) => (
               <article key={item.title} className="why-vilnius-carousel__card">
-                <h3 className="why-vilnius-carousel__card-title">{item.title}</h3>
-                <p className="why-vilnius-carousel__card-body">{item.body}</p>
+                <div className="flex flex-col gap-6">
+                  <h3 className="why-vilnius-carousel__card-title">{item.title}</h3>
+                  <p className="why-vilnius-carousel__card-body">{item.body}</p>
+                </div>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    className="inline-flex items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
+                  >
+                    {item.ctaLabel ?? "Skaityti daugiau"}
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                ) : null}
               </article>
             ))}
           </div>
