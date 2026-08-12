@@ -1,6 +1,5 @@
-import { ArrowUpRight, ExternalLink } from "lucide-react";
-
-import { ParallaxImage } from "./ParallaxImage";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
 type PremiseContact = {
   name: string;
@@ -11,11 +10,15 @@ type PremiseContact = {
   phoneHref?: string;
 };
 
+type PremiseImage = {
+  src: string;
+  alt?: string;
+};
+
 type PremiseItem = {
   title: string;
   body: string;
-  imageSrc: string;
-  imageAlt?: string;
+  images: readonly PremiseImage[];
   /** Available free area display value, e.g. "~3230 kv. m." */
   availableArea: string;
   /** When false, shows occupied status instead of available. */
@@ -44,7 +47,11 @@ function AvailabilityRow({
         >
           <span
             className="h-2.5 w-2.5 shrink-0"
-            style={{ background: isAvailable ? "#00bdae" : "color-mix(in srgb, var(--color-primary) 28%, transparent)" }}
+            style={{
+              background: isAvailable
+                ? "#00bdae"
+                : "color-mix(in srgb, var(--color-primary) 28%, transparent)",
+            }}
             aria-hidden="true"
           />
           {isAvailable ? "Laisva" : "Užimta"}
@@ -53,6 +60,101 @@ function AvailabilityRow({
       <p className="m-0 text-right text-xl font-semibold leading-none text-primary max-[479px]:text-lg">
         {availableArea}
       </p>
+    </div>
+  );
+}
+
+function PremiseImageSlider({
+  images,
+  label,
+}: {
+  images: readonly PremiseImage[];
+  label: string;
+}) {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const count = images.length;
+
+  useEffect(() => {
+    if (count <= 1 || paused) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    const timer = window.setInterval(() => {
+      setIndex((current) => (current + 1) % count);
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, [count, paused]);
+
+  if (count === 0) {
+    return <div className="relative aspect-[4/3] bg-primary" />;
+  }
+
+  const goPrev = () => setIndex((current) => (current - 1 + count) % count);
+  const goNext = () => setIndex((current) => (current + 1) % count);
+
+  return (
+    <div
+      className="group/slider relative aspect-[4/3] overflow-hidden bg-primary"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setPaused(false);
+        }
+      }}
+    >
+      {images.map((image, imageIndex) => (
+        <img
+          key={`${image.src}-${imageIndex}`}
+          src={image.src}
+          alt={image.alt ?? `${label} nuotrauka ${imageIndex + 1}`}
+          loading={imageIndex === 0 ? "eager" : "lazy"}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-out ${
+            imageIndex === index ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,color-mix(in_srgb,var(--color-primary)_55%,transparent))]" />
+
+      {count > 1 ? (
+        <>
+          <button
+            type="button"
+            aria-label={`Ankstesnė ${label} nuotrauka`}
+            onClick={goPrev}
+            className="absolute left-3 top-1/2 z-[2] flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-white/30 bg-primary/55 text-white opacity-100 transition hover:bg-primary/75 max-[479px]:left-2 max-[479px]:h-8 max-[479px]:w-8 lg:opacity-0 lg:group-hover/slider:opacity-100 lg:group-focus-within/slider:opacity-100"
+          >
+            <ChevronLeft size={18} aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            aria-label={`Kita ${label} nuotrauka`}
+            onClick={goNext}
+            className="absolute right-3 top-1/2 z-[2] flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-white/30 bg-primary/55 text-white opacity-100 transition hover:bg-primary/75 max-[479px]:right-2 max-[479px]:h-8 max-[479px]:w-8 lg:opacity-0 lg:group-hover/slider:opacity-100 lg:group-focus-within/slider:opacity-100"
+          >
+            <ChevronRight size={18} aria-hidden="true" />
+          </button>
+
+          <div className="absolute bottom-3 left-1/2 z-[2] flex -translate-x-1/2 items-center gap-1.5">
+            {images.map((image, dotIndex) => (
+              <button
+                key={`dot-${image.src}-${dotIndex}`}
+                type="button"
+                aria-label={`${label} nuotrauka ${dotIndex + 1}`}
+                aria-current={dotIndex === index}
+                onClick={() => setIndex(dotIndex)}
+                className={`h-1.5 transition-all ${
+                  dotIndex === index ? "w-5 bg-white" : "w-1.5 bg-white/45 hover:bg-white/75"
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      ) : null}
     </div>
   );
 }
@@ -91,15 +193,7 @@ export function PremisesCardsSection({
                 className="reveal-item flex flex-col overflow-hidden border border-primary/12 bg-background"
                 data-reveal="fade"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-primary">
-                  <ParallaxImage
-                    src={item.imageSrc}
-                    alt={item.imageAlt ?? item.title}
-                    className="absolute inset-0 h-full w-full"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,color-mix(in_srgb,var(--color-primary)_55%,transparent))]" />
-                </div>
+                <PremiseImageSlider images={item.images} label={item.title} />
 
                 <div className="flex flex-1 flex-col gap-5 p-6 max-[479px]:gap-4 max-[479px]:p-5">
                   <div className="flex flex-col gap-3">
