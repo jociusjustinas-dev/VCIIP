@@ -1,7 +1,10 @@
 import ecosystemBioImage from "../assets/images/ecosystem-bio.jpeg";
 import modernOfficeImage from "../assets/images/modern-office-work.png";
+import processLabImage from "../assets/images/process-lab.jpg";
 import processWarmRoomImage from "../assets/images/process-warm-room.png";
-import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
+import { kontaktaiContent } from "./kontaktai";
+
+const premisesContact = kontaktaiContent.people[1];
 
 export const bioHero = {
   eyebrow: "VCIIP Bio",
@@ -51,20 +54,32 @@ export const bioPremises = {
     {
       title: "HUBIO",
       body: "VCIIP Bio širdyje veikia operatoriaus valdomas technologijų vystymo centras HUBIO – tai daugiau nei 7000 kv. m. modernių laboratorijų, gamybos paskirties ir biurų patalpų, pritaikytų gyvybės mokslų įmonėms.",
-      availability: "Šiuo metu laisvų patalpų: ~3230 kv. m.",
-      imageSrc: vciipOverviewImage,
+      availableArea: "~3230 kv. m.",
+      isAvailable: true,
+      imageSrc: processLabImage,
+      imageAlt: "HUBIO laboratorijų ir gamybos patalpos",
+      link: { label: "northtownvilnius.lt", href: "https://www.northtownvilnius.lt" },
+      contact: premisesContact,
     },
     {
       title: "Inovacijų centras A",
       body: "VCIIP Bio veikiantis inovacijų centras A – 1865,22 kv. m. ploto pastatas, skirtas laboratorijų, gamybos ir biurų erdvėms.",
-      availability: "Šiuo metu laisvų patalpų: ~268,41 kv. m.",
+      availableArea: "~268,41 kv. m.",
+      isAvailable: true,
       imageSrc: modernOfficeImage,
+      imageAlt: "Inovacijų centro A patalpos",
+      link: { label: "Susisiekti dėl centro A", href: "/kontaktai?interest=bio&building=a" },
+      contact: premisesContact,
     },
     {
       title: "Inovacijų centras B",
       body: "VCIIP Bio inovacijų centras B – 731,58 kv. m. ploto pastatas, skirtas laboratorijų, gamybos ir biurų erdvėms.",
-      availability: "Šiuo metu laisvų patalpų: 0 kv. m.",
+      availableArea: "0 kv. m.",
+      isAvailable: false,
       imageSrc: processWarmRoomImage,
+      imageAlt: "Inovacijų centro B patalpos",
+      link: { label: "Susisiekti dėl centro B", href: "/kontaktai?interest=bio&building=b" },
+      contact: premisesContact,
     },
   ],
 };
