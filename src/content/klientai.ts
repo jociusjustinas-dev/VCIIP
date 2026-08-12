@@ -228,6 +228,29 @@ export const klientaiClusters: ClientEntry[] = [
 
 export const klientaiAll: ClientEntry[] = [...klientaiCompanies, ...klientaiClusters];
 
+/** Normalizes perceived logo size when source files have uneven padding or proportions. */
+export const clientLogoScaleById: Record<string, number> = {
+  "poliprojektas": 1.41,
+  experimentica: 0.95,
+  "san-biotec": 0.98,
+  biotecha: 1.57,
+  "biogroup-baltics": 1.3,
+  protech: 1.15,
+  met: 1.26,
+  "investavimo-projektai": 0.98,
+  "inovatyvios-imuno-diagnostikos-centras": 0.72,
+  fetek: 0.72,
+  "vilties-iedas": 0.72,
+  lsdih: 1.05,
+  "ptvp-klasteris": 1.46,
+  "klasteris-3d": 1.71,
+  biospace: 1.89,
+};
+
+export function clientLogoScale(id: string) {
+  return clientLogoScaleById[id] ?? 1;
+}
+
 export function clientDisplayName(item: ClientEntry) {
   if (item.name !== "<neturi logo>") return item.name;
   return item.categories[0] ?? "Klientas";
