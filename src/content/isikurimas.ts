@@ -186,22 +186,21 @@ export const isikurimasContent = {
     id: "paraiska",
     eyebrow: "Paraiška",
     title: "Pildykite paraišką",
-    description:
-      "Padėsime įvertinti galimybes ir rasti jūsų veiklai tinkamiausią sprendimą VCIIP teritorijoje.",
+    description: "Keturi aiškūs žingsniai – nuo atitikimo patikros iki paraiškos pateikimo.",
     steps: [
       {
         number: "01",
         title: "Patikrinkite atitikimą",
-        body: "Įsitikinkite, kad jūsų veikla atitinka VCIIP vystymo tikslus ir investuotojų atrankos kriterijus.",
+        body: "Įsitikinkite, kad jūsų veikla atitinka VCIIP tikslus ir investuotojų atrankos kriterijus.",
         cta: {
           label: "Žiūrėti atrankos kriterijus",
-          href: "#atrankos-kriterijai",
+          href: isikurimasDocuments.criteria.href,
         },
       },
       {
         number: "02",
-        title: "Užpildykite paraiškos formą",
-        body: "Jei jūsų veikla atitinka Vilniaus miesto inovacijų PP vystymo tikslus bei investuotojams taikomus atrankos kriterijus, užpildykite paraiškos formą.",
+        title: "Atsisiųskite ir užpildykite formą",
+        body: "Jei atitikimas yra, užpildykite oficialią VCIIP paraiškos formą.",
         cta: {
           label: "Atsisiųsti paraiškos formą",
           href: isikurimasDocuments.applicationForm.href,
@@ -209,8 +208,8 @@ export const isikurimasContent = {
       },
       {
         number: "03",
-        title: "Paruoškite privalomus priedus",
-        body: "Kartu su paraiška pateikite šiuos dokumentus. Atsisiųskite žemiau:",
+        title: "Pridėkite privalomus priedus",
+        body: "Prie paraiškos pridėkite šiuos dokumentus. Dalį šablonų galite atsisiųsti čia:",
         attachments: [
           {
             label: "Dokumentai, patvirtinantys, kad veiklai netaikomi apribojimai ją vykdyti ar plėsti",
@@ -241,7 +240,18 @@ export const isikurimasContent = {
       {
         number: "04",
         title: "Pateikite paraišką",
-        body: "Pristatykite nurodytu adresu\nPristatyti galite asmeniškai, per kurjerį ar paštu. Pristatymo adresas: VšĮ „Northtown Vilnius”, Vismaliukų g. 34, Vilnius\n\nAtsiųskite el. paštu\nJūsų skenuoto varianto lauksime info@northtownvilnius.lt",
+        body: "Užpildytą ir pasirašytą paraišką su priedais pateikite vienu iš būdų:",
+        submitChannels: [
+          {
+            title: "Pristatykite adresu",
+            body: "VšĮ „Northtown Vilnius”, Vismaliukų g. 34, Vilnius — asmeniškai, kurjeriu arba paštu.",
+          },
+          {
+            title: "Atsiųskite el. paštu",
+            body: "Skenuotą variantą siųskite operatoriaus el. paštu.",
+            href: "mailto:info@northtownvilnius.lt",
+          },
+        ],
       },
     ],
   },

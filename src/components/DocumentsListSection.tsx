@@ -6,30 +6,46 @@ type DocumentItem = {
 };
 
 const rowClassName =
-  "group flex items-center justify-between gap-6 border-b border-dashed border-primary/14 px-6 py-5 text-primary transition last:border-b-0 max-[479px]:px-4 max-[479px]:py-4";
+  "group flex items-center justify-between gap-6 border-b border-dashed px-6 py-5 transition last:border-b-0 max-[479px]:px-4 max-[479px]:py-4";
 
 export function DocumentsDownloadList({
   items,
   className = "",
+  tone = "light",
 }: {
   items: readonly DocumentItem[];
   className?: string;
+  tone?: "light" | "dark";
 }) {
+  const isDark = tone === "dark";
+
   return (
-    <div className={`border border-dashed border-primary/16 ${className}`.trim()}>
+    <div
+      className={`border border-dashed ${
+        isDark ? "border-white/20" : "border-primary/16"
+      } ${className}`.trim()}
+    >
       {items.map((item) => (
         <a
           key={`${item.label}-${item.href}`}
           href={item.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${rowClassName} hover:bg-primary/[0.03]`}
+          className={`${rowClassName} ${
+            isDark
+              ? "border-white/14 text-white hover:bg-white/[0.05]"
+              : "border-primary/14 text-primary hover:bg-primary/[0.03]"
+          }`}
         >
           <span className="text-base font-semibold leading-snug">{item.label}</span>
           <ArrowUpRight
             size={18}
             aria-hidden="true"
-            className="shrink-0 text-primary/45 transition group-hover:text-accent"
+            className={`shrink-0 transition ${
+              isDark
+                ? "text-white/45 group-hover:text-accent"
+                : "text-primary/45 group-hover:text-accent"
+            }`}
           />
         </a>
       ))}

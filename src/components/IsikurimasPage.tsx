@@ -1,8 +1,7 @@
-import { ArrowUpRight } from "lucide-react";
-
 import { isikurimasContent } from "../content/isikurimas";
 import { ApplicationCtaSection } from "./ApplicationCtaSection";
-import { DocumentsDownloadList, DocumentsListSection } from "./DocumentsListSection";
+import { ApplicationGuideSection } from "./ApplicationGuideSection";
+import { DocumentsListSection } from "./DocumentsListSection";
 import { HubSplitHero } from "./HubSplitHero";
 import { InvestorInquiry } from "./InvestorInquiry";
 import { SettleProcess } from "./SettleProcess";
@@ -176,66 +175,13 @@ export function IsikurimasPage() {
         tone="muted"
       />
 
-      <section id={application.id} className="section-shell bg-white">
-        <div className="site-container">
-          <div
-            className="mb-16 grid items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.62fr)] max-[991px]:mb-12"
-            data-reveal-group
-          >
-            <div className="flex flex-col items-start gap-7">
-              <p className="eyebrow reveal-item">{application.eyebrow}</p>
-              <h2 className="section-heading reveal-item max-w-4xl">{application.title}</h2>
-            </div>
-            <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-muted">
-              {application.description}
-            </p>
-          </div>
-
-          <div className="reveal-item border-t border-dashed border-primary/18" data-reveal="fade">
-            {application.steps.map((step) => (
-              <article
-                key={step.number}
-                className="group grid gap-8 border-b border-dashed border-primary/18 py-8 text-primary transition-colors duration-300 hover:border-primary/34 max-[767px]:gap-4 max-[479px]:grid-cols-1 sm:grid-cols-[minmax(180px,0.74fr)_minmax(0,1fr)]"
-              >
-                <div className="flex flex-col gap-4">
-                  <span className="font-display text-sm font-bold uppercase leading-tight tracking-wide text-accent">
-                    {step.number}
-                  </span>
-                  <h3 className="heading-h3 text-primary">{step.title}</h3>
-                </div>
-
-                <div className="flex gap-5">
-                  <span className="mt-2 size-2.5 shrink-0 rounded-none bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 max-[479px]:hidden" />
-                  <div className="flex min-w-0 flex-col gap-4">
-                    {step.body ? (
-                      <p className="m-0 whitespace-pre-line text-base leading-loose text-muted">
-                        {step.body}
-                      </p>
-                    ) : null}
-
-                    {"attachments" in step && Array.isArray(step.attachments) ? (
-                      <DocumentsDownloadList items={step.attachments} />
-                    ) : null}
-
-                    {"cta" in step && step.cta ? (
-                      <a
-                        href={step.cta.href}
-                        className="inline-flex w-fit items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
-                        {...(step.cta.href.startsWith("http")
-                          ? { target: "_blank", rel: "noopener noreferrer" }
-                          : {})}
-                      >
-                        {step.cta.label}
-                        <ArrowUpRight size={16} aria-hidden="true" />
-                      </a>
-                    ) : null}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ApplicationGuideSection
+        id={application.id}
+        eyebrow={application.eyebrow}
+        title={application.title}
+        description={application.description}
+        steps={application.steps}
+      />
 
       <InvestorInquiry
         tone="light"
