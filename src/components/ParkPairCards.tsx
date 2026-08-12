@@ -44,6 +44,50 @@ function SlideCta({ href, label }: { href: string; label: string }) {
   );
 }
 
+function ParkColumn({
+  park,
+  logoSrc,
+  imageSrc,
+  badge,
+}: {
+  park: ParkCard;
+  logoSrc: string;
+  imageSrc: string;
+  badge?: string;
+}) {
+  return (
+    <article className="reveal-item flex h-full flex-col">
+      <div className="relative overflow-hidden bg-primary" data-reveal="scale">
+        <ParallaxImage
+          src={imageSrc}
+          alt=""
+          className="h-[320px] w-full max-[991px]:h-[280px] max-[767px]:h-[240px] max-[479px]:h-[200px]"
+          loading="lazy"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_6%,transparent),color-mix(in_srgb,var(--color-primary)_42%,transparent))]" />
+      </div>
+
+      <div className="flex flex-1 flex-col gap-5 border-t border-dashed border-white/22 pt-7 max-[479px]:gap-4 max-[479px]:pt-6">
+        <div className="flex flex-wrap items-center gap-3">
+          <img
+            src={logoSrc}
+            alt={park.label}
+            className="h-7 w-auto max-w-[9.5rem] object-contain object-left max-[479px]:h-[1.625rem]"
+          />
+          {badge ? <span className="availability-badge">{badge}</span> : null}
+        </div>
+
+        <h3 className="heading-split m-0 max-w-md text-white">{park.focus}</h3>
+        <p className="m-0 text-base font-normal leading-normal text-white/72">{park.description}</p>
+
+        <div className="mt-auto pt-2">
+          <SlideCta href={park.href} label={park.ctaLabel} />
+        </div>
+      </div>
+    </article>
+  );
+}
+
 export function ParkPairCards({
   title,
   description,
@@ -83,70 +127,21 @@ export function ParkPairCards({
           </div>
         </div>
 
-        <div className="grid items-center gap-6 max-[767px]:gap-8 lg:grid-cols-2" data-reveal-group>
-          <div className="flex items-center max-[767px]:w-full">
-            <div className="reveal-item flex max-w-[620px] flex-col items-start gap-5 max-[767px]:gap-4">
-              <div className="flex w-full flex-col gap-4">
-                <img
-                  src={bioLogoWhite}
-                  alt={bio.label}
-                  className="h-7 w-auto max-w-[9.5rem] object-contain object-left max-[479px]:h-[1.625rem]"
-                />
-                <h3 className="heading-split max-w-xl text-white">{bio.focus}</h3>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <p className="m-0 max-w-xl text-base font-normal leading-normal text-white/72">{bio.description}</p>
-                <SlideCta href={bio.href} label={bio.ctaLabel} />
-              </div>
-            </div>
+        <div
+          className="grid gap-10 border-t border-dashed border-white/22 pt-10 max-[767px]:gap-12 lg:grid-cols-2 lg:gap-0"
+          data-reveal-group
+        >
+          <div className="lg:pr-10 xl:pr-14">
+            <ParkColumn park={bio} logoSrc={bioLogoWhite} imageSrc={ecosystemBioImage} />
           </div>
 
-          <div className="flex items-center justify-end max-[767px]:w-full">
-            <div className="reveal-item relative w-full overflow-hidden rounded-none bg-primary" data-reveal="scale">
-              <ParallaxImage
-                src={ecosystemBioImage}
-                alt=""
-                className="h-[420px] w-full max-[991px]:h-[360px] max-[767px]:h-[300px] max-[479px]:h-[220px]"
-                loading="lazy"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]" />
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-16 grid items-center gap-6 max-[991px]:mt-14 max-[767px]:mt-12 max-[767px]:gap-8 lg:grid-cols-2" data-reveal-group>
-          <div className="flex items-center justify-start max-[767px]:order-2 max-[767px]:w-full lg:order-none">
-            <div className="reveal-item relative w-full overflow-hidden rounded-none bg-primary" data-reveal="scale">
-              <ParallaxImage
-                src={ecosystemTechImage}
-                alt=""
-                className="h-[420px] w-full max-[991px]:h-[360px] max-[767px]:h-[300px] max-[479px]:h-[220px]"
-                loading="lazy"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_2%,transparent),color-mix(in_srgb,var(--color-primary)_30%,transparent))]" />
-            </div>
-          </div>
-
-          <div className="flex items-center justify-end max-[767px]:order-1 max-[767px]:w-full lg:order-none">
-            <div className="reveal-item flex max-w-[620px] flex-col items-start gap-5 max-[767px]:gap-4">
-              <div className="flex w-full flex-col gap-4">
-                <div className="flex flex-wrap items-center gap-3">
-                  <img
-                    src={techLogoWhite}
-                    alt={tech.label}
-                    className="h-7 w-auto max-w-[9.5rem] object-contain object-left max-[479px]:h-[1.625rem]"
-                  />
-                  {showTechAvailability ? <span className="availability-badge">Prieinama dabar</span> : null}
-                </div>
-                <h3 className="heading-split max-w-xl text-white">{tech.focus}</h3>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <p className="m-0 max-w-xl text-base font-normal leading-normal text-white/72">{tech.description}</p>
-                <SlideCta href={tech.href} label={tech.ctaLabel} />
-              </div>
-            </div>
+          <div className="border-dashed border-white/22 max-[767px]:border-t max-[767px]:pt-12 lg:border-l lg:pl-10 xl:pl-14">
+            <ParkColumn
+              park={tech}
+              logoSrc={techLogoWhite}
+              imageSrc={ecosystemTechImage}
+              badge={showTechAvailability ? "Prieinama dabar" : undefined}
+            />
           </div>
         </div>
       </div>
