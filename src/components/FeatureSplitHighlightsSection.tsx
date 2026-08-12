@@ -65,7 +65,7 @@ export function FeatureSplitHighlightsSection({
               </h2>
             </div>
 
-            <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-muted max-[479px]:text-base">
+            <p className="reveal-item m-0 max-w-xl justify-self-end whitespace-pre-line text-base font-normal leading-loose text-muted max-[479px]:text-base">
               {intro}
             </p>
           </div>

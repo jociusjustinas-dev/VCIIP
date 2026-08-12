@@ -1,18 +1,17 @@
+import ecosystemBioImage from "../assets/images/ecosystem-bio.jpeg";
+import { bioHero } from "../content/bio";
 import { HubSplitHero } from "./HubSplitHero";
-
-const ecosystemHeroVideoSrc =
-  "https://cdn.prod.website-files.com/671f57636f0070068c1dc89c%2F6721479b87a477f27f4f5107_Tubes-transcode.mp4";
 
 export function EcosystemHero() {
   return (
     <HubSplitHero
       id="apie"
-      eyebrow="VCIIP BIO"
-      title="Gyvybės mokslų ekosistema Vilniuje."
-      description="VCIIP BIO teritorijoje jau šiandien veikia gyvybės mokslų, tyrimų ir inovacijų organizacijos, formuojančios vieną stipriausių ekosistemų regione."
-      primaryCta={{ label: "Tyrinėti ekosistemą", href: "#lokacija" }}
-      secondaryCta={{ label: "Susisiekti", href: "/kontaktai?interest=bio" }}
-      media={{ type: "video", src: ecosystemHeroVideoSrc }}
+      eyebrow={bioHero.eyebrow}
+      title={bioHero.title}
+      description={bioHero.description}
+      primaryCta={bioHero.primaryCta}
+      secondaryCta={bioHero.secondaryCta}
+      media={{ type: "image", src: ecosystemBioImage, alt: "VCIIP Bio teritorija" }}
     />
   );
 }
