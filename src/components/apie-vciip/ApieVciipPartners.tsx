@@ -1,8 +1,13 @@
 import { vciipPartners } from "../../content/partners";
+import { apieVciipPartners } from "../../content/apieVciip";
 import { PartnersSection } from "../PartnersSection";
 
 export function ApieVciipPartners() {
-  const { eyebrow, title, partners } = vciipPartners;
-
-  return <PartnersSection eyebrow={eyebrow} title={title} partners={partners} />;
+  return (
+    <PartnersSection
+      eyebrow={apieVciipPartners.eyebrow}
+      title={apieVciipPartners.title}
+      partners={vciipPartners.partners}
+    />
+  );
 }

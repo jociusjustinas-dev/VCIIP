@@ -10,7 +10,6 @@ export function ApieVciipHero() {
       title={apieVciipHero.title}
       description={apieVciipHero.description}
       primaryCta={apieVciipHero.primaryCta}
-      secondaryCta={apieVciipHero.secondaryCta}
       media={{ type: "image", src: vciipOverviewImage, alt: "VCIIP teritorija" }}
     />
   );

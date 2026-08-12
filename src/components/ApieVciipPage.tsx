@@ -1,23 +1,24 @@
 import {
-  apieVciipProcess,
+  apieVciipAdvantages,
+  apieVciipDocuments,
   apieVciipStats,
 } from "../content/apieVciip";
+import { parkPairCta } from "../content/klientai";
+import { AdvantagesSection } from "./AdvantagesSection";
 import { ApieVciipHero } from "./apie-vciip/ApieVciipHero";
 import { ApieVciipOperator } from "./apie-vciip/ApieVciipOperator";
 import { ApieVciipPartners } from "./apie-vciip/ApieVciipPartners";
 import { ApieVciipTimeline } from "./apie-vciip/ApieVciipTimeline";
-import { EcosystemSplit } from "./EcosystemSplit";
-import { KodelVilniusCta } from "./kodel-vilnius/KodelVilniusCta";
+import { ApieVciipVision } from "./apie-vciip/ApieVciipVision";
+import { DocumentsListSection } from "./DocumentsListSection";
+import { ParkPairCards } from "./ParkPairCards";
 import { ProofStats } from "./ProofStats";
-import { SettleProcess } from "./SettleProcess";
 
 export function ApieVciipPage() {
   return (
     <main className="bg-white">
       <ApieVciipHero />
-      <div className="bg-white pt-16 max-[991px]:pt-12 max-[479px]:pt-10" aria-hidden="true" />
-      <EcosystemSplit />
-      <ApieVciipTimeline />
+
       <ProofStats
         showTopDivider={false}
         sectionId={false}
@@ -25,18 +26,29 @@ export function ApieVciipPage() {
         title={apieVciipStats.title}
         stats={apieVciipStats.items}
       />
-      <SettleProcess
-        id={apieVciipProcess.id}
-        eyebrow={apieVciipProcess.eyebrow}
-        title={apieVciipProcess.title}
-        intro={apieVciipProcess.intro}
-        steps={apieVciipProcess.steps}
-        cta={apieVciipProcess.cta}
-        tone="light"
+
+      <AdvantagesSection
+        id="privalumai"
+        eyebrow={apieVciipAdvantages.eyebrow}
+        title={apieVciipAdvantages.title}
+        items={apieVciipAdvantages.items}
       />
+
+      <ApieVciipVision />
       <ApieVciipPartners />
+      <ApieVciipTimeline />
+
+      <DocumentsListSection title={apieVciipDocuments.title} items={apieVciipDocuments.items} />
+
       <ApieVciipOperator />
-      <KodelVilniusCta />
+
+      <ParkPairCards
+        title={parkPairCta.title}
+        description={parkPairCta.description}
+        primaryCta={parkPairCta.primaryCta}
+        bio={parkPairCta.bio}
+        tech={parkPairCta.tech}
+      />
     </main>
   );
 }

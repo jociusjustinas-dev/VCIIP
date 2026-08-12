@@ -20,17 +20,6 @@ export function ApieVciipOperator() {
               <p className="m-0 text-base leading-loose text-muted">{apieVciipOperator.description}</p>
             </div>
 
-            <ul className="m-0 max-w-xl list-none p-0">
-              {apieVciipOperator.highlights.map((item) => (
-                <li
-                  key={item}
-                  className="border-t border-dashed border-primary/22 py-4 text-base leading-loose text-primary"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-
             <a
               href={apieVciipOperator.cta.href}
               target="_blank"
