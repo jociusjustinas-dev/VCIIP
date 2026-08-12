@@ -45,6 +45,7 @@ export function EcosystemPage() {
         primaryCta={bioTerritory.primaryCta}
         secondaryCta={bioTerritory.secondaryCta}
         imageSrc={bioTerritory.imageSrc}
+        wideMedia
       />
 
       <PremisesCardsSection

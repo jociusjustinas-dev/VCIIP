@@ -20,6 +20,8 @@ type FeatureSplitHighlightsSectionProps = {
   primaryCta: CtaLink;
   secondaryCta: CtaLink;
   imageSrc: string;
+  /** Wider media column for map / territory visuals */
+  wideMedia?: boolean;
 };
 
 export function FeatureSplitHighlightsSection({
@@ -34,6 +36,7 @@ export function FeatureSplitHighlightsSection({
   primaryCta,
   secondaryCta,
   imageSrc,
+  wideMedia = false,
 }: FeatureSplitHighlightsSectionProps) {
   const [primaryHovered, setPrimaryHovered] = useState(false);
 
@@ -71,7 +74,11 @@ export function FeatureSplitHighlightsSection({
           </div>
 
           <div
-            className="grid items-stretch gap-8 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,0.78fr)] xl:gap-16"
+            className={`grid items-stretch gap-8 ${
+              wideMedia
+                ? "lg:grid-cols-[minmax(0,0.38fr)_minmax(0,1.2fr)] lg:gap-12 xl:gap-14"
+                : "xl:grid-cols-[minmax(0,0.92fr)_minmax(0,0.78fr)] xl:gap-16"
+            }`}
             data-reveal-group
           >
             <div className="reveal-item flex flex-col justify-between gap-10">
@@ -128,7 +135,11 @@ export function FeatureSplitHighlightsSection({
             </div>
 
             <div
-              className="reveal-item relative min-h-[420px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[360px] max-[767px]:min-h-[320px] max-[479px]:min-h-[260px]"
+              className={`reveal-item relative overflow-hidden rounded-none bg-primary ${
+                wideMedia
+                  ? "min-h-[28rem] max-[991px]:min-h-[22rem] max-[767px]:min-h-[18rem] max-[479px]:min-h-[14rem] lg:min-h-[34rem]"
+                  : "min-h-[420px] max-[991px]:min-h-[360px] max-[767px]:min-h-[320px] max-[479px]:min-h-[260px]"
+              }`}
               data-reveal="scale"
             >
               <ParallaxImage
@@ -137,7 +148,13 @@ export function FeatureSplitHighlightsSection({
                 className="absolute inset-0 h-full w-full"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]" />
+              <div
+                className={`absolute inset-0 ${
+                  wideMedia
+                    ? "bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_2%,transparent),color-mix(in_srgb,var(--color-primary)_18%,transparent))]"
+                    : "bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]"
+                }`}
+              />
             </div>
           </div>
         </div>
