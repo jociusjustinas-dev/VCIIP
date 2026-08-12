@@ -62,8 +62,11 @@ export const isikurimasContent = {
       { label: "Klasterizacijos vystymo projektas" },
       { label: "Technologinių ir (arba) viešųjų paslaugų vystymo pasiūlymas" },
     ],
-    note: "Investuotojams yra taikomi investuotojų atrankos kriterijai.",
     cta: {
+      eyebrow: "Dokumentai",
+      title: "Investuotojams taikomi atrankos kriterijai",
+      description:
+        "Susipažinkite su pilnais investuotojų atrankos kriterijais ir įvertinkite, ar jūsų veikla atitinka VCIIP reikalavimus.",
       label: "Sužinoti daugiau",
       href: isikurimasDocuments.criteria.href,
     },

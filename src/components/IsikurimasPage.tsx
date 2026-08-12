@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 
 import { isikurimasContent } from "../content/isikurimas";
+import { ApplicationCtaSection } from "./ApplicationCtaSection";
 import { DocumentsListSection } from "./DocumentsListSection";
 import { HubSplitHero } from "./HubSplitHero";
 import { InvestorInquiry } from "./InvestorInquiry";
@@ -76,29 +77,15 @@ export function IsikurimasPage() {
               <CriteriaList title={criteria.projectsTitle} items={criteria.projects} />
             </div>
           </div>
-
-          <div className="reveal-item mt-12 flex flex-col gap-6 border-t border-dashed border-primary/18 pt-10 sm:flex-row sm:items-center sm:justify-between">
-            <p className="m-0 max-w-xl text-base leading-loose text-muted">{criteria.note}</p>
-            <a
-              href={criteria.cta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex min-h-12 w-fit shrink-0 items-center justify-center overflow-hidden rounded-none bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
-            >
-              <span className="h-5 overflow-hidden py-px">
-                <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
-                  {[criteria.cta.label, criteria.cta.label].map((label, index) => (
-                    <span key={index} className="flex h-5 items-center gap-2">
-                      {label}
-                      <ArrowUpRight size={16} aria-hidden="true" />
-                    </span>
-                  ))}
-                </span>
-              </span>
-            </a>
-          </div>
         </div>
       </section>
+
+      <ApplicationCtaSection
+        eyebrow={criteria.cta.eyebrow}
+        title={criteria.cta.title}
+        description={criteria.cta.description}
+        cta={{ label: criteria.cta.label, href: criteria.cta.href }}
+      />
 
       <SettleProcess
         id={process.id}
