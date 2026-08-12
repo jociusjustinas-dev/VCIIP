@@ -1,38 +1,8 @@
-import { apieVciipPartners } from "../../content/apieVciip";
+import { vciipPartners } from "../../content/partners";
+import { PartnersSection } from "../PartnersSection";
 
 export function ApieVciipPartners() {
-  return (
-    <section className="relative bg-white section-shell">
-      <div className="site-container">
-        <div className="section-intro max-[479px]:mb-8" data-reveal-group>
-          <div className="section-eyebrow-rule" />
-          <p className="eyebrow reveal-item">{apieVciipPartners.eyebrow}</p>
-          <h2 className="section-heading reveal-item max-w-3xl">{apieVciipPartners.title}</h2>
-        </div>
+  const { eyebrow, title, partners } = vciipPartners;
 
-        <div className="vilnius-partners-grid">
-          {apieVciipPartners.partners.map((partner) => (
-            <a
-              key={partner.label}
-              href={partner.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="vilnius-partners-grid__item"
-              aria-label={partner.label}
-            >
-              <span className="vilnius-partners-grid__logo-wrap">
-                <img
-                  src={partner.logo}
-                  alt={partner.logoAlt}
-                  className="vilnius-partners-grid__logo"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <PartnersSection eyebrow={eyebrow} title={title} partners={partners} />;
 }
