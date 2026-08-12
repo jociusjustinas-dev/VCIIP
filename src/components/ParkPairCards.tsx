@@ -56,27 +56,18 @@ function ParkColumn({
   badge?: string;
 }) {
   return (
-    <article className="reveal-item flex h-full flex-col">
-      <div className="group/image relative overflow-hidden bg-primary" data-reveal="scale">
-        <ParallaxImage
-          src={imageSrc}
-          alt=""
-          className="h-[320px] w-full transition-transform duration-500 ease-out group-hover/image:scale-[1.03] max-[991px]:h-[280px] max-[767px]:h-[240px] max-[479px]:h-[200px]"
-          loading="lazy"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_6%,transparent),color-mix(in_srgb,var(--color-primary)_42%,transparent))] transition-opacity duration-300 group-hover/image:opacity-0" />
+    <article className="reveal-item group/image relative overflow-hidden bg-primary" data-reveal="scale">
+      <ParallaxImage
+        src={imageSrc}
+        alt=""
+        className="h-[420px] w-full transition-transform duration-500 ease-out group-hover/image:scale-[1.03] max-[991px]:h-[360px] max-[767px]:h-[320px] max-[479px]:h-[280px]"
+        loading="lazy"
+      />
 
-        <div className="absolute inset-0 flex flex-col justify-end bg-primary/72 p-6 opacity-0 transition-all duration-300 group-hover/image:opacity-100 max-[767px]:bg-primary/58 max-[767px]:opacity-100">
-          <p className="m-0 translate-y-2 text-base font-normal leading-normal text-white/88 transition-transform duration-300 group-hover/image:translate-y-0 max-[767px]:translate-y-0">
-            {park.description}
-          </p>
-          <div className="mt-5 translate-y-2 opacity-0 transition-all duration-300 group-hover/image:translate-y-0 group-hover/image:opacity-100 max-[767px]:mt-4 max-[767px]:translate-y-0 max-[767px]:opacity-100">
-            <SlideCta href={park.href} label={park.ctaLabel} />
-          </div>
-        </div>
-      </div>
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_18%,transparent)_0%,color-mix(in_srgb,var(--color-primary)_52%,transparent)_48%,color-mix(in_srgb,var(--color-primary)_88%,transparent)_100%)] transition-opacity duration-300 group-hover/image:opacity-100" />
+      <div className="pointer-events-none absolute inset-0 bg-primary/55 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100 max-[767px]:opacity-0" />
 
-      <div className="flex flex-1 flex-col gap-5 border-t border-dashed border-white/22 pt-7 max-[479px]:gap-4 max-[479px]:pt-6">
+      <div className="absolute inset-0 flex flex-col justify-end p-6 max-[479px]:p-5 lg:p-8">
         <div className="flex flex-wrap items-center gap-3">
           <img
             src={logoSrc}
@@ -86,7 +77,14 @@ function ParkColumn({
           {badge ? <span className="availability-badge">{badge}</span> : null}
         </div>
 
-        <h3 className="heading-split m-0 max-w-md text-white">{park.focus}</h3>
+        <h3 className="heading-split m-0 mt-5 max-w-md text-white max-[479px]:mt-4">{park.focus}</h3>
+
+        <div className="mt-4 max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover/image:max-h-48 group-hover/image:opacity-100 max-[767px]:mt-4 max-[767px]:max-h-none max-[767px]:opacity-100">
+          <p className="m-0 text-base font-normal leading-normal text-white/88">{park.description}</p>
+          <div className="mt-5 max-[767px]:mt-4">
+            <SlideCta href={park.href} label={park.ctaLabel} />
+          </div>
+        </div>
       </div>
     </article>
   );
