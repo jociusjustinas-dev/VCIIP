@@ -10,12 +10,22 @@ export const kontaktaiContent = {
     phone: "+370 5 274 5407",
     email: "info@northtownvilnius.lt",
   },
+  primaryContact: {
+    name: "Gediminas Pauliukevičius",
+    role: "VšĮ Northtown Vilnius direktorius",
+    email: "gediminas.pauliukevicius@northtownvilnius.lt",
+    emailDisplay: "gediminas.pauliukevičius@northtownvilnius.lt",
+    phone: "+370 600 0000",
+    phoneHref: "+3706000000",
+  },
   people: [
     {
-      name: "Dr. Gediminas Pauliukevičius",
-      role: "Direktorius",
+      name: "Gediminas Pauliukevičius",
+      role: "VšĮ Northtown Vilnius direktorius",
       email: "gediminas.pauliukevicius@northtownvilnius.lt",
-      phone: "+370 5 274 5407",
+      emailDisplay: "gediminas.pauliukevičius@northtownvilnius.lt",
+      phone: "+370 600 0000",
+      phoneHref: "+3706000000",
     },
     {
       name: "Jolanta Gaidulionė",

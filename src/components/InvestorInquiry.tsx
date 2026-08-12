@@ -63,49 +63,6 @@ export function InvestorInquiry({
             >
               {description}
             </p>
-
-            <div
-              className={`grid gap-6 border-t border-dashed pt-7 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 xl:gap-8 ${
-                isLight ? "border-primary/16" : "border-white/24"
-              }`}
-            >
-              <div className="flex flex-col gap-3">
-                <h3 className={`heading-h3 m-0 ${isLight ? "text-primary" : "text-white"}`}>
-                  Turite klausimų?
-                </h3>
-                <p className={`m-0 text-base font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/62"}`}>
-                  Susisiekite tiesiogiai su VCIIP operatoriumi.
-                </p>
-              </div>
-              <div
-                className={`flex flex-col gap-2 border-l border-dashed pl-8 max-[479px]:border-l-0 max-[479px]:pl-0 sm:pl-8 xl:pl-10 ${
-                  isLight ? "border-primary/14" : "border-white/18"
-                }`}
-              >
-                <h3 className={`heading-h3 m-0 ${isLight ? "text-primary" : "text-white"}`}>
-                  Direktoriaus vardas pavardė
-                </h3>
-                <p className={`m-0 text-sm font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/52"}`}>
-                  Direktorius
-                </p>
-                <a
-                  className={`text-base font-medium leading-[150%] hover:text-accent ${
-                    isLight ? "text-primary/72" : "text-white/72"
-                  }`}
-                  href="mailto:el.paštas@vciip.lt"
-                >
-                  el. paštas@vciip.lt
-                </a>
-                <a
-                  className={`text-base font-medium leading-[150%] hover:text-accent ${
-                    isLight ? "text-primary/72" : "text-white/72"
-                  }`}
-                  href="tel:+370XXXXXXXX"
-                >
-                  +370 XXX XXXXX
-                </a>
-              </div>
-            </div>
           </div>
 
         <div

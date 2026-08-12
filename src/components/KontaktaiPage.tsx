@@ -27,9 +27,12 @@ export function KontaktaiPage() {
                 <p className="m-0 text-base font-semibold text-primary">{person.name}</p>
                 <p className="m-0 mt-1 text-sm text-muted">{person.role}</p>
                 <a className="mt-3 block text-sm font-semibold text-primary hover:text-accent" href={`mailto:${person.email}`}>
-                  {person.email}
+                  {"emailDisplay" in person && person.emailDisplay ? person.emailDisplay : person.email}
                 </a>
-                <a className="mt-1 block text-sm text-muted hover:text-accent" href={`tel:${person.phone.replace(/\s/g, "")}`}>
+                <a
+                  className="mt-1 block text-sm text-muted hover:text-accent"
+                  href={`tel:${("phoneHref" in person && person.phoneHref ? person.phoneHref : person.phone).replace(/\s/g, "")}`}
+                >
                   {person.phone}
                 </a>
               </article>

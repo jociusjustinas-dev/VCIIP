@@ -44,7 +44,7 @@ export function HomePage() {
         tone="light"
         eyebrow="Kontaktai"
         title={cta.contactTitle}
-        description="Susisiekite tiesiogiai su VCIIP operatoriumi. Gediminas Pauliukevičius, VšĮ Northtown Vilnius direktorius."
+        description={cta.applicationDescription}
       />
     </main>
   );

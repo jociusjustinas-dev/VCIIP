@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import bioLogo from "../assets/logos/bio.svg";
+import { kontaktaiContent } from "../content/kontaktai";
 import { FacebookIcon, LinkedinIcon } from "./FooterSocialIcons";
 import vciipLogo from "../assets/logos/logo-dark.svg";
 import vciipLogoTeal from "../assets/logos/logo-teal-dark.svg";
@@ -52,6 +53,7 @@ export function Footer({
     tealLogo && variant === "vciip"
       ? { src: vciipLogoTeal, alt: "VCIIP" }
       : brandLogos[variant];
+  const { operator, primaryContact } = kontaktaiContent;
 
   return (
     <footer className="relative border-t border-dashed border-primary/12 bg-white">
@@ -81,35 +83,26 @@ export function Footer({
             </FooterColumn>
 
             <FooterColumn title="Kontaktai">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-1.5">
-                  <p className="m-0 text-sm font-medium leading-[1.5] text-primary">
-                    VšĮ „Northtown Vilnius“
-                  </p>
-                  <p className="m-0 text-sm font-medium leading-[1.5] text-muted">
-                    [Adresas]
-                  </p>
-                  <a className="text-sm font-medium leading-[1.5] text-primary/68 hover:text-primary" href="mailto:info@vciip.lt">
-                    info@vciip.lt
-                  </a>
-                  <a className="text-sm font-medium leading-[1.5] text-primary/68 hover:text-primary" href="tel:+370XXXXXXXX">
-                    +370 XXX XXXXX
-                  </a>
-                </div>
-
-                <div className="h-0 w-full border-b border-dashed border-primary/12" />
-
-                <div className="flex flex-col gap-1.5">
-                  <p className="m-0 text-sm font-medium leading-[1.5] text-primary">
-                    [Vardas Pavardė]
-                  </p>
-                  <p className="m-0 text-xs font-medium leading-[1.5] text-muted">
-                    Direktorius
-                  </p>
-                  <a className="text-sm font-medium leading-[1.5] text-primary/68 hover:text-primary" href="mailto:vardas@vciip.lt">
-                    vardas@vciip.lt
-                  </a>
-                </div>
+              <div className="flex flex-col gap-1.5">
+                <p className="m-0 text-sm font-medium leading-[1.5] text-primary">
+                  {operator.organization}
+                </p>
+                <p className="m-0 text-sm font-medium leading-[1.5] text-muted">{operator.address}</p>
+                <p className="m-0 pt-2 text-sm font-medium leading-[1.5] text-primary">
+                  {primaryContact.name}, {primaryContact.role}
+                </p>
+                <a
+                  className="text-sm font-medium leading-[1.5] text-primary/68 hover:text-primary"
+                  href={`mailto:${primaryContact.email}`}
+                >
+                  {primaryContact.emailDisplay}
+                </a>
+                <a
+                  className="text-sm font-medium leading-[1.5] text-primary/68 hover:text-primary"
+                  href={`tel:${primaryContact.phoneHref}`}
+                >
+                  {primaryContact.phone}
+                </a>
               </div>
             </FooterColumn>
 
