@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { X } from "lucide-react";
 
 import {
   clientDisplayName,
+  clientLogoScale,
   klientaiAll,
   parseClientDescription,
   type ClientEntry,
@@ -86,7 +87,10 @@ export function ClientsLogoCarousel({
               className="vilnius-partners-grid__item"
               aria-label={`Plačiau apie ${clientDisplayName(item)}`}
             >
-              <span className="vilnius-partners-grid__logo-wrap">
+              <span
+                className="vilnius-partners-grid__logo-wrap"
+                style={{ "--logo-scale": clientLogoScale(item.id) } as CSSProperties}
+              >
                 {item.logo ? (
                   <img
                     src={item.logo}
