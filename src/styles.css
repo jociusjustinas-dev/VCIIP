@@ -1666,6 +1666,7 @@
     cursor: pointer;
     font: inherit;
     color: inherit;
+    scroll-snap-align: start;
     transition:
       background-color 180ms ease,
       border-color 180ms ease;
@@ -1674,6 +1675,41 @@
   .testimonial-card:hover {
     border-color: color-mix(in srgb, var(--color-primary) 28%, transparent);
     background: var(--color-accent-wash);
+  }
+
+  .testimonials-carousel__track {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+    touch-action: pan-y;
+    padding-inline: max(1rem, calc((100% - min(100% - 2rem, 1800px)) / 2 + var(--page-gutter)));
+    padding-bottom: 0.25rem;
+  }
+
+  .testimonials-carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonials-carousel__track.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+    user-select: none;
+  }
+
+  .testimonials-carousel__track.is-dragging .testimonial-card {
+    pointer-events: none;
+  }
+
+  @media (max-width: 479px) {
+    .testimonials-carousel__track {
+      gap: 0.75rem;
+    }
   }
 
   .form-field {
