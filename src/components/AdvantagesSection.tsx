@@ -40,7 +40,7 @@ export function AdvantagesSection({
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id={id} className="relative section-shell bg-background">
+    <section id={id} className="relative section-shell bg-white">
       <div className="site-container">
         <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-20">
           <div className="flex min-w-0 flex-col justify-between gap-10">
@@ -60,7 +60,7 @@ export function AdvantagesSection({
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="group flex w-full items-center gap-5 py-5 text-left outline-none transition-colors hover:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background max-[479px]:gap-4"
+                      className="group flex w-full items-center gap-5 py-5 text-left outline-none transition-colors hover:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:gap-4"
                     >
                       <span
                         className={`flex size-10 shrink-0 items-center justify-center transition-colors duration-300 ${
