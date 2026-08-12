@@ -7,8 +7,8 @@ export function HomeAboutSection() {
 
   return (
     <section id="apie" className="section-shell bg-white">
-      <div className="site-container grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end" data-reveal-group>
-        <div>
+      <div className="site-container">
+        <div data-reveal-group>
           <p className="eyebrow reveal-item">Apie VCIIP</p>
           <h2 className="section-heading reveal-item mt-4 max-w-3xl">{about.title}</h2>
           <p className="reveal-item body-lead m-0 mt-5 max-w-3xl whitespace-pre-line text-muted">{about.description}</p>
@@ -21,11 +21,17 @@ export function HomeAboutSection() {
           </a>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+        <div
+          className="mt-10 grid border-t border-dashed border-primary/48 sm:grid-cols-2 lg:grid-cols-4"
+          data-reveal-group
+        >
           {about.stats.map((stat) => (
-            <div key={stat.label} className="reveal-item border-t border-dashed border-primary/22 pt-4">
-              <p className="stat-value-banner m-0">{stat.value}</p>
-              <p className="m-0 mt-2 text-base leading-loose text-primary/78">{stat.label}</p>
+            <div
+              key={stat.label}
+              className="reveal-item flex flex-col gap-3 border-dashed border-primary/48 px-0 py-6 max-sm:[&:not(:first-child)]:border-t sm:px-5 sm:[&:nth-child(even)]:border-l sm:[&:nth-child(n+3)]:border-t lg:[&:not(:first-child)]:border-l lg:[&:nth-child(n+3)]:border-t-0 lg:px-6"
+            >
+              <div className="stat-value-banner">{stat.value}</div>
+              <div className="text-base leading-loose text-primary/78">{stat.label}</div>
             </div>
           ))}
         </div>
