@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
+import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 import { homeContent } from "../content/home";
-
-const heroImage =
-  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80";
 
 export function HomeHero() {
   const { hero } = homeContent;
@@ -16,9 +14,14 @@ export function HomeHero() {
         data-nav-theme="dark"
         className="relative z-[1] flex min-h-[100svh] flex-col overflow-hidden pb-14 pt-32 max-[991px]:pb-12 max-[479px]:pt-28"
       >
-        <img src={heroImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,color-mix(in_srgb,var(--color-primary)_72%,transparent)_0%,color-mix(in_srgb,var(--color-primary)_42%,transparent)_42%,transparent_100%)]" />
-        <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,transparent_40%,color-mix(in_srgb,var(--color-primary)_55%,transparent)_100%)]" />
+        <img
+          src={vciipOverviewImage}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,color-mix(in_srgb,var(--color-primary)_68%,transparent)_0%,color-mix(in_srgb,var(--color-primary)_38%,transparent)_34%,color-mix(in_srgb,var(--color-primary)_8%,transparent)_68%,transparent_100%)]" />
+        <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,transparent_38%,color-mix(in_srgb,var(--color-primary)_58%,transparent)_100%)]" />
+        <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_44%,color-mix(in_srgb,var(--color-primary)_24%,transparent)_100%)]" />
 
         <div className="site-container relative z-[2] flex flex-1 items-end">
           <div className="flex max-w-4xl flex-col items-start gap-6" data-reveal-group>
