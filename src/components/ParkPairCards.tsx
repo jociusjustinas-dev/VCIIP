@@ -56,16 +56,16 @@ function ParkColumn({
   badge?: string;
 }) {
   return (
-    <article className="reveal-item group/image relative overflow-hidden bg-primary" data-reveal="scale">
+    <article className="park-pair-card reveal-item group/image relative overflow-hidden bg-primary" data-reveal="scale">
       <ParallaxImage
         src={imageSrc}
         alt=""
-        className="h-[420px] w-full transition-transform duration-500 ease-out group-hover/image:scale-[1.03] max-[991px]:h-[360px] max-[767px]:h-[320px] max-[479px]:h-[280px]"
+        className="park-pair-card__image h-[420px] w-full max-[991px]:h-[360px] max-[767px]:h-[320px] max-[479px]:h-[280px]"
         loading="lazy"
       />
 
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_18%,transparent)_0%,color-mix(in_srgb,var(--color-primary)_52%,transparent)_48%,color-mix(in_srgb,var(--color-primary)_88%,transparent)_100%)] transition-opacity duration-300 group-hover/image:opacity-100" />
-      <div className="pointer-events-none absolute inset-0 bg-primary/55 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100 max-[767px]:opacity-0" />
+      <div className="park-pair-card__overlay park-pair-card__overlay--gradient pointer-events-none absolute inset-0" />
+      <div className="park-pair-card__overlay park-pair-card__overlay--tint pointer-events-none absolute inset-0 max-[767px]:opacity-0" />
 
       <div className="absolute inset-0 flex flex-col justify-end p-6 max-[479px]:p-5 lg:p-8">
         <div className="flex flex-wrap items-center gap-3">
@@ -79,10 +79,12 @@ function ParkColumn({
 
         <h3 className="heading-split m-0 mt-5 max-w-md text-white max-[479px]:mt-4">{park.focus}</h3>
 
-        <div className="mt-4 max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover/image:max-h-48 group-hover/image:opacity-100 max-[767px]:mt-4 max-[767px]:max-h-none max-[767px]:opacity-100">
-          <p className="m-0 text-base font-normal leading-normal text-white/88">{park.description}</p>
-          <div className="mt-5 max-[767px]:mt-4">
-            <SlideCta href={park.href} label={park.ctaLabel} />
+        <div className="park-pair-card__reveal mt-4 max-[767px]:mt-4">
+          <div className="park-pair-card__reveal-inner">
+            <p className="m-0 text-base font-normal leading-normal text-white/88">{park.description}</p>
+            <div className="mt-5 max-[767px]:mt-4">
+              <SlideCta href={park.href} label={park.ctaLabel} />
+            </div>
           </div>
         </div>
       </div>
