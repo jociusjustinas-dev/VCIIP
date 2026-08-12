@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from "react";
 import {
+  ArrowUpRight,
   Building2,
   GraduationCap,
   MapPinned,
@@ -80,12 +81,22 @@ export function AdvantagesSection({
 
                     <div
                       className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                        isOpen ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
+                        isOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
                       }`}
                     >
-                      <p className="m-0 max-w-2xl pb-6 pl-[3.75rem] text-base leading-loose text-muted max-[479px]:pl-0">
-                        {item.body}
-                      </p>
+                      <div className="max-w-2xl pb-6 pl-[3.75rem] max-[479px]:pl-0">
+                        <p className="m-0 text-base leading-loose text-muted">{item.body}</p>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            className="mt-4 inline-flex items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
+                            onClick={(event) => event.stopPropagation()}
+                          >
+                            Skaityti daugiau
+                            <ArrowUpRight size={16} aria-hidden="true" />
+                          </a>
+                        ) : null}
+                      </div>
                     </div>
                   </article>
                 );
