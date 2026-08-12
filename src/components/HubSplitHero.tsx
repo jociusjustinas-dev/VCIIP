@@ -14,7 +14,7 @@ type HubSplitHeroProps = {
   eyebrow: string;
   title: ReactNode;
   description: string;
-  primaryCta: CtaLink;
+  primaryCta?: CtaLink;
   secondaryCta?: CtaLink;
   showEyebrowRule?: boolean;
   media:
@@ -51,40 +51,44 @@ export function HubSplitHero({
               {description}
             </p>
 
-            <div className="reveal-item flex flex-wrap gap-3 max-[479px]:flex-col">
-              <a
-                href={withBase(primaryCta.href)}
-                className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
-                onMouseEnter={() => setPrimaryHovered(true)}
-                onMouseLeave={() => setPrimaryHovered(false)}
-                {...(primaryCta.href.startsWith("http")
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-              >
-                <span className="h-5 overflow-hidden py-px">
-                  <span
-                    className="flex flex-col transition-transform duration-200 ease-out"
-                    style={{ transform: primaryHovered ? "translateY(-50%)" : "translateY(0%)" }}
+            {primaryCta || secondaryCta ? (
+              <div className="reveal-item flex flex-wrap gap-3 max-[479px]:flex-col">
+                {primaryCta ? (
+                  <a
+                    href={withBase(primaryCta.href)}
+                    className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
+                    onMouseEnter={() => setPrimaryHovered(true)}
+                    onMouseLeave={() => setPrimaryHovered(false)}
+                    {...(primaryCta.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                   >
-                    {[primaryCta.label, primaryCta.label].map((label, index) => (
-                      <span key={index} className="flex h-5 items-center gap-2">
-                        {label}
-                        <ArrowUpRight size={16} aria-hidden="true" />
+                    <span className="h-5 overflow-hidden py-px">
+                      <span
+                        className="flex flex-col transition-transform duration-200 ease-out"
+                        style={{ transform: primaryHovered ? "translateY(-50%)" : "translateY(0%)" }}
+                      >
+                        {[primaryCta.label, primaryCta.label].map((label, index) => (
+                          <span key={index} className="flex h-5 items-center gap-2">
+                            {label}
+                            <ArrowUpRight size={16} aria-hidden="true" />
+                          </span>
+                        ))}
                       </span>
-                    ))}
-                  </span>
-                </span>
-              </a>
+                    </span>
+                  </a>
+                ) : null}
 
-              {secondaryCta ? (
-                <a
-                  href={withBase(secondaryCta.href)}
-                  className="inline-flex min-h-12 w-fit items-center justify-center rounded-none border border-primary/18 px-5 py-3 text-base font-semibold leading-none text-primary transition hover:border-accent hover:text-accent"
-                >
-                  {secondaryCta.label}
-                </a>
-              ) : null}
-            </div>
+                {secondaryCta ? (
+                  <a
+                    href={withBase(secondaryCta.href)}
+                    className="inline-flex min-h-12 w-fit items-center justify-center rounded-none border border-primary/18 px-5 py-3 text-base font-semibold leading-none text-primary transition hover:border-accent hover:text-accent"
+                  >
+                    {secondaryCta.label}
+                  </a>
+                ) : null}
+              </div>
+            ) : null}
           </div>
 
           <div className="hub-split-hero__media reveal-item" data-reveal="scale">

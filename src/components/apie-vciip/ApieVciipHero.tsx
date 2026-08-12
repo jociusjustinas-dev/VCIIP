@@ -9,7 +9,6 @@ export function ApieVciipHero() {
       eyebrow={apieVciipHero.eyebrow}
       title={apieVciipHero.title}
       description={apieVciipHero.description}
-      primaryCta={apieVciipHero.primaryCta}
       media={{ type: "image", src: vciipOverviewImage, alt: "VCIIP teritorija" }}
     />
   );
