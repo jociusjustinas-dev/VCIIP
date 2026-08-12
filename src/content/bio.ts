@@ -2,6 +2,7 @@ import ecosystemBioImage from "../assets/images/ecosystem-bio.jpeg";
 import modernOfficeImage from "../assets/images/modern-office-work.png";
 import processLabImage from "../assets/images/process-lab.jpg";
 import processWarmRoomImage from "../assets/images/process-warm-room.png";
+import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 import { kontaktaiContent } from "./kontaktai";
 
 const premisesContact = kontaktaiContent.people[1];
@@ -115,6 +116,8 @@ export const bioInfrastructure = {
   id: "infrastruktura",
   eyebrow: "Infrastruktūra",
   title: "Infrastruktūra ir pajėgumai",
+  imageSrc: vciipOverviewImage,
+  imageAlt: "VCIIP Bio teritorijos infrastruktūra",
   items: [
     "Dujotiekis iki 600 m³/val.",
     "Elektra iki 12 MW",

@@ -67,6 +67,8 @@ export function EcosystemPage() {
         eyebrow={bioInfrastructure.eyebrow}
         title={bioInfrastructure.title}
         items={bioInfrastructure.items}
+        imageSrc={bioInfrastructure.imageSrc}
+        imageAlt={bioInfrastructure.imageAlt}
       />
 
       <ClientsLogoCarousel title={bioClients.title} description={bioClients.description} />
