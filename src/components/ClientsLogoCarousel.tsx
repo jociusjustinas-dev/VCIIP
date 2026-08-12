@@ -1,7 +1,15 @@
-import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 
-import { klientaiCompanies, type ClientEntry } from "../content/klientai";
+import { klientaiAll, type ClientEntry } from "../content/klientai";
+
+function clientGridLabel(item: ClientEntry) {
+  if (item.name !== "<neturi logo>") {
+    return item.name.replace(/^</, "").replace(/>$/, "");
+  }
+
+  return item.categories[0] ?? "Klasteris";
+}
 
 export function ClientsLogoCarousel({
   title,
@@ -10,9 +18,7 @@ export function ClientsLogoCarousel({
   title: string;
   description: string;
 }) {
-  const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<ClientEntry | null>(null);
-  const items = [...klientaiCompanies, ...klientaiCompanies];
 
   useEffect(() => {
     if (!active) return;
@@ -27,56 +33,33 @@ export function ClientsLogoCarousel({
     };
   }, [active]);
 
-  const scrollBy = (direction: -1 | 1) => {
-    trackRef.current?.scrollBy({ left: direction * 280, behavior: "smooth" });
-  };
-
   return (
     <section id="klientai" className="section-shell bg-white">
-      <div className="site-container" data-reveal-group>
-        <p className="eyebrow reveal-item">Klientai</p>
-        <h2 className="section-heading reveal-item mt-4 max-w-3xl">{title}</h2>
-        <p className="reveal-item body-lead m-0 mt-5 max-w-3xl text-muted">{description}</p>
-      </div>
+      <div className="site-container">
+        <div className="section-intro max-[479px]:mb-8" data-reveal-group>
+          <div className="section-eyebrow-rule" />
+          <p className="eyebrow reveal-item">Klientai</p>
+          <h2 className="section-heading reveal-item max-w-3xl">{title}</h2>
+          <p className="reveal-item body-lead m-0 mt-5 max-w-3xl text-muted">{description}</p>
+        </div>
 
-      <div className="reveal-item mt-10 overflow-hidden" data-reveal="fade">
-        <div
-          ref={trackRef}
-          className="flex gap-3 overflow-x-auto px-[max(1rem,calc((100%-min(100%-2rem,1800px))/2+var(--page-gutter)))] pb-2 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {items.map((item, index) => (
+        <div className="reveal-item vilnius-partners-grid" data-reveal="fade">
+          {klientaiAll.map((item, index) => (
             <button
               key={`${item.id}-${index}`}
               type="button"
               onClick={() => setActive(item)}
-              className="flex h-28 w-[220px] shrink-0 items-center justify-center border border-primary/12 bg-background px-5 text-center transition hover:border-primary/28 hover:bg-white"
-              aria-label={`Plačiau apie ${item.name}`}
+              className="vilnius-partners-grid__item cursor-pointer border-0 bg-transparent p-0 text-left"
+              aria-label={`Plačiau apie ${clientGridLabel(item)}`}
             >
-              <span className="font-display text-lg font-bold leading-tight tracking-tight text-primary">
-                {item.name.replace(/^</, "").replace(/>$/, "")}
+              <span className="vilnius-partners-grid__logo-wrap h-auto min-h-[2.75rem] w-full max-w-[12rem] px-2">
+                <span className="text-center font-display text-lg font-bold leading-tight tracking-tight text-primary max-[479px]:text-base">
+                  {clientGridLabel(item)}
+                </span>
               </span>
             </button>
           ))}
         </div>
-      </div>
-
-      <div className="site-container mt-6 flex justify-end gap-3">
-        <button
-          type="button"
-          aria-label="Ankstesni klientai"
-          onClick={() => scrollBy(-1)}
-          className="flex size-12 items-center justify-center border border-primary/16 bg-white text-primary transition hover:border-accent hover:bg-accent hover:text-white"
-        >
-          <ChevronLeft size={22} />
-        </button>
-        <button
-          type="button"
-          aria-label="Kiti klientai"
-          onClick={() => scrollBy(1)}
-          className="flex size-12 items-center justify-center border border-primary/16 bg-white text-primary transition hover:border-accent hover:bg-accent hover:text-white"
-        >
-          <ChevronRight size={22} />
-        </button>
       </div>
 
       {active ? (
@@ -84,7 +67,7 @@ export function ClientsLogoCarousel({
           className="modal-fade fixed inset-0 z-[1000] grid place-items-center bg-primary/80 px-4 py-8 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
-          aria-label={active.name}
+          aria-label={clientGridLabel(active)}
           onClick={() => setActive(null)}
         >
           <div
@@ -100,7 +83,7 @@ export function ClientsLogoCarousel({
               <X size={18} />
             </button>
             <p className="eyebrow m-0 pr-12">{active.kind === "cluster" ? "Klasteris" : "Įmonė"}</p>
-            <h3 className="heading-h3 mt-3 text-primary">{active.name}</h3>
+            <h3 className="heading-h3 mt-3 text-primary">{clientGridLabel(active)}</h3>
             {active.legalName ? <p className="m-0 mt-2 text-sm text-muted">{active.legalName}</p> : null}
             {active.categories.length ? (
               <p className="m-0 mt-3 text-sm font-semibold text-primary/70">{active.categories.join(" · ")}</p>

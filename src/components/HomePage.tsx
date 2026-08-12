@@ -1,7 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 
 import { homeContent } from "../content/home";
-import { vciipPartners } from "../content/partners";
 import { AdvantagesSection } from "./AdvantagesSection";
 import { ClientsLogoCarousel } from "./ClientsLogoCarousel";
 import { HomeAboutSection } from "./HomeAboutSection";
@@ -9,7 +8,6 @@ import { HomeHero } from "./HomeHero";
 import { InvestorInquiry } from "./InvestorInquiry";
 import { MediaNewsSection } from "./MediaNewsSection";
 import { ParkPairCards } from "./ParkPairCards";
-import { PartnersSection } from "./PartnersSection";
 import { TestimonialsCarousel } from "./TestimonialsCarousel";
 import { WhyVilniusCarousel } from "./WhyVilniusCarousel";
 
@@ -35,12 +33,6 @@ export function HomePage() {
       <TestimonialsCarousel />
       <ClientsLogoCarousel title={clients.title} description={clients.description} />
       <WhyVilniusCarousel title={whyVilnius.title} items={whyVilnius.items} />
-      <PartnersSection
-        id="partneriai"
-        eyebrow={vciipPartners.eyebrow}
-        title={vciipPartners.title}
-        partners={vciipPartners.partners}
-      />
       <MediaNewsSection />
 
       <section className="section-shell bg-white">
