@@ -118,14 +118,10 @@ export const bioAdvantages = {
     {
       title: "Partnerystė su mokslu",
       body: "VCIIP Bio – integruoto mokslo, studijų ir verslo slėnio „Saulėtekis“ programos dalis. Šalia įsikūrę 2 geriausi šalies universitetai ir jų studentų miesteliai, 3 mokslo centrai, 2 mokslo ir technologijų parkai. Puikios sąlygos MTEP infrastruktūros vystymuisi ir žmogiškųjų išteklių valdymui.",
-      href: "#vieta",
-      ctaLabel: "Skaityti daugiau",
     },
     {
       title: "Nėra infrastruktūros plėtros mokesčio",
       body: "VCIIP – vyriausybės pripažintas valstybinės svarbos ekonominiu projektu, stiprinančiu Lietuvos inovacijų sistemą. Todėl VCIIP besikuriantiems investuotojams infrastruktūros plėtros mokestis nebus taikomas.",
-      href: "#procesas",
-      ctaLabel: "Skaityti daugiau",
     },
   ],
 };
