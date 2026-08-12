@@ -1,12 +1,8 @@
 name: Deploy to GitHub Pages
 
 # Fallback when Vercel free-tier daily deploy limit is hit.
-# Publishes built site to the `gh-pages` branch.
-#
-# One-time setup (required or the live URL stays 404):
-#   GitHub → Settings → Pages → Build and deployment
-#   Source: Deploy from a branch → Branch: `gh-pages` / (root)
-#
+# 1) Official Actions Pages deploy (enables site when source = GitHub Actions)
+# 2) Also publishes `gh-pages` branch (for Settings → Pages → Deploy from branch)
 # Live URL: https://jociusjustinas-dev.github.io/VCIIP/
 
 on:
@@ -16,13 +12,15 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,9 +43,26 @@ jobs:
       - name: Add SPA fallback
         run: cp dist/index.html dist/404.html
 
-      - name: Deploy to gh-pages branch
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Publish gh-pages branch fallback
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           force_orphan: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
