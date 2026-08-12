@@ -1,15 +1,9 @@
-import modernOfficeImage from "../assets/images/modern-office-work.png";
-
 export const kontaktaiContent = {
   hero: {
     eyebrow: "Kontaktai",
     title: "Turite klausimų? Susisiekime",
     description:
       "Susisiekite tiesiogiai - padėsime įvertinti galimybes ir rasti jūsų veiklai tinkamiausią sprendimą VCIIP teritorijoje.",
-    primaryCta: { label: "Rašyti užklausą", href: "#forma" },
-    secondaryCta: { label: "El. paštas", href: "mailto:info@northtownvilnius.lt" },
-    imageSrc: modernOfficeImage,
-    imageAlt: "VCIIP konsultacijų erdvė Northtown Vilnius",
   },
 
   operator: {
@@ -20,13 +14,6 @@ export const kontaktaiContent = {
     address: "Vismaliukų g. 34, LT-10243 Vilnius",
     phone: "+370 5 274 5407",
     email: "info@northtownvilnius.lt",
-  },
-
-  form: {
-    eyebrow: "Kontaktų forma",
-    title: "Papasakokite apie savo planus",
-    description:
-      "Padėsime įvertinti galimybes ir rasti jūsų veiklai tinkamiausią sprendimą VCIIP teritorijoje.",
   },
 
   people: {

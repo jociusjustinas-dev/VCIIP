@@ -25,6 +25,9 @@ export function InvestorInquiry({
   tone = "dark",
   showContact = true,
   showContactIntro = true,
+  leftSlot,
+  id = "investuotojo-uzklausa",
+  spacing = "default",
 }: {
   showEyebrow?: boolean;
   eyebrow?: string;
@@ -33,12 +36,17 @@ export function InvestorInquiry({
   tone?: "dark" | "light";
   showContact?: boolean;
   showContactIntro?: boolean;
+  /** Replaces the default left column (eyebrow/title/description/contact). */
+  leftSlot?: ReactNode;
+  id?: string;
+  spacing?: "default" | "page";
 }) {
   const [formState, setFormState] = useState<FormState>("idle");
   const [interest, setInterest] = useState("");
   const [stage, setStage] = useState("");
   const isLight = tone === "light";
   const contact = kontaktaiContent.primaryContact;
+  const isPageSpacing = spacing === "page";
 
   useEffect(() => {
     const presetInterest = getInterestFromSearchParams(window.location.search);
@@ -54,73 +62,77 @@ export function InvestorInquiry({
     <div className="site-container">
       <div className="grid gap-10 xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] xl:gap-16" data-reveal-group>
         <div className="reveal-item flex max-w-2xl flex-col gap-5 lg:max-w-none">
-            {showEyebrow && (
-              <p className={`eyebrow ${isLight ? "" : "eyebrow-on-dark"}`}>
-                {eyebrow}
-              </p>
-            )}
-            <h2 className={`inquiry-heading max-w-3xl ${isLight ? "text-primary" : "text-white"}`}>
-              {title}
-            </h2>
-            <p
-              className={`m-0 text-base font-normal leading-loose max-[479px]:text-base ${
-                isLight ? "text-muted" : "text-white/72"
-              }`}
-            >
-              {description}
-            </p>
-
-            {showContact ? (
-              <div
-                className={`grid gap-6 border-t border-dashed pt-7 ${
-                  showContactIntro ? "sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 xl:gap-8" : ""
-                } ${isLight ? "border-primary/16" : "border-white/24"}`}
+          {leftSlot ?? (
+            <>
+              {showEyebrow && (
+                <p className={`eyebrow ${isLight ? "" : "eyebrow-on-dark"}`}>
+                  {eyebrow}
+                </p>
+              )}
+              <h2 className={`inquiry-heading max-w-3xl ${isLight ? "text-primary" : "text-white"}`}>
+                {title}
+              </h2>
+              <p
+                className={`m-0 text-base font-normal leading-loose max-[479px]:text-base ${
+                  isLight ? "text-muted" : "text-white/72"
+                }`}
               >
-                {showContactIntro ? (
-                  <div className="flex flex-col gap-3">
-                    <h3 className={`heading-h3 m-0 ${isLight ? "text-primary" : "text-white"}`}>
-                      Turite klausimų?
-                    </h3>
-                    <p className={`m-0 text-base font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/62"}`}>
-                      Susisiekite tiesiogiai su VCIIP operatoriumi.
-                    </p>
-                  </div>
-                ) : null}
+                {description}
+              </p>
+
+              {showContact ? (
                 <div
-                  className={`flex flex-col gap-2 ${
-                    showContactIntro
-                      ? `border-l border-dashed pl-8 max-[479px]:border-l-0 max-[479px]:pl-0 sm:pl-8 xl:pl-10 ${
-                          isLight ? "border-primary/14" : "border-white/18"
-                        }`
-                      : ""
-                  }`}
+                  className={`grid gap-6 border-t border-dashed pt-7 ${
+                    showContactIntro ? "sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 xl:gap-8" : ""
+                  } ${isLight ? "border-primary/16" : "border-white/24"}`}
                 >
-                  <h3 className={`heading-h3 m-0 ${isLight ? "text-primary" : "text-white"}`}>
-                    {contact.name}
-                  </h3>
-                  <p className={`m-0 text-sm font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/52"}`}>
-                    {contact.role}
-                  </p>
-                  <a
-                    className={`text-base font-medium leading-[150%] hover:text-accent ${
-                      isLight ? "text-primary/72" : "text-white/72"
+                  {showContactIntro ? (
+                    <div className="flex flex-col gap-3">
+                      <h3 className={`heading-h3 m-0 ${isLight ? "text-primary" : "text-white"}`}>
+                        Turite klausimų?
+                      </h3>
+                      <p className={`m-0 text-base font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/62"}`}>
+                        Susisiekite tiesiogiai su VCIIP operatoriumi.
+                      </p>
+                    </div>
+                  ) : null}
+                  <div
+                    className={`flex flex-col gap-2 ${
+                      showContactIntro
+                        ? `border-l border-dashed pl-8 max-[479px]:border-l-0 max-[479px]:pl-0 sm:pl-8 xl:pl-10 ${
+                            isLight ? "border-primary/14" : "border-white/18"
+                          }`
+                        : ""
                     }`}
-                    href={`mailto:${contact.email}`}
                   >
-                    {contact.emailDisplay}
-                  </a>
-                  <a
-                    className={`text-base font-medium leading-[150%] hover:text-accent ${
-                      isLight ? "text-primary/72" : "text-white/72"
-                    }`}
-                    href={`tel:${contact.phoneHref}`}
-                  >
-                    {contact.phone}
-                  </a>
+                    <h3 className={`heading-h3 m-0 ${isLight ? "text-primary" : "text-white"}`}>
+                      {contact.name}
+                    </h3>
+                    <p className={`m-0 text-sm font-medium leading-[150%] ${isLight ? "text-muted" : "text-white/52"}`}>
+                      {contact.role}
+                    </p>
+                    <a
+                      className={`text-base font-medium leading-[150%] hover:text-accent ${
+                        isLight ? "text-primary/72" : "text-white/72"
+                      }`}
+                      href={`mailto:${contact.email}`}
+                    >
+                      {contact.emailDisplay}
+                    </a>
+                    <a
+                      className={`text-base font-medium leading-[150%] hover:text-accent ${
+                        isLight ? "text-primary/72" : "text-white/72"
+                      }`}
+                      href={`tel:${contact.phoneHref}`}
+                    >
+                      {contact.phone}
+                    </a>
+                  </div>
                 </div>
-              </div>
-            ) : null}
-          </div>
+              ) : null}
+            </>
+          )}
+        </div>
 
         <div
           id="forma"
@@ -245,9 +257,15 @@ export function InvestorInquiry({
   );
 
   return (
-    <section id="investuotojo-uzklausa" className="relative bg-white">
+    <section id={id} className="relative bg-white">
       {isLight ? (
-        <div className="relative overflow-hidden rounded-none bg-white py-10 max-[991px]:py-8 max-[479px]:py-7">
+        <div
+          className={`relative overflow-hidden rounded-none bg-white ${
+            isPageSpacing
+              ? "pb-14 pt-32 max-[991px]:pb-12 max-[991px]:pt-28 max-[479px]:pb-10 max-[479px]:pt-24"
+              : "py-10 max-[991px]:py-8 max-[479px]:py-7"
+          }`}
+        >
           {content}
         </div>
       ) : (
