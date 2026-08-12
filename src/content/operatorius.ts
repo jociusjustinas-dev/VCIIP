@@ -10,7 +10,7 @@ export const operatoriusContent = {
     primaryCta: { label: "Sužinoti daugiau", href: "https://northtownvilnius.lt/sveiki/" },
     secondaryCta: { label: "Susisiekti", href: "/kontaktai" },
     imageSrc: operatoriusHeroImage,
-    imageAlt: "Northtown Vilnius komanda tyrimų centro atriume su teritorijos maketu",
+    imageAlt: "Northtown Vilnius komanda prie teritorijos maketo, fone Vilniaus televizijos bokštas",
   },
 
   services: {
