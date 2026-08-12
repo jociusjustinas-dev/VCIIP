@@ -1,17 +1,18 @@
-import { useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import processWarmRoomImage from "../assets/images/process-warm-room.png";
+
+type ProcessCta = {
+  label: string;
+  href: string;
+};
 
 type ProcessStep = {
   number: string;
   title: string;
   body: string;
-};
-
-type ProcessCta = {
-  label: string;
-  href: string;
+  cta?: ProcessCta;
 };
 
 const defaultSettleSteps: ProcessStep[] = [
@@ -57,9 +58,9 @@ export function SettleProcess({
   eyebrow?: string;
   title?: ReactNode;
   intro?: string;
-  steps?: ProcessStep[];
+  steps?: readonly ProcessStep[];
   showImage?: boolean;
-  cta?: ProcessCta;
+  cta?: ProcessCta | null;
   tone?: "light" | "muted";
 }) {
   const isLight = tone === "light";
@@ -129,30 +130,46 @@ export function SettleProcess({
 
                   <div className="flex gap-5">
                     <span className="mt-2 size-2.5 shrink-0 rounded-none bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 max-[479px]:hidden" />
-                    <p className="m-0 text-base leading-loose text-muted">
-                      {step.body}
-                    </p>
+                    <div className="flex min-w-0 flex-col gap-4">
+                      <p className="m-0 whitespace-pre-line text-base leading-loose text-muted">
+                        {step.body}
+                      </p>
+                      {step.cta ? (
+                        <a
+                          href={step.cta.href}
+                          className="inline-flex w-fit items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
+                          {...(step.cta.href.startsWith("http")
+                            ? { target: "_blank", rel: "noopener noreferrer" }
+                            : {})}
+                        >
+                          {step.cta.label}
+                          <ArrowUpRight size={16} aria-hidden="true" />
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
                 </article>
               ))}
 
-              <div className="pt-10">
-                <a
-                  href={cta.href}
-                  className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent hover:text-white"
-                >
-                  <span className="h-5 overflow-hidden py-px">
-                    <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
-                      {[cta.label, cta.label].map((label, index) => (
-                        <span key={index} className="flex h-5 items-center gap-2">
-                          {label}
-                          <ArrowUpRight size={16} aria-hidden="true" />
-                        </span>
-                      ))}
+              {cta ? (
+                <div className="pt-10">
+                  <a
+                    href={cta.href}
+                    className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent hover:text-white"
+                  >
+                    <span className="h-5 overflow-hidden py-px">
+                      <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
+                        {[cta.label, cta.label].map((label, index) => (
+                          <span key={index} className="flex h-5 items-center gap-2">
+                            {label}
+                            <ArrowUpRight size={16} aria-hidden="true" />
+                          </span>
+                        ))}
+                      </span>
                     </span>
-                  </span>
-                </a>
-              </div>
+                  </a>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

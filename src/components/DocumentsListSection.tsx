@@ -9,13 +9,15 @@ export function DocumentsListSection({
   id = "dokumentai",
   title,
   items,
+  tone = "light",
 }: {
   id?: string;
   title: string;
   items: readonly DocumentItem[];
+  tone?: "light" | "muted";
 }) {
   return (
-    <section id={id} className="section-shell bg-white">
+    <section id={id} className={`section-shell ${tone === "muted" ? "bg-background" : "bg-white"}`}>
       <div className="site-container" data-reveal-group>
         <div className="section-intro max-[479px]:mb-8">
           <div className="section-eyebrow-rule" />
