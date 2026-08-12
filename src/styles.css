@@ -1646,6 +1646,19 @@
     color: var(--color-white);
   }
 
+  .availability-badge--plain {
+    border: 0;
+    background: transparent;
+    color: var(--color-white);
+    padding: 0;
+    gap: 0.5rem;
+  }
+
+  .availability-badge--plain::before {
+    background: var(--color-accent);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 44%, transparent);
+  }
+
   .form-field {
     min-height: 3rem;
     width: 100%;

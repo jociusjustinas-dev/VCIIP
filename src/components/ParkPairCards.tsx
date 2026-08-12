@@ -74,7 +74,7 @@ function ParkColumn({
             alt={park.label}
             className="h-7 w-auto max-w-[9.5rem] object-contain object-left max-[479px]:h-[1.625rem]"
           />
-          {badge ? <span className="availability-badge">{badge}</span> : null}
+          {badge ? <span className="availability-badge availability-badge--plain">{badge}</span> : null}
         </div>
 
         <h3 className="heading-split m-0 mt-5 max-w-md text-white max-[479px]:mt-4">{park.focus}</h3>
