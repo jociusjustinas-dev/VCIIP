@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 
-import { klientaiAll, type ClientEntry } from "../content/klientai";
-
-function clientGridLabel(item: ClientEntry) {
-  if (item.name !== "<neturi logo>") {
-    return item.name.replace(/^</, "").replace(/>$/, "");
-  }
-
-  return item.categories[0] ?? "Klasteris";
-}
+import { clientDisplayName, klientaiAll, type ClientEntry } from "../content/klientai";
 
 export function ClientsLogoCarousel({
   title,
@@ -48,18 +40,28 @@ export function ClientsLogoCarousel({
         </div>
 
         <div className="reveal-item vilnius-partners-grid" data-reveal="fade">
-          {klientaiAll.map((item, index) => (
+          {klientaiAll.map((item) => (
             <button
-              key={`${item.id}-${index}`}
+              key={item.id}
               type="button"
               onClick={() => setActive(item)}
-              className="vilnius-partners-grid__item cursor-pointer border-0 bg-transparent p-0 text-left"
-              aria-label={`Plačiau apie ${clientGridLabel(item)}`}
+              className="vilnius-partners-grid__item"
+              aria-label={`Plačiau apie ${clientDisplayName(item)}`}
             >
-              <span className="vilnius-partners-grid__logo-wrap h-auto min-h-[2.75rem] w-full max-w-[12rem] px-2">
-                <span className="text-center font-display text-lg font-bold leading-tight tracking-tight text-primary max-[479px]:text-base">
-                  {clientGridLabel(item)}
-                </span>
+              <span className="vilnius-partners-grid__logo-wrap">
+                {item.logo ? (
+                  <img
+                    src={item.logo}
+                    alt={item.logoAlt ?? clientDisplayName(item)}
+                    className="vilnius-partners-grid__logo"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <span className="text-center font-display text-sm font-bold leading-tight tracking-tight text-primary">
+                    {clientDisplayName(item)}
+                  </span>
+                )}
               </span>
             </button>
           ))}
@@ -71,7 +73,7 @@ export function ClientsLogoCarousel({
           className="modal-fade fixed inset-0 z-[1000] grid place-items-center bg-primary/80 px-4 py-8 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
-          aria-label={clientGridLabel(active)}
+          aria-label={clientDisplayName(active)}
           onClick={() => setActive(null)}
         >
           <div
@@ -87,7 +89,7 @@ export function ClientsLogoCarousel({
               <X size={18} />
             </button>
             <p className="eyebrow m-0 pr-12">{active.kind === "cluster" ? "Klasteris" : "Įmonė"}</p>
-            <h3 className="heading-h3 mt-3 text-primary">{clientGridLabel(active)}</h3>
+            <h3 className="heading-h3 mt-3 text-primary">{clientDisplayName(active)}</h3>
             {active.legalName ? <p className="m-0 mt-2 text-sm text-muted">{active.legalName}</p> : null}
             {active.categories.length ? (
               <p className="m-0 mt-3 text-sm font-semibold text-primary/70">{active.categories.join(" · ")}</p>
