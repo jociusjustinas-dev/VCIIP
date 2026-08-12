@@ -29,6 +29,15 @@ export function ApieVciipTimeline({
 
     viewport.style.setProperty("--timeline-viewport", `${viewport.clientWidth}px`);
 
+    const container = viewport.closest("section")?.querySelector(".site-container");
+    if (container instanceof HTMLElement) {
+      const paddingLeft = Number.parseFloat(getComputedStyle(container).paddingLeft) || 0;
+      const offset = Math.round(
+        container.getBoundingClientRect().left - viewport.getBoundingClientRect().left + paddingLeft,
+      );
+      viewport.style.setProperty("--timeline-inline-start", `${Math.max(0, offset)}px`);
+    }
+
     const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
     setCanScrollPrev(viewport.scrollLeft > 4);
     setCanScrollNext(viewport.scrollLeft < maxScrollLeft - 4);
