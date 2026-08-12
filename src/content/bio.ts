@@ -5,7 +5,7 @@ import processWarmRoomImage from "../assets/images/process-warm-room.png";
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 import { kontaktaiContent } from "./kontaktai";
 
-const premisesContact = kontaktaiContent.people[1];
+const premisesContact = kontaktaiContent.people.items[1];
 
 export const bioHero = {
   eyebrow: "VCIIP Bio",
