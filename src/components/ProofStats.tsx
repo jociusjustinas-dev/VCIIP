@@ -22,6 +22,15 @@ export function ProofStats({
 }) {
   const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [visibleTiles, setVisibleTiles] = useState<boolean[]>(stats.map(() => false));
+  const columnCount = Math.min(Math.max(stats.length, 1), 4);
+  const desktopColsClass =
+    columnCount === 1
+      ? "lg:grid-cols-1"
+      : columnCount === 2
+        ? "lg:grid-cols-2"
+        : columnCount === 3
+          ? "lg:grid-cols-3"
+          : "lg:grid-cols-4";
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -66,7 +75,10 @@ export function ProofStats({
           </h2>
         </div>
 
-        <div className="grid border-t border-dashed border-primary/48 sm:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+        <div
+          className={`grid border-t border-dashed border-primary/48 sm:grid-cols-2 ${desktopColsClass}`}
+          data-reveal-group
+        >
           {stats.map((stat, index) => (
             <div
               key={stat.label}
