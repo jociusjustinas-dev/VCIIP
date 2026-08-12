@@ -1660,22 +1660,19 @@
   .testimonial-card {
     appearance: none;
     border: 0;
-    background: linear-gradient(
-      135deg,
-      var(--color-accent-wash),
-      color-mix(in srgb, var(--color-accent-soft) 72%, var(--color-accent-wash))
-    );
+    background: var(--color-background);
     cursor: pointer;
     font: inherit;
     color: inherit;
+    scroll-snap-align: start;
     transition: background 180ms ease, transform 180ms ease;
   }
 
   .testimonial-card:hover {
     background: linear-gradient(
       135deg,
-      color-mix(in srgb, var(--color-accent-soft) 55%, var(--color-accent-wash)),
-      color-mix(in srgb, var(--color-accent) 18%, var(--color-accent-soft))
+      var(--color-accent-wash),
+      color-mix(in srgb, var(--color-accent-soft) 72%, var(--color-accent-wash))
     );
     transform: translateY(-2px);
   }
@@ -1685,7 +1682,6 @@
     gap: 1.25rem;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
