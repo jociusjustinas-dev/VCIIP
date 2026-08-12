@@ -1,12 +1,5 @@
-import { useState, type ReactNode } from "react";
-import {
-  ArrowUpRight,
-  Building2,
-  GraduationCap,
-  MapPinned,
-  Network,
-  Receipt,
-} from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 import modernOfficeImage from "../assets/images/modern-office-work.png";
 import { ParallaxImage } from "./ParallaxImage";
@@ -16,14 +9,6 @@ type AdvantageItem = {
   body: string;
   href?: string;
 };
-
-const advantageIcons: ReactNode[] = [
-  <MapPinned key="map" size={22} aria-hidden="true" />,
-  <Network key="network" size={22} aria-hidden="true" />,
-  <Building2 key="building" size={22} aria-hidden="true" />,
-  <GraduationCap key="grad" size={22} aria-hidden="true" />,
-  <Receipt key="receipt" size={22} aria-hidden="true" />,
-];
 
 export function AdvantagesSection({
   id = "privalumai",
@@ -61,15 +46,8 @@ export function AdvantagesSection({
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="group flex w-full items-center gap-5 py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:gap-4"
+                      className="group flex w-full items-center py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                     >
-                      <span
-                        className={`flex size-10 shrink-0 items-center justify-center transition-colors duration-300 ${
-                          isOpen ? "text-accent" : "text-primary/55 group-hover:text-accent"
-                        }`}
-                      >
-                        {advantageIcons[index] ?? advantageIcons[0]}
-                      </span>
                       <span
                         className={`min-w-0 flex-1 font-display text-xl font-bold leading-tight tracking-tight transition-colors duration-300 max-[479px]:text-lg ${
                           isOpen ? "text-accent" : "text-primary group-hover:text-accent"
@@ -84,7 +62,7 @@ export function AdvantagesSection({
                         isOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
                       }`}
                     >
-                      <div className="max-w-2xl pb-6 pl-[3.75rem] max-[479px]:pl-0">
+                      <div className="max-w-2xl pb-6">
                         <p className="m-0 text-base leading-loose text-muted">{item.body}</p>
                         {item.href ? (
                           <a
