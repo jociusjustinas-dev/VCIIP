@@ -12,12 +12,14 @@ export function ProofStats({
   sectionId = "ekosistema",
   eyebrow = "VCIIP šiandien",
   title = "VCIIP formuoja pažangių industrijų ekosistemą Vilniuje.",
+  description,
   stats = defaultStats,
 }: {
   showTopDivider?: boolean;
   sectionId?: string | false;
   eyebrow?: string;
   title?: string;
+  description?: string;
   stats?: StatItem[];
 }) {
   const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -68,11 +70,18 @@ export function ProofStats({
         <div className="section-intro max-[479px]:mb-8" data-reveal-group>
           {showTopDivider ? <div className="section-eyebrow-rule" /> : null}
 
-          <p className="eyebrow reveal-item ">{eyebrow}</p>
+          <p className="eyebrow reveal-item">{eyebrow}</p>
 
-          <h2 className="section-heading reveal-item max-w-3xl">
-            {title}
-          </h2>
+          {description ? (
+            <div className="reveal-item mt-4 flex flex-col justify-between gap-6 lg:flex-row lg:items-end lg:gap-16">
+              <h2 className="section-heading m-0 max-w-xl">{title}</h2>
+              <p className="m-0 max-w-xl text-base leading-loose text-muted lg:max-w-md xl:max-w-lg">
+                {description}
+              </p>
+            </div>
+          ) : (
+            <h2 className="section-heading reveal-item max-w-3xl">{title}</h2>
+          )}
         </div>
 
         <div

@@ -31,14 +31,9 @@ export function EcosystemPage() {
         sectionId={false}
         eyebrow={bioStats.eyebrow}
         title={bioStats.title}
+        description={bioStats.description}
         stats={bioStats.items}
       />
-
-      <section className="relative bg-white pb-4">
-        <div className="site-container" data-reveal-group>
-          <p className="reveal-item body-lead m-0 max-w-3xl text-muted">{bioStats.description}</p>
-        </div>
-      </section>
 
       <FeatureSplitHighlightsSection
         id={bioTerritory.id}
