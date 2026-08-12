@@ -70,6 +70,7 @@ export function SettleProcess({
   tone = "muted",
   variant = "list",
   imageSrc = processWarmRoomImage,
+  imageAlt = "Įsikūrimo procesas VCIIP",
   afterSteps,
 }: {
   id?: string;
@@ -82,6 +83,7 @@ export function SettleProcess({
   tone?: "light" | "muted";
   variant?: "list" | "accordion";
   imageSrc?: string;
+  imageAlt?: string;
   afterSteps?: ReactNode;
 }) {
   const isLight = tone === "light";
@@ -233,7 +235,7 @@ export function SettleProcess({
               >
                 <ParallaxImage
                   src={imageSrc}
-                  alt=""
+                  alt={imageAlt}
                   className="absolute inset-0 h-full w-full"
                   loading="lazy"
                 />
@@ -269,26 +271,23 @@ export function SettleProcess({
         <div
           className={`grid items-stretch gap-10 max-[991px]:gap-12 ${
             showImage
-              ? "xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] xl:gap-16"
+              ? "lg:grid-cols-2 lg:gap-16"
               : "lg:grid-cols-1"
           }`}
           data-reveal-group
         >
           {showImage ? (
             <div
-              className={`reveal-item relative h-full min-h-[260px] overflow-hidden rounded-none max-[767px]:min-h-[320px] max-[991px]:min-h-[360px] lg:min-h-0 ${
-                isLight ? "bg-white" : "bg-background"
-              }`}
+              className="reveal-item relative min-h-[420px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[380px] max-[767px]:min-h-[320px] max-[479px]:min-h-[280px] lg:min-h-[32rem]"
               data-reveal="scale"
             >
-              <img
+              <ParallaxImage
                 src={imageSrc}
-                alt=""
-                className="absolute inset-0 h-full w-full object-cover"
-                loading="eager"
-                decoding="async"
+                alt={imageAlt}
+                className="absolute inset-0 h-full w-full"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_2%,transparent),color-mix(in_srgb,var(--color-primary)_34%,transparent))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_8%,transparent),color-mix(in_srgb,var(--color-primary)_48%,transparent))]" />
             </div>
           ) : null}
 

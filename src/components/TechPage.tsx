@@ -82,6 +82,7 @@ export function TechPage() {
         cta={techProcess.cta}
         tone="light"
         imageSrc={techProcess.imageSrc}
+        imageAlt={techProcess.imageAlt}
       />
 
       <KodelVilniusCityLocation

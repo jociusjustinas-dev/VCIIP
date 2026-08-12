@@ -107,6 +107,7 @@ export function IsikurimasPage() {
         variant="accordion"
         showImage
         imageSrc={process.imageSrc}
+        imageAlt={process.imageAlt}
       />
 
       <section id={experts.id} className="section-shell bg-white">
