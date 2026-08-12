@@ -18,30 +18,30 @@ export const homeContent = {
   advantages: {
     title: "VCIIP privalumai",
     items: [
-  {
-    "title": "Strategiškai patogi vieta ir susisiekimas",
-    "body": "VCIIP įsikūręs kiek atokiau nuo miesto šurmulio, tačiau vos per 30 min. lengvai pasieksite Vilniaus senamiestį, geležinkelio, autobusų stotis bei tarptautinį oro uostą. Puikus susisiekimas tiek viešuoju, tiek privačiu transportu, įskaitant ir esamus bei vystomus rekreacinius takus.",
-    "href": "#vieta-mieste"
-  },
-  {
-    "title": "Išvystyta infrastruktūra greitam įsikūrimui",
-    "body": "Pramonės parke jau sukurta visapusiška infrastruktūra: nuo inžinerinių tinklų iki susisiekimo komunikacijų. Viskas, ką jums reikia padaryti – įsikurti ir prisijungti.",
-    "href": "#infrastruktura"
-  },
-  {
-    "title": "Dalis platesnės VCIIP ekosistemos",
-    "body": "VCIIP skirtas išskirtinai inovatyvioms įmonėms, veikiančioms sumanios specializacijos srityse. Skatinamas klientų bendruomeniškumas, partnerystė, klasterizacija, siekiant visapusiškos naudos konkurencingoje verslo aplinkoje.",
-    "href": "#klientai"
-  },
-  {
-    "title": "Partnerystė su mokslu",
-    "body": "VCIIP – integruoto mokslo, studijų ir verslo slėnio „Saulėtekis\" programos dalis. Šalia įsikūrę 2 geriausi šalies universitetai ir jų studentų miesteliai, 3 mokslo centrai, 2 mokslo ir technologijų parkai. Puikios sąlygos MTEP infrastruktūros vystymuisi ir žmogiškųjų išteklių valdymui."
-  },
-  {
-    "title": "Nėra infrastuktūros plėtros mokesčio",
-    "body": "VCIIP - vyriausybės pripažintas valstybinės svarbos ekonominiu projektu, stiprinančiu Lietuvos inovacijų sistemą. Todėl VCIIP besikuriantiems investuotojams infrastruktūros plėtros mokestis nebus taikomas."
-  }
-],
+      {
+        title: "Strategiškai patogi vieta ir susisiekimas",
+        body: "VCIIP įsikūręs kiek atokiau nuo miesto šurmulio, tačiau vos per 30 min. lengvai pasieksite Vilniaus senamiestį, geležinkelio, autobusų stotis bei tarptautinį oro uostą. Puikus susisiekimas tiek viešuoju, tiek privačiu transportu, įskaitant ir esamus bei vystomus rekreacinius takus.",
+        href: "#kodel-vilnius",
+      },
+      {
+        title: "Išvystyta infrastruktūra greitam įsikūrimui",
+        body: "Pramonės parke jau sukurta visapusiška infrastruktūra: nuo inžinerinių tinklų iki susisiekimo komunikacijų. Viskas, ką jums reikia padaryti – įsikurti ir prisijungti.",
+        href: "#parkai",
+      },
+      {
+        title: "Dalis platesnės VCIIP ekosistemos",
+        body: "VCIIP skirtas išskirtinai inovatyvioms įmonėms, veikiančioms sumanios specializacijos srityse. Skatinamas klientų bendruomeniškumas, partnerystė, klasterizacija, siekiant visapusiškos naudos konkurencingoje verslo aplinkoje.",
+        href: "#klientai",
+      },
+      {
+        title: "Partnerystė su mokslu",
+        body: "VCIIP – integruoto mokslo, studijų ir verslo slėnio „Saulėtekis\" programos dalis. Šalia įsikūrę 2 geriausi šalies universitetai ir jų studentų miesteliai, 3 mokslo centrai, 2 mokslo ir technologijų parkai. Puikios sąlygos MTEP infrastruktūros vystymuisi ir žmogiškųjų išteklių valdymui.",
+      },
+      {
+        title: "Nėra infrastruktūros plėtros mokesčio",
+        body: "VCIIP - vyriausybės pripažintas valstybinės svarbos ekonominiu projektu, stiprinančiu Lietuvos inovacijų sistemą. Todėl VCIIP besikuriantiems investuotojams infrastruktūros plėtros mokestis nebus taikomas.",
+      },
+    ],
   },
   parks: {
     bio: {

@@ -70,7 +70,7 @@ export function MediaNewsSection() {
             href="/naujienos"
             className="group inline-flex items-center gap-2 text-base font-semibold leading-none text-primary transition-colors duration-200 hover:text-accent"
           >
-            Žiūrėti visas naujienas
+            Visos naujienos
             <ArrowUpRight
               size={16}
               aria-hidden="true"

@@ -1,32 +1,26 @@
 import { AvailablePlotsSection } from "./AvailablePlotsSection";
-import { MediaNewsSection } from "./MediaNewsSection";
-import { EcosystemSplit } from "./EcosystemSplit";
-import { GatewayHero } from "./GatewayHero";
-import { TechHero } from "./TechHero";
 import { InvestorInquiry } from "./InvestorInquiry";
 import { ProofStats } from "./ProofStats";
 import { SettleProcess } from "./SettleProcess";
+import { TechHero } from "./TechHero";
 import { VilniusEcosystem } from "./VilniusEcosystem";
 import { WhyInvestors } from "./WhyInvestors";
 
+/** Tech landing only — Home uses dedicated HomePage composition from Excel. */
 export function InvestmentLandingPage({ variant = "tech" }: { variant?: "index" | "tech" }) {
-  const showFullTechSections = variant === "tech";
+  if (variant === "index") {
+    return null;
+  }
 
   return (
     <main>
-      {variant === "index" ? <GatewayHero /> : <TechHero />}
+      <TechHero />
       <ProofStats />
-      {variant === "index" && <EcosystemSplit />}
-      {variant === "index" && <MediaNewsSection />}
-      {showFullTechSections && (
-        <>
-          <WhyInvestors />
-          <AvailablePlotsSection />
-          <SettleProcess />
-          <VilniusEcosystem />
-        </>
-      )}
-      <InvestorInquiry tone={variant === "index" ? "light" : "dark"} />
+      <WhyInvestors />
+      <AvailablePlotsSection />
+      <SettleProcess />
+      <VilniusEcosystem />
+      <InvestorInquiry tone="dark" />
     </main>
   );
 }
