@@ -121,23 +121,33 @@ export function WhyVilniusCarousel({
               transform: stepPx ? `translateX(-${slide * stepPx}px)` : undefined,
             }}
           >
-            {items.map((item, index) => (
+            {items.map((item, index) => {
+              const hasCta = Boolean(item.href);
+
+              return (
               <article
                 key={item.title}
                 className={`why-vilnius-carousel__card ${
                   isGradient ? "why-vilnius-carousel__card--on-gradient" : ""
                 }`}
               >
-                <div className="flex flex-col gap-6">
-                  {showNumbers ? (
-                    <span className="font-display text-sm font-bold uppercase tracking-wide text-accent">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                <div className={`flex w-full flex-col ${hasCta ? "gap-6" : "min-h-0 flex-1 justify-between gap-6"}`}>
+                  <div className="flex flex-col gap-6">
+                    {showNumbers ? (
+                      <span className="font-display text-sm font-bold uppercase tracking-wide text-accent">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                    ) : null}
+                    <h3 className="why-vilnius-carousel__card-title">{item.title}</h3>
+                    {hasCta ? (
+                      <p className="why-vilnius-carousel__card-body">{item.body}</p>
+                    ) : null}
+                  </div>
+                  {!hasCta ? (
+                    <p className="why-vilnius-carousel__card-body">{item.body}</p>
                   ) : null}
-                  <h3 className="why-vilnius-carousel__card-title">{item.title}</h3>
-                  <p className="why-vilnius-carousel__card-body">{item.body}</p>
                 </div>
-                {item.href ? (
+                {hasCta ? (
                   <a
                     href={item.href}
                     className="inline-flex items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
@@ -147,7 +157,8 @@ export function WhyVilniusCarousel({
                   </a>
                 ) : null}
               </article>
-            ))}
+              );
+            })}
           </div>
         </div>
 
