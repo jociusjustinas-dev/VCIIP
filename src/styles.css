@@ -998,6 +998,35 @@
     }
   }
 
+  .application-cta__row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .application-cta__content {
+    min-width: 0;
+    max-width: 40rem;
+  }
+
+  .application-cta__button {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 767px) {
+    .application-cta__row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .application-cta__button {
+      width: 100%;
+    }
+  }
+
   .media-news-carousel {
     display: flex;
     gap: 1rem;

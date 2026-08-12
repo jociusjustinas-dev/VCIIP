@@ -1,6 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
-
 import { homeContent } from "../content/home";
+import { ApplicationCtaSection } from "./ApplicationCtaSection";
 import { AdvantagesSection } from "./AdvantagesSection";
 import { ClientsLogoCarousel } from "./ClientsLogoCarousel";
 import { HomeAboutSection } from "./HomeAboutSection";
@@ -35,25 +34,11 @@ export function HomePage() {
       <WhyVilniusCarousel title={whyVilnius.title} items={whyVilnius.items} />
       <MediaNewsSection />
 
-      <section className="section-shell bg-white">
-        <div className="site-container grid gap-8 lg:grid-cols-2 lg:items-end" data-reveal-group>
-          <div>
-            <h2 className="section-heading reveal-item">{cta.applicationTitle}</h2>
-            <p className="reveal-item m-0 mt-4 max-w-xl text-base leading-loose text-muted">
-              {cta.applicationDescription}
-            </p>
-          </div>
-          <div className="reveal-item flex justify-start lg:justify-end">
-            <a
-              href={cta.applicationCta.href}
-              className="inline-flex min-h-12 items-center gap-2 bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary"
-            >
-              {cta.applicationCta.label}
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-          </div>
-        </div>
-      </section>
+      <ApplicationCtaSection
+        title={cta.applicationTitle}
+        description={cta.applicationDescription}
+        cta={cta.applicationCta}
+      />
 
       <InvestorInquiry
         tone="light"
