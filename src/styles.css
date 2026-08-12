@@ -1668,19 +1668,27 @@
   .testimonial-card {
     appearance: none;
     border: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
-    background: var(--color-background);
+    background: linear-gradient(
+      135deg,
+      var(--color-accent-wash),
+      color-mix(in srgb, var(--color-accent-soft) 72%, var(--color-accent-wash))
+    );
     cursor: pointer;
     font: inherit;
     color: inherit;
     scroll-snap-align: start;
     transition:
-      background-color 180ms ease,
+      background 180ms ease,
       border-color 180ms ease;
   }
 
   .testimonial-card:hover {
     border-color: color-mix(in srgb, var(--color-primary) 28%, transparent);
-    background: var(--color-accent-wash);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-accent-soft) 55%, var(--color-accent-wash)),
+      color-mix(in srgb, var(--color-accent) 18%, var(--color-accent-soft))
+    );
   }
 
   .testimonials-carousel__track {
