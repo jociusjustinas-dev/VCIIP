@@ -8,6 +8,7 @@ import centerBProductionImage from "../assets/images/center-b-production.jpg";
 import hubioLabImage from "../assets/images/hubio-lab.jpg";
 import hubioOfficeImage from "../assets/images/hubio-office.jpg";
 import hubioProductionImage from "../assets/images/hubio-production.jpg";
+import isikurimasProcessImage from "../assets/images/isikurimas-process.jpg";
 import { kontaktaiContent } from "./kontaktai";
 
 const premisesContact = kontaktaiContent.people.items[1];
@@ -198,6 +199,8 @@ export const bioProcess = {
   intro:
     "Įsikūrimo VCIIP procesas vyksta aiškiai apibrėžtais etapais. Kiekviename jų – nuo paraiškos įsikurti pateikimo iki pat pilno įsikūrimo parke – investuotojui padeda VCIIP operatorius.",
   cta: { label: "Sužinoti daugiau", href: "/isikurimas" },
+  imageSrc: isikurimasProcessImage,
+  imageAlt: "Įsikūrimo proceso planavimas pagal brėžinius",
 };
 
 export const bioLocation = {

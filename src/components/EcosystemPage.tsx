@@ -79,6 +79,7 @@ export function EcosystemPage() {
         intro={bioProcess.intro}
         cta={bioProcess.cta}
         tone="light"
+        imageSrc={bioProcess.imageSrc}
       />
 
       <KodelVilniusCityLocation

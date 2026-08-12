@@ -1,3 +1,4 @@
+import isikurimasProcessImage from "../assets/images/isikurimas-process.jpg";
 import techInfrastructureImage from "../assets/images/tech-infrastructure.jpg";
 import techPremisesImage from "../assets/images/tech-premises.jpg";
 
@@ -120,6 +121,8 @@ export const techProcess = {
   intro:
     "VCIIP įsikūrimo procesas vyksta aiškiai apibrėžtais etapais. Kiekviename jų – nuo paraiškos įsikurti pateikimo iki pat pilno įsikūrimo parke – investuotojui padeda VCIIP operatorius.",
   cta: { label: "Sužinoti daugiau", href: "/isikurimas" },
+  imageSrc: isikurimasProcessImage,
+  imageAlt: "Įsikūrimo proceso planavimas pagal brėžinius",
 };
 
 export const techLocation = {
