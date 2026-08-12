@@ -593,9 +593,10 @@
   .apie-vciip-timeline {
     position: relative;
     --timeline-visible-slots: 3.25;
+    /* 100vw avoids 100% resolving to 0 on the max-content track. */
     --timeline-inline-start: max(
-      1rem,
-      calc((100% - min(100% - 2rem, 1800px)) / 2 + var(--page-gutter))
+      var(--page-gutter-sm),
+      calc((100vw - min(100vw - 2rem, 1800px)) / 2 + var(--page-gutter))
     );
   }
 
@@ -610,9 +611,9 @@
     min-width: 100%;
     flex-direction: column;
     gap: 1rem;
-    /* Align first year with site-container text; let rail/cards bleed past right padding. */
+    /* First year/dot align with the section title; rail may still bleed on the right. */
     padding-inline-start: var(--timeline-inline-start);
-    padding-inline-end: var(--timeline-inline-start);
+    padding-inline-end: 0;
   }
 
   .apie-vciip-timeline__row {
