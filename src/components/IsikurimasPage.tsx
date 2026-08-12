@@ -95,6 +95,7 @@ export function IsikurimasPage() {
         steps={process.steps}
         cta={process.cta}
         tone="muted"
+        variant="accordion"
         showImage
       />
 
