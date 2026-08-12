@@ -9,6 +9,7 @@ export default defineConfig({
     host: "0.0.0.0",
     port: 5174,
     strictPort: false,
+    allowedHosts: true,
     proxy: {
       "/wp-json": {
         target: "https://vciip.lt",

@@ -10,17 +10,30 @@ export type NavGroup = {
   items: NavLink[];
 };
 
+/** Approved primary menu order from Excel (Home is not a header item). */
+export const primaryNavItems: NavLink[] = [
+  { label: "Apie VCIIP", href: "/apie-vciip" },
+  { label: "VCIIP Bio", href: "/ekosistema" },
+  { label: "VCIIP Tech", href: "/tech" },
+  { label: "Įsikūrimas VCIIP", href: "/isikurimas" },
+  { label: "Operatorius", href: "/operatorius" },
+  { label: "Kontaktai", href: "/kontaktai" },
+];
+
+/** @deprecated Prefer primaryNavItems — kept for in-page Bio anchors during migration */
 export const bioNavGroup: NavGroup = {
   id: "bio",
   label: "VCIIP Bio",
   pageHref: "/ekosistema",
   items: [
     { label: "Apie VCIIP Bio", href: "apie" },
-    { label: "Lokacija", href: "lokacija" },
-    { label: "Patalpos nuomai", href: "patalpos" },
+    { label: "Sklypai", href: "sklypai" },
+    { label: "Patalpos", href: "patalpos" },
+    { label: "Privalumai", href: "privalumai" },
   ],
 };
 
+/** @deprecated Prefer primaryNavItems — kept for in-page Tech anchors during migration */
 export const techNavGroup: NavGroup = {
   id: "tech",
   label: "VCIIP Tech",
@@ -28,16 +41,13 @@ export const techNavGroup: NavGroup = {
   items: [
     { label: "Apie VCIIP Tech", href: "apie" },
     { label: "Sklypai", href: "sklypai" },
-    { label: "Kaip įsikurti", href: "kaip-isikurti" },
-    { label: "Lokacija", href: "lokacija" },
+    { label: "Patalpos", href: "patalpos" },
+    { label: "Privalumai", href: "privalumai" },
   ],
 };
 
-export const sharedNavItems: NavLink[] = [
-  { label: "Kodėl Vilnius", href: "/kodel-vilnius/" },
-  { label: "Apie VCIIP", href: "/apie-vciip/" },
-  { label: "Naujienos", href: "/naujienos/" },
-];
+/** @deprecated Replaced by primaryNavItems */
+export const sharedNavItems: NavLink[] = primaryNavItems;
 
 export function getHubHrefFromPath(currentPath: string) {
   const path = currentPath.replace(/\/$/, "") || "/";
@@ -63,6 +73,8 @@ export function usesVciipIndexTheme(currentPath: string) {
     path === "/kodel-vilnius" ||
     path === "/apie-vciip" ||
     path === "/kontaktai" ||
+    path === "/isikurimas" ||
+    path === "/operatorius" ||
     path === "/naujienos" ||
     path.startsWith("/naujienos/")
   );
@@ -86,16 +98,17 @@ export function resolveNavHref(pageHref: string, anchor: string) {
   return `${pageHref}#${anchor}`;
 }
 
+/** Home / Apie shared headline stats from Excel Titulinis */
 export const stats = [
-  { value: "200 mln. €", label: "pritraukta investicijų" },
-  { value: "30+", label: "kompanijų ir organizacijų" },
-  { value: "9/10", label: "operatoriaus paslaugų vertinimas" },
-  { value: "nuo 2018", label: "veikiantis inovacijų parkas Vilniuje" },
+  { value: "281+ mln. €", label: "pritraukta investicijų" },
+  { value: "30+", label: "investuotojų" },
+  { value: "700+", label: "naujų darbo vietų" },
 ];
 
 export const processSteps = [
-  "Įvertinimas",
-  "Pokalbis",
-  "Planavimas",
+  "Paraiškos pateikimas",
+  "Paraiškos vertinimas",
+  "Sprendimas",
+  "Sutarčių pasirašymas",
   "Įsikūrimas",
 ];

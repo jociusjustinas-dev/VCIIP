@@ -7,12 +7,12 @@ import techLogo from "../assets/logos/tech.svg";
 import type { BrandVariant } from "./Navigation";
 
 const footerNavigation = [
+  { label: "Apie VCIIP", href: "/apie-vciip" },
   { label: "VCIIP Bio", href: "/ekosistema" },
   { label: "VCIIP Tech", href: "/tech" },
-  { label: "Kodėl Vilnius", href: "/kodel-vilnius" },
+  { label: "Įsikūrimas VCIIP", href: "/isikurimas" },
+  { label: "Operatorius", href: "/operatorius" },
   { label: "Naujienos", href: "/naujienos" },
-  { label: "Investavimo procesas", href: "/tech#kaip-isikurti" },
-  { label: "Laisvi sklypai", href: "/tech#sklypai" },
   { label: "Kontaktai", href: "/kontaktai" },
 ];
 

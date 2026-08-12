@@ -11,10 +11,8 @@ import vciipLogoWhite from "../assets/logos/logo-light.svg";
 import techLogo from "../assets/logos/tech.svg";
 import techLogoWhite from "../assets/logos/tech-white.svg";
 import {
-  bioNavGroup,
+  primaryNavItems,
   resolveNavHref,
-  sharedNavItems,
-  techNavGroup,
   type NavGroup,
   type NavLink,
 } from "../content/site";
@@ -51,7 +49,6 @@ export function Navigation({
   const [stickyVisible, setStickyVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileMenuClosing, setMobileMenuClosing] = useState(false);
-  const [mobileExpanded, setMobileExpanded] = useState<"bio" | "tech" | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const logos =
     tealLogo && variant === "vciip" ? vciipTealLogos : brandLogos[variant];
@@ -103,10 +100,6 @@ export function Navigation({
   }, []);
 
   useEffect(() => {
-    if (!mobileMenuOpen) setMobileExpanded(null);
-  }, [mobileMenuOpen]);
-
-  useEffect(() => {
     if (!mobileMenuOpen && !mobileMenuClosing) return;
 
     document.body.style.overflow = "hidden";
@@ -154,13 +147,9 @@ export function Navigation({
     cta: "bg-primary text-white hover:bg-accent hover:text-white",
   };
 
-  const renderNavItems = (tone: NavTone, options: { sticky?: boolean } = {}) => (
+  const renderNavItems = (tone: NavTone) => (
     <>
-      {[bioNavGroup, techNavGroup].map((group) => (
-        <NavDropdown key={group.id} group={group} tone={tone} />
-      ))}
-
-      {sharedNavItems.map((item) => (
+      {primaryNavItems.map((item) => (
         <NavAnchor
           key={item.href}
           href={item.href}
@@ -234,7 +223,7 @@ export function Navigation({
             className="flex min-w-0 flex-1 items-center gap-0.5 overflow-visible max-[991px]:hidden"
             aria-label="Pagrindinė navigacija"
           >
-            {renderNavItems(tone, { sticky: options.sticky })}
+            {renderNavItems(tone)}
           </nav>
         </div>
 
@@ -340,65 +329,22 @@ export function Navigation({
             </div>
 
             <div className="mobile-nav-drawer__content pt-5">
-              {[bioNavGroup, techNavGroup].map((group, groupIndex) => {
-                const isExpanded = mobileExpanded === group.id;
-
-                return (
-                  <div
-                    key={group.id}
-                    className="mobile-nav-drawer__item mb-2 border-b border-primary/10 pb-2"
-                    style={{ "--item-index": groupIndex } as CSSProperties}
-                  >
-                    <button
-                      type="button"
-                      className="flex w-full items-center justify-between py-2 text-base font-bold leading-[150%] text-primary"
-                      onClick={() => setMobileExpanded((current) => (current === group.id ? null : group.id))}
-                      aria-expanded={isExpanded}
-                    >
-                      {group.label}
-                      <ChevronDown
-                        size={18}
-                        className={`transition-transform duration-300 ease-out ${isExpanded ? "rotate-180" : ""}`}
-                      />
-                    </button>
-                    <div
-                      className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
-                        isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                      }`}
-                    >
-                      <div className="overflow-hidden">
-                        <div className="flex flex-col gap-1 pb-2 pl-3">
-                          {group.items.map((item) => (
-                            <MobileNavLink
-                              key={item.href}
-                              item={item}
-                              pageHref={group.pageHref}
-                              onNavigate={closeMobileMenu}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-
               <a
                 href="/"
                 onClick={closeMobileMenu}
                 className="mobile-nav-drawer__item block py-2 text-base font-semibold leading-[150%] text-primary/82"
-                style={{ "--item-index": 2 } as CSSProperties}
+                style={{ "--item-index": 0 } as CSSProperties}
               >
                 Pagrindinis
               </a>
 
-              {sharedNavItems.map((item, index) => (
+              {primaryNavItems.map((item, index) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={closeMobileMenu}
                   className="mobile-nav-drawer__item block py-2 text-base font-semibold leading-[150%] text-primary/82"
-                  style={{ "--item-index": index + 3 } as CSSProperties}
+                  style={{ "--item-index": index + 1 } as CSSProperties}
                 >
                   {item.label}
                 </a>
@@ -406,7 +352,7 @@ export function Navigation({
 
               <div
                 className="mobile-nav-drawer__item mt-6 border-t border-primary/10 pt-5"
-                style={{ "--item-index": sharedNavItems.length + 3 } as CSSProperties}
+                style={{ "--item-index": primaryNavItems.length + 1 } as CSSProperties}
               >
                 {renderLanguageSwitcher({ sticky: true, onDark: false, className: "w-fit" })}
               </div>
