@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { isikurimasContent } from "../content/isikurimas";
 import { ApplicationCtaSection } from "./ApplicationCtaSection";
-import { DocumentsListSection } from "./DocumentsListSection";
+import { DocumentsDownloadList, DocumentsListSection } from "./DocumentsListSection";
 import { HubSplitHero } from "./HubSplitHero";
 import { InvestorInquiry } from "./InvestorInquiry";
 import { SettleProcess } from "./SettleProcess";
@@ -214,16 +214,7 @@ export function IsikurimasPage() {
                     ) : null}
 
                     {"attachments" in step && Array.isArray(step.attachments) ? (
-                      <ul className="m-0 grid list-none gap-0 p-0">
-                        {step.attachments.map((item) => (
-                          <li
-                            key={item}
-                            className="border-t border-dashed border-primary/16 py-3 text-base leading-loose text-primary/82 last:border-b"
-                          >
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
+                      <DocumentsDownloadList items={step.attachments} />
                     ) : null}
 
                     {"cta" in step && step.cta ? (

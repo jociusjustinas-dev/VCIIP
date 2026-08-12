@@ -210,14 +210,32 @@ export const isikurimasContent = {
       {
         number: "03",
         title: "Paruoškite privalomus priedus",
-        body: "Kartu su paraiška pateikite šiuos dokumentus:",
+        body: "Kartu su paraiška pateikite šiuos dokumentus. Atsisiųskite žemiau:",
         attachments: [
-          "Dokumentai, patvirtinantys, kad veiklai netaikomi apribojimai ją vykdyti ar plėsti",
-          "Paskutinių 3 metų finansinės atskaitomybės dokumentai",
-          "Finansavimo šaltinius pagrindžiantys dokumentai",
-          "Verslo planas, atitinkantis ES finansavimo reikalavimus",
-          "Ketinimų protokolas arba jungtinės veiklos sutartis dėl klasterio steigimo (tik klasterio koordinatoriams)",
-          "Suteiktų technologinių / viešų paslaugų apimties patvirtinimas (tik technologinių ir viešų paslaugų teikėjams)",
+          {
+            label: "Dokumentai, patvirtinantys, kad veiklai netaikomi apribojimai ją vykdyti ar plėsti",
+            href: isikurimasDocuments.criteria.href,
+          },
+          {
+            label: "Paskutinių 3 metų finansinės atskaitomybės dokumentai",
+            href: isikurimasDocuments.applicationForm.href,
+          },
+          {
+            label: "Finansavimo šaltinius pagrindžiantys dokumentai",
+            href: isikurimasDocuments.applicationForm.href,
+          },
+          {
+            label: "Verslo planas, atitinkantis ES finansavimo reikalavimus",
+            href: isikurimasDocuments.applicationForm.href,
+          },
+          {
+            label: "Ketinimų protokolas arba jungtinės veiklos sutartis dėl klasterio steigimo (tik klasterio koordinatoriams)",
+            href: isikurimasDocuments.applicationForm.href,
+          },
+          {
+            label: "Suteiktų technologinių / viešų paslaugų apimties patvirtinimas (tik technologinių ir viešų paslaugų teikėjams)",
+            href: isikurimasDocuments.applicationForm.href,
+          },
         ],
       },
       {
