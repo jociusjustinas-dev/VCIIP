@@ -25,10 +25,7 @@ export function OperatoriusPage() {
         id={services.id}
         eyebrow={services.eyebrow}
         title={services.title}
-        intro={services.intro}
         items={services.items}
-        tone="gradient"
-        showNumbers
       />
 
       <AdvantagesSection
