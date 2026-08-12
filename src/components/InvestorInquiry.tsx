@@ -257,13 +257,16 @@ export function InvestorInquiry({
   );
 
   return (
-    <section id={id} className="relative bg-white">
+    <section
+      id={id}
+      className={`relative bg-white ${isLight && !isPageSpacing ? "section-shell" : ""}`}
+    >
       {isLight ? (
         <div
           className={`relative overflow-hidden rounded-none bg-white ${
             isPageSpacing
               ? "pb-14 pt-32 max-[991px]:pb-12 max-[991px]:pt-28 max-[479px]:pb-10 max-[479px]:pt-24"
-              : "py-10 max-[991px]:py-8 max-[479px]:py-7"
+              : ""
           }`}
         >
           {content}
