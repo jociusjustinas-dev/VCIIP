@@ -30,7 +30,7 @@ export function HomeAboutSection() {
         </div>
 
         <div
-          className="mt-10 grid border-t border-dashed border-primary/48 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 grid border-t border-dashed border-primary/48 pt-2 sm:grid-cols-2 max-[991px]:mt-14 lg:mt-20 lg:pt-4 lg:grid-cols-4"
           data-reveal-group
         >
           {about.stats.map((stat) => (
