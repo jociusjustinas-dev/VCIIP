@@ -77,7 +77,7 @@ export function ClientsLogoCarousel({
           </div>
         </div>
 
-        <div className="reveal-item vilnius-partners-grid" data-reveal="fade">
+        <div className="reveal-item vilnius-partners-grid vilnius-partners-grid--clients" data-reveal="fade">
           {klientaiAll.map((item) => (
             <button
               key={item.id}
