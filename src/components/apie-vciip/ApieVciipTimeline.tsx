@@ -99,41 +99,43 @@ export function ApieVciipTimeline({
 
           <div className="reveal-item hidden min-[768px]:block">{timelineControls}</div>
         </div>
+      </div>
 
-        <div className="reveal-item apie-vciip-timeline" data-reveal="fade">
-          <div
-            ref={viewportRef}
-            className="apie-vciip-timeline__viewport overflow-x-auto scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          >
-            <div className="apie-vciip-timeline__track">
-              <div className="apie-vciip-timeline__row apie-vciip-timeline__row--years">
-                {items.map((item) => (
-                  <div key={`${item.year}-year`} className="apie-vciip-timeline__slot">
-                    <p className="apie-vciip-timeline__year">{item.year}</p>
-                  </div>
-                ))}
-              </div>
+      <div className="reveal-item apie-vciip-timeline" data-reveal="fade">
+        <div
+          ref={viewportRef}
+          className="apie-vciip-timeline__viewport overflow-x-auto scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          <div className="apie-vciip-timeline__track">
+            <div className="apie-vciip-timeline__row apie-vciip-timeline__row--years">
+              {items.map((item) => (
+                <div key={`${item.year}-year`} className="apie-vciip-timeline__slot">
+                  <p className="apie-vciip-timeline__year">{item.year}</p>
+                </div>
+              ))}
+            </div>
 
-              <div className="apie-vciip-timeline__row apie-vciip-timeline__row--rail" aria-hidden="true">
-                <span className="apie-vciip-timeline__rail-line" />
-                {items.map((item) => (
-                  <div key={`${item.year}-dot`} className="apie-vciip-timeline__slot apie-vciip-timeline__slot--rail">
-                    <span className="apie-vciip-timeline__dot" />
-                  </div>
-                ))}
-              </div>
+            <div className="apie-vciip-timeline__row apie-vciip-timeline__row--rail" aria-hidden="true">
+              <span className="apie-vciip-timeline__rail-line" />
+              {items.map((item) => (
+                <div key={`${item.year}-dot`} className="apie-vciip-timeline__slot apie-vciip-timeline__slot--rail">
+                  <span className="apie-vciip-timeline__dot" />
+                </div>
+              ))}
+            </div>
 
-              <div className="apie-vciip-timeline__row apie-vciip-timeline__row--labels">
-                {items.map((item) => (
-                  <div key={`${item.year}-label`} className="apie-vciip-timeline__slot">
-                    <p className="apie-vciip-timeline__label">{item.label}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="apie-vciip-timeline__row apie-vciip-timeline__row--labels">
+              {items.map((item) => (
+                <div key={`${item.year}-label`} className="apie-vciip-timeline__slot">
+                  <p className="apie-vciip-timeline__label">{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
+      </div>
 
+      <div className="site-container">
         <div className="reveal-item mt-4 flex justify-end min-[768px]:hidden" data-reveal="fade">
           {timelineControls}
         </div>
