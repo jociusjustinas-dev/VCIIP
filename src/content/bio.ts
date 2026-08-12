@@ -1,7 +1,11 @@
-import ecosystemBioImage from "../assets/images/ecosystem-bio.jpeg";
-import modernOfficeImage from "../assets/images/modern-office-work.png";
-import processLabImage from "../assets/images/process-lab.jpg";
-import processWarmRoomImage from "../assets/images/process-warm-room.png";
+import centerACorridorImage from "../assets/images/center-a-corridor.jpg";
+import centerALabImage from "../assets/images/center-a-lab.jpg";
+import centerAProductionImage from "../assets/images/center-a-production.jpg";
+import centerBLabImage from "../assets/images/center-b-lab.jpg";
+import centerBProductionImage from "../assets/images/center-b-production.jpg";
+import hubioLabImage from "../assets/images/hubio-lab.jpg";
+import hubioOfficeImage from "../assets/images/hubio-office.jpg";
+import hubioProductionImage from "../assets/images/hubio-production.jpg";
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 import { kontaktaiContent } from "./kontaktai";
 
@@ -73,9 +77,9 @@ export const bioPremises = {
       availableArea: "~3230 kv. m.",
       isAvailable: true,
       images: [
-        { src: processLabImage, alt: "HUBIO laboratorijų erdvė" },
-        { src: processWarmRoomImage, alt: "HUBIO gamybos patalpos" },
-        { src: modernOfficeImage, alt: "HUBIO biurų erdvė" },
+        { src: hubioLabImage, alt: "HUBIO laboratorijų erdvė" },
+        { src: hubioProductionImage, alt: "HUBIO gamybos patalpos" },
+        { src: hubioOfficeImage, alt: "HUBIO biurų erdvė su vaizdu į laboratoriją" },
       ],
       link: { label: "northtownvilnius.lt", href: "https://www.northtownvilnius.lt" },
       contact: premisesContact,
@@ -86,9 +90,9 @@ export const bioPremises = {
       availableArea: "~268,41 kv. m.",
       isAvailable: true,
       images: [
-        { src: modernOfficeImage, alt: "Inovacijų centro A biurai" },
-        { src: processLabImage, alt: "Inovacijų centro A laboratorijos" },
-        { src: vciipOverviewImage, alt: "Inovacijų centro A teritorija" },
+        { src: centerALabImage, alt: "Inovacijų centro A laboratorija" },
+        { src: centerAProductionImage, alt: "Inovacijų centro A gamybos erdvė" },
+        { src: centerACorridorImage, alt: "Inovacijų centro A biuro koridorius" },
       ],
       link: { label: "Susisiekti dėl centro A", href: "/kontaktai?interest=bio&building=a" },
       contact: premisesContact,
@@ -99,9 +103,8 @@ export const bioPremises = {
       availableArea: "0 kv. m.",
       isAvailable: false,
       images: [
-        { src: processWarmRoomImage, alt: "Inovacijų centro B patalpos" },
-        { src: ecosystemBioImage, alt: "Inovacijų centro B aplinka" },
-        { src: processLabImage, alt: "Inovacijų centro B laboratorijos" },
+        { src: centerBLabImage, alt: "Inovacijų centro B laboratorija" },
+        { src: centerBProductionImage, alt: "Inovacijų centro B gamybos patalpos" },
       ],
       link: { label: "Susisiekti dėl centro B", href: "/kontaktai?interest=bio&building=b" },
       contact: premisesContact,
