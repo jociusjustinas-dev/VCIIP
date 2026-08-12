@@ -60,7 +60,7 @@ export function AdvantagesSection({
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="group flex w-full items-center gap-5 py-5 text-left outline-none transition-colors hover:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:gap-4"
+                      className="group flex w-full items-center gap-5 py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:gap-4"
                     >
                       <span
                         className={`flex size-10 shrink-0 items-center justify-center transition-colors duration-300 ${
@@ -69,7 +69,11 @@ export function AdvantagesSection({
                       >
                         {advantageIcons[index] ?? advantageIcons[0]}
                       </span>
-                      <span className="min-w-0 flex-1 font-display text-xl font-bold leading-tight tracking-tight text-primary max-[479px]:text-lg">
+                      <span
+                        className={`min-w-0 flex-1 font-display text-xl font-bold leading-tight tracking-tight transition-colors duration-300 max-[479px]:text-lg ${
+                          isOpen ? "text-accent" : "text-primary group-hover:text-accent"
+                        }`}
+                      >
                         {item.title}
                       </span>
                     </button>
