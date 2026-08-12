@@ -47,7 +47,7 @@ export function FeatureSplitHighlightsSection({
           />
 
           <div
-            className="mb-16 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.62fr)] max-[991px]:mb-12"
+            className="mb-16 grid items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.62fr)] max-[991px]:mb-12"
             data-reveal-group
           >
             <div className="flex flex-col items-start gap-7">
