@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 
 import { testimonials, type Testimonial } from "../content/testimonials";
 
 export function TestimonialsCarousel() {
-  const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<Testimonial | null>(null);
+  const marqueeCopies = [0, 1] as const;
 
   useEffect(() => {
     if (!active) return;
@@ -20,10 +20,6 @@ export function TestimonialsCarousel() {
     };
   }, [active]);
 
-  const scrollBy = (direction: -1 | 1) => {
-    trackRef.current?.scrollBy({ left: direction * 360, behavior: "smooth" });
-  };
-
   return (
     <section id="atsiliepimai" className="section-shell bg-background">
       <div className="site-container" data-reveal-group>
@@ -31,57 +27,46 @@ export function TestimonialsCarousel() {
         <h2 className="section-heading reveal-item mt-4 max-w-3xl">Ką sako VCIIP bendruomenė</h2>
       </div>
 
-      <div className="reveal-item mt-10 overflow-hidden" data-reveal="fade">
-        <div
-          ref={trackRef}
-          className="flex gap-4 overflow-x-auto px-[max(1rem,calc((100%-min(100%-2rem,1800px))/2+var(--page-gutter)))] pb-2 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {testimonials.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setActive(item)}
-              className="flex w-[min(86vw,340px)] shrink-0 flex-col gap-5 border border-primary/12 bg-white p-6 text-left transition hover:border-primary/28"
+      <div className="reveal-item mt-12 overflow-hidden max-[991px]:mt-10 max-[479px]:mt-8" data-reveal="fade">
+        <div className="animate-marquee-testimonials flex w-max gap-5 max-[479px]:gap-3">
+          {marqueeCopies.map((copyIndex) => (
+            <div
+              key={copyIndex}
+              className="flex flex-none gap-5 max-[479px]:gap-3"
+              aria-hidden={copyIndex > 0}
             >
-              <p className="m-0 line-clamp-5 text-base leading-loose text-muted">{item.excerpt}</p>
-              <div className="mt-auto flex items-center gap-3 border-t border-dashed border-primary/14 pt-4">
-                {item.photo ? (
-                  <img src={item.photo} alt="" className="size-12 object-cover" />
-                ) : (
-                  <span className="grid size-12 place-items-center bg-primary/8 font-display text-sm font-bold text-primary">
-                    {item.name.slice(0, 1)}
-                  </span>
-                )}
-                <div>
-                  <p className="m-0 text-sm font-semibold text-primary">{item.name}</p>
-                  <p className="m-0 text-sm text-muted">
-                    {item.company}
-                    {item.role ? `, ${item.role}` : ""}
+              {testimonials.map((item) => (
+                <button
+                  key={`${copyIndex}-${item.id}`}
+                  type="button"
+                  onClick={() => setActive(item)}
+                  className="flex h-[min(24rem,70vw)] w-[min(86vw,26rem)] flex-none flex-col justify-between bg-white p-8 text-left transition hover:bg-white max-[479px]:h-auto max-[479px]:min-h-[20rem] max-[479px]:p-6"
+                >
+                  <p className="m-0 line-clamp-7 font-display text-2xl font-bold leading-tight tracking-tight text-primary max-[479px]:text-xl">
+                    {item.excerpt}
                   </p>
-                </div>
-              </div>
-            </button>
+
+                  <div className="mt-8 flex items-center gap-4 border-t border-dashed border-primary/14 pt-5">
+                    {item.photo ? (
+                      <img src={item.photo} alt="" className="size-12 shrink-0 object-cover" loading="lazy" />
+                    ) : (
+                      <span className="grid size-12 shrink-0 place-items-center bg-primary/8 font-display text-sm font-bold text-primary">
+                        {item.name.slice(0, 1)}
+                      </span>
+                    )}
+                    <div className="min-w-0">
+                      <p className="m-0 text-base font-semibold text-primary">{item.name}</p>
+                      <p className="m-0 text-sm text-muted">
+                        {item.company}
+                        {item.role ? `, ${item.role}` : ""}
+                      </p>
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
           ))}
         </div>
-      </div>
-
-      <div className="site-container mt-6 flex justify-end gap-3">
-        <button
-          type="button"
-          aria-label="Ankstesni atsiliepimai"
-          onClick={() => scrollBy(-1)}
-          className="flex size-12 items-center justify-center border border-primary/16 bg-white text-primary transition hover:border-accent hover:bg-accent hover:text-white"
-        >
-          <ChevronLeft size={22} />
-        </button>
-        <button
-          type="button"
-          aria-label="Kiti atsiliepimai"
-          onClick={() => scrollBy(1)}
-          className="flex size-12 items-center justify-center border border-primary/16 bg-white text-primary transition hover:border-accent hover:bg-accent hover:text-white"
-        >
-          <ChevronRight size={22} />
-        </button>
       </div>
 
       {active ? (

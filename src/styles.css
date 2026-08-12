@@ -1419,6 +1419,14 @@
     animation-play-state: paused;
   }
 
+  .animate-marquee-testimonials {
+    animation: marquee-testimonials 70s linear infinite;
+  }
+
+  .animate-marquee-testimonials:hover {
+    animation-play-state: paused;
+  }
+
   .mobile-nav-drawer__backdrop {
     animation: mobile-nav-backdrop-in 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
@@ -1635,6 +1643,16 @@
   }
 }
 
+@keyframes marquee-testimonials {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes reveal-in {
   from {
     opacity: 0;
@@ -1684,6 +1702,11 @@
       filter: none;
       transform: none;
       transition: none;
+    }
+
+    .animate-marquee-testimonials,
+    .animate-marquee-ecosystem {
+      animation: none;
     }
   }
 }
