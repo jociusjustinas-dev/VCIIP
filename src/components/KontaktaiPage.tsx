@@ -32,17 +32,21 @@ export function KontaktaiPage() {
             </div>
 
             <div id={operator.id} className="flex flex-col gap-5 border-t border-dashed border-primary/22 pt-8">
-              <div className="flex flex-col gap-2">
-                <p className="eyebrow m-0">{operator.eyebrow}</p>
-                <h2 className="heading-h3 m-0 text-primary">{operator.title}</h2>
-              </div>
+              <h2 className="heading-h3 m-0 text-primary">{operator.title}</h2>
               <div>
                 <p className="m-0 font-display text-xl font-bold leading-snug tracking-tight text-primary">
                   {operator.organization}
                 </p>
                 <ul className="m-0 mt-4 grid list-none gap-0 p-0">
                   <li className="border-t border-dashed border-primary/18 py-3">
-                    <p className="m-0 text-sm leading-relaxed text-muted">{operator.address}</p>
+                    <a
+                      className="text-sm font-semibold leading-relaxed text-primary hover:text-accent"
+                      href={operator.addressHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {operator.address}
+                    </a>
                   </li>
                   <li className="border-t border-dashed border-primary/18 py-3">
                     <a

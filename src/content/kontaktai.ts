@@ -8,10 +8,11 @@ export const kontaktaiContent = {
 
   operator: {
     id: "operatorius-kontaktai",
-    eyebrow: "Kontaktai konsultacijai",
     title: "VCIIP operatorius",
     organization: "VšĮ „Northtown Vilnius”",
     address: "Vismaliukų g. 34, LT-10243 Vilnius",
+    addressHref:
+      "https://www.google.com/maps/search/?api=1&query=Vismaliuk%C5%B3%20g.%2034%2C%20LT-10243%20Vilnius",
     phone: "+370 5 274 5407",
     email: "info@northtownvilnius.lt",
   },
