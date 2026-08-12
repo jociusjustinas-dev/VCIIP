@@ -16,6 +16,7 @@ import {
   type NavGroup,
   type NavLink,
 } from "../content/site";
+import { getAppPath, withBase } from "../lib/paths";
 import { scrollToHash } from "../utils/scrollToSection";
 
 export type BrandVariant = "vciip" | "bio" | "tech";
@@ -52,17 +53,18 @@ export function Navigation({
   const navRef = useRef<HTMLDivElement>(null);
   const logos =
     tealLogo && variant === "vciip" ? vciipTealLogos : brandLogos[variant];
-  const contactHref =
+  const contactHref = withBase(
     variant === "bio"
       ? "/kontaktai?interest=bio"
       : variant === "tech"
         ? "/kontaktai?interest=tech"
-        : "/kontaktai";
+        : "/kontaktai",
+  );
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
     const normalizePath = (path: string) => path.replace(/\/$/, "") || "/";
     const targetPath = normalizePath(new URL(hubHref, window.location.origin).pathname);
-    const currentPath = normalizePath(window.location.pathname);
+    const currentPath = normalizePath(withBase(getAppPath()));
 
     if (targetPath !== currentPath) return;
 
@@ -330,7 +332,7 @@ export function Navigation({
 
             <div className="mobile-nav-drawer__content pt-5">
               <a
-                href="/"
+                href={withBase("/")}
                 onClick={closeMobileMenu}
                 className="mobile-nav-drawer__item block py-2 text-base font-semibold leading-[150%] text-primary/82"
                 style={{ "--item-index": 0 } as CSSProperties}
@@ -341,7 +343,7 @@ export function Navigation({
               {primaryNavItems.map((item, index) => (
                 <a
                   key={item.href}
-                  href={item.href}
+                  href={withBase(item.href)}
                   onClick={closeMobileMenu}
                   className="mobile-nav-drawer__item block py-2 text-base font-semibold leading-[150%] text-primary/82"
                   style={{ "--item-index": index + 1 } as CSSProperties}
@@ -377,7 +379,7 @@ function NavAnchor({
 }) {
   return (
     <a
-      href={href}
+      href={withBase(href)}
       onClick={onClick}
       className={`shrink-0 rounded-none px-3 py-1.5 text-sm font-semibold leading-[150%] transition ${className}`}
     >
@@ -495,8 +497,8 @@ function NavDropdown({
     setOpen(false);
     setMenuPosition(null);
 
-    const url = new URL(href, window.location.origin);
-    const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+    const url = new URL(withBase(href), window.location.origin);
+    const currentPath = withBase(getAppPath());
     const targetPath = url.pathname.replace(/\/$/, "") || "/";
 
     if (url.hash && targetPath === currentPath) {
@@ -512,16 +514,19 @@ function NavDropdown({
       className="overflow-hidden rounded-none border border-primary/12 bg-white p-1.5 shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_18%,transparent)]"
       style={{ minWidth: menuPosition?.width }}
     >
-      {group.items.map((item) => (
+      {group.items.map((item) => {
+        const href = withBase(resolveNavHref(group.pageHref, item.href));
+        return (
         <a
           key={item.href}
-          href={resolveNavHref(group.pageHref, item.href)}
+          href={href}
           className="block rounded-none px-3 py-2.5 text-sm font-semibold leading-[140%] text-primary/72 transition hover:bg-primary/6 hover:text-primary"
-          onClick={(event) => handleItemClick(event, resolveNavHref(group.pageHref, item.href))}
+          onClick={(event) => handleItemClick(event, href)}
         >
           {item.label}
         </a>
-      ))}
+        );
+      })}
     </div>
   );
 
@@ -574,14 +579,14 @@ function MobileNavLink({
   pageHref: string;
   onNavigate: () => void;
 }) {
-  const href = resolveNavHref(pageHref, item.href);
+  const href = withBase(resolveNavHref(pageHref, item.href));
 
   return (
     <a
       href={href}
       onClick={(event) => {
         const url = new URL(href, window.location.origin);
-        const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+        const currentPath = withBase(getAppPath());
         const targetPath = url.pathname.replace(/\/$/, "") || "/";
 
         if (url.hash && targetPath === currentPath) {

@@ -1,6 +1,7 @@
 import type { NewsPost, NewsPostDetail } from "../types/news";
 
 import placeholderImage from "../assets/images/vciip-overview.jpg";
+import { withBase } from "./paths";
 
 const DEFAULT_API_BASE = import.meta.env.DEV
   ? "/wp-json/wp/v2"
@@ -81,7 +82,7 @@ function mapPostDetail(post: WpPost): NewsPostDetail {
 }
 
 export function getNewsPostHref() {
-  return NEWS_INNER_PAGE_PATH;
+  return withBase(NEWS_INNER_PAGE_PATH);
 }
 
 export const NEWS_INNER_PAGE_SLUG = "straipsnis";

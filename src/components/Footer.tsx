@@ -5,6 +5,7 @@ import { FacebookIcon, LinkedinIcon } from "./FooterSocialIcons";
 import vciipLogo from "../assets/logos/logo-dark.svg";
 import vciipLogoTeal from "../assets/logos/logo-teal-dark.svg";
 import techLogo from "../assets/logos/tech.svg";
+import { withBase } from "../lib/paths";
 import type { BrandVariant } from "./Navigation";
 
 const footerNavigation = [
@@ -144,7 +145,7 @@ function FooterColumn({ title, children }: { title: string; children: ReactNode 
 function FooterLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <a
-      href={href}
+      href={withBase(href)}
       className="text-sm font-medium leading-[1.5] text-primary/68 transition-colors duration-200 hover:text-primary"
     >
       {children}
