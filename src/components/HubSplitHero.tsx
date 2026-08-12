@@ -55,6 +55,9 @@ export function HubSplitHero({
                 className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-accent px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-primary hover:text-white"
                 onMouseEnter={() => setPrimaryHovered(true)}
                 onMouseLeave={() => setPrimaryHovered(false)}
+                {...(primaryCta.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
               >
                 <span className="h-5 overflow-hidden py-px">
                   <span

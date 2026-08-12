@@ -5,7 +5,20 @@ import { apieVciipTimeline } from "../../content/apieVciip";
 
 const VISIBLE_SLOTS = 3.25;
 
-export function ApieVciipTimeline() {
+type TimelineItem = {
+  year: string;
+  label: string;
+};
+
+export function ApieVciipTimeline({
+  eyebrow = apieVciipTimeline.eyebrow,
+  title = apieVciipTimeline.title,
+  items = apieVciipTimeline.items,
+}: {
+  eyebrow?: string;
+  title?: string;
+  items?: readonly TimelineItem[];
+} = {}) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -38,7 +51,7 @@ export function ApieVciipTimeline() {
       viewport.removeEventListener("scroll", updateScrollState);
       window.removeEventListener("resize", updateScrollState);
     };
-  }, [updateScrollState]);
+  }, [updateScrollState, items]);
 
   const scrollTimeline = (direction: "previous" | "next") => {
     const viewport = viewportRef.current;
@@ -80,8 +93,8 @@ export function ApieVciipTimeline() {
       <div className="site-container">
         <div className="mb-10 flex items-end justify-between gap-6 max-[767px]:mb-8" data-reveal-group>
           <div className="section-intro m-0">
-            <p className="eyebrow reveal-item">{apieVciipTimeline.eyebrow}</p>
-            <h2 className="section-heading reveal-item max-w-3xl">{apieVciipTimeline.title}</h2>
+            <p className="eyebrow reveal-item">{eyebrow}</p>
+            <h2 className="section-heading reveal-item max-w-3xl">{title}</h2>
           </div>
 
           <div className="reveal-item hidden min-[768px]:block">{timelineControls}</div>
@@ -94,7 +107,7 @@ export function ApieVciipTimeline() {
           >
             <div className="apie-vciip-timeline__track">
               <div className="apie-vciip-timeline__row apie-vciip-timeline__row--years">
-                {apieVciipTimeline.items.map((item) => (
+                {items.map((item) => (
                   <div key={`${item.year}-year`} className="apie-vciip-timeline__slot">
                     <p className="apie-vciip-timeline__year">{item.year}</p>
                   </div>
@@ -103,7 +116,7 @@ export function ApieVciipTimeline() {
 
               <div className="apie-vciip-timeline__row apie-vciip-timeline__row--rail" aria-hidden="true">
                 <span className="apie-vciip-timeline__rail-line" />
-                {apieVciipTimeline.items.map((item) => (
+                {items.map((item) => (
                   <div key={`${item.year}-dot`} className="apie-vciip-timeline__slot apie-vciip-timeline__slot--rail">
                     <span className="apie-vciip-timeline__dot" />
                   </div>
@@ -111,7 +124,7 @@ export function ApieVciipTimeline() {
               </div>
 
               <div className="apie-vciip-timeline__row apie-vciip-timeline__row--labels">
-                {apieVciipTimeline.items.map((item) => (
+                {items.map((item) => (
                   <div key={`${item.year}-label`} className="apie-vciip-timeline__slot">
                     <p className="apie-vciip-timeline__label">{item.label}</p>
                   </div>

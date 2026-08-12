@@ -1,5 +1,7 @@
 import { parkPairCta } from "../content/klientai";
 import { operatoriusContent } from "../content/operatorius";
+import { AdvantagesSection } from "./AdvantagesSection";
+import { ApieVciipTimeline } from "./apie-vciip/ApieVciipTimeline";
 import { HubSplitHero } from "./HubSplitHero";
 import { ParkPairCards } from "./ParkPairCards";
 
@@ -7,27 +9,39 @@ export function OperatoriusPage() {
   const { hero, services, areas, timeline } = operatoriusContent;
 
   return (
-    <main>
+    <main className="bg-white">
       <HubSplitHero
         id="operatorius"
         eyebrow={hero.eyebrow}
         title={hero.title}
         description={hero.description}
-        primaryCta={{ label: hero.cta.label, href: hero.cta.href }}
-        secondaryCta={{ label: "Susisiekti", href: "/kontaktai" }}
-        media={{
-          type: "image",
-          src: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
-          alt: "Operatoriaus biuro ir konsultacijų aplinka",
-        }}
+        primaryCta={hero.primaryCta}
+        secondaryCta={hero.secondaryCta}
+        media={{ type: "image", src: hero.imageSrc, alt: hero.imageAlt }}
       />
 
-      <section className="section-shell bg-white">
-        <div className="site-container" data-reveal-group>
-          <h2 className="section-heading reveal-item max-w-3xl">{services.title}</h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <section id={services.id} className="section-shell bg-background">
+        <div className="site-container">
+          <div
+            className="mb-16 grid items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.62fr)] max-[991px]:mb-12"
+            data-reveal-group
+          >
+            <div className="flex flex-col items-start gap-7">
+              <div className="reveal-item h-0 w-full border-b border-dashed border-primary/45" />
+              <p className="eyebrow reveal-item">{services.eyebrow}</p>
+              <h2 className="section-heading reveal-item max-w-4xl">{services.title}</h2>
+            </div>
+            <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-muted">
+              {services.intro}
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3" data-reveal-group>
             {services.items.map((item) => (
-              <article key={item.title} className="reveal-item border-t border-dashed border-primary/22 pt-5">
+              <article
+                key={item.title}
+                className="reveal-item border-t border-dashed border-primary/22 pt-5"
+              >
                 <h3 className="heading-h3 text-primary">{item.title}</h3>
                 <p className="m-0 mt-3 text-base leading-loose text-muted">{item.body}</p>
               </article>
@@ -36,36 +50,19 @@ export function OperatoriusPage() {
         </div>
       </section>
 
-      <section className="section-shell bg-background">
-        <div className="site-container" data-reveal-group>
-          <h2 className="section-heading reveal-item max-w-3xl">{areas.title}</h2>
-          <div className="mt-10 grid gap-8 lg:grid-cols-2">
-            {areas.items.map((item) => (
-              <article key={item.title} className="reveal-item border border-dashed border-primary/16 bg-white p-6">
-                <h3 className="heading-h3 text-primary">{item.title}</h3>
-                <p className="m-0 mt-3 whitespace-pre-line text-base leading-loose text-muted">{item.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AdvantagesSection
+        id={areas.id}
+        eyebrow={areas.eyebrow}
+        title={areas.title}
+        items={areas.items}
+        imageSrc={areas.imageSrc}
+      />
 
-      <section className="section-shell bg-white">
-        <div className="site-container" data-reveal-group>
-          <h2 className="section-heading reveal-item max-w-3xl">{timeline.title}</h2>
-          <div className="mt-10 grid gap-4">
-            {timeline.items.map((item) => (
-              <div
-                key={item.year}
-                className="reveal-item grid gap-3 border-t border-dashed border-primary/18 py-5 md:grid-cols-[7rem_minmax(0,1fr)]"
-              >
-                <p className="m-0 font-display text-xl font-bold text-accent">{item.year}</p>
-                <p className="m-0 text-base leading-loose text-muted">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ApieVciipTimeline
+        eyebrow={timeline.eyebrow}
+        title={timeline.title}
+        items={timeline.items}
+      />
 
       <ParkPairCards
         title={parkPairCta.title}
