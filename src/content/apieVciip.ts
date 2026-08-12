@@ -5,7 +5,6 @@ export const apieVciipHero = {
   title: "Kuriame aplinką pažangioms investicijoms Vilniuje",
   description:
     "VCIIP – Vilniaus miesto inovacijų ir pramonės parkas, telkiantis gyvybės mokslų, technologijų ir pažangiosios gamybos įmones. Kuriame aplinką, kurioje išvystyta infrastruktūra, partnerystės ir profesionali operatoriaus pagalba padeda investuotojams greičiau įsikurti ir auginti aukštos pridėtinės vertės verslą.",
-  primaryCta: { label: "Susisiekti", href: "/kontaktai" },
 };
 
 export const apieVciipStats = {
@@ -54,8 +53,8 @@ export const apieVciipAdvantages = {
 };
 
 export const apieVciipVision = {
-  eyebrow: "Vizija ir misija",
-  title: "Ko siekiame ir kokiomis kryptimis veikiame",
+  eyebrow: "",
+  title: "Vizija ir misija",
   blocks: [
     {
       title: "Vizija",
@@ -154,7 +153,7 @@ export const apieVciipOperator = {
     "VšĮ „Northtown Vilnius“ yra Vilniaus miesto inovacijų pramonės parko operatorius. Northtown Vilnius koordinuoja teritorijos vystymą, bendradarbiauja su miesto ir valstybės institucijomis bei padeda investuotojams viso įsikūrimo proceso metu.",
   cta: {
     label: "Skaityti daugiau",
-    href: "https://northtownvilnius.lt/sveiki/",
+    href: "/operatorius",
   },
   logo: northtownVilniusLogo,
   logoAlt: "VšĮ Northtown Vilnius",

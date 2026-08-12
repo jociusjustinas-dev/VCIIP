@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import modernOfficeImage from "../../assets/images/modern-office-work.png";
 import { apieVciipOperator } from "../../content/apieVciip";
+import { withBase } from "../../lib/paths";
 import { ParallaxImage } from "../ParallaxImage";
 
 export function ApieVciipOperator() {
@@ -23,9 +24,14 @@ export function ApieVciipOperator() {
             </div>
 
             <a
-              href={apieVciipOperator.cta.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={
+                apieVciipOperator.cta.href.startsWith("http")
+                  ? apieVciipOperator.cta.href
+                  : withBase(apieVciipOperator.cta.href)
+              }
+              {...(apieVciipOperator.cta.href.startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
               className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent hover:text-white"
               onMouseEnter={() => setCtaHovered(true)}
               onMouseLeave={() => setCtaHovered(false)}
