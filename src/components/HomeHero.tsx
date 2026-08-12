@@ -34,7 +34,11 @@ export function HomeHero() {
                 </li>
               ))}
             </ul>
-            <h1 className="display-h1 reveal-item max-w-4xl text-white">{hero.title}</h1>
+            <h1 className="display-h1 reveal-item max-w-4xl text-white">
+              Aukštųjų technologijų
+              <br />
+              plėtrai Vilniuje
+            </h1>
             <p className="reveal-item m-0 max-w-2xl text-base font-normal leading-[1.55] text-white/82">
               {hero.description}
             </p>
