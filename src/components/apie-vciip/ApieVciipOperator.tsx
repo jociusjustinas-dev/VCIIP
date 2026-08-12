@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-import modernOfficeImage from "../../assets/images/modern-office-work.png";
+import apieOperatorImage from "../../assets/images/apie-operator.jpg";
 import { apieVciipOperator } from "../../content/apieVciip";
 import { ParallaxImage } from "../ParallaxImage";
 
@@ -51,8 +51,8 @@ export function ApieVciipOperator() {
             data-reveal="scale"
           >
             <ParallaxImage
-              src={modernOfficeImage}
-              alt="VCIIP operatoriaus aplinka"
+              src={apieOperatorImage}
+              alt="VCIIP operatoriaus komanda su teritorijos maketu"
               className="absolute inset-0 h-full w-full"
               loading="lazy"
             />

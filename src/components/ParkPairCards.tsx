@@ -2,8 +2,8 @@ import { ArrowUpRight } from "lucide-react";
 
 import bioLogoWhite from "../assets/logos/bio-white.svg";
 import techLogoWhite from "../assets/logos/tech-white.svg";
-import ecosystemBioImage from "../assets/images/ecosystem-bio.jpeg";
-import ecosystemTechImage from "../assets/images/ecosystem-tech.jpg";
+import parkBioImage from "../assets/images/park-bio.jpg";
+import parkTechImage from "../assets/images/park-tech.jpg";
 import { ParallaxImage } from "./ParallaxImage";
 
 type ParkCard = {
@@ -136,14 +136,14 @@ export function ParkPairCards({
           data-reveal-group
         >
           <div className="lg:pr-10 xl:pr-14">
-            <ParkColumn park={bio} logoSrc={bioLogoWhite} imageSrc={ecosystemBioImage} />
+            <ParkColumn park={bio} logoSrc={bioLogoWhite} imageSrc={parkBioImage} />
           </div>
 
           <div className="border-dashed border-white/22 max-[767px]:border-t max-[767px]:pt-12 lg:border-l lg:pl-10 xl:pl-14">
             <ParkColumn
               park={tech}
               logoSrc={techLogoWhite}
-              imageSrc={ecosystemTechImage}
+              imageSrc={parkTechImage}
               badge={showTechAvailability ? "Prieinama dabar" : undefined}
             />
           </div>

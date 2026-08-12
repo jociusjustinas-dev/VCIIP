@@ -1,3 +1,4 @@
+import apieVisionImage from "../assets/images/apie-vision.jpg";
 import {
   apieVciipAdvantages,
   apieVciipDocuments,
@@ -40,6 +41,7 @@ export function ApieVciipPage() {
         eyebrow={apieVciipVision.eyebrow}
         title={apieVciipVision.title}
         items={apieVciipVision.blocks}
+        imageSrc={apieVisionImage}
       />
 
       <ApieVciipPartners />
