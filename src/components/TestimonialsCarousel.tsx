@@ -11,7 +11,7 @@ type DragState = {
   moved: boolean;
 };
 
-const AUTO_SCROLL_SPEED = 42;
+const AUTO_SCROLL_SPEED = 88;
 
 function CarouselNav({ onPrev, onNext }: { onPrev: () => void; onNext: () => void }) {
   return (
