@@ -51,10 +51,10 @@ export function TechPage() {
         eyebrow={techPremises.eyebrow}
         title={techPremises.title}
         intro={techPremises.intro}
-        highlights={techPremises.highlights}
         primaryCta={techPremises.primaryCta}
         secondaryCta={techPremises.secondaryCta}
         imageSrc={techPremises.imageSrc}
+        contentBesideMedia
       />
 
       <WhyVilniusCarousel

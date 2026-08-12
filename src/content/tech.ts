@@ -46,11 +46,6 @@ export const techPremises = {
   title: "VCIIP Tech nuomojamos patalpos",
   intro:
     "Šiuo metu įrengtų patalpų VCIIP Tech teritorijoje nėra, tačiau jūsų verslas gali įsikurti dedikuotame sklype, suprojektuotame pagal jūsų veiklos poreikius.",
-  highlights: [
-    "Įrengtų patalpų šiuo metu nėra",
-    "Galimybė kurtis dedikuotame sklype",
-    "Sprendimas pritaikomas pagal jūsų veiklos poreikius",
-  ],
   primaryCta: { label: "Žiūrėti sklypus", href: "#sklypai" },
   secondaryCta: { label: "Susisiekti", href: "/kontaktai?interest=tech" },
   imageSrc: processLabImage,
