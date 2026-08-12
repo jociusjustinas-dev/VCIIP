@@ -1,5 +1,10 @@
 import { ParallaxImage } from "./ParallaxImage";
 
+type InfrastructureItem = {
+  label: string;
+  detail: string;
+};
+
 export function InfrastructureListSection({
   id = "infrastruktura",
   eyebrow,
@@ -11,17 +16,17 @@ export function InfrastructureListSection({
   id?: string;
   eyebrow: string;
   title: string;
-  items: readonly string[];
+  items: readonly InfrastructureItem[];
   imageSrc: string;
   imageAlt?: string;
 }) {
   return (
     <section id={id} className="section-shell bg-background">
       <div className="site-container">
-          <div
-            className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14 xl:gap-16"
-            data-reveal-group
-          >
+        <div
+          className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14 xl:gap-16"
+          data-reveal-group
+        >
           <div className="flex h-full flex-col gap-10 max-[479px]:gap-6 lg:gap-[6.25rem]">
             <div className="section-intro mb-0 max-[479px]:mb-0">
               <div className="section-eyebrow-rule" />
@@ -32,10 +37,11 @@ export function InfrastructureListSection({
             <ul className="reveal-item m-0 grid list-none gap-0 p-0 sm:grid-cols-2 sm:gap-x-8 lg:gap-x-10">
               {items.map((item) => (
                 <li
-                  key={item}
-                  className="border-t border-dashed border-primary/22 py-4 text-base leading-loose text-primary last:border-b max-[479px]:py-3.5 sm:[&:nth-last-child(-n+2)]:border-b"
+                  key={item.label}
+                  className="flex flex-col gap-1.5 border-t border-dashed border-primary/22 py-5 last:border-b max-[479px]:py-4 sm:[&:nth-last-child(-n+2)]:border-b"
                 >
-                  {item}
+                  <p className="m-0 text-base font-semibold leading-snug text-primary">{item.label}</p>
+                  <p className="m-0 text-sm leading-relaxed text-muted">{item.detail}</p>
                 </li>
               ))}
             </ul>

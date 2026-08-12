@@ -127,13 +127,34 @@ export const bioInfrastructure = {
   imageSrc: vciipOverviewImage,
   imageAlt: "VCIIP Bio teritorijos infrastruktūra",
   items: [
-    "Dujotiekis iki 600 m³/val.",
-    "Elektra iki 12 MW",
-    "Vandentiekis iki 48,5 m³/val.",
-    "Nutekamieji vandenys iki 48,5 m³/val.",
-    "Telekomunikacijos iki 1 GB/s",
-    "Užstatymo intensyvumo koeficientas 1,2",
-    "Pastatų aukštingumas iki 16 metrų (iki 4 aukštų)",
+    {
+      label: "Dujotiekis",
+      detail: "Pajėgumas iki 600 m³/val.",
+    },
+    {
+      label: "Elektra",
+      detail: "Galia iki 12 MW.",
+    },
+    {
+      label: "Vandentiekis",
+      detail: "Tiekimas iki 48,5 m³/val.",
+    },
+    {
+      label: "Nutekamieji vandenys",
+      detail: "Nuotekų pajėgumas iki 48,5 m³/val.",
+    },
+    {
+      label: "Telekomunikacijos",
+      detail: "Duomenų perdavimas iki 1 GB/s.",
+    },
+    {
+      label: "Užstatymo intensyvumas",
+      detail: "Koeficientas iki 1,2.",
+    },
+    {
+      label: "Pastatų aukštingumas",
+      detail: "Iki 16 metrų (iki 4 aukštų).",
+    },
   ],
 };
 
