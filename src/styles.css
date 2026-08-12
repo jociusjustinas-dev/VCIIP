@@ -328,7 +328,7 @@
   }
 
   .section-shell {
-    padding-block: 4rem;
+    padding-block: 5.5rem;
   }
 
   .hub-split-hero {
@@ -1766,7 +1766,7 @@
 @media (max-width: 991px) {
   @layer components {
     .section-shell {
-      padding-block: 3rem;
+      padding-block: 4rem;
     }
   }
 }
@@ -1784,7 +1784,7 @@
 @media (max-width: 479px) {
   @layer components {
     .section-shell {
-      padding-block: 2.5rem;
+      padding-block: 3.25rem;
     }
   }
 }
