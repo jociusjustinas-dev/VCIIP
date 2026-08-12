@@ -1,6 +1,21 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
+function PremiseCardCta({ label, href }: { label: string; href: string }) {
+  const isExternal = href.startsWith("http");
+
+  return (
+    <a
+      href={href}
+      className="btn-primary mt-auto w-full justify-center"
+      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
+      {label}
+      {isExternal ? <ExternalLink size={16} aria-hidden="true" /> : <ArrowUpRight size={16} aria-hidden="true" />}
+    </a>
+  );
+}
+
 type PremiseContact = {
   name: string;
   role?: string;
@@ -164,13 +179,11 @@ export function PremisesCardsSection({
   eyebrow,
   title,
   items,
-  cta,
 }: {
   id?: string;
   eyebrow: string;
   title: string;
   items: readonly PremiseItem[];
-  cta: { label: string; href: string };
 }) {
   return (
     <section id={id} className="section-shell bg-white">
@@ -203,29 +216,7 @@ export function PremisesCardsSection({
 
                   <AvailabilityRow availableArea={item.availableArea} isAvailable={isAvailable} />
 
-                  {item.link ? (
-                    <div className="flex flex-col gap-1.5 border-t border-primary/12 pt-4">
-                      <span className="text-xs font-semibold uppercase tracking-[0.04em] text-muted">
-                        Nuoroda
-                      </span>
-                      <a
-                        href={item.link.href}
-                        className="inline-flex w-fit items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
-                        {...(item.link.href.startsWith("http")
-                          ? { target: "_blank", rel: "noopener noreferrer" }
-                          : {})}
-                      >
-                        {item.link.label}
-                        {item.link.href.startsWith("http") ? (
-                          <ExternalLink size={15} aria-hidden="true" />
-                        ) : (
-                          <ArrowUpRight size={15} aria-hidden="true" />
-                        )}
-                      </a>
-                    </div>
-                  ) : null}
-
-                  <div className="mt-auto flex flex-col gap-1.5 border-t border-primary/12 pt-4">
+                  <div className="flex flex-col gap-1.5 border-t border-primary/12 pt-4">
                     <span className="text-xs font-semibold uppercase tracking-[0.04em] text-muted">
                       Kontaktai
                     </span>
@@ -246,17 +237,12 @@ export function PremisesCardsSection({
                       {item.contact.phone}
                     </a>
                   </div>
+
+                  {item.link ? <PremiseCardCta label={item.link.label} href={item.link.href} /> : null}
                 </div>
               </article>
             );
           })}
-        </div>
-
-        <div className="reveal-item mt-10" data-reveal="fade">
-          <a href={cta.href} className="btn-primary">
-            {cta.label}
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
         </div>
       </div>
     </section>

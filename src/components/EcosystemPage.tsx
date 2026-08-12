@@ -52,7 +52,6 @@ export function EcosystemPage() {
         eyebrow={bioPremises.eyebrow}
         title={bioPremises.title}
         items={bioPremises.items}
-        cta={bioPremises.cta}
       />
 
       <WhyVilniusCarousel

@@ -50,7 +50,6 @@ export const bioPremises = {
   id: "patalpos",
   eyebrow: "Patalpos",
   title: "Įsikūrimas VCIIP Bio operatoriaus valdomuose pastatuose",
-  cta: { label: "Susisiekti dėl nuomos", href: "/kontaktai?interest=bio" },
   items: [
     {
       title: "HUBIO",
