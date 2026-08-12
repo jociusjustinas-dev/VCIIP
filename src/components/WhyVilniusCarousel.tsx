@@ -47,16 +47,23 @@ export function WhyVilniusCarousel({
   id = "kodel-vilnius",
   eyebrow = "Kodėl Vilnius?",
   title,
+  intro,
   items,
+  tone = "light",
+  showNumbers = false,
 }: {
   id?: string;
   eyebrow?: string;
   title: string;
+  intro?: string;
   items: readonly WhyItem[];
+  tone?: "light" | "gradient";
+  showNumbers?: boolean;
 }) {
   const [slide, setSlide] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const [stepPx, setStepPx] = useState(0);
+  const isGradient = tone === "gradient";
 
   useEffect(() => {
     const measure = () => {
@@ -83,14 +90,27 @@ export function WhyVilniusCarousel({
   };
 
   return (
-    <section id={id} className="section-shell bg-white">
+    <section
+      id={id}
+      className={`section-shell ${isGradient ? "why-vilnius-carousel--gradient" : "bg-white"}`}
+    >
       <div className="site-container">
         <div data-reveal-group>
           <div className="section-eyebrow-rule reveal-item" />
-          <div className="why-vilnius-carousel__header reveal-item">
-            <p className="eyebrow">{eyebrow}</p>
-            <h2 className="section-heading mt-4 max-w-3xl">{title}</h2>
-          </div>
+          {intro ? (
+            <div className="why-vilnius-carousel__header why-vilnius-carousel__header--split reveal-item">
+              <div>
+                <p className="eyebrow">{eyebrow}</p>
+                <h2 className="section-heading mt-4 max-w-3xl">{title}</h2>
+              </div>
+              <p className="m-0 max-w-xl text-base font-normal leading-loose text-muted">{intro}</p>
+            </div>
+          ) : (
+            <div className="why-vilnius-carousel__header reveal-item">
+              <p className="eyebrow">{eyebrow}</p>
+              <h2 className="section-heading mt-4 max-w-3xl">{title}</h2>
+            </div>
+          )}
         </div>
 
         <div className="why-vilnius-carousel__viewport reveal-item" data-reveal="fade">
@@ -101,9 +121,19 @@ export function WhyVilniusCarousel({
               transform: stepPx ? `translateX(-${slide * stepPx}px)` : undefined,
             }}
           >
-            {items.map((item) => (
-              <article key={item.title} className="why-vilnius-carousel__card">
+            {items.map((item, index) => (
+              <article
+                key={item.title}
+                className={`why-vilnius-carousel__card ${
+                  isGradient ? "why-vilnius-carousel__card--on-gradient" : ""
+                }`}
+              >
                 <div className="flex flex-col gap-6">
+                  {showNumbers ? (
+                    <span className="font-display text-sm font-bold uppercase tracking-wide text-accent">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  ) : null}
                   <h3 className="why-vilnius-carousel__card-title">{item.title}</h3>
                   <p className="why-vilnius-carousel__card-body">{item.body}</p>
                 </div>
