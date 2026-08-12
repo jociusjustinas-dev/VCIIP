@@ -9,7 +9,7 @@ export function HomeAboutSection() {
     <section id="apie" className="section-shell bg-white">
       <div className="site-container">
         <div
-          className="grid items-end gap-8 lg:grid-cols-2 lg:gap-12"
+          className="grid items-start gap-8 lg:grid-cols-2 lg:gap-12"
           data-reveal-group
         >
           <div>
