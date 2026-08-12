@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
+import modernOfficeImage from "../../assets/images/modern-office-work.png";
 import { apieVciipOperator } from "../../content/apieVciip";
+import { ParallaxImage } from "../ParallaxImage";
 
 export function ApieVciipOperator() {
   const [ctaHovered, setCtaHovered] = useState(false);
@@ -10,10 +12,10 @@ export function ApieVciipOperator() {
     <section className="relative bg-background section-shell">
       <div className="site-container">
         <div
-          className="grid items-stretch gap-10 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,0.72fr)] xl:gap-16"
+          className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-20"
           data-reveal-group
         >
-          <div className="reveal-item flex flex-col gap-8">
+          <div className="reveal-item flex min-w-0 flex-col justify-between gap-10">
             <div className="flex max-w-2xl flex-col gap-7">
               <p className="eyebrow">{apieVciipOperator.eyebrow}</p>
               <h2 className="section-heading m-0">{apieVciipOperator.title}</h2>
@@ -44,14 +46,17 @@ export function ApieVciipOperator() {
             </a>
           </div>
 
-          <div className="apie-vciip-operator-logo reveal-item" data-reveal="scale">
-            <img
-              src={apieVciipOperator.logo}
-              alt={apieVciipOperator.logoAlt}
-              className="apie-vciip-operator-logo__image"
+          <div
+            className="reveal-item relative min-h-[420px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[380px] max-[767px]:min-h-[320px] max-[479px]:min-h-[280px] lg:min-h-[32rem]"
+            data-reveal="scale"
+          >
+            <ParallaxImage
+              src={modernOfficeImage}
+              alt="VCIIP operatoriaus aplinka"
+              className="absolute inset-0 h-full w-full"
               loading="lazy"
-              decoding="async"
             />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_8%,transparent),color-mix(in_srgb,var(--color-primary)_48%,transparent))]" />
           </div>
         </div>
       </div>
