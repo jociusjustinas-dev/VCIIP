@@ -110,7 +110,7 @@ export function KontaktaiPage() {
                       : person.email}
                   </a>
                   <a
-                    className="text-base font-medium leading-loose text-muted hover:text-accent"
+                    className="text-base font-semibold leading-loose text-primary hover:text-accent"
                     href={`tel:${person.phoneHref}`}
                   >
                     {person.phone}
