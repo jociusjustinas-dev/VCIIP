@@ -42,9 +42,13 @@ function NavButtons({
 }
 
 export function WhyVilniusCarousel({
+  id = "kodel-vilnius",
+  eyebrow = "Kodėl Vilnius?",
   title,
   items,
 }: {
+  id?: string;
+  eyebrow?: string;
   title: string;
   items: readonly WhyItem[];
 }) {
@@ -77,12 +81,12 @@ export function WhyVilniusCarousel({
   };
 
   return (
-    <section id="kodel-vilnius" className="section-shell bg-white">
+    <section id={id} className="section-shell bg-white">
       <div className="site-container">
         <div data-reveal-group>
           <div className="section-eyebrow-rule reveal-item" />
           <div className="why-vilnius-carousel__header reveal-item">
-            <p className="eyebrow">Kodėl Vilnius?</p>
+            <p className="eyebrow">{eyebrow}</p>
             <h2 className="section-heading mt-4 max-w-3xl">{title}</h2>
           </div>
         </div>

@@ -63,7 +63,7 @@ export function AdvantagesSection({
                       }`}
                     >
                       <div className="max-w-2xl pb-6">
-                        <p className="m-0 text-base leading-loose text-muted">{item.body}</p>
+                        <p className="m-0 whitespace-pre-line text-base leading-loose text-muted">{item.body}</p>
                         {item.href ? (
                           <a
                             href={item.href}

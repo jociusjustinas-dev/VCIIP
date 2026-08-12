@@ -55,6 +55,7 @@ export const apieVciipAdvantages = {
 
 export const apieVciipVision = {
   eyebrow: "Vizija ir misija",
+  title: "Ko siekiame ir kokiomis kryptimis veikiame",
   blocks: [
     {
       title: "Vizija",

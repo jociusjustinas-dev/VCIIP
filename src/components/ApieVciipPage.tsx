@@ -2,6 +2,7 @@ import {
   apieVciipAdvantages,
   apieVciipDocuments,
   apieVciipStats,
+  apieVciipVision,
 } from "../content/apieVciip";
 import { parkPairCta } from "../content/klientai";
 import { AdvantagesSection } from "./AdvantagesSection";
@@ -9,10 +10,10 @@ import { ApieVciipHero } from "./apie-vciip/ApieVciipHero";
 import { ApieVciipOperator } from "./apie-vciip/ApieVciipOperator";
 import { ApieVciipPartners } from "./apie-vciip/ApieVciipPartners";
 import { ApieVciipTimeline } from "./apie-vciip/ApieVciipTimeline";
-import { ApieVciipVision } from "./apie-vciip/ApieVciipVision";
 import { DocumentsListSection } from "./DocumentsListSection";
 import { ParkPairCards } from "./ParkPairCards";
 import { ProofStats } from "./ProofStats";
+import { WhyVilniusCarousel } from "./WhyVilniusCarousel";
 
 export function ApieVciipPage() {
   return (
@@ -27,14 +28,20 @@ export function ApieVciipPage() {
         stats={apieVciipStats.items}
       />
 
-      <AdvantagesSection
+      <WhyVilniusCarousel
         id="privalumai"
         eyebrow={apieVciipAdvantages.eyebrow}
         title={apieVciipAdvantages.title}
         items={apieVciipAdvantages.items}
       />
 
-      <ApieVciipVision />
+      <AdvantagesSection
+        id="vizija"
+        eyebrow={apieVciipVision.eyebrow}
+        title={apieVciipVision.title}
+        items={apieVciipVision.blocks}
+      />
+
       <ApieVciipPartners />
       <ApieVciipTimeline />
 
