@@ -1,12 +1,13 @@
+import bioInfrastructureImage from "../assets/images/bio-infrastructure.jpg";
 import centerACorridorImage from "../assets/images/center-a-corridor.jpg";
 import centerALabImage from "../assets/images/center-a-lab.jpg";
 import centerAProductionImage from "../assets/images/center-a-production.jpg";
+import centerBExteriorImage from "../assets/images/center-b-exterior.jpg";
 import centerBLabImage from "../assets/images/center-b-lab.jpg";
 import centerBProductionImage from "../assets/images/center-b-production.jpg";
 import hubioLabImage from "../assets/images/hubio-lab.jpg";
 import hubioOfficeImage from "../assets/images/hubio-office.jpg";
 import hubioProductionImage from "../assets/images/hubio-production.jpg";
-import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 import { kontaktaiContent } from "./kontaktai";
 
 const premisesContact = kontaktaiContent.people.items[1];
@@ -105,6 +106,7 @@ export const bioPremises = {
       images: [
         { src: centerBLabImage, alt: "Inovacijų centro B laboratorija" },
         { src: centerBProductionImage, alt: "Inovacijų centro B gamybos patalpos" },
+        { src: centerBExteriorImage, alt: "Inovacijų centro B fasadas pušyne" },
       ],
       link: { label: "Susisiekti dėl centro B", href: "/kontaktai?interest=bio&building=b" },
       contact: premisesContact,
@@ -149,8 +151,8 @@ export const bioInfrastructure = {
   id: "infrastruktura",
   eyebrow: "Infrastruktūra",
   title: "Infrastruktūra ir pajėgumai",
-  imageSrc: vciipOverviewImage,
-  imageAlt: "VCIIP Bio teritorijos infrastruktūra",
+  imageSrc: bioInfrastructureImage,
+  imageAlt: "VCIIP Bio inžinerinė infrastruktūra miško apsuptyje",
   items: [
     {
       label: "Dujotiekis",

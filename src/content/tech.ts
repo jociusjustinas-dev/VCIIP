@@ -1,5 +1,5 @@
-import processLabImage from "../assets/images/process-lab.jpg";
-import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
+import techInfrastructureImage from "../assets/images/tech-infrastructure.jpg";
+import techPremisesImage from "../assets/images/tech-premises.jpg";
 
 export const techHero = {
   eyebrow: "VCIIP Tech",
@@ -58,7 +58,7 @@ export const techPremises = {
     "Šiuo metu įrengtų patalpų VCIIP Tech teritorijoje nėra, tačiau jūsų verslas gali įsikurti dedikuotame sklype, suprojektuotame pagal jūsų veiklos poreikius.",
   primaryCta: { label: "Žiūrėti sklypus", href: "#sklypai" },
   secondaryCta: { label: "Susisiekti", href: "/kontaktai?interest=tech" },
-  imageSrc: processLabImage,
+  imageSrc: techPremisesImage,
 };
 
 export const techAdvantages = {
@@ -94,8 +94,8 @@ export const techInfrastructure = {
   id: "infrastruktura",
   eyebrow: "Infrastruktūra",
   title: "Infrastruktūra ir pajėgumai",
-  imageSrc: vciipOverviewImage,
-  imageAlt: "VCIIP Tech teritorijos infrastruktūra",
+  imageSrc: techInfrastructureImage,
+  imageAlt: "VCIIP Tech elektros ir inžinerinė infrastruktūra",
   items: [
     { label: "Dujotiekis", detail: "Pajėgumas iki 2000 m³/val." },
     { label: "Elektra", detail: "Galia iki 50 MW." },

@@ -1,4 +1,4 @@
-import ecosystemTechImage from "../assets/images/ecosystem-tech.jpg";
+import techHeroImage from "../assets/images/tech-hero.jpg";
 import { techHero } from "../content/tech";
 import { HubSplitHero } from "./HubSplitHero";
 
@@ -11,7 +11,7 @@ export function TechHero() {
       description={techHero.description}
       primaryCta={techHero.primaryCta}
       secondaryCta={techHero.secondaryCta}
-      media={{ type: "image", src: ecosystemTechImage, alt: "VCIIP Tech teritorija" }}
+      media={{ type: "image", src: techHeroImage, alt: "VCIIP Tech teritorija prie oro uosto" }}
     />
   );
 }

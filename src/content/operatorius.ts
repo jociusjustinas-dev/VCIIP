@@ -1,5 +1,5 @@
-import modernOfficeImage from "../assets/images/modern-office-work.png";
-import processWarmRoomImage from "../assets/images/process-warm-room.png";
+import operatoriusAreasImage from "../assets/images/operatorius-areas.jpg";
+import operatoriusHeroImage from "../assets/images/operatorius-hero.jpg";
 
 export const operatoriusContent = {
   hero: {
@@ -9,8 +9,8 @@ export const operatoriusContent = {
       "VšĮ „Northtown Vilnius“ yra Vilniaus miesto inovacijų pramonės parko operatorius. Organizacija koordinuoja teritorijos vystymą, bendradarbiauja su miesto ir valstybės institucijomis bei padeda investuotojams planuoti ir įgyvendinti įsikūrimo projektus.",
     primaryCta: { label: "Sužinoti daugiau", href: "https://northtownvilnius.lt/sveiki/" },
     secondaryCta: { label: "Susisiekti", href: "/kontaktai" },
-    imageSrc: processWarmRoomImage,
-    imageAlt: "Northtown Vilnius operatoriaus konsultacijų erdvė",
+    imageSrc: operatoriusHeroImage,
+    imageAlt: "Northtown Vilnius komanda su VCIIP teritorijos maketu",
   },
 
   services: {
@@ -55,7 +55,7 @@ export const operatoriusContent = {
     id: "veiklos-sritys",
     eyebrow: "Veiklos sritys",
     title: "Northtown Vilnius veiklos sritys",
-    imageSrc: modernOfficeImage,
+    imageSrc: operatoriusAreasImage,
     items: [
       {
         title: "Investicinių zonų vystymas",

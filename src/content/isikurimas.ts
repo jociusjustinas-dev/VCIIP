@@ -1,5 +1,5 @@
-import modernOfficeImage from "../assets/images/modern-office-work.png";
-import processLabImage from "../assets/images/process-lab.jpg";
+import isikurimasHeroImage from "../assets/images/isikurimas-hero.jpg";
+import isikurimasProcessImage from "../assets/images/isikurimas-process.jpg";
 
 /** Real document URLs used by Excel CTAs on Įsikūrimas. */
 export const isikurimasDocuments = {
@@ -37,8 +37,8 @@ export const isikurimasContent = {
       "Nuo paraiškos pateikimo iki pilno įsikūrimo teritorijoje – sužinokite, kaip vyksta įsikūrimas VCIIP ir kokie kriterijai taikomi investuotojams.",
     primaryCta: { label: "Pildyti paraišką", href: "#paraiska" },
     secondaryCta: { label: "Žiūrėti procesą", href: "#procesas" },
-    imageSrc: modernOfficeImage,
-    imageAlt: "Įsikūrimo konsultacijų ir darbo erdvė",
+    imageSrc: isikurimasHeroImage,
+    imageAlt: "Įsikūrimo konsultacija su teritorijos planu",
   },
 
   criteria: {
@@ -79,8 +79,8 @@ export const isikurimasContent = {
     title: "Sklandus įsikūrimo procesas",
     intro:
       "Aiškus kandidatų atrankos kelias – nuo paraiškos pateikimo iki sutarčių pasirašymo. Operatorius lydi kiekviename žingsnyje.",
-    imageSrc: processLabImage,
-    imageAlt: "Laboratorijos ir tyrimų aplinka VCIIP",
+    imageSrc: isikurimasProcessImage,
+    imageAlt: "Įsikūrimo proceso planavimas pagal brėžinius",
     steps: [
       {
         number: "01",
