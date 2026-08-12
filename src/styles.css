@@ -1659,6 +1659,23 @@
     box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 44%, transparent);
   }
 
+  .testimonial-card {
+    appearance: none;
+    border: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    background: var(--color-background);
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .testimonial-card:hover {
+    border-color: color-mix(in srgb, var(--color-primary) 28%, transparent);
+    background: var(--color-accent-wash);
+  }
+
   .form-field {
     min-height: 3rem;
     width: 100%;

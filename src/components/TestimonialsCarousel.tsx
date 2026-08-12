@@ -40,7 +40,7 @@ export function TestimonialsCarousel() {
                   key={`${copyIndex}-${item.id}`}
                   type="button"
                   onClick={() => setActive(item)}
-                  className="flex h-[min(24rem,70vw)] w-[min(86vw,26rem)] flex-none flex-col justify-between bg-white p-8 text-left transition hover:bg-white max-[479px]:h-auto max-[479px]:min-h-[20rem] max-[479px]:p-6"
+                  className="testimonial-card flex h-[min(24rem,70vw)] w-[min(86vw,26rem)] flex-none flex-col justify-between p-8 text-left max-[479px]:h-auto max-[479px]:min-h-[20rem] max-[479px]:p-6"
                 >
                   <p className="m-0 line-clamp-7 text-xl font-normal leading-normal text-primary/82 max-[479px]:text-lg">
                     {item.excerpt}
