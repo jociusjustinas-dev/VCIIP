@@ -57,14 +57,23 @@ function ParkColumn({
 }) {
   return (
     <article className="reveal-item flex h-full flex-col">
-      <div className="relative overflow-hidden bg-primary" data-reveal="scale">
+      <div className="group/image relative overflow-hidden bg-primary" data-reveal="scale">
         <ParallaxImage
           src={imageSrc}
           alt=""
-          className="h-[320px] w-full max-[991px]:h-[280px] max-[767px]:h-[240px] max-[479px]:h-[200px]"
+          className="h-[320px] w-full transition-transform duration-500 ease-out group-hover/image:scale-[1.03] max-[991px]:h-[280px] max-[767px]:h-[240px] max-[479px]:h-[200px]"
           loading="lazy"
         />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_6%,transparent),color-mix(in_srgb,var(--color-primary)_42%,transparent))]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_6%,transparent),color-mix(in_srgb,var(--color-primary)_42%,transparent))] transition-opacity duration-300 group-hover/image:opacity-0" />
+
+        <div className="absolute inset-0 flex flex-col justify-end bg-primary/72 p-6 opacity-0 transition-all duration-300 group-hover/image:opacity-100 max-[767px]:bg-primary/58 max-[767px]:opacity-100">
+          <p className="m-0 translate-y-2 text-base font-normal leading-normal text-white/88 transition-transform duration-300 group-hover/image:translate-y-0 max-[767px]:translate-y-0">
+            {park.description}
+          </p>
+          <div className="mt-5 translate-y-2 opacity-0 transition-all duration-300 group-hover/image:translate-y-0 group-hover/image:opacity-100 max-[767px]:mt-4 max-[767px]:translate-y-0 max-[767px]:opacity-100">
+            <SlideCta href={park.href} label={park.ctaLabel} />
+          </div>
+        </div>
       </div>
 
       <div className="flex flex-1 flex-col gap-5 border-t border-dashed border-white/22 pt-7 max-[479px]:gap-4 max-[479px]:pt-6">
@@ -78,11 +87,6 @@ function ParkColumn({
         </div>
 
         <h3 className="heading-split m-0 max-w-md text-white">{park.focus}</h3>
-        <p className="m-0 text-base font-normal leading-normal text-white/72">{park.description}</p>
-
-        <div className="mt-auto pt-2">
-          <SlideCta href={park.href} label={park.ctaLabel} />
-        </div>
       </div>
     </article>
   );
