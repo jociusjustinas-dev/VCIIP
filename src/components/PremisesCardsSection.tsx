@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
 function PremiseCardCta({ label, href }: { label: string; href: string }) {
@@ -174,6 +174,46 @@ function PremiseImageSlider({
   );
 }
 
+function PremiseCard({ item }: { item: PremiseItem }) {
+  const isAvailable = item.isAvailable ?? true;
+  const phoneHref = item.contact.phoneHref ?? item.contact.phone.replace(/\s+/g, "");
+  const emailDisplay = item.contact.emailDisplay ?? item.contact.email;
+
+  return (
+    <article className="premises-card flex h-full flex-col overflow-hidden border border-primary/12 bg-background">
+      <PremiseImageSlider images={item.images} label={item.title} />
+
+      <div className="flex flex-1 flex-col gap-5 p-6 max-[479px]:gap-4 max-[479px]:p-5">
+        <div className="flex flex-col gap-3">
+          <h3 className="heading-h3 m-0 text-primary">{item.title}</h3>
+          <p className="m-0 text-base leading-loose text-muted">{item.body}</p>
+        </div>
+
+        <AvailabilityRow availableArea={item.availableArea} isAvailable={isAvailable} />
+
+        <div className="flex flex-col gap-1.5 border-t border-primary/12 pt-4">
+          <span className="text-xs font-semibold uppercase tracking-[0.04em] text-muted">Kontaktai</span>
+          <p className="m-0 text-base font-semibold text-primary">{item.contact.name}</p>
+          {item.contact.role ? (
+            <p className="m-0 text-sm leading-snug text-muted">{item.contact.role}</p>
+          ) : null}
+          <a
+            className="text-sm font-medium text-primary/72 transition hover:text-accent"
+            href={`mailto:${item.contact.email}`}
+          >
+            {emailDisplay}
+          </a>
+          <a className="text-sm font-medium text-primary/72 transition hover:text-accent" href={`tel:${phoneHref}`}>
+            {item.contact.phone}
+          </a>
+        </div>
+
+        {item.link ? <PremiseCardCta label={item.link.label} href={item.link.href} /> : null}
+      </div>
+    </article>
+  );
+}
+
 export function PremisesCardsSection({
   id = "patalpos",
   eyebrow,
@@ -185,6 +225,53 @@ export function PremisesCardsSection({
   title: string;
   items: readonly PremiseItem[];
 }) {
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(false);
+
+  const updateScrollState = useCallback(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+    setCanPrev(viewport.scrollLeft > 4);
+    setCanNext(viewport.scrollLeft < maxScrollLeft - 4);
+  }, []);
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    updateScrollState();
+    const resizeObserver = new ResizeObserver(updateScrollState);
+    resizeObserver.observe(viewport);
+    viewport.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("resize", updateScrollState);
+
+    return () => {
+      resizeObserver.disconnect();
+      viewport.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, [items, updateScrollState]);
+
+  const scrollByCard = (direction: -1 | 1) => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const card = viewport.querySelector(".premises-card");
+    if (!(card instanceof HTMLElement)) return;
+
+    const track = viewport.querySelector(".premises-cards");
+    const styles = track instanceof HTMLElement ? getComputedStyle(track) : null;
+    const gap = styles ? Number.parseFloat(styles.columnGap || styles.gap) || 0 : 0;
+
+    viewport.scrollBy({
+      left: direction * (card.offsetWidth + gap),
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section id={id} className="section-shell bg-white">
       <div className="site-container">
@@ -194,55 +281,35 @@ export function PremisesCardsSection({
           <h2 className="section-heading reveal-item max-w-3xl">{title}</h2>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3 max-[991px]:mt-10">
-          {items.map((item) => {
-            const isAvailable = item.isAvailable ?? true;
-            const phoneHref = item.contact.phoneHref ?? item.contact.phone.replace(/\s+/g, "");
-            const emailDisplay = item.contact.emailDisplay ?? item.contact.email;
+        <div className="premises-cards-wrap reveal-item mt-12 max-[991px]:mt-10" data-reveal="fade">
+          <div ref={viewportRef} className="premises-cards-viewport">
+            <div className="premises-cards">
+              {items.map((item) => (
+                <PremiseCard key={item.title} item={item} />
+              ))}
+            </div>
+          </div>
 
-            return (
-              <article
-                key={item.title}
-                className="reveal-item flex flex-col overflow-hidden border border-primary/12 bg-background"
-                data-reveal="fade"
-              >
-                <PremiseImageSlider images={item.images} label={item.title} />
-
-                <div className="flex flex-1 flex-col gap-5 p-6 max-[479px]:gap-4 max-[479px]:p-5">
-                  <div className="flex flex-col gap-3">
-                    <h3 className="heading-h3 m-0 text-primary">{item.title}</h3>
-                    <p className="m-0 text-base leading-loose text-muted">{item.body}</p>
-                  </div>
-
-                  <AvailabilityRow availableArea={item.availableArea} isAvailable={isAvailable} />
-
-                  <div className="flex flex-col gap-1.5 border-t border-primary/12 pt-4">
-                    <span className="text-xs font-semibold uppercase tracking-[0.04em] text-muted">
-                      Kontaktai
-                    </span>
-                    <p className="m-0 text-base font-semibold text-primary">{item.contact.name}</p>
-                    {item.contact.role ? (
-                      <p className="m-0 text-sm leading-snug text-muted">{item.contact.role}</p>
-                    ) : null}
-                    <a
-                      className="text-sm font-medium text-primary/72 transition hover:text-accent"
-                      href={`mailto:${item.contact.email}`}
-                    >
-                      {emailDisplay}
-                    </a>
-                    <a
-                      className="text-sm font-medium text-primary/72 transition hover:text-accent"
-                      href={`tel:${phoneHref}`}
-                    >
-                      {item.contact.phone}
-                    </a>
-                  </div>
-
-                  {item.link ? <PremiseCardCta label={item.link.label} href={item.link.href} /> : null}
-                </div>
-              </article>
-            );
-          })}
+          <div className="premises-cards-nav why-vilnius-carousel__nav">
+            <button
+              type="button"
+              aria-label="Ankstesnė patalpų kortelė"
+              onClick={() => scrollByCard(-1)}
+              disabled={!canPrev}
+              className="why-vilnius-carousel__nav-btn"
+            >
+              <ChevronLeft size={22} aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              aria-label="Kita patalpų kortelė"
+              onClick={() => scrollByCard(1)}
+              disabled={!canNext}
+              className="why-vilnius-carousel__nav-btn"
+            >
+              <ChevronRight size={22} aria-hidden="true" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
