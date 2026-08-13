@@ -138,7 +138,7 @@ export function InvestorInquiry({
           id="forma"
           className={`reveal-item rounded-none p-8 text-primary max-[767px]:p-6 max-[479px]:p-5 ${
             isLight
-              ? "border border-primary/12 bg-white shadow-[0_18px_48px_color-mix(in_srgb,var(--color-primary)_8%,transparent)]"
+              ? "border border-primary/12 bg-white"
               : "bg-white"
           }`}
           data-reveal="scale"
