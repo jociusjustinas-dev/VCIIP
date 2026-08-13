@@ -80,14 +80,14 @@ export function KontaktaiPage() {
           </div>
 
           <ul
-            className="m-0 grid list-none gap-10 p-0 sm:grid-cols-2 lg:gap-16"
+            className="m-0 grid list-none grid-cols-2 gap-5 p-0 sm:gap-10 lg:gap-16 max-[479px]:gap-x-4 max-[479px]:gap-y-8"
             data-reveal-group
           >
             {people.items.map((person) => (
-              <li key={person.email} className="reveal-item flex flex-col gap-5 sm:flex-row sm:gap-7">
-                <div className="relative aspect-[4/5] w-full max-w-[160px] shrink-0 overflow-hidden border border-dashed border-primary/16 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,white),color-mix(in_srgb,var(--color-primary)_10%,white))] max-[479px]:max-w-none">
+              <li key={person.email} className="reveal-item flex flex-col gap-4 sm:flex-row sm:gap-7">
+                <div className="relative aspect-[4/5] w-full shrink-0 overflow-hidden border border-dashed border-primary/16 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-primary)_4%,white),color-mix(in_srgb,var(--color-primary)_10%,white))] sm:max-w-[160px]">
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                    <span className="font-display text-3xl font-bold tracking-tight text-primary/45">
+                    <span className="font-display text-3xl font-bold tracking-tight text-primary/45 max-[479px]:text-2xl">
                       {personInitials(person.name)}
                     </span>
                     <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-muted">
@@ -97,12 +97,12 @@ export function KontaktaiPage() {
                 </div>
 
                 <div className="flex min-w-0 flex-col gap-2 pt-1">
-                  <p className="m-0 font-display text-xl font-bold leading-snug tracking-tight text-primary">
+                  <p className="m-0 font-display text-xl font-bold leading-snug tracking-tight text-primary max-[479px]:text-lg">
                     {person.name}
                   </p>
                   <p className="m-0 text-sm leading-relaxed text-muted">{person.role}</p>
                   <a
-                    className="mt-2 text-base font-semibold leading-loose text-primary hover:text-accent"
+                    className="mt-2 break-words text-base font-semibold leading-snug text-primary hover:text-accent max-[479px]:text-sm"
                     href={`mailto:${person.email}`}
                   >
                     {"emailDisplay" in person && person.emailDisplay
@@ -110,7 +110,7 @@ export function KontaktaiPage() {
                       : person.email}
                   </a>
                   <a
-                    className="text-base font-semibold leading-loose text-primary hover:text-accent"
+                    className="text-base font-semibold leading-snug text-primary hover:text-accent max-[479px]:text-sm"
                     href={`tel:${person.phoneHref}`}
                   >
                     {person.phone}
