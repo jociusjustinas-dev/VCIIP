@@ -216,6 +216,79 @@
     color: var(--color-accent);
   }
 
+  .stats-divider-grid {
+    --stats-rule: color-mix(in srgb, var(--color-primary) 48%, transparent);
+    --stats-dash: 0.25rem;
+    --stats-rule-gradient: repeating-linear-gradient(
+      90deg,
+      var(--stats-rule) 0 var(--stats-dash),
+      transparent var(--stats-dash) calc(var(--stats-dash) * 2)
+    );
+    --stats-rule-gradient-y: repeating-linear-gradient(
+      180deg,
+      var(--stats-rule) 0 var(--stats-dash),
+      transparent var(--stats-dash) calc(var(--stats-dash) * 2)
+    );
+    position: relative;
+    display: grid;
+  }
+
+  .stats-divider-grid > * {
+    position: relative;
+  }
+
+  .stats-divider-grid::before,
+  .stats-divider-grid > :not(:first-child)::after,
+  .stats-divider-grid > :not(:first-child)::before {
+    position: absolute;
+    pointer-events: none;
+    content: "";
+  }
+
+  .stats-divider-grid::before {
+    inset: 0 0 auto;
+    z-index: 1;
+    height: 1px;
+    background-image: var(--stats-rule-gradient);
+  }
+
+  .stats-divider-grid > :not(:first-child)::before {
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    background-image: var(--stats-rule-gradient-y);
+  }
+
+  .stats-divider-grid > :not(:first-child)::after {
+    display: none;
+    right: 0;
+    left: 0;
+    top: 0;
+    height: 1px;
+    background-image: var(--stats-rule-gradient);
+  }
+
+  @media (max-width: 639px) {
+    .stats-divider-grid > :not(:first-child)::after {
+      display: block;
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 991px) {
+    .stats-divider-grid > :nth-child(even)::before,
+    .stats-divider-grid > :nth-child(n + 3)::after {
+      display: block;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .stats-divider-grid > :not(:first-child)::before {
+      display: block;
+    }
+  }
+
   .article-body {
     width: 100%;
     color: var(--color-muted);
