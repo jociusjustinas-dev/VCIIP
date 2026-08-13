@@ -315,7 +315,7 @@ export function parseClientDescription(description: string) {
 }
 
 export const parkPairCta = {
-  title: "Planuojate plėtrą? Kviečiame įsikurti VCIIP!",
+  title: "Planuojate plėtrą?\nKviečiame įsikurti VCIIP!",
   description: "Padėsime įvertinti, kuri VCIIP teritorija geriausiai atitinka jūsų veiklos poreikius.",
   primaryCta: { label: "Susisiekti", href: "/kontaktai" },
   bio: {
