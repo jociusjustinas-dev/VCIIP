@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import { testimonials, type Testimonial } from "../content/testimonials";
@@ -12,6 +13,7 @@ type DragState = {
 };
 
 const AUTO_SCROLL_SPEED = 88;
+const DRAG_THRESHOLD = 8;
 
 function CarouselNav({ onPrev, onNext }: { onPrev: () => void; onNext: () => void }) {
   return (
@@ -47,6 +49,7 @@ function TestimonialCard({
     <button
       type="button"
       onClick={() => onOpen(item)}
+      aria-haspopup="dialog"
       className="testimonial-card flex h-[min(24rem,70vw)] w-[min(86vw,26rem)] flex-none flex-col justify-between p-8 text-left max-[479px]:h-auto max-[479px]:min-h-[20rem] max-[479px]:p-6"
     >
       <p className="m-0 line-clamp-7 text-xl font-normal leading-normal text-primary/82 max-[479px]:text-lg">
@@ -138,9 +141,6 @@ export function TestimonialsCarousel() {
       scrollLeft: track.scrollLeft,
       moved: false,
     };
-
-    track.setPointerCapture(event.pointerId);
-    track.classList.add("is-dragging");
   };
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -149,7 +149,13 @@ export function TestimonialsCarousel() {
     if (!track || !drag.active || drag.pointerId !== event.pointerId) return;
 
     const delta = event.clientX - drag.startX;
-    if (Math.abs(delta) > 4) drag.moved = true;
+    if (!drag.moved) {
+      if (Math.abs(delta) < DRAG_THRESHOLD) return;
+
+      drag.moved = true;
+      track.setPointerCapture(event.pointerId);
+      track.classList.add("is-dragging");
+    }
 
     track.scrollLeft = drag.scrollLeft - delta;
   };
@@ -185,9 +191,11 @@ export function TestimonialsCarousel() {
       if (event.key === "Escape") setActive(null);
     };
     document.body.style.overflow = "hidden";
+    window.lenis?.stop();
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      window.lenis?.start();
       window.removeEventListener("keydown", onKey);
     };
   }, [active]);
@@ -274,40 +282,43 @@ export function TestimonialsCarousel() {
         <CarouselNav onPrev={() => scrollByCard(-1)} onNext={() => scrollByCard(1)} />
       </div>
 
-      {active ? (
-        <div
-          className="modal-fade fixed inset-0 z-[1000] grid place-items-center bg-primary/80 px-4 py-8 backdrop-blur-sm"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Atsiliepimas"
-          onClick={() => setActive(null)}
-        >
-          <div
-            className="modal-scale relative max-h-[85svh] w-full max-w-2xl overflow-auto bg-white p-6 shadow-2xl max-[479px]:p-5"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              type="button"
-              className="absolute right-3 top-3 grid size-10 place-items-center border border-primary/12 text-primary transition hover:bg-accent hover:text-white"
+      {active
+        ? createPortal(
+            <div
+              className="modal-fade fixed inset-0 z-[1000] grid place-items-center bg-primary/80 px-4 py-8 backdrop-blur-sm"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Atsiliepimas"
               onClick={() => setActive(null)}
-              aria-label="Uždaryti"
             >
-              <X size={18} />
-            </button>
-            <div className="flex items-center gap-3 pr-12">
-              {active.photo ? <img src={active.photo} alt="" className="size-14 object-cover" /> : null}
-              <div>
-                <p className="m-0 text-base font-semibold text-primary">{active.name}</p>
-                <p className="m-0 text-sm text-muted">
-                  {active.company}
-                  {active.role ? `, ${active.role}` : ""}
-                </p>
+              <div
+                className="modal-scale relative max-h-[85svh] w-full max-w-2xl overflow-auto bg-white p-6 shadow-2xl max-[479px]:p-5"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <button
+                  type="button"
+                  className="absolute right-3 top-3 grid size-10 place-items-center border border-primary/12 text-primary transition hover:bg-accent hover:text-white"
+                  onClick={() => setActive(null)}
+                  aria-label="Uždaryti"
+                >
+                  <X size={18} />
+                </button>
+                <div className="flex items-center gap-3 pr-12">
+                  {active.photo ? <img src={active.photo} alt="" className="size-14 object-cover" /> : null}
+                  <div>
+                    <p className="m-0 text-base font-semibold text-primary">{active.name}</p>
+                    <p className="m-0 text-sm text-muted">
+                      {active.company}
+                      {active.role ? `, ${active.role}` : ""}
+                    </p>
+                  </div>
+                </div>
+                <p className="m-0 mt-6 text-base leading-loose text-muted">{active.quote}</p>
               </div>
-            </div>
-            <p className="m-0 mt-6 text-base leading-loose text-muted">{active.quote}</p>
-          </div>
-        </div>
-      ) : null}
+            </div>,
+            document.body,
+          )
+        : null}
     </section>
   );
 }
