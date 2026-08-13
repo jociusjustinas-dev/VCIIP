@@ -306,7 +306,7 @@ export function SettleProcess({
                 </div>
 
                 <div className="flex gap-5">
-                  <span className="mt-2 size-2.5 shrink-0 rounded-none bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 max-[479px]:hidden" />
+                  <span className="mt-2 size-2.5 shrink-0 rounded-none bg-accent opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100" />
                   <div className="flex min-w-0 flex-col gap-4">
                     <p className="m-0 whitespace-pre-line text-base leading-loose text-muted">
                       {step.body}
