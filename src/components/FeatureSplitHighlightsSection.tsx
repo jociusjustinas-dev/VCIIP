@@ -249,20 +249,19 @@ export function FeatureSplitHighlightsSection({
                 }`}
                 data-reveal-group
               >
-                <div className="reveal-item flex flex-col justify-between gap-10">
+                <div className="reveal-item flex flex-col gap-8">
                   {highlightsList}
-
-                  <div className={`flex flex-col gap-8 ${normalizedHighlights.length === 0 ? "mt-auto" : ""}`}>
-                    {note ? (
-                      <p className="m-0 max-w-lg text-sm font-medium leading-[150%] text-muted">
-                        {note}
-                      </p>
-                    ) : null}
-                    {ctaGroup}
-                  </div>
+                  {note ? (
+                    <p className="m-0 max-w-lg text-sm font-medium leading-[150%] text-muted">
+                      {note}
+                    </p>
+                  ) : null}
                 </div>
 
-                {media}
+                <div className="reveal-item flex flex-col gap-8">
+                  {media}
+                  {ctaGroup}
+                </div>
               </div>
             </>
           )}
