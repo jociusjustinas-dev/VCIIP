@@ -1047,7 +1047,7 @@
 
   .application-cta__row {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     gap: 2.5rem;
     margin-top: 1.25rem;
