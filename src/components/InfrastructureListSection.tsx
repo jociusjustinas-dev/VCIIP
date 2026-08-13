@@ -34,11 +34,11 @@ export function InfrastructureListSection({
               <h2 className="section-heading reveal-item max-w-xl">{title}</h2>
             </div>
 
-            <ul className="reveal-item m-0 grid list-none gap-0 p-0 sm:grid-cols-2 sm:gap-x-8 lg:gap-x-10">
+            <ul className="reveal-item m-0 grid list-none grid-cols-2 gap-0 gap-x-5 p-0 sm:gap-x-8 lg:gap-x-10">
               {items.map((item) => (
                 <li
                   key={item.label}
-                  className="flex flex-col gap-1.5 border-t border-dashed border-primary/22 py-5 last:border-b max-[479px]:py-4 sm:[&:nth-last-child(-n+2)]:border-b"
+                  className="flex flex-col gap-1.5 border-t border-dashed border-primary/22 py-5 last:border-b max-[479px]:py-3.5 [&:nth-last-child(-n+2)]:border-b"
                 >
                   <p className="m-0 text-base font-semibold leading-snug text-primary">{item.label}</p>
                   <p className="m-0 text-sm leading-relaxed text-muted">{item.detail}</p>
