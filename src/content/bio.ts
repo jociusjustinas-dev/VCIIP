@@ -93,7 +93,7 @@ export const bioPremises = {
       isAvailable: true,
       images: [
         { src: centerALabImage, alt: "Inovacijų centro A laboratorija" },
-        { src: centerAProductionImage, alt: "Inovacijų centro A gamybos erdvė" },
+        { src: centerAProductionImage, alt: "Inovacijų centro A CNC ir inžinerijos dirbtuvės" },
         { src: centerACorridorImage, alt: "Inovacijų centro A biuro koridorius" },
       ],
       link: { label: "Susisiekti dėl centro A", href: "/kontaktai?interest=bio&building=a" },
