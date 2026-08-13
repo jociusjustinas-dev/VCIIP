@@ -148,7 +148,7 @@ export function ApieVciipTimeline({
       </div>
 
       <div className="site-container">
-        <div className="reveal-item mt-4 flex justify-end min-[768px]:hidden" data-reveal="fade">
+        <div className="reveal-item mt-8 flex justify-end min-[768px]:hidden" data-reveal="fade">
           {timelineControls}
         </div>
       </div>
