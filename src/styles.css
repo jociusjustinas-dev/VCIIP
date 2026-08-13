@@ -225,17 +225,6 @@
 
   .stats-divider-grid {
     --stats-rule: color-mix(in srgb, var(--color-primary) 48%, transparent);
-    --stats-dash: 0.25rem;
-    --stats-rule-gradient: repeating-linear-gradient(
-      90deg,
-      var(--stats-rule) 0 var(--stats-dash),
-      transparent var(--stats-dash) calc(var(--stats-dash) * 2)
-    );
-    --stats-rule-gradient-y: repeating-linear-gradient(
-      180deg,
-      var(--stats-rule) 0 var(--stats-dash),
-      transparent var(--stats-dash) calc(var(--stats-dash) * 2)
-    );
     position: relative;
     display: grid;
   }
@@ -255,8 +244,8 @@
   .stats-divider-grid::before {
     inset: 0 0 auto;
     z-index: 1;
-    height: 1px;
-    background-image: var(--stats-rule-gradient);
+    height: 0;
+    border-top: 1px dashed var(--stats-rule);
   }
 
   .stats-divider-grid > :not(:first-child)::before {
@@ -264,8 +253,8 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: 1px;
-    background-image: var(--stats-rule-gradient-y);
+    width: 0;
+    border-left: 1px dashed var(--stats-rule);
   }
 
   .stats-divider-grid > :not(:first-child)::after {
@@ -273,8 +262,8 @@
     right: 0;
     left: 0;
     top: 0;
-    height: 1px;
-    background-image: var(--stats-rule-gradient);
+    height: 0;
+    border-top: 1px dashed var(--stats-rule);
   }
 
   @media (max-width: 639px) {
