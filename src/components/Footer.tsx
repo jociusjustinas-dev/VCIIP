@@ -75,7 +75,10 @@ export function Footer({
               </div>
             </div>
 
-            <FooterColumn title="Navigacija">
+            <FooterColumn
+              title="Navigacija"
+              listClassName="grid grid-cols-2 gap-x-6 gap-y-2 md:flex md:flex-col md:gap-2"
+            >
               {footerNavigation.map((item) => (
                 <FooterLink key={item.label} href={item.href}>
                   {item.label}
@@ -131,13 +134,21 @@ export function Footer({
   );
 }
 
-function FooterColumn({ title, children }: { title: string; children: ReactNode }) {
+function FooterColumn({
+  title,
+  children,
+  listClassName = "flex flex-col gap-2",
+}: {
+  title: string;
+  children: ReactNode;
+  listClassName?: string;
+}) {
   return (
     <div className="flex flex-col gap-3">
       <p className="m-0 font-display text-sm font-bold uppercase leading-tight tracking-wide text-primary/42">
         {title}
       </p>
-      <div className="flex flex-col gap-2">{children}</div>
+      <div className={listClassName}>{children}</div>
     </div>
   );
 }
