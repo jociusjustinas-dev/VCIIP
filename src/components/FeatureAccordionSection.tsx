@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+import { useReservedAccordionHeight } from "../hooks/useReservedAccordionHeight";
+import { AccordionPanel } from "./AccordionPanel";
 import { ParallaxImage } from "./ParallaxImage";
 
 type AccordionItem = {
@@ -28,6 +30,10 @@ export function FeatureAccordionSection({
   imageSrc,
 }: FeatureAccordionSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { headerRefs, bodyRefs, minHeight } = useReservedAccordionHeight(items.length, {
+    minWidth: 1280,
+    itemGap: 12,
+  });
 
   return (
     <section id={id} className="relative bg-white">
@@ -50,14 +56,17 @@ export function FeatureAccordionSection({
                 </div>
               </div>
 
-              <div className="reveal-item flex w-full flex-col gap-3">
+              <div
+                className="reveal-item flex w-full flex-col gap-3 [overflow-anchor:none]"
+                style={minHeight ? { minHeight } : undefined}
+              >
                 {items.map((item, index) => {
                   const isOpen = openIndex === index;
 
                   return (
                     <article
                       key={item.title}
-                      className={`group w-full rounded-none border transition-all duration-300 ${
+                      className={`group w-full rounded-none border transition-colors duration-300 ${
                         isOpen
                           ? "border-primary/12 bg-white shadow-[0_24px_70px_color-mix(in_srgb,var(--color-primary)_12%,transparent)]"
                           : "border-transparent hover:border-primary/12 hover:bg-white hover:shadow-[0_24px_70px_color-mix(in_srgb,var(--color-primary)_12%,transparent)]"
@@ -67,6 +76,9 @@ export function FeatureAccordionSection({
                         type="button"
                         aria-expanded={isOpen}
                         onClick={() => setOpenIndex(index)}
+                        ref={(element) => {
+                          headerRefs.current[index] = element;
+                        }}
                         className="flex w-full items-center gap-5 px-5 py-5 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white max-[479px]:gap-4 max-[479px]:px-4"
                       >
                         <span
@@ -90,15 +102,16 @@ export function FeatureAccordionSection({
                         />
                       </button>
 
-                      <div
-                        className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                          isOpen ? "max-h-56 opacity-100" : "max-h-0 opacity-0"
-                        }`}
-                      >
-                        <p className="m-0 max-w-2xl px-5 pb-6 pl-[5.25rem] text-base leading-loose text-muted max-[479px]:pl-4">
+                      <AccordionPanel open={isOpen}>
+                        <p
+                          ref={(element) => {
+                            bodyRefs.current[index] = element;
+                          }}
+                          className="m-0 max-w-2xl px-5 pb-6 pl-[5.25rem] text-base leading-loose text-muted max-[479px]:pl-4"
+                        >
                           {item.body}
                         </p>
-                      </div>
+                      </AccordionPanel>
                     </article>
                   );
                 })}

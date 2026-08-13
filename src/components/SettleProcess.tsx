@@ -1,7 +1,9 @@
-import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import processWarmRoomImage from "../assets/images/process-warm-room.png";
+import { useReservedAccordionHeight } from "../hooks/useReservedAccordionHeight";
+import { AccordionPanel } from "./AccordionPanel";
 import { ParallaxImage } from "./ParallaxImage";
 
 type ProcessCta = {
@@ -88,36 +90,9 @@ export function SettleProcess({
 }) {
   const isLight = tone === "light";
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [stableMinHeight, setStableMinHeight] = useState<number>();
-  const leftColRef = useRef<HTMLDivElement>(null);
-  const bodyRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useLayoutEffect(() => {
-    if (variant !== "accordion") return;
-
-    const measure = () => {
-      const left = leftColRef.current;
-      if (!left || window.innerWidth < 992) {
-        setStableMinHeight(undefined);
-        return;
-      }
-
-      const previousMinHeight = left.style.minHeight;
-      left.style.minHeight = "0px";
-
-      const bodyHeights = bodyRefs.current.map((element) => element?.offsetHeight ?? 0);
-      const maxBodyHeight = Math.max(0, ...bodyHeights);
-      const openBodyHeight = openIndex == null ? 0 : (bodyHeights[openIndex] ?? 0);
-      const nextHeight = Math.ceil(left.offsetHeight - openBodyHeight + maxBodyHeight);
-
-      left.style.minHeight = previousMinHeight;
-      setStableMinHeight((current) => (current === nextHeight ? current : nextHeight));
-    };
-
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, [variant, steps, openIndex]);
+  const { headerRefs, bodyRefs, minHeight } = useReservedAccordionHeight(
+    variant === "accordion" ? steps.length : 0,
+  );
 
   if (variant === "accordion") {
     return (
@@ -127,11 +102,7 @@ export function SettleProcess({
       >
         <div className="site-container">
           <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-            <div
-              ref={leftColRef}
-              className="flex min-w-0 flex-col justify-between gap-16 max-[991px]:gap-12"
-              style={stableMinHeight ? { minHeight: stableMinHeight } : undefined}
-            >
+            <div className="flex min-w-0 flex-col gap-16 max-[991px]:gap-12">
               <div className="flex flex-col gap-6" data-reveal-group>
                 <div className="h-0 w-full border-b border-dashed border-primary/45" />
                 <p className="eyebrow reveal-item">{eyebrow}</p>
@@ -143,66 +114,70 @@ export function SettleProcess({
                 ) : null}
               </div>
 
-              <div className="reveal-item mt-2 flex w-full flex-col">
-                {steps.map((step, index) => {
-                  const isOpen = openIndex === index;
+              <div className="reveal-item mt-2 flex w-full flex-col [overflow-anchor:none]">
+                <div
+                  className="flex w-full flex-col"
+                  style={minHeight ? { minHeight } : undefined}
+                >
+                  {steps.map((step, index) => {
+                    const isOpen = openIndex === index;
 
-                  return (
-                    <article
-                      key={step.number}
-                      className="w-full border-b border-dashed border-primary/18 first:border-t last:border-b-0"
-                    >
-                      <button
-                        type="button"
-                        aria-expanded={isOpen}
-                        onClick={() => setOpenIndex(isOpen ? null : index)}
-                        className="group flex w-full items-start gap-5 py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:items-center"
+                    return (
+                      <article
+                        key={step.number}
+                        className="w-full border-b border-dashed border-primary/18 first:border-t last:border-b-0"
                       >
-                        <span
-                          className={`shrink-0 font-display text-sm font-bold uppercase leading-tight tracking-wide transition-colors duration-300 ${
-                            isOpen ? "text-accent" : "text-accent/70 group-hover:text-accent"
-                          }`}
-                        >
-                          {step.number}
-                        </span>
-                        <span
-                          className={`min-w-0 flex-1 font-display text-xl font-bold leading-tight tracking-tight transition-colors duration-300 max-[479px]:text-lg ${
-                            isOpen ? "text-accent" : "text-primary group-hover:text-accent"
-                          }`}
-                        >
-                          {step.title}
-                        </span>
-                        <ChevronDown
-                          size={20}
-                          aria-hidden="true"
-                          className={`mt-1 shrink-0 transition-transform duration-300 sm:mt-0 ${
-                            isOpen
-                              ? "rotate-180 text-accent"
-                              : "text-primary/45 group-hover:text-accent"
-                          }`}
-                        />
-                      </button>
-
-                      <div
-                        className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                          isOpen ? "max-h-[48rem] opacity-100" : "max-h-0 opacity-0"
-                        }`}
-                      >
-                        <div
+                        <button
+                          type="button"
+                          aria-expanded={isOpen}
+                          onClick={() => setOpenIndex(isOpen ? null : index)}
                           ref={(element) => {
-                            bodyRefs.current[index] = element;
+                            headerRefs.current[index] = element;
                           }}
-                          className="max-w-2xl pb-6 pl-[calc(0.875rem+1.25rem)] max-[479px]:pl-0"
+                          className="group flex w-full items-start gap-5 py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:items-center"
                         >
-                          <p className="m-0 whitespace-pre-line text-base leading-loose text-muted">
-                            {step.body}
-                          </p>
-                          {step.cta ? <StepCtaLink cta={step.cta} /> : null}
-                        </div>
-                      </div>
-                    </article>
-                  );
-                })}
+                          <span
+                            className={`shrink-0 font-display text-sm font-bold uppercase leading-tight tracking-wide transition-colors duration-300 ${
+                              isOpen ? "text-accent" : "text-accent/70 group-hover:text-accent"
+                            }`}
+                          >
+                            {step.number}
+                          </span>
+                          <span
+                            className={`min-w-0 flex-1 font-display text-xl font-bold leading-tight tracking-tight transition-colors duration-300 max-[479px]:text-lg ${
+                              isOpen ? "text-accent" : "text-primary group-hover:text-accent"
+                            }`}
+                          >
+                            {step.title}
+                          </span>
+                          <ChevronDown
+                            size={20}
+                            aria-hidden="true"
+                            className={`mt-1 shrink-0 transition-transform duration-300 sm:mt-0 ${
+                              isOpen
+                                ? "rotate-180 text-accent"
+                                : "text-primary/45 group-hover:text-accent"
+                            }`}
+                          />
+                        </button>
+
+                        <AccordionPanel open={isOpen}>
+                          <div
+                            ref={(element) => {
+                              bodyRefs.current[index] = element;
+                            }}
+                            className="max-w-2xl pb-6 pl-[calc(0.875rem+1.25rem)] max-[479px]:pl-0"
+                          >
+                            <p className="m-0 whitespace-pre-line text-base leading-loose text-muted">
+                              {step.body}
+                            </p>
+                            {step.cta ? <StepCtaLink cta={step.cta} /> : null}
+                          </div>
+                        </AccordionPanel>
+                      </article>
+                    );
+                  })}
+                </div>
 
                 {cta ? (
                   <div className="pt-10">
@@ -230,7 +205,7 @@ export function SettleProcess({
 
             {showImage ? (
               <div
-                className="reveal-item relative min-h-[420px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[380px] max-[767px]:min-h-[320px] max-[479px]:min-h-[280px] lg:h-full lg:min-h-0"
+                className="reveal-item relative min-h-[420px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[380px] max-[767px]:min-h-[320px] max-[479px]:min-h-[280px] lg:h-full lg:min-h-[32rem]"
                 data-reveal="scale"
               >
                 <ParallaxImage

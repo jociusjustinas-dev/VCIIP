@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 
+import { AccordionPanel } from "./AccordionPanel";
 import { DocumentsDownloadList } from "./DocumentsListSection";
 
 type StepCta = {
@@ -89,12 +90,9 @@ export function ApplicationGuideSection({
                   />
                 </button>
 
-                <div
-                  className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    isOpen ? "max-h-[48rem] opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <div className="flex flex-col gap-5 pb-8 pl-[calc(0.875rem+1.25rem)] max-[479px]:pl-0 sm:pl-[calc(1.75rem+2rem)]">
+                <div className="[overflow-anchor:none]">
+                  <AccordionPanel open={isOpen}>
+                    <div className="flex flex-col gap-5 pb-8 pl-[calc(0.875rem+1.25rem)] max-[479px]:pl-0 sm:pl-[calc(1.75rem+2rem)]">
                     <p className="m-0 max-w-2xl whitespace-pre-line text-base leading-loose text-white/72">
                       {step.body}
                     </p>
@@ -140,7 +138,8 @@ export function ApplicationGuideSection({
                         <ArrowUpRight size={16} aria-hidden="true" />
                       </a>
                     ) : null}
-                  </div>
+                    </div>
+                  </AccordionPanel>
                 </div>
               </article>
             );

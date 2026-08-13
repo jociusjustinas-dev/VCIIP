@@ -1,7 +1,9 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import modernOfficeImage from "../assets/images/modern-office-work.png";
+import { useReservedAccordionHeight } from "../hooks/useReservedAccordionHeight";
+import { AccordionPanel } from "./AccordionPanel";
 import { ParallaxImage } from "./ParallaxImage";
 
 type AdvantageItem = {
@@ -24,51 +26,23 @@ export function AdvantagesSection({
   imageSrc?: string;
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [stableMinHeight, setStableMinHeight] = useState<number>();
-  const leftColRef = useRef<HTMLDivElement>(null);
-  const bodyRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useLayoutEffect(() => {
-    const measure = () => {
-      const left = leftColRef.current;
-      if (!left || window.innerWidth < 992) {
-        setStableMinHeight(undefined);
-        return;
-      }
-
-      const previousMinHeight = left.style.minHeight;
-      left.style.minHeight = "0px";
-
-      const bodyHeights = bodyRefs.current.map((element) => element?.offsetHeight ?? 0);
-      const maxBodyHeight = Math.max(0, ...bodyHeights);
-      const openBodyHeight = openIndex == null ? 0 : (bodyHeights[openIndex] ?? 0);
-      const nextHeight = Math.ceil(left.offsetHeight - openBodyHeight + maxBodyHeight);
-
-      left.style.minHeight = previousMinHeight;
-      setStableMinHeight((current) => (current === nextHeight ? current : nextHeight));
-    };
-
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, [items, openIndex]);
+  const { headerRefs, bodyRefs, minHeight } = useReservedAccordionHeight(items.length);
 
   return (
     <section id={id} className="relative section-shell bg-white">
       <div className="site-container">
         <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-          <div
-            ref={leftColRef}
-            className="flex min-w-0 flex-col justify-between gap-16 max-[991px]:gap-12"
-            style={stableMinHeight ? { minHeight: stableMinHeight } : undefined}
-          >
+          <div className="flex min-w-0 flex-col gap-16 max-[991px]:gap-12">
             <div className="flex flex-col gap-6" data-reveal-group>
               <div className="h-0 w-full border-b border-dashed border-primary/45" />
               <p className="eyebrow reveal-item">{eyebrow}</p>
               <h2 className="section-heading reveal-item max-w-xl">{title}</h2>
             </div>
 
-            <div className="reveal-item mt-2 flex w-full flex-col">
+            <div
+              className="reveal-item mt-2 flex w-full flex-col [overflow-anchor:none]"
+              style={minHeight ? { minHeight } : undefined}
+            >
               {items.map((item, index) => {
                 const isOpen = openIndex === index;
 
@@ -78,6 +52,9 @@ export function AdvantagesSection({
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => setOpenIndex(isOpen ? null : index)}
+                      ref={(element) => {
+                        headerRefs.current[index] = element;
+                      }}
                       className="group flex w-full items-center gap-4 py-5 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                     >
                       <span
@@ -98,11 +75,7 @@ export function AdvantagesSection({
                       />
                     </button>
 
-                    <div
-                      className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                        isOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
-                      }`}
-                    >
+                    <AccordionPanel open={isOpen}>
                       <div
                         ref={(element) => {
                           bodyRefs.current[index] = element;
@@ -121,7 +94,7 @@ export function AdvantagesSection({
                           </a>
                         ) : null}
                       </div>
-                    </div>
+                    </AccordionPanel>
                   </article>
                 );
               })}
@@ -129,7 +102,7 @@ export function AdvantagesSection({
           </div>
 
           <div
-            className="reveal-item relative min-h-[420px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[380px] max-[767px]:min-h-[320px] max-[479px]:min-h-[280px] lg:h-full lg:min-h-0"
+            className="reveal-item relative min-h-[420px] overflow-hidden rounded-none bg-primary max-[991px]:min-h-[380px] max-[767px]:min-h-[320px] max-[479px]:min-h-[280px] lg:h-full lg:min-h-[32rem]"
             data-reveal="scale"
           >
             <ParallaxImage
