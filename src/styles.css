@@ -1037,6 +1037,49 @@
     }
   }
 
+  .premises-cards-viewport {
+    min-width: 0;
+  }
+
+  .premises-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .premises-cards-nav {
+    display: none;
+  }
+
+  @media (max-width: 991px) {
+    .premises-cards-viewport {
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .premises-cards-viewport::-webkit-scrollbar {
+      display: none;
+    }
+
+    .premises-cards {
+      display: flex;
+      align-items: stretch;
+      gap: 1rem;
+    }
+
+    .premises-card {
+      flex: 0 0 min(22.5rem, 86%);
+      scroll-snap-align: start;
+    }
+
+    .premises-cards-nav {
+      display: flex;
+    }
+  }
+
   .application-cta__rule {
     height: 0;
     width: 100%;
