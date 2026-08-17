@@ -163,35 +163,38 @@ export function KlientaiPage() {
     <main className="bg-white">
       <section className="relative bg-white pt-32 max-[991px]:pt-28 max-[479px]:pt-24">
         <div className="site-container pb-[5.5rem] max-[991px]:pb-16 max-[479px]:pb-12">
-          <div className="border-b border-dashed border-primary/28 pb-10 pt-2" data-reveal-group>
-            <h1 className="display-h1 reveal-item m-0 max-w-4xl">{hero.title}</h1>
-          </div>
-
           <div
-            className="mt-10 flex max-w-full gap-1 overflow-x-auto bg-background p-1 [scrollbar-width:none] max-[479px]:mt-8 [&::-webkit-scrollbar]:hidden"
-            role="tablist"
-            aria-label="Klientų grupės"
+            className="flex items-end justify-between gap-6 border-b border-dashed border-primary/28 pb-10 pt-2 max-[479px]:gap-4"
+            data-reveal-group
           >
-            {TABS.map((item) => {
-              const isActive = tab === item.id;
+            <h1 className="display-h1 reveal-item m-0 min-w-0">{hero.title}</h1>
 
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => selectTab(item.id)}
-                  className={`flex-none px-8 py-4 text-base font-normal leading-none transition-colors duration-300 outline-none max-[767px]:flex-1 max-[767px]:px-6 max-[479px]:px-5 ${
-                    isActive
-                      ? "bg-primary text-white"
-                      : "text-primary/62 hover:bg-primary/8 hover:text-primary"
-                  }`}
-                >
-                  {item.label}
-                </button>
-              );
-            })}
+            <div
+              className="reveal-item flex w-fit shrink-0 gap-1 bg-background p-1"
+              role="tablist"
+              aria-label="Klientų grupės"
+            >
+              {TABS.map((item) => {
+                const isActive = tab === item.id;
+
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => selectTab(item.id)}
+                    className={`px-5 py-2.5 text-sm font-semibold leading-none transition-colors duration-300 outline-none max-[479px]:px-4 ${
+                      isActive
+                        ? "bg-primary text-white"
+                        : "text-primary/62 hover:bg-primary/8 hover:text-primary"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           <div className="premises-cards-wrap reveal-item mt-12 max-[991px]:mt-10" data-reveal="fade">
