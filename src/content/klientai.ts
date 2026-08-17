@@ -314,6 +314,91 @@ export function parseClientDescription(description: string) {
   return { sections, website };
 }
 
+function uniqueTexts(values: string[]) {
+  const seen = new Set<string>();
+  const result: string[] = [];
+
+  for (const value of values) {
+    const normalized = value.replace(/\s+/g, " ").trim();
+    if (!normalized) continue;
+    const key = normalized.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    result.push(value.trim());
+  }
+
+  return result;
+}
+
+export type ClientProfile = {
+  id: string;
+  heading: string;
+  tags: string[];
+  sections: ClientDescriptionSection[];
+  website?: string;
+  logo?: string;
+  logoAlt?: string;
+  kind: ClientEntry["kind"];
+};
+
+export function getClientProfile(item: ClientEntry): ClientProfile {
+  const parsed = parseClientDescription(item.description);
+  const website = item.website ?? parsed.website;
+
+  if (item.kind === "cluster") {
+    const heading = item.categories[0] ?? clientDisplayName(item);
+    const bodies = uniqueTexts([
+      ...item.categories.slice(1),
+      ...parsed.sections.map((section) => section.body),
+    ]).filter((text) => text.toLowerCase() !== heading.toLowerCase());
+
+    return {
+      id: item.id,
+      heading,
+      tags: [],
+      sections: bodies.map((body) => ({ body })),
+      website,
+      logo: item.logo,
+      logoAlt: item.logoAlt ?? clientDisplayName(item),
+      kind: item.kind,
+    };
+  }
+
+  return {
+    id: item.id,
+    heading: item.legalName || clientDisplayName(item),
+    tags: item.categories,
+    sections: parsed.sections,
+    website,
+    logo: item.logo,
+    logoAlt: item.logoAlt ?? clientDisplayName(item),
+    kind: item.kind,
+  };
+}
+
+export const scienceInstitutionsNote =
+  "VCIIP įsikurs 2 mokslo ir studijų institucijos arba jų filialai.";
+
+export const klientaiPageContent = {
+  hero: {
+    eyebrow: "VCIIP",
+    title: "Klientai",
+  },
+  companies: {
+    id: "imones",
+    title: "Įmonės",
+  },
+  clusters: {
+    id: "klasteriai",
+    title: "Klasteriai",
+  },
+  institutions: {
+    id: "institucijos",
+    title: "Mokslo ir studijų institucijos",
+    note: scienceInstitutionsNote,
+  },
+} as const;
+
 export const parkPairCta = {
   title: "Planuojate plėtrą?\nKviečiame įsikurti VCIIP!",
   description: "Padėsime įvertinti, kuri VCIIP teritorija geriausiai atitinka jūsų veiklos poreikius.",
@@ -333,6 +418,3 @@ export const parkPairCta = {
     ctaLabel: "Plačiau apie VCIIP Tech",
   },
 } as const;
-
-export const scienceInstitutionsNote =
-  "VCIIP įsikurs 2 mokslo ir studijų institucijos arba jų filialai.";

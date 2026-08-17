@@ -6,6 +6,7 @@ import { Footer } from "./components/Footer";
 import { HashScroll } from "./components/HashScroll";
 import { HomePage } from "./components/HomePage";
 import { IsikurimasPage } from "./components/IsikurimasPage";
+import { KlientaiPage } from "./components/KlientaiPage";
 import { KontaktaiPage } from "./components/KontaktaiPage";
 import { Navigation } from "./components/Navigation";
 import { NewsPage } from "./components/NewsPage";
@@ -68,6 +69,7 @@ function App() {
   const isApieVciipPage = currentPath === "/apie-vciip";
   const isIsikurimasPage = currentPath === "/isikurimas";
   const isOperatoriusPage = currentPath === "/operatorius";
+  const isKlientaiPage = currentPath === "/klientai";
   const isNewsPage = currentPath === "/naujienos";
   const newsPostSlug = currentPath.startsWith("/naujienos/")
     ? currentPath.slice("/naujienos/".length).split("/")[0]
@@ -100,6 +102,8 @@ function App() {
         <IsikurimasPage />
       ) : isOperatoriusPage ? (
         <OperatoriusPage />
+      ) : isKlientaiPage ? (
+        <KlientaiPage />
       ) : isNewsPostPage && newsPostSlug ? (
         <NewsPostPage slug={newsPostSlug} />
       ) : isNewsPage ? (

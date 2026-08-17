@@ -1,5 +1,5 @@
 import { useEffect, useState, type CSSProperties } from "react";
-import { X } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 
 import {
   clientDisplayName,
@@ -107,6 +107,16 @@ export function ClientsLogoCarousel({
               </span>
             </button>
           ))}
+        </div>
+
+        <div className="mt-8">
+          <a
+            href="/klientai"
+            className="inline-flex items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
+          >
+            Žiūrėti visus
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
         </div>
       </div>
 

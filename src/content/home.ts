@@ -32,7 +32,7 @@ export const homeContent = {
       {
         title: "Dalis platesnės VCIIP ekosistemos",
         body: "VCIIP skirtas išskirtinai inovatyvioms įmonėms, veikiančioms sumanios specializacijos srityse. Skatinamas klientų bendruomeniškumas, partnerystė, klasterizacija, siekiant visapusiškos naudos konkurencingoje verslo aplinkoje.",
-        href: "#klientai",
+        href: "/klientai",
       },
       {
         title: "Partnerystė su mokslu",

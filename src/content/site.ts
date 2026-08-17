@@ -75,6 +75,7 @@ export function usesVciipIndexTheme(currentPath: string) {
     path === "/kontaktai" ||
     path === "/isikurimas" ||
     path === "/operatorius" ||
+    path === "/klientai" ||
     path === "/naujienos" ||
     path.startsWith("/naujienos/")
   );

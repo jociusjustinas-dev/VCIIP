@@ -14,6 +14,7 @@ const footerNavigation = [
   { label: "VCIIP Tech", href: "/tech" },
   { label: "Įsikūrimas VCIIP", href: "/isikurimas" },
   { label: "Operatorius", href: "/operatorius" },
+  { label: "Klientai", href: "/klientai" },
   { label: "Naujienos", href: "/naujienos" },
   { label: "Kontaktai", href: "/kontaktai" },
 ];
