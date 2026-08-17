@@ -116,7 +116,7 @@ export const techClients = {
 
 export const techProcess = {
   id: "procesas",
-  eyebrow: "Procesas",
+  eyebrow: "",
   title: "Įsikūrimas VCIIP Tech",
   intro:
     "VCIIP įsikūrimo procesas vyksta aiškiai apibrėžtais etapais. Kiekviename jų – nuo paraiškos įsikurti pateikimo iki pat pilno įsikūrimo parke – investuotojui padeda VCIIP operatorius.",

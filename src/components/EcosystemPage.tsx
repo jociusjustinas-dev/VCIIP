@@ -77,6 +77,7 @@ export function EcosystemPage() {
         eyebrow={bioProcess.eyebrow}
         title={bioProcess.title}
         intro={bioProcess.intro}
+        steps={[]}
         cta={bioProcess.cta}
         tone="light"
         imageSrc={bioProcess.imageSrc}

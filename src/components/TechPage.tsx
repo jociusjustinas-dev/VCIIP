@@ -79,6 +79,7 @@ export function TechPage() {
         eyebrow={techProcess.eyebrow}
         title={techProcess.title}
         intro={techProcess.intro}
+        steps={[]}
         cta={techProcess.cta}
         tone="light"
         imageSrc={techProcess.imageSrc}

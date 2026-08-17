@@ -18,29 +18,6 @@ type ProcessStep = {
   cta?: ProcessCta;
 };
 
-const defaultSettleSteps: ProcessStep[] = [
-  {
-    number: "01",
-    title: "Įvertinimas.",
-    body: "Aptariame jūsų veiklos planą, poreikius ir tinkamumą VCIIP kryptims.",
-  },
-  {
-    number: "02",
-    title: "Pokalbis.",
-    body: "Pristatome galimybes: sklypus, infrastruktūrą, sąlygas ir paramą.",
-  },
-  {
-    number: "03",
-    title: "Planavimas.",
-    body: "Kartu parenkame sklypą ir suderiname sprendimus su miestu bei valstybe.",
-  },
-  {
-    number: "04",
-    title: "Įsikūrimas.",
-    body: "Lydime per statybas ir veiklos pradžią, teikiame nuolatinį palaikymą.",
-  },
-];
-
 function StepCtaLink({ cta }: { cta: ProcessCta }) {
   return (
     <a
@@ -66,7 +43,7 @@ export function SettleProcess({
     </>
   ),
   intro = "Aiškus kelias nuo pirmo kontakto iki veiklos pradžios. Operatorius lydi kiekviename žingsnyje.",
-  steps = defaultSettleSteps,
+  steps = [],
   showImage = true,
   cta = { label: "Sužinokite daugiau", href: "#kontaktai" },
   tone = "muted",
@@ -89,6 +66,7 @@ export function SettleProcess({
   afterSteps?: ReactNode;
 }) {
   const isLight = tone === "light";
+  const hasSteps = steps.length > 0;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const { headerRefs, bodyRefs, minHeight } = useReservedAccordionHeight(
     variant === "accordion" ? steps.length : 0,
@@ -223,31 +201,51 @@ export function SettleProcess({
     );
   }
 
+  const processCta = cta ? (
+    <a
+      href={cta.href}
+      className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent hover:text-white"
+    >
+      <span className="h-5 overflow-hidden py-px">
+        <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
+          {[cta.label, cta.label].map((label, index) => (
+            <span key={index} className="flex h-5 items-center gap-2">
+              {label}
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </span>
+          ))}
+        </span>
+      </span>
+    </a>
+  ) : null;
+
   return (
     <section
       id={id}
       className={`relative overflow-hidden section-shell ${isLight ? "bg-white" : "bg-background"}`}
     >
       <div className="site-container">
-        <div
-          className="mb-20 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.62fr)] max-[991px]:mb-14"
-          data-reveal-group
-        >
-          <div className="flex flex-col items-start gap-7">
-            {eyebrow ? <p className="eyebrow reveal-item">{eyebrow}</p> : null}
-            <h2 className="section-heading reveal-item max-w-4xl">{title}</h2>
-          </div>
+        {hasSteps ? (
+          <div
+            className="mb-20 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.62fr)] max-[991px]:mb-14"
+            data-reveal-group
+          >
+            <div className="flex flex-col items-start gap-7">
+              {eyebrow ? <p className="eyebrow reveal-item">{eyebrow}</p> : null}
+              <h2 className="section-heading reveal-item max-w-4xl">{title}</h2>
+            </div>
 
-          <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-muted max-[479px]:text-base">
-            {intro}
-          </p>
-        </div>
+            {intro ? (
+              <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-muted max-[479px]:text-base">
+                {intro}
+              </p>
+            ) : null}
+          </div>
+        ) : null}
 
         <div
           className={`grid items-stretch gap-10 max-[991px]:gap-12 ${
-            showImage
-              ? "lg:grid-cols-2 lg:gap-16"
-              : "lg:grid-cols-1"
+            showImage ? "lg:grid-cols-2 lg:gap-16" : "lg:grid-cols-1"
           }`}
           data-reveal-group
         >
@@ -266,51 +264,50 @@ export function SettleProcess({
             </div>
           ) : null}
 
-          <div className="reveal-item border-t border-dashed border-primary/18" data-reveal="fade">
-            {steps.map((step) => (
-              <article
-                key={step.number}
-                className="group grid gap-8 border-b border-dashed border-primary/18 py-8 text-primary transition-colors duration-300 hover:border-primary/34 max-[767px]:gap-4 max-[479px]:grid-cols-1 sm:grid-cols-[minmax(180px,0.74fr)_minmax(0,1fr)]"
-              >
-                <div className="flex flex-col gap-4">
-                  <span className="font-display text-sm font-bold uppercase leading-tight tracking-wide text-accent transition-colors duration-300 group-hover:text-accent">
-                    {step.number}
-                  </span>
-                  <h3 className="heading-h3 text-primary">{step.title}</h3>
-                </div>
-
-                <div className="flex gap-5">
-                  <span className="mt-2 size-2.5 shrink-0 rounded-none bg-accent opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100" />
-                  <div className="flex min-w-0 flex-col gap-4">
-                    <p className="m-0 whitespace-pre-line text-base leading-loose text-muted">
-                      {step.body}
-                    </p>
-                    {step.cta ? <StepCtaLink cta={step.cta} /> : null}
-                  </div>
-                </div>
-              </article>
-            ))}
-
-            {cta ? (
-              <div className="pt-10">
-                <a
-                  href={cta.href}
-                  className="group inline-flex min-h-12 w-fit items-center justify-center overflow-hidden rounded-none bg-primary px-5 py-3 text-base font-semibold leading-none text-white transition hover:bg-accent hover:text-white"
+          {hasSteps ? (
+            <div className="reveal-item border-t border-dashed border-primary/18" data-reveal="fade">
+              {steps.map((step) => (
+                <article
+                  key={step.number}
+                  className="group grid gap-8 border-b border-dashed border-primary/18 py-8 text-primary transition-colors duration-300 hover:border-primary/34 max-[767px]:gap-4 max-[479px]:grid-cols-1 sm:grid-cols-[minmax(180px,0.74fr)_minmax(0,1fr)]"
                 >
-                  <span className="h-5 overflow-hidden py-px">
-                    <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
-                      {[cta.label, cta.label].map((label, index) => (
-                        <span key={index} className="flex h-5 items-center gap-2">
-                          {label}
-                          <ArrowUpRight size={16} aria-hidden="true" />
-                        </span>
-                      ))}
+                  <div className="flex flex-col gap-4">
+                    <span className="font-display text-sm font-bold uppercase leading-tight tracking-wide text-accent transition-colors duration-300 group-hover:text-accent">
+                      {step.number}
                     </span>
-                  </span>
-                </a>
+                    <h3 className="heading-h3 text-primary">{step.title}</h3>
+                  </div>
+
+                  <div className="flex gap-5">
+                    <span className="mt-2 size-2.5 shrink-0 rounded-none bg-accent opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100" />
+                    <div className="flex min-w-0 flex-col gap-4">
+                      <p className="m-0 whitespace-pre-line text-base leading-loose text-muted">
+                        {step.body}
+                      </p>
+                      {step.cta ? <StepCtaLink cta={step.cta} /> : null}
+                    </div>
+                  </div>
+                </article>
+              ))}
+
+              {processCta ? <div className="pt-10">{processCta}</div> : null}
+            </div>
+          ) : (
+            <div className="reveal-item flex flex-col justify-between gap-10" data-reveal="fade">
+              <div className="flex flex-col items-start gap-6">
+                <div className="h-0 w-full border-b border-dashed border-primary/45" />
+                {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+                <h2 className="section-heading max-w-xl">{title}</h2>
+                {intro ? (
+                  <p className="m-0 max-w-xl whitespace-pre-line text-base font-normal leading-loose text-muted">
+                    {intro}
+                  </p>
+                ) : null}
               </div>
-            ) : null}
-          </div>
+
+              {processCta}
+            </div>
+          )}
         </div>
       </div>
     </section>
