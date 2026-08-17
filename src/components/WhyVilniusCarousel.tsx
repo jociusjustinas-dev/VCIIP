@@ -100,15 +100,15 @@ export function WhyVilniusCarousel({
           {intro ? (
             <div className="why-vilnius-carousel__header why-vilnius-carousel__header--split reveal-item">
               <div>
-                <p className="eyebrow">{eyebrow}</p>
-                <h2 className="section-heading mt-4 max-w-3xl">{title}</h2>
+                {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+                <h2 className={`section-heading max-w-3xl ${eyebrow ? "mt-4" : ""}`}>{title}</h2>
               </div>
               <p className="m-0 max-w-xl text-base font-normal leading-loose text-muted">{intro}</p>
             </div>
           ) : (
             <div className="why-vilnius-carousel__header reveal-item">
-              <p className="eyebrow">{eyebrow}</p>
-              <h2 className="section-heading mt-4 max-w-3xl">{title}</h2>
+              {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+              <h2 className={`section-heading max-w-3xl ${eyebrow ? "mt-4" : ""}`}>{title}</h2>
             </div>
           )}
         </div>

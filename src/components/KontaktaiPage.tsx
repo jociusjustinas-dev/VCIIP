@@ -24,7 +24,6 @@ export function KontaktaiPage() {
         leftSlot={
           <div className="flex flex-col gap-10">
             <div className="flex flex-col gap-5">
-              <p className="eyebrow m-0">{hero.eyebrow}</p>
               <h1 className="display-h1 m-0 max-w-xl text-primary">{hero.title}</h1>
               <p className="m-0 max-w-xl text-base font-normal leading-loose text-muted">
                 {hero.description}
@@ -75,7 +74,6 @@ export function KontaktaiPage() {
         <div className="site-container">
           <div className="mb-12 flex flex-col gap-5 max-[991px]:mb-8" data-reveal-group>
             <div className="reveal-item h-0 w-full border-b border-dashed border-primary/45" />
-            <p className="eyebrow reveal-item m-0">{people.eyebrow}</p>
             <h2 className="section-heading reveal-item max-w-xl">{people.title}</h2>
           </div>
 
