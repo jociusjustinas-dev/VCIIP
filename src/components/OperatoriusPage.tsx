@@ -23,14 +23,14 @@ export function OperatoriusPage() {
 
       <WhyVilniusCarousel
         id={services.id}
-        eyebrow={services.eyebrow}
+        eyebrow=""
         title={services.title}
         items={services.items}
       />
 
       <AdvantagesSection
         id={areas.id}
-        eyebrow={areas.eyebrow}
+        eyebrow=""
         title={areas.title}
         items={areas.items}
         imageSrc={areas.imageSrc}
