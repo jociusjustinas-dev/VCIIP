@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import modernOfficeImage from "../assets/images/modern-office-work.png";
 import { useReservedAccordionHeight } from "../hooks/useReservedAccordionHeight";
 import { AccordionPanel } from "./AccordionPanel";
+import { CtaArrow } from "./CtaArrow";
 import { ParallaxImage } from "./ParallaxImage";
 
 type AdvantageItem = {
@@ -90,7 +91,7 @@ export function AdvantagesSection({
                             onClick={(event) => event.stopPropagation()}
                           >
                             Skaityti daugiau
-                            <ArrowUpRight size={16} aria-hidden="true" />
+                            <CtaArrow href={item.href} />
                           </a>
                         ) : null}
                       </div>

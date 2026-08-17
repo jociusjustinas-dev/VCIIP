@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+import { CtaArrow } from "./CtaArrow";
 
 type WhyItem = {
   title: string;
@@ -147,13 +149,13 @@ export function WhyVilniusCarousel({
                     <p className="why-vilnius-carousel__card-body">{item.body}</p>
                   ) : null}
                 </div>
-                {hasCta ? (
+                {item.href ? (
                   <a
                     href={item.href}
                     className="inline-flex items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
                   >
                     {item.ctaLabel ?? "Skaityti daugiau"}
-                    <ArrowUpRight size={16} aria-hidden="true" />
+                    <CtaArrow href={item.href} />
                   </a>
                 ) : null}
               </article>

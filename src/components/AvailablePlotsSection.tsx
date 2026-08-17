@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowUpRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
 import { plotsSectionCopy } from "../content/plots";
+import { CtaArrow } from "./CtaArrow";
 import { fetchPlots, getDefaultPlotId } from "../lib/plots";
 import type { Plot, PlotStatus } from "../types/plot";
 
@@ -78,7 +79,7 @@ function PlotDetailCard({
               {[plotsSectionCopy.primaryCta, plotsSectionCopy.primaryCta].map((label, index) => (
                 <span key={index} className="flex h-5 items-center gap-2">
                   {label}
-                  <ArrowUpRight size={16} aria-hidden="true" />
+                  <CtaArrow href={plot.ctaHref} />
                 </span>
               ))}
             </span>
@@ -266,7 +267,7 @@ export function AvailablePlotsSection() {
                   {[plotsSectionCopy.bottomCta, plotsSectionCopy.bottomCta].map((label, index) => (
                     <span key={index} className="flex h-5 items-center gap-2">
                       {label}
-                      <ArrowUpRight size={16} aria-hidden="true" />
+                      <CtaArrow href={plotsSectionCopy.bottomCtaHref} />
                     </span>
                   ))}
                 </span>

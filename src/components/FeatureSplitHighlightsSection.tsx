@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
 
+import { CtaArrow } from "./CtaArrow";
 import { ParallaxImage } from "./ParallaxImage";
 
 type CtaLink = {
@@ -116,7 +116,7 @@ export function FeatureSplitHighlightsSection({
             {[primaryCta.label, primaryCta.label].map((label, index) => (
               <span key={index} className="flex h-5 items-center gap-2">
                 {label}
-                <ArrowUpRight size={16} aria-hidden="true" />
+                <CtaArrow href={primaryCta.href} />
               </span>
             ))}
           </span>

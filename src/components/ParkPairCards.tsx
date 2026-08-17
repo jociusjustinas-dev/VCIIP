@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { CtaArrow } from "./CtaArrow";
 
 import bioLogoWhite from "../assets/logos/bio-white.svg";
 import techLogoWhite from "../assets/logos/tech-white.svg";
@@ -35,7 +35,7 @@ function SlideCta({ href, label }: { href: string; label: string }) {
           {[label, label].map((text, index) => (
             <span key={index} className="flex h-5 items-center gap-2">
               {text}
-              <ArrowUpRight size={16} aria-hidden="true" />
+              <CtaArrow href={href} />
             </span>
           ))}
         </span>

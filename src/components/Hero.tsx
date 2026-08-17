@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, MapPinned, Play, X } from "lucide-react";
+import { MapPinned, Play, X } from "lucide-react";
 import vciipOverviewImage from "../assets/images/vciip-overview.jpg";
+
+import { CtaArrow } from "./CtaArrow";
 
 export function Hero() {
   const [btnHovered, setBtnHovered] = useState(false);
@@ -97,7 +99,7 @@ export function Hero() {
                       {["Susisiekti", "Susisiekti"].map((label, index) => (
                         <span key={index} className="flex h-5 items-center gap-2">
                           {label}
-                          <ArrowUpRight size={16} aria-hidden="true" />
+                          <CtaArrow href="#kontaktai" />
                         </span>
                       ))}
                     </span>

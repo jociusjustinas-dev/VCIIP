@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import { AccordionPanel } from "./AccordionPanel";
+import { CtaArrow } from "./CtaArrow";
 import { DocumentsDownloadList } from "./DocumentsListSection";
 
 type StepCta = {
@@ -119,7 +120,7 @@ export function ApplicationGuideSection({
                                 {channel.href.startsWith("mailto:")
                                   ? channel.href.replace("mailto:", "")
                                   : "Atidaryti"}
-                                <ArrowUpRight size={14} aria-hidden="true" />
+                                <CtaArrow href={channel.href} size={14} />
                               </a>
                             ) : null}
                           </div>
@@ -136,7 +137,7 @@ export function ApplicationGuideSection({
                           : {})}
                       >
                         {step.cta.label}
-                        <ArrowUpRight size={16} aria-hidden="true" />
+                        <CtaArrow href={step.cta.href} />
                       </a>
                     ) : null}
                     </div>

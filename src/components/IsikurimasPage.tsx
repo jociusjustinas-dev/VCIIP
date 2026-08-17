@@ -1,7 +1,6 @@
-import { ArrowUpRight } from "lucide-react";
-
 import { isikurimasContent } from "../content/isikurimas";
 import { ApplicationGuideSection } from "./ApplicationGuideSection";
+import { CtaArrow } from "./CtaArrow";
 import { DocumentsListSection } from "./DocumentsListSection";
 import { HubSplitHero } from "./HubSplitHero";
 import { InvestorInquiry } from "./InvestorInquiry";
@@ -95,7 +94,7 @@ export function IsikurimasPage() {
               rel="noopener noreferrer"
             >
               {criteria.cta.label}
-              <ArrowUpRight size={16} aria-hidden="true" />
+              <CtaArrow href={criteria.cta.href} />
             </a>
           </div>
         </div>
