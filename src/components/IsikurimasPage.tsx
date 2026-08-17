@@ -1,5 +1,6 @@
+import { ArrowUpRight } from "lucide-react";
+
 import { isikurimasContent } from "../content/isikurimas";
-import { ApplicationCtaSection } from "./ApplicationCtaSection";
 import { ApplicationGuideSection } from "./ApplicationGuideSection";
 import { DocumentsListSection } from "./DocumentsListSection";
 import { HubSplitHero } from "./HubSplitHero";
@@ -86,15 +87,20 @@ export function IsikurimasPage() {
               <CriteriaList title={criteria.projectsTitle} items={criteria.projects} />
             </div>
           </div>
+
+          <div className="mt-10 max-[479px]:mt-8">
+            <a
+              href={criteria.cta.href}
+              className="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {criteria.cta.label}
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </section>
-
-      <ApplicationCtaSection
-        eyebrow={criteria.cta.eyebrow}
-        title={criteria.cta.title}
-        description={criteria.cta.description}
-        cta={{ label: criteria.cta.label, href: criteria.cta.href }}
-      />
 
       <SettleProcess
         id={process.id}
