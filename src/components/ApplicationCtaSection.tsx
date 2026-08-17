@@ -8,7 +8,7 @@ type ApplicationCtaSectionProps = {
 };
 
 export function ApplicationCtaSection({
-  eyebrow = "Įsikūrimas",
+  eyebrow = "",
   title,
   description,
   cta,
@@ -20,8 +20,8 @@ export function ApplicationCtaSection({
           <div className="application-cta__rule reveal-item" />
           <div className="application-cta__row reveal-item">
             <div className="application-cta__content">
-              <p className="eyebrow eyebrow-on-dark">{eyebrow}</p>
-              <h2 className="section-heading mt-4 max-w-2xl text-white">{title}</h2>
+              {eyebrow ? <p className="eyebrow eyebrow-on-dark">{eyebrow}</p> : null}
+              <h2 className={`section-heading max-w-2xl text-white ${eyebrow ? "mt-4" : ""}`}>{title}</h2>
               <p className="m-0 mt-4 max-w-xl text-base leading-loose text-white/72">{description}</p>
             </div>
             <a

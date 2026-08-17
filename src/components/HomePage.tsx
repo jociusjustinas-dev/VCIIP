@@ -19,6 +19,7 @@ export function HomePage() {
       <HomeHero />
       <HomeAboutSection />
       <AdvantagesSection
+        eyebrow=""
         title={advantages.title}
         items={advantages.items}
         imageSrc={homeAdvantagesImage}
@@ -36,10 +37,11 @@ export function HomePage() {
 
       <TestimonialsCarousel />
       <ClientsLogoCarousel title={clients.title} description={clients.description} />
-      <WhyVilniusCarousel title={whyVilnius.title} items={whyVilnius.items} />
+      <WhyVilniusCarousel eyebrow="" title={whyVilnius.title} items={whyVilnius.items} />
       <MediaNewsSection />
 
       <ApplicationCtaSection
+        eyebrow=""
         title={cta.applicationTitle}
         description={cta.applicationDescription}
         cta={cta.applicationCta}
@@ -47,7 +49,7 @@ export function HomePage() {
 
       <InvestorInquiry
         tone="light"
-        eyebrow="Kontaktai"
+        showEyebrow={false}
         title={cta.contactTitle}
         description="Susisiekite tiesiogiai su VCIIP operatoriumi."
         showContactIntro={false}
