@@ -3,7 +3,7 @@ import techLogo from "../assets/logos/tech.svg";
 
 export const gatewayDestinations = [
   {
-    href: "/ekosistema",
+    href: "/vciip-bio",
     logo: bioLogo,
     logoAlt: "VCIIP BIO",
     subtitle: "Gyvybės mokslai ir inovacijos",
@@ -11,7 +11,7 @@ export const gatewayDestinations = [
     cta: "Plačiau apie BIO",
   },
   {
-    href: "/tech",
+    href: "/vciip-tech",
     logo: techLogo,
     logoAlt: "VCIIP TECH",
     subtitle: "Technologijos ir pažangi gamyba",

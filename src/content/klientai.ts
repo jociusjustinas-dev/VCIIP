@@ -292,7 +292,7 @@ export function parseClientDescription(description: string) {
     for (const paragraph of splitClientParagraphs(content)) {
       sections.push({ body: paragraph });
     }
-    return { sections, website };
+    return { sections: sections.filter((section) => section.body.trim()), website };
   }
 
   for (const part of content.split(/(?=Pagrindinės įmonės veiklos kryptys:|VCIIP vykdoma veikla:)/)) {
@@ -311,7 +311,7 @@ export function parseClientDescription(description: string) {
     sections.push({ body: trimmed });
   }
 
-  return { sections, website };
+  return { sections: sections.filter((section) => section.body.trim()), website };
 }
 
 function uniqueTexts(values: string[]) {
@@ -407,14 +407,14 @@ export const parkPairCta = {
     label: "VCIIP Bio",
     focus: "Gyvybės mokslai ir inovacijos",
     description: "Gyvybės mokslų, biotechnologijų ir tyrimų organizacijoms, norinčioms augti bendroje inovacijų aplinkoje.",
-    href: "/ekosistema",
+    href: "/vciip-bio",
     ctaLabel: "Plačiau apie VCIIP Bio",
   },
   tech: {
     label: "VCIIP Tech",
     focus: "Technologijos ir pažangi gamyba",
     description: "Pažangios gamybos, technologijų ir inžinerinių sprendimų įmonėms, norinčioms augti bendroje inovacijų aplinkoje.",
-    href: "/tech",
+    href: "/vciip-tech",
     ctaLabel: "Plačiau apie VCIIP Tech",
   },
 } as const;

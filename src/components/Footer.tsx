@@ -10,8 +10,8 @@ import type { BrandVariant } from "./Navigation";
 
 const footerNavigation = [
   { label: "Apie VCIIP", href: "/apie-vciip" },
-  { label: "VCIIP Bio", href: "/ekosistema" },
-  { label: "VCIIP Tech", href: "/tech" },
+  { label: "VCIIP Bio", href: "/vciip-bio" },
+  { label: "VCIIP Tech", href: "/vciip-tech" },
   { label: "Įsikūrimas VCIIP", href: "/isikurimas" },
   { label: "Operatorius", href: "/operatorius" },
   { label: "Klientai", href: "/klientai" },

@@ -78,7 +78,7 @@ function ClientCard({ item }: { item: ClientEntry }) {
             href={profile.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary mt-auto w-full justify-center"
+            className="btn-primary group mt-auto w-full justify-center hover:bg-primary hover:border-primary"
           >
             Daugiau informacijos
             <ExternalLink size={16} aria-hidden="true" />

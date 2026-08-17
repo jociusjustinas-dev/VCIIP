@@ -16,12 +16,23 @@ import { ScrollReveal } from "./components/ScrollReveal";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { StrategyPage } from "./components/StrategyPage";
 import { TechPage } from "./components/TechPage";
-import { getBrandVariantFromPath, getHubHrefFromPath, usesLegacyGreenTheme, usesVciipIndexTheme } from "./content/site";
+import {
+  BIO_HUB_PATH,
+  TECH_HUB_PATH,
+  getBrandVariantFromPath,
+  getHubHrefFromPath,
+  isBioHubPath,
+  isTechHubPath,
+  usesLegacyGreenTheme,
+  usesVciipIndexTheme,
+} from "./content/site";
 import { getAppPath, getBaseUrl, withBase } from "./lib/paths";
 
 function Redirect({ to }: { to: string }) {
   useEffect(() => {
-    window.location.replace(withBase(to));
+    const hash = window.location.hash;
+    const search = window.location.search;
+    window.location.replace(`${withBase(to)}${search}${hash}`);
   }, [to]);
 
   return null;
@@ -62,8 +73,10 @@ function App() {
 
   const currentPath = getAppPath();
   const isStrategyPage = currentPath === "/strategija";
-  const isTechHub = currentPath === "/tech";
-  const isBioHub = currentPath === "/ekosistema" || currentPath === "/bio";
+  const isTechHub = isTechHubPath(currentPath);
+  const isBioHub = isBioHubPath(currentPath);
+  const shouldRedirectBio = isBioHub && currentPath !== BIO_HUB_PATH;
+  const shouldRedirectTech = isTechHub && currentPath !== TECH_HUB_PATH;
   const isKontaktaiPage = currentPath === "/kontaktai";
   const isKodelVilniusPage = currentPath === "/kodel-vilnius";
   const isApieVciipPage = currentPath === "/apie-vciip";
@@ -88,6 +101,10 @@ function App() {
       <Navigation variant={brandVariant} hubHref={hubHref} tealLogo={useTealLogo} />
       {isKodelVilniusPage ? (
         <Redirect to="/#kodel-vilnius" />
+      ) : shouldRedirectBio ? (
+        <Redirect to={BIO_HUB_PATH} />
+      ) : shouldRedirectTech ? (
+        <Redirect to={TECH_HUB_PATH} />
       ) : isStrategyPage ? (
         <StrategyPage />
       ) : isBioHub ? (

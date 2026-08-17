@@ -77,7 +77,7 @@ export const bioGrowthContent = {
   },
   secondaryCta: {
     label: "Peržiūrėti TECH teritoriją",
-    href: "/tech#sklypai",
+    href: "/vciip-tech#sklypai",
   },
   imageSrc: ecosystemTechImage,
 };

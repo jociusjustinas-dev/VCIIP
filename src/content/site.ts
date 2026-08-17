@@ -10,11 +10,28 @@ export type NavGroup = {
   items: NavLink[];
 };
 
+export const BIO_HUB_PATH = "/vciip-bio";
+export const TECH_HUB_PATH = "/vciip-tech";
+export const BIO_HUB_ALIASES = [BIO_HUB_PATH, "/ekosistema", "/bio"] as const;
+export const TECH_HUB_ALIASES = [TECH_HUB_PATH, "/tech"] as const;
+
+function normalizeAppPath(currentPath: string) {
+  return currentPath.replace(/\/$/, "") || "/";
+}
+
+export function isBioHubPath(currentPath: string) {
+  return (BIO_HUB_ALIASES as readonly string[]).includes(normalizeAppPath(currentPath));
+}
+
+export function isTechHubPath(currentPath: string) {
+  return (TECH_HUB_ALIASES as readonly string[]).includes(normalizeAppPath(currentPath));
+}
+
 /** Approved primary menu order from Excel (Home is not a header item). */
 export const primaryNavItems: NavLink[] = [
   { label: "Apie VCIIP", href: "/apie-vciip" },
-  { label: "VCIIP Bio", href: "/ekosistema" },
-  { label: "VCIIP Tech", href: "/tech" },
+  { label: "VCIIP Bio", href: BIO_HUB_PATH },
+  { label: "VCIIP Tech", href: TECH_HUB_PATH },
   { label: "Įsikūrimas VCIIP", href: "/isikurimas" },
   { label: "Operatorius", href: "/operatorius" },
   { label: "Kontaktai", href: "/kontaktai" },
@@ -24,7 +41,7 @@ export const primaryNavItems: NavLink[] = [
 export const bioNavGroup: NavGroup = {
   id: "bio",
   label: "VCIIP Bio",
-  pageHref: "/ekosistema",
+  pageHref: BIO_HUB_PATH,
   items: [
     { label: "Apie VCIIP Bio", href: "apie" },
     { label: "Sklypai", href: "sklypai" },
@@ -37,7 +54,7 @@ export const bioNavGroup: NavGroup = {
 export const techNavGroup: NavGroup = {
   id: "tech",
   label: "VCIIP Tech",
-  pageHref: "/tech",
+  pageHref: TECH_HUB_PATH,
   items: [
     { label: "Apie VCIIP Tech", href: "apie" },
     { label: "Sklypai", href: "sklypai" },
@@ -49,19 +66,13 @@ export const techNavGroup: NavGroup = {
 /** @deprecated Replaced by primaryNavItems */
 export const sharedNavItems: NavLink[] = primaryNavItems;
 
-export function getHubHrefFromPath(currentPath: string) {
-  const path = currentPath.replace(/\/$/, "") || "/";
-
-  if (path === "/ekosistema" || path === "/bio") return "/ekosistema";
-  if (path === "/tech") return "/tech";
+export function getHubHrefFromPath(_currentPath: string) {
   return "/";
 }
 
 export function getBrandVariantFromPath(currentPath: string): "vciip" | "bio" | "tech" {
-  const path = currentPath.replace(/\/$/, "") || "/";
-
-  if (path === "/ekosistema" || path === "/bio") return "bio";
-  if (path === "/tech") return "tech";
+  if (isBioHubPath(currentPath)) return "bio";
+  if (isTechHubPath(currentPath)) return "tech";
   return "vciip";
 }
 
@@ -84,13 +95,13 @@ export function usesVciipIndexTheme(currentPath: string) {
 export function usesLegacyGreenTheme(currentPath: string) {
   const path = currentPath.replace(/\/$/, "") || "/";
 
-  return path === "/ekosistema" || path === "/bio" || usesVciipIndexTheme(path);
+  return isBioHubPath(path) || usesVciipIndexTheme(path);
 }
 
 /** @deprecated Use getHubHrefFromPath instead */
 export function getHubHref(variant: "vciip" | "bio" | "tech") {
-  if (variant === "bio") return "/ekosistema";
-  if (variant === "tech") return "/tech";
+  if (variant === "bio") return BIO_HUB_PATH;
+  if (variant === "tech") return TECH_HUB_PATH;
   return "/";
 }
 

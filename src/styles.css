@@ -957,6 +957,95 @@
     }
   }
 
+  .clients-logo-slider {
+    min-width: 0;
+  }
+
+  .clients-logo-slider__viewport {
+    overflow: hidden;
+    border: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+  }
+
+  .clients-logo-slider__track {
+    display: flex;
+    transition: transform 500ms ease-out;
+  }
+
+  .clients-logo-slider__item {
+    appearance: none;
+    display: flex;
+    flex: 0 0 25%;
+    min-height: 10rem;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    background: transparent;
+    padding: 1.5rem 1.25rem;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    transition: background-color 160ms ease;
+  }
+
+  .clients-logo-slider__item:last-child {
+    border-right: 0;
+  }
+
+  .clients-logo-slider__item:hover {
+    background: color-mix(in srgb, var(--color-primary) 4%, white);
+  }
+
+  .clients-logo-slider__logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(92%, 13rem);
+    height: 5rem;
+  }
+
+  .clients-logo-slider__logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transform: scale(var(--logo-scale, 1));
+    transform-origin: center center;
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+
+  .clients-logo-slider__item:hover .clients-logo-slider__logo {
+    opacity: 0.88;
+    transform: scale(calc(var(--logo-scale, 1) * 1.02));
+  }
+
+  @media (max-width: 991px) {
+    .clients-logo-slider__item {
+      flex-basis: 33.333%;
+      min-height: 9rem;
+      padding: 1.35rem 1.1rem;
+    }
+
+    .clients-logo-slider__logo-wrap {
+      width: min(92%, 11.5rem);
+      height: 4.5rem;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .clients-logo-slider__item {
+      flex-basis: 50%;
+      min-height: 8rem;
+      padding: 1.15rem 0.9rem;
+    }
+
+    .clients-logo-slider__logo-wrap {
+      width: min(92%, 10rem);
+      height: 4rem;
+    }
+  }
+
   .why-vilnius-carousel__header {
     margin-top: 1.25rem;
     margin-bottom: 3.5rem;
@@ -1664,16 +1753,19 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    overflow: hidden;
     border: 1px solid var(--color-accent);
     border-radius: var(--radius-button);
     background: var(--color-accent);
     color: var(--color-white);
     padding: 0.85rem 1.2rem;
     font-weight: 700;
+    cursor: pointer;
     transition:
       background-color 180ms ease,
       border-color 180ms ease,
-      color 180ms ease;
+      color 180ms ease,
+      transform 180ms ease;
   }
 
   .btn-primary:hover,
@@ -1681,6 +1773,7 @@
     background: var(--color-primary);
     border-color: var(--color-primary);
     color: var(--color-white);
+    transform: translateY(-1px);
   }
 
   .btn-secondary {

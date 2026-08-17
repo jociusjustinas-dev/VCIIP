@@ -99,7 +99,7 @@ export function ParkPairCards({
   bio,
   tech,
   id,
-  showTechAvailability = true,
+  showTechAvailability = false,
 }: ParkPairCardsProps) {
   const titleLines = title.includes("\n")
     ? title.split("\n")

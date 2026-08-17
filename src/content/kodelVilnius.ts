@@ -14,7 +14,7 @@ export const kodelVilniusHero = {
   description:
     "Vilnius siūlo talentus, augančią inovacijų ekosistemą ir strategiškai patogią vietą verslo plėtrai Europoje.",
   primaryCta: { label: "Susisiekti", href: "/kontaktai" },
-  secondaryCta: { label: "Peržiūrėti VCIIP Tech", href: "/tech" },
+  secondaryCta: { label: "Peržiūrėti VCIIP Tech", href: "/vciip-tech" },
 };
 
 export const kodelVilniusAdvantages = {

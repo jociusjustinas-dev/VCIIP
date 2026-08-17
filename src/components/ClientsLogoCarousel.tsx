@@ -1,5 +1,5 @@
-import { useEffect, useState, type CSSProperties } from "react";
-import { ArrowUpRight, X } from "lucide-react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import {
   clientDisplayName,
@@ -8,34 +8,47 @@ import {
   parseClientDescription,
   type ClientEntry,
 } from "../content/klientai";
+import { CtaArrow } from "./CtaArrow";
 
 function ClientModalContent({ item }: { item: ClientEntry }) {
   const { sections, website } = parseClientDescription(item.description);
   const href = item.website ?? website;
+  const visibleSections = sections.filter((section) => section.body.trim());
 
   return (
     <>
-      <div className="mt-6 flex flex-col gap-6">
-        {sections.map((section, index) => (
-          <div key={`${item.id}-section-${index}`}>
-            {section.label ? (
-              <p className="m-0 text-base font-bold text-primary">{section.label}</p>
-            ) : null}
-            <p className={`m-0 text-base leading-relaxed text-muted ${section.label ? "mt-2" : ""}`}>
-              {section.body}
-            </p>
-          </div>
-        ))}
-      </div>
+      {visibleSections.length > 0 ? (
+        <div className="mt-6 flex flex-col gap-6">
+          {visibleSections.map((section, index) => (
+            <div key={`${item.id}-section-${index}`}>
+              {section.label ? (
+                <p className="m-0 text-base font-bold text-primary">{section.label}</p>
+              ) : null}
+              <p className={`m-0 text-base leading-relaxed text-muted ${section.label ? "mt-2" : ""}`}>
+                {section.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      ) : null}
 
       {href ? (
         <a
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary mt-8"
+          className="btn-primary group mt-8"
         >
-          Daugiau informacijos
+          <span className="h-5 overflow-hidden py-px">
+            <span className="flex flex-col transition-transform duration-200 ease-out group-hover:-translate-y-1/2">
+              {["Daugiau informacijos", "Daugiau informacijos"].map((label, index) => (
+                <span key={index} className="flex h-5 items-center gap-2">
+                  {label}
+                  <CtaArrow href={href} />
+                </span>
+              ))}
+            </span>
+          </span>
         </a>
       ) : null}
     </>
@@ -50,6 +63,10 @@ export function ClientsLogoCarousel({
   description: string;
 }) {
   const [active, setActive] = useState<ClientEntry | null>(null);
+  const [slide, setSlide] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [stepPx, setStepPx] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(4);
 
   useEffect(() => {
     if (!active) return;
@@ -63,6 +80,38 @@ export function ClientsLogoCarousel({
       window.removeEventListener("keydown", onKey);
     };
   }, [active]);
+
+  useEffect(() => {
+    const measure = () => {
+      const width = window.innerWidth;
+      const nextVisible = width <= 639 ? 2 : width <= 991 ? 3 : 4;
+      setVisibleCount(nextVisible);
+
+      if (!trackRef.current) return;
+      const card = trackRef.current.firstElementChild as HTMLElement | null;
+      if (!card) return;
+      const gap = Number.parseFloat(getComputedStyle(trackRef.current).columnGap || getComputedStyle(trackRef.current).gap) || 0;
+      setStepPx(card.offsetWidth + gap);
+    };
+
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  const maxSlide = Math.max(0, klientaiAll.length - visibleCount);
+
+  useEffect(() => {
+    setSlide((current) => Math.min(current, maxSlide));
+  }, [maxSlide]);
+
+  const handlePrev = () => {
+    setSlide((current) => Math.max(0, current - 1));
+  };
+
+  const handleNext = () => {
+    setSlide((current) => Math.min(maxSlide, current + 1));
+  };
 
   return (
     <section id="klientai" className="section-shell bg-white">
@@ -78,35 +127,66 @@ export function ClientsLogoCarousel({
           </div>
         </div>
 
-        <div className="reveal-item vilnius-partners-grid vilnius-partners-grid--clients" data-reveal="fade">
-          {klientaiAll.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setActive(item)}
-              className="vilnius-partners-grid__item"
-              aria-label={`Plačiau apie ${clientDisplayName(item)}`}
+        <div className="clients-logo-slider reveal-item" data-reveal="fade">
+          <div className="clients-logo-slider__viewport">
+            <div
+              ref={trackRef}
+              className="clients-logo-slider__track"
+              style={{
+                transform: stepPx ? `translateX(-${slide * stepPx}px)` : undefined,
+              }}
             >
-              <span
-                className="vilnius-partners-grid__logo-wrap"
-                style={{ "--logo-scale": clientLogoScale(item.id) } as CSSProperties}
-              >
-                {item.logo ? (
-                  <img
-                    src={item.logo}
-                    alt={item.logoAlt ?? clientDisplayName(item)}
-                    className="vilnius-partners-grid__logo"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  <span className="text-center font-display text-sm font-bold leading-tight tracking-tight text-primary">
-                    {clientDisplayName(item)}
+              {klientaiAll.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setActive(item)}
+                  className="clients-logo-slider__item"
+                  aria-label={`Plačiau apie ${clientDisplayName(item)}`}
+                >
+                  <span
+                    className="clients-logo-slider__logo-wrap"
+                    style={{ "--logo-scale": clientLogoScale(item.id) } as CSSProperties}
+                  >
+                    {item.logo ? (
+                      <img
+                        src={item.logo}
+                        alt={item.logoAlt ?? clientDisplayName(item)}
+                        className="clients-logo-slider__logo"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <span className="text-center font-display text-sm font-bold leading-tight tracking-tight text-primary">
+                        {clientDisplayName(item)}
+                      </span>
+                    )}
                   </span>
-                )}
-              </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="why-vilnius-carousel__nav">
+            <button
+              type="button"
+              aria-label="Ankstesni klientai"
+              onClick={handlePrev}
+              disabled={slide === 0}
+              className="why-vilnius-carousel__nav-btn"
+            >
+              <ChevronLeft size={22} aria-hidden="true" />
             </button>
-          ))}
+            <button
+              type="button"
+              aria-label="Kiti klientai"
+              onClick={handleNext}
+              disabled={slide >= maxSlide}
+              className="why-vilnius-carousel__nav-btn"
+            >
+              <ChevronRight size={22} aria-hidden="true" />
+            </button>
+          </div>
         </div>
 
         <div className="mt-8">
