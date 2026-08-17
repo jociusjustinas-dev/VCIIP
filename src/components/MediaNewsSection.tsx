@@ -31,9 +31,22 @@ export function MediaNewsSection() {
   return (
     <section id="naujienos" className="relative bg-white section-shell">
       <div className="site-container">
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-4 border-b border-dashed border-primary/28 pb-8" data-reveal-group>
-          <p className="eyebrow reveal-item">VCIIP žiniasklaidoje</p>
+        <div
+          className="mb-10 flex flex-wrap items-end justify-between gap-4 border-b border-dashed border-primary/28 pb-8"
+          data-reveal-group
+        >
           <h2 className="section-heading reveal-item m-0">Naujienos</h2>
+          <a
+            href="/naujienos"
+            className="reveal-item group inline-flex items-center gap-2 text-base font-semibold leading-none text-primary transition-colors duration-200 hover:text-accent"
+          >
+            Visos naujienos
+            <ArrowUpRight
+              size={16}
+              aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </a>
         </div>
 
         {isLoading ? (
@@ -64,20 +77,6 @@ export function MediaNewsSection() {
             ))}
           </div>
         )}
-
-        <div className="reveal-item mt-10 border-t border-dashed border-primary/20 pt-8">
-          <a
-            href="/naujienos"
-            className="group inline-flex items-center gap-2 text-base font-semibold leading-none text-primary transition-colors duration-200 hover:text-accent"
-          >
-            Visos naujienos
-            <ArrowUpRight
-              size={16}
-              aria-hidden="true"
-              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
-          </a>
-        </div>
       </div>
     </section>
   );
