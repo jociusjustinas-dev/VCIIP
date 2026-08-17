@@ -46,11 +46,6 @@ export function ApplicationGuideSection({
     <section id={id} className="section-shell bg-primary text-white">
       <div className="site-container">
         <div
-          className="reveal-item mb-12 h-0 w-full border-b border-dashed border-white/24 max-[991px]:mb-8"
-          data-reveal="fade"
-        />
-
-        <div
           className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:gap-16 xl:gap-20"
           data-reveal-group
         >
