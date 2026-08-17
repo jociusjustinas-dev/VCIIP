@@ -294,18 +294,17 @@ export function SettleProcess({
               {processCta ? <div className="pt-10">{processCta}</div> : null}
             </div>
           ) : (
-            <div className="reveal-item flex flex-col justify-between gap-10" data-reveal="fade">
-              <div className="flex flex-col items-start gap-6">
-                <div className="h-0 w-full border-b border-dashed border-primary/45" />
-                {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-                <h2 className="section-heading max-w-xl">{title}</h2>
-                {intro ? (
-                  <p className="m-0 max-w-xl whitespace-pre-line text-base font-normal leading-loose text-muted">
-                    {intro}
-                  </p>
-                ) : null}
-              </div>
-
+            <div
+              className="reveal-item flex flex-col items-start justify-center gap-6"
+              data-reveal="fade"
+            >
+              {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+              <h2 className="section-heading max-w-xl">{title}</h2>
+              {intro ? (
+                <p className="m-0 max-w-xl whitespace-pre-line text-base font-normal leading-loose text-muted">
+                  {intro}
+                </p>
+              ) : null}
               {processCta}
             </div>
           )}
