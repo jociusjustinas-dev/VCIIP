@@ -71,7 +71,6 @@ export function IsikurimasPage() {
             data-reveal-group
           >
             <div className="flex flex-col items-start gap-7">
-              <p className="eyebrow reveal-item">{criteria.eyebrow}</p>
               <h2 className="section-heading reveal-item max-w-4xl">{criteria.title}</h2>
             </div>
             <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-muted">
@@ -104,7 +103,7 @@ export function IsikurimasPage() {
 
       <SettleProcess
         id={process.id}
-        eyebrow={process.eyebrow}
+        eyebrow=""
         title={process.title}
         intro={process.intro}
         steps={process.steps}
@@ -125,7 +124,6 @@ export function IsikurimasPage() {
             <div className="reveal-item flex flex-col gap-8">
               <div className="flex flex-col gap-6">
                 <div className="h-0 w-full border-b border-dashed border-primary/45" />
-                <p className="eyebrow m-0">{experts.eyebrow}</p>
                 <h2 className="section-heading max-w-xl">{experts.title}</h2>
                 <p className="m-0 max-w-xl text-base font-normal leading-loose text-muted">
                   {experts.intro}
