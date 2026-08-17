@@ -18,7 +18,7 @@ export function InvestmentLandingPage({ variant = "tech" }: { variant?: "index" 
       <ProofStats />
       <WhyInvestors />
       <AvailablePlotsSection />
-      <SettleProcess />
+      <SettleProcess steps={[]} />
       <VilniusEcosystem />
       <InvestorInquiry tone="dark" />
     </main>

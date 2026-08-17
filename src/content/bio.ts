@@ -194,7 +194,7 @@ export const bioClients = {
 
 export const bioProcess = {
   id: "procesas",
-  eyebrow: "Procesas",
+  eyebrow: "",
   title: "Įsikūrimas VCIIP Bio",
   intro:
     "Įsikūrimo VCIIP procesas vyksta aiškiai apibrėžtais etapais. Kiekviename jų – nuo paraiškos įsikurti pateikimo iki pat pilno įsikūrimo parke – investuotojui padeda VCIIP operatorius.",
