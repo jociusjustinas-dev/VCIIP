@@ -95,6 +95,7 @@ export function TechPage() {
       />
 
       <ApplicationCtaSection
+        eyebrow=""
         title={techCta.applicationTitle}
         description={techCta.applicationDescription}
         cta={techCta.applicationCta}
@@ -102,7 +103,7 @@ export function TechPage() {
 
       <InvestorInquiry
         tone="light"
-        eyebrow="Kontaktai"
+        showEyebrow={false}
         title={techCta.contactTitle}
         description={techCta.contactDescription}
         showContactIntro={false}

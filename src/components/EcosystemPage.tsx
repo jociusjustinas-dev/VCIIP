@@ -93,6 +93,7 @@ export function EcosystemPage() {
       />
 
       <ApplicationCtaSection
+        eyebrow=""
         title={bioCta.applicationTitle}
         description={bioCta.applicationDescription}
         cta={bioCta.applicationCta}
@@ -100,7 +101,7 @@ export function EcosystemPage() {
 
       <InvestorInquiry
         tone="light"
-        eyebrow="Kontaktai"
+        showEyebrow={false}
         title={bioCta.contactTitle}
         description={bioCta.contactDescription}
         showContactIntro={false}
