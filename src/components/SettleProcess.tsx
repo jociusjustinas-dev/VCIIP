@@ -1,9 +1,10 @@
 import { useState, type ReactNode } from "react";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import processWarmRoomImage from "../assets/images/process-warm-room.png";
 import { useReservedAccordionHeight } from "../hooks/useReservedAccordionHeight";
 import { AccordionPanel } from "./AccordionPanel";
+import { CtaArrow } from "./CtaArrow";
 import { ParallaxImage } from "./ParallaxImage";
 
 type ProcessCta = {
@@ -27,7 +28,7 @@ function StepCtaLink({ cta }: { cta: ProcessCta }) {
       {...(cta.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {cta.label}
-      <ArrowUpRight size={16} aria-hidden="true" />
+      <CtaArrow href={cta.href} />
     </a>
   );
 }
@@ -168,7 +169,7 @@ export function SettleProcess({
                           {[cta.label, cta.label].map((label, index) => (
                             <span key={index} className="flex h-5 items-center gap-2">
                               {label}
-                              <ArrowUpRight size={16} aria-hidden="true" />
+                              <CtaArrow href={cta.href} />
                             </span>
                           ))}
                         </span>
@@ -211,7 +212,7 @@ export function SettleProcess({
           {[cta.label, cta.label].map((label, index) => (
             <span key={index} className="flex h-5 items-center gap-2">
               {label}
-              <ArrowUpRight size={16} aria-hidden="true" />
+              <CtaArrow href={cta.href} />
             </span>
           ))}
         </span>

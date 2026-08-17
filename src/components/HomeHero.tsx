@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { CtaArrow } from "./CtaArrow";
 
 import homeHeroImage from "../assets/images/home-hero.jpg";
 import { homeContent } from "../content/home";
@@ -54,7 +54,7 @@ export function HomeHero() {
                       {["Apie VCIIP", "Apie VCIIP"].map((label, index) => (
                         <span key={index} className="flex h-5 items-center gap-2">
                           {label}
-                          <ArrowUpRight size={16} aria-hidden="true" />
+                          <CtaArrow href="#apie" />
                         </span>
                       ))}
                     </span>

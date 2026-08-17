@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowUpRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+
+import { CtaArrow } from "./CtaArrow";
 
 function PremiseCardCta({ label, href }: { label: string; href: string }) {
   const isExternal = href.startsWith("http");
@@ -11,7 +13,7 @@ function PremiseCardCta({ label, href }: { label: string; href: string }) {
       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {label}
-      {isExternal ? <ExternalLink size={16} aria-hidden="true" /> : <ArrowUpRight size={16} aria-hidden="true" />}
+      {isExternal ? <ExternalLink size={16} aria-hidden="true" /> : <CtaArrow href={href} />}
     </a>
   );
 }

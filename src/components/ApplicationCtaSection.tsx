@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { CtaArrow } from "./CtaArrow";
 
 type ApplicationCtaSectionProps = {
   eyebrow?: string;
@@ -32,7 +32,7 @@ export function ApplicationCtaSection({
                 : {})}
             >
               {cta.label}
-              <ArrowUpRight size={16} aria-hidden="true" />
+              <CtaArrow href={cta.href} />
             </a>
           </div>
         </div>
