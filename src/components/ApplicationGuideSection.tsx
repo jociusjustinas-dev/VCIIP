@@ -46,25 +46,31 @@ export function ApplicationGuideSection({
     <section id={id} className="section-shell bg-primary text-white">
       <div className="site-container">
         <div
-          className="mb-14 grid items-end gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.62fr)] max-[991px]:mb-10"
+          className="reveal-item mb-12 h-0 w-full border-b border-dashed border-white/24 max-[991px]:mb-8"
+          data-reveal="fade"
+        />
+
+        <div
+          className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:gap-16 xl:gap-20"
           data-reveal-group
         >
           <div className="flex flex-col items-start gap-5">
-            <div className="reveal-item h-0 w-full border-b border-dashed border-white/24" />
             <p className="eyebrow eyebrow-on-dark reveal-item">{eyebrow}</p>
-            <h2 className="section-heading reveal-item max-w-3xl text-white">{title}</h2>
+            <h2 className="section-heading reveal-item max-w-xl text-white">{title}</h2>
+            <p className="reveal-item m-0 max-w-md text-base font-normal leading-loose text-white/72">
+              {description}
+            </p>
           </div>
-          <p className="reveal-item m-0 max-w-xl justify-self-end text-base font-normal leading-loose text-white/72">
-            {description}
-          </p>
-        </div>
 
-        <div className="reveal-item border-t border-dashed border-white/18" data-reveal="fade">
-          {steps.map((step, index) => {
+          <div className="reveal-item min-w-0" data-reveal="fade">
+            {steps.map((step, index) => {
             const isOpen = openIndex === index;
 
             return (
-              <article key={step.number} className="border-b border-dashed border-white/18">
+              <article
+                key={step.number}
+                className="border-b border-dashed border-white/18 first:border-t"
+              >
                 <button
                   type="button"
                   aria-expanded={isOpen}
@@ -144,6 +150,7 @@ export function ApplicationGuideSection({
               </article>
             );
           })}
+          </div>
         </div>
       </div>
     </section>
