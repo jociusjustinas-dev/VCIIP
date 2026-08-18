@@ -268,6 +268,14 @@ export type ClientDescriptionSection = {
   body: string;
 };
 
+function capitalizeLeadingLetter(text: string) {
+  const trimmed = text.trim();
+  if (!trimmed) return trimmed;
+
+  const [first, ...rest] = trimmed;
+  return `${first.toLocaleUpperCase("lt")}${rest.join("")}`;
+}
+
 function splitClientParagraphs(content: string) {
   const byBlankLine = content
     .split(/\n\n+/)
@@ -290,7 +298,7 @@ export function parseClientDescription(description: string) {
 
   if (!CLIENT_SECTION_LABELS.some((label) => content.includes(label))) {
     for (const paragraph of splitClientParagraphs(content)) {
-      sections.push({ body: paragraph });
+      sections.push({ body: capitalizeLeadingLetter(paragraph) });
     }
     return { sections: sections.filter((section) => section.body.trim()), website };
   }
@@ -303,12 +311,12 @@ export function parseClientDescription(description: string) {
     if (matchedLabel) {
       sections.push({
         label: matchedLabel,
-        body: trimmed.slice(matchedLabel.length).trim(),
+        body: capitalizeLeadingLetter(trimmed.slice(matchedLabel.length).trim()),
       });
       continue;
     }
 
-    sections.push({ body: trimmed });
+    sections.push({ body: capitalizeLeadingLetter(trimmed) });
   }
 
   return { sections: sections.filter((section) => section.body.trim()), website };
@@ -356,7 +364,7 @@ export function getClientProfile(item: ClientEntry): ClientProfile {
       id: item.id,
       heading,
       tags: [],
-      sections: bodies.map((body) => ({ body })),
+      sections: bodies.map((body) => ({ body: capitalizeLeadingLetter(body) })),
       website,
       logo: item.logo,
       logoAlt: item.logoAlt ?? clientDisplayName(item),
