@@ -167,36 +167,35 @@ export function ClientsLogoCarousel({
             </div>
           </div>
 
-          <div className="why-vilnius-carousel__nav">
-            <button
-              type="button"
-              aria-label="Ankstesni klientai"
-              onClick={handlePrev}
-              disabled={slide === 0}
-              className="why-vilnius-carousel__nav-btn"
+          <div className="clients-logo-slider__footer">
+            <a
+              href="/klientai"
+              className="inline-flex items-center gap-2 text-base font-semibold leading-none text-primary transition hover:text-accent"
             >
-              <ChevronLeft size={22} aria-hidden="true" />
-            </button>
-            <button
-              type="button"
-              aria-label="Kiti klientai"
-              onClick={handleNext}
-              disabled={slide >= maxSlide}
-              className="why-vilnius-carousel__nav-btn"
-            >
-              <ChevronRight size={22} aria-hidden="true" />
-            </button>
+              Žiūrėti visus
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+            <div className="why-vilnius-carousel__nav">
+              <button
+                type="button"
+                aria-label="Ankstesni klientai"
+                onClick={handlePrev}
+                disabled={slide === 0}
+                className="why-vilnius-carousel__nav-btn"
+              >
+                <ChevronLeft size={22} aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                aria-label="Kiti klientai"
+                onClick={handleNext}
+                disabled={slide >= maxSlide}
+                className="why-vilnius-carousel__nav-btn"
+              >
+                <ChevronRight size={22} aria-hidden="true" />
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div className="mt-8">
-          <a
-            href="/klientai"
-            className="inline-flex items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
-          >
-            Žiūrėti visus
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
         </div>
       </div>
 

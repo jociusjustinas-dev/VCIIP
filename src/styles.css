@@ -961,6 +961,18 @@
     min-width: 0;
   }
 
+  .clients-logo-slider__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .clients-logo-slider__footer .why-vilnius-carousel__nav {
+    margin-top: 0;
+  }
+
   .clients-logo-slider__viewport {
     overflow: hidden;
     border: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
