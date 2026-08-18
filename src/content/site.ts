@@ -17,6 +17,7 @@ export const primaryNavItems: NavLink[] = [
   { label: "VCIIP Tech", href: "/tech" },
   { label: "Įsikūrimas VCIIP", href: "/isikurimas" },
   { label: "Operatorius", href: "/operatorius" },
+  { label: "Klientai", href: "/klientai" },
   { label: "Kontaktai", href: "/kontaktai" },
 ];
 
