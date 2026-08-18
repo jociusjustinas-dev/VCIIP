@@ -34,6 +34,7 @@ export const primaryNavItems: NavLink[] = [
   { label: "VCIIP Tech", href: TECH_HUB_PATH },
   { label: "Įsikūrimas VCIIP", href: "/isikurimas" },
   { label: "Operatorius", href: "/operatorius" },
+  { label: "Klientai", href: "/klientai" },
   { label: "Kontaktai", href: "/kontaktai" },
 ];
 

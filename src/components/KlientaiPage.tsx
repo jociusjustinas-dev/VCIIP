@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
-import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
 import {
   clientDisplayName,
@@ -26,6 +26,7 @@ function tabFromHash(hash = window.location.hash): ClientTab {
 }
 
 function ClientCard({ item }: { item: ClientEntry }) {
+  const [expanded, setExpanded] = useState(false);
   const profile: ClientProfile = getClientProfile(item);
   const excerpt = profile.sections
     .map((section) => section.body)
@@ -33,6 +34,7 @@ function ClientCard({ item }: { item: ClientEntry }) {
     .join(" ");
   const title = clientDisplayName(item);
   const showLegalName = Boolean(item.legalName && item.legalName !== title);
+  const hasDescription = profile.sections.some((section) => section.body.trim());
 
   return (
     <article
@@ -69,8 +71,39 @@ function ClientCard({ item }: { item: ClientEntry }) {
           {showLegalName ? <p className="m-0 text-sm leading-snug text-muted">{item.legalName}</p> : null}
         </div>
 
-        {excerpt ? (
-          <p className="m-0 line-clamp-4 text-base leading-relaxed text-muted">{excerpt}</p>
+        {hasDescription ? (
+          <div className="flex flex-col gap-3">
+            {expanded ? (
+              <div className="flex flex-col gap-3">
+                {profile.sections.map((section, index) =>
+                  section.body.trim() ? (
+                    <div key={`${item.id}-section-${index}`} className="flex flex-col gap-1.5">
+                      {section.label ? (
+                        <p className="m-0 text-sm font-semibold leading-snug text-primary">{section.label}</p>
+                      ) : null}
+                      <p className="m-0 whitespace-pre-line text-base leading-relaxed text-muted">{section.body}</p>
+                    </div>
+                  ) : null,
+                )}
+              </div>
+            ) : (
+              <p className="m-0 line-clamp-4 text-base leading-relaxed text-muted">{excerpt}</p>
+            )}
+
+            <button
+              type="button"
+              aria-expanded={expanded}
+              onClick={() => setExpanded((open) => !open)}
+              className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-accent"
+            >
+              {expanded ? "Sutraukti" : "Skaityti daugiau"}
+              <ChevronDown
+                size={16}
+                aria-hidden="true"
+                className={`transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+              />
+            </button>
+          </div>
         ) : null}
 
         {profile.website ? (
