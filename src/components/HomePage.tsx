@@ -1,3 +1,4 @@
+import vilniusImage from "../assets/images/vilnius.webp";
 import { homeContent } from "../content/home";
 import { ApplicationCtaSection } from "./ApplicationCtaSection";
 import { AdvantagesSection } from "./AdvantagesSection";
@@ -8,7 +9,6 @@ import { InvestorInquiry } from "./InvestorInquiry";
 import { MediaNewsSection } from "./MediaNewsSection";
 import { ParkPairCards } from "./ParkPairCards";
 import { TestimonialsCarousel } from "./TestimonialsCarousel";
-import { WhyVilniusCarousel } from "./WhyVilniusCarousel";
 
 export function HomePage() {
   const { advantages, parks, clients, whyVilnius, cta } = homeContent;
@@ -31,7 +31,13 @@ export function HomePage() {
 
       <TestimonialsCarousel />
       <ClientsLogoCarousel title={clients.title} description={clients.description} />
-      <WhyVilniusCarousel title={whyVilnius.title} items={whyVilnius.items} />
+      <AdvantagesSection
+        id="kodel-vilnius"
+        eyebrow=""
+        title={whyVilnius.title}
+        items={whyVilnius.items}
+        imageSrc={vilniusImage}
+      />
       <MediaNewsSection />
 
       <ApplicationCtaSection
