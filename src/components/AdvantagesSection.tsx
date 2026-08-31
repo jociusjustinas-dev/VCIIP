@@ -37,7 +37,7 @@ export function AdvantagesSection({
             <div className="flex flex-col gap-6" data-reveal-group>
               <div className="h-0 w-full border-b border-dashed border-primary/45" />
               {eyebrow ? <p className="eyebrow reveal-item">{eyebrow}</p> : null}
-              <h2 className="section-heading reveal-item max-w-xl">{title}</h2>
+              <h2 className="section-heading reveal-item max-w-3xl">{title}</h2>
             </div>
 
             <div
