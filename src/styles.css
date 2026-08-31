@@ -912,18 +912,18 @@
 
   .klientai-logo-grid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     border: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
   }
 
   .klientai-logo-grid__item {
     display: flex;
-    min-height: 6.75rem;
+    min-height: 15.5rem;
     align-items: center;
     justify-content: center;
     border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
     border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
-    padding: 1rem 0.85rem;
+    padding: 2rem 1.5rem;
     text-decoration: none;
     color: inherit;
     transition: background-color 160ms ease;
@@ -943,8 +943,8 @@
 
   .klientai-logo-grid__logo-wrap {
     display: flex;
-    width: min(100%, 6.75rem);
-    height: 2.5rem;
+    width: min(100%, 11.5rem);
+    height: 4.75rem;
     align-items: center;
     justify-content: center;
   }
@@ -967,41 +967,19 @@
     max-width: 100%;
     text-align: center;
     font-family: var(--font-display);
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.02em;
     color: var(--color-primary);
   }
 
-  .klientai-logo-grid__item:nth-child(5n) {
+  .klientai-logo-grid__item:nth-child(4n) {
     border-right: 0;
   }
 
-  .klientai-logo-grid__item:nth-last-child(-n + 5) {
+  .klientai-logo-grid__item:nth-last-child(-n + 4) {
     border-bottom: 0;
-  }
-
-  @media (max-width: 1199px) {
-    .klientai-logo-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .klientai-logo-grid__item:nth-child(5n) {
-      border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
-    }
-
-    .klientai-logo-grid__item:nth-child(4n) {
-      border-right: 0;
-    }
-
-    .klientai-logo-grid__item:nth-last-child(-n + 5) {
-      border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
-    }
-
-    .klientai-logo-grid__item:nth-last-child(-n + 4) {
-      border-bottom: 0;
-    }
   }
 
   @media (max-width: 991px) {
@@ -1010,7 +988,13 @@
     }
 
     .klientai-logo-grid__item {
-      min-height: 6.25rem;
+      min-height: 13.5rem;
+      padding: 1.75rem 1.25rem;
+    }
+
+    .klientai-logo-grid__logo-wrap {
+      width: min(100%, 10rem);
+      height: 4.25rem;
     }
 
     .klientai-logo-grid__item:nth-child(4n) {
@@ -1036,13 +1020,13 @@
     }
 
     .klientai-logo-grid__item {
-      min-height: 5.75rem;
-      padding: 0.85rem 0.65rem;
+      min-height: 11.5rem;
+      padding: 1.5rem 1rem;
     }
 
     .klientai-logo-grid__logo-wrap {
-      width: min(100%, 5.75rem);
-      height: 2.25rem;
+      width: min(100%, 8.5rem);
+      height: 3.75rem;
     }
 
     .klientai-logo-grid__item:nth-child(3n) {
