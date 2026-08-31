@@ -910,6 +910,158 @@
     }
   }
 
+  .klientai-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    border: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+  }
+
+  .klientai-logo-grid__item {
+    display: flex;
+    min-height: 6.75rem;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    padding: 1rem 0.85rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 160ms ease;
+  }
+
+  a.klientai-logo-grid__item:hover,
+  a.klientai-logo-grid__item:focus-visible {
+    background: color-mix(in srgb, var(--color-primary) 4%, white);
+    outline: none;
+  }
+
+  a.klientai-logo-grid__item:hover .klientai-logo-grid__logo,
+  a.klientai-logo-grid__item:focus-visible .klientai-logo-grid__logo {
+    opacity: 0.88;
+    transform: scale(calc(var(--logo-scale, 1) * 1.04));
+  }
+
+  .klientai-logo-grid__logo-wrap {
+    display: flex;
+    width: min(100%, 6.75rem);
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .klientai-logo-grid__logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transform: scale(var(--logo-scale, 1));
+    transform-origin: center center;
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  .klientai-logo-grid__fallback {
+    display: block;
+    max-width: 100%;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+  }
+
+  .klientai-logo-grid__item:nth-child(5n) {
+    border-right: 0;
+  }
+
+  .klientai-logo-grid__item:nth-last-child(-n + 5) {
+    border-bottom: 0;
+  }
+
+  @media (max-width: 1199px) {
+    .klientai-logo-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .klientai-logo-grid__item:nth-child(5n) {
+      border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    }
+
+    .klientai-logo-grid__item:nth-child(4n) {
+      border-right: 0;
+    }
+
+    .klientai-logo-grid__item:nth-last-child(-n + 5) {
+      border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    }
+
+    .klientai-logo-grid__item:nth-last-child(-n + 4) {
+      border-bottom: 0;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .klientai-logo-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .klientai-logo-grid__item {
+      min-height: 6.25rem;
+    }
+
+    .klientai-logo-grid__item:nth-child(4n) {
+      border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    }
+
+    .klientai-logo-grid__item:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .klientai-logo-grid__item:nth-last-child(-n + 4) {
+      border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    }
+
+    .klientai-logo-grid__item:nth-last-child(-n + 3) {
+      border-bottom: 0;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .klientai-logo-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .klientai-logo-grid__item {
+      min-height: 5.75rem;
+      padding: 0.85rem 0.65rem;
+    }
+
+    .klientai-logo-grid__logo-wrap {
+      width: min(100%, 5.75rem);
+      height: 2.25rem;
+    }
+
+    .klientai-logo-grid__item:nth-child(3n) {
+      border-right: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    }
+
+    .klientai-logo-grid__item:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .klientai-logo-grid__item:nth-last-child(-n + 3) {
+      border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 16%, transparent);
+    }
+
+    .klientai-logo-grid__item:nth-last-child(-n + 2) {
+      border-bottom: 0;
+    }
+  }
+
   .vilnius-partners-grid--clients .vilnius-partners-grid__item {
     min-height: 10rem;
     padding: 1.5rem 1.25rem;

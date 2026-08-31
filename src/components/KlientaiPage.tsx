@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
-import { ChevronDown, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { useEffect, useState, type CSSProperties } from "react";
 
 import {
   clientDisplayName,
@@ -10,7 +9,6 @@ import {
   klientaiPageContent,
   parkPairCta,
   type ClientEntry,
-  type ClientProfile,
 } from "../content/klientai";
 import { ParkPairCards } from "./ParkPairCards";
 
@@ -25,102 +23,48 @@ function tabFromHash(hash = window.location.hash): ClientTab {
   return hash.replace("#", "") === "klasteriai" ? "klasteriai" : "imones";
 }
 
-function ClientCard({ item }: { item: ClientEntry }) {
-  const [expanded, setExpanded] = useState(false);
-  const profile: ClientProfile = getClientProfile(item);
-  const excerpt = profile.sections
-    .map((section) => section.body)
-    .filter(Boolean)
-    .join(" ");
+function ClientLogoTile({ item }: { item: ClientEntry }) {
+  const profile = getClientProfile(item);
   const title = clientDisplayName(item);
-  const showLegalName = Boolean(item.legalName && item.legalName !== title);
-  const hasDescription = profile.sections.some((section) => section.body.trim());
+  const href = profile.website;
+  const className = "klientai-logo-grid__item";
+  const style = { "--logo-scale": clientLogoScale(item.id) } as CSSProperties;
+
+  const content = (
+    <span className="klientai-logo-grid__logo-wrap" style={style}>
+      {item.logo ? (
+        <img
+          src={item.logo}
+          alt={item.logoAlt ?? title}
+          className="klientai-logo-grid__logo"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <span className="klientai-logo-grid__fallback">{title}</span>
+      )}
+    </span>
+  );
+
+  if (href) {
+    return (
+      <a
+        id={item.id}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        aria-label={`${title} — atidaryti svetainę`}
+      >
+        {content}
+      </a>
+    );
+  }
 
   return (
-    <article
-      id={item.id}
-      className="premises-card flex h-full flex-col overflow-hidden border border-primary/12 bg-background"
-    >
-      <div
-        className="flex aspect-[16/10] items-center justify-center border-b border-primary/12 bg-white p-6"
-        style={{ "--logo-scale": clientLogoScale(item.id) } as CSSProperties}
-      >
-        {item.logo ? (
-          <img
-            src={item.logo}
-            alt={item.logoAlt ?? title}
-            className="max-h-full max-w-[80%] object-contain"
-            style={{ transform: "scale(var(--logo-scale, 1))" }}
-            loading="lazy"
-            decoding="async"
-          />
-        ) : (
-          <span className="heading-h3 px-2 text-center text-primary">{title}</span>
-        )}
-      </div>
-
-      <div className="flex flex-1 flex-col gap-4 p-6 max-[479px]:gap-3 max-[479px]:p-5">
-        {profile.tags.length ? (
-          <p className="m-0 text-xs font-semibold uppercase leading-snug tracking-[0.04em] text-primary/62">
-            {profile.tags.join(" · ")}
-          </p>
-        ) : null}
-
-        <div className="flex flex-col gap-1.5">
-          <h3 className="heading-h3 m-0 text-primary">{title}</h3>
-          {showLegalName ? <p className="m-0 text-sm leading-snug text-muted">{item.legalName}</p> : null}
-        </div>
-
-        {hasDescription ? (
-          <div className="flex flex-col gap-3">
-            {expanded ? (
-              <div className="flex flex-col gap-3">
-                {profile.sections.map((section, index) =>
-                  section.body.trim() ? (
-                    <div key={`${item.id}-section-${index}`} className="flex flex-col gap-1.5">
-                      {section.label ? (
-                        <p className="m-0 text-sm font-semibold leading-snug text-primary">{section.label}</p>
-                      ) : null}
-                      <p className="m-0 whitespace-pre-line text-base leading-relaxed text-muted">{section.body}</p>
-                    </div>
-                  ) : null,
-                )}
-              </div>
-            ) : (
-              <p className="m-0 line-clamp-4 text-base leading-relaxed text-muted">{excerpt}</p>
-            )}
-
-            <button
-              type="button"
-              aria-expanded={expanded}
-              onClick={() => setExpanded((open) => !open)}
-              className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-accent"
-            >
-              {expanded ? "Sutraukti" : "Skaityti daugiau"}
-              <ChevronDown
-                size={16}
-                aria-hidden="true"
-                className={`transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
-              />
-            </button>
-          </div>
-        ) : null}
-
-        {profile.website ? (
-          <a
-            href={profile.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary group mt-auto w-full justify-center hover:bg-primary hover:border-primary"
-          >
-            Daugiau informacijos
-            <ExternalLink size={16} aria-hidden="true" />
-          </a>
-        ) : (
-          <span className="mt-auto" aria-hidden="true" />
-        )}
-      </div>
-    </article>
+    <div id={item.id} className={className} aria-label={title}>
+      {content}
+    </div>
   );
 }
 
@@ -129,9 +73,6 @@ export function KlientaiPage() {
   const [tab, setTab] = useState<ClientTab>(() =>
     typeof window === "undefined" ? "imones" : tabFromHash(),
   );
-  const viewportRef = useRef<HTMLDivElement>(null);
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(false);
   const items = tab === "klasteriai" ? klientaiClusters : klientaiCompanies;
   const gridLabel = tab === "klasteriai" ? clusters.title : companies.title;
 
@@ -141,56 +82,11 @@ export function KlientaiPage() {
     window.history.replaceState(null, "", `${window.location.pathname}${hash}`);
   };
 
-  const updateScrollState = useCallback(() => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-
-    const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
-    setCanPrev(viewport.scrollLeft > 4);
-    setCanNext(viewport.scrollLeft < maxScrollLeft - 4);
-  }, []);
-
   useEffect(() => {
     const onHash = () => setTab(tabFromHash());
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
-
-  useEffect(() => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-
-    viewport.scrollTo({ left: 0 });
-    updateScrollState();
-
-    const resizeObserver = new ResizeObserver(updateScrollState);
-    resizeObserver.observe(viewport);
-    viewport.addEventListener("scroll", updateScrollState, { passive: true });
-    window.addEventListener("resize", updateScrollState);
-
-    return () => {
-      resizeObserver.disconnect();
-      viewport.removeEventListener("scroll", updateScrollState);
-      window.removeEventListener("resize", updateScrollState);
-    };
-  }, [tab, items, updateScrollState]);
-
-  const scrollByCard = (direction: -1 | 1) => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-
-    const card = viewport.querySelector(".premises-card");
-    if (!(card instanceof HTMLElement)) return;
-
-    const track = viewport.querySelector(".premises-cards");
-    const styles = track instanceof HTMLElement ? getComputedStyle(track) : null;
-    const gap = styles ? Number.parseFloat(styles.columnGap || styles.gap) || 0 : 0;
-
-    viewport.scrollBy({
-      left: direction * (card.offsetWidth + gap),
-      behavior: "smooth",
-    });
-  };
 
   return (
     <main className="bg-white">
@@ -230,35 +126,15 @@ export function KlientaiPage() {
             </div>
           </div>
 
-          <div className="premises-cards-wrap reveal-item mt-12 max-[991px]:mt-10" data-reveal="fade">
-            <div ref={viewportRef} className="premises-cards-viewport">
-              <div className="premises-cards" role="tabpanel" aria-label={gridLabel}>
-                {items.map((item) => (
-                  <ClientCard key={item.id} item={item} />
-                ))}
-              </div>
-            </div>
-
-            <div className="premises-cards-nav why-vilnius-carousel__nav">
-              <button
-                type="button"
-                aria-label="Ankstesnė kortelė"
-                onClick={() => scrollByCard(-1)}
-                disabled={!canPrev}
-                className="why-vilnius-carousel__nav-btn"
-              >
-                <ChevronLeft size={22} aria-hidden="true" />
-              </button>
-              <button
-                type="button"
-                aria-label="Kita kortelė"
-                onClick={() => scrollByCard(1)}
-                disabled={!canNext}
-                className="why-vilnius-carousel__nav-btn"
-              >
-                <ChevronRight size={22} aria-hidden="true" />
-              </button>
-            </div>
+          <div
+            className="klientai-logo-grid reveal-item mt-12 max-[991px]:mt-10"
+            role="tabpanel"
+            aria-label={gridLabel}
+            data-reveal="fade"
+          >
+            {items.map((item) => (
+              <ClientLogoTile key={item.id} item={item} />
+            ))}
           </div>
         </div>
       </section>
