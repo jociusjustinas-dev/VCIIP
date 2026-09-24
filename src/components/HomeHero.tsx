@@ -7,7 +7,6 @@ import { homeContent } from "../content/home";
 export function HomeHero() {
   const { hero } = homeContent;
   const [primaryHovered, setPrimaryHovered] = useState(false);
-  const audienceItems = hero.audienceLine.split("—").map((item) => item.trim());
 
   return (
     <section id="titulinis" className="relative bg-white text-white">
@@ -69,22 +68,6 @@ export function HomeHero() {
                 </a>
               </div>
             </div>
-
-            <ul
-              className="reveal-item m-0 flex w-full list-none flex-col border-t border-dashed border-white/28 p-0 max-[991px]:max-w-md lg:max-w-[16rem] lg:justify-self-end"
-              aria-label="VCIIP auditorijos"
-            >
-              {audienceItems.map((item) => (
-                <li
-                  key={item}
-                  className="border-b border-dashed border-white/28 py-4"
-                >
-                  <span className="font-display text-sm font-bold uppercase leading-tight tracking-wide text-white/88">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
