@@ -1,3 +1,12 @@
+import { Cable, FlaskConical, Handshake, Landmark, MapPin, Network, Trees } from "lucide-react";
+
+import stateImage from "../assets/images/apie-advantage-state.jpg";
+import ecosystemBioImage from "../assets/images/ecosystem-bio.jpeg";
+import hubioLabImage from "../assets/images/hubio-lab.jpg";
+import operatorImage from "../assets/images/operatorius-hero.jpg";
+import parkBioImage from "../assets/images/park-bio.jpg";
+import infrastructureImage from "../assets/images/tech-infrastructure.jpg";
+import overviewImage from "../assets/images/vciip-overview.jpg";
 import northtownVilniusLogo from "../assets/logos/northtown-vilnius.svg";
 
 export const apieVciipHero = {
@@ -25,30 +34,44 @@ export const apieVciipAdvantages = {
     {
       title: "Strategiškai patogi vieta ir susisiekimas",
       body: "VCIIP įsikūręs Vilniuje, Antakalnio ir Liepkalnio teritorijose, kurios patogiai pasiekiamos iš miesto centro, tarptautinio oro uosto, geležinkelio ir autobusų stočių bei pagrindinių kelių magistralių. Geras susisiekimas viešuoju ir privačiu transportu užtikrina patogų darbuotojų, partnerių, klientų judėjimą bei sklandžią verslo logistiką.",
+      image: overviewImage,
+      icon: MapPin,
     },
     {
       title: "Investicijoms parengta specializuota infrastruktūra",
       body: "VCIIP teritorijose sukurta arba nuosekliai vystoma aukštų pajėgumų infrastruktūra – inžineriniai tinklai ir susisiekimo komunikacijos. Tai leidžia greičiau pradėti projektavimo bei statybos procesus.",
+      image: infrastructureImage,
+      icon: Cable,
     },
     {
       title: "Valstybės prioritetas ir papildomos paskatos investuotojams",
       body: "VCIIP pripažintas valstybei svarbiu projektu, todėl investuotojams sudaromos palankesnės įsikūrimo sąlygos, netaikoma infrastruktūros plėtros įmoka, o teritorijos vystymas koordinuojamas instituciniu lygmeniu. Stambaus projekto kriterijus atitinkančios investicijos papildomai gali pasinaudoti „žaliojo koridoriaus“ priemonėmis – spartesniais procesais, individualia pagalba ir reikšmingomis mokestinėmis paskatomis.",
+      image: stateImage,
+      icon: Landmark,
     },
     {
       title: "Operatoriaus pagalba įsikūrimo metu",
       body: "VCIIP operatorius lydi investuotoją nuo sutarties pasirašymo iki pilno įsikūrimo – padeda spręsti sklypo pasirinkimo, specifinės infrastruktūros poreikių, institucinių derinimų ir galimų finansavimo priemonių klausimus, kad įsikūrimas VCIIP būtų sklandus ir greitas.",
+      image: operatorImage,
+      icon: Handshake,
     },
     {
       title: "Verslo ir mokslo sinergija",
       body: "VCIIP partnerystė ir artumas didžiausiems Lietuvos universitetams, mokslo centrams ir greta esantiems technologijų parkams sudaro palankias sąlygas bendriems MTEP projektams, technologijų vystymui ir komercializavimui. Įmonėms atsiveria prieiga prie tyrėjų, studentų, aukštos kvalifikacijos specialistų ir specializuotų kompetencijų.",
+      image: hubioLabImage,
+      icon: FlaskConical,
     },
     {
       title: "Unikali aukštųjų technologijų ekosistema",
       body: "VCIIP telkiasi augančių industrijų lyderiai – inovatyvios, aukštą pridėtinę vertę kuriančios įmonės, veikiančios prioritetinėse MTEPI srityse. Tokia tvariai augančių, vizionieriškų verslų koncentracija teritorijoje ir kompetencijų susitelkimas sudaro palankias sąlygas partnerystėms, bendriems projektams, žinių mainams ir naujoms verslo galimybėms.",
+      image: ecosystemBioImage,
+      icon: Network,
     },
     {
       title: "Miesto mieste koncepcija – darbui ir gyvenimo kokybei",
       body: "VCIIP teritorijos plėtojamos gamtos apsuptyje, vadovaujantis „miesto mieste“ principu. Čia kuriama visavertė kasdienė aplinka, padedanti išlaikyti harmoningą darbo ir poilsio balansą. Maitinimo vietos, susitikimų bei konferencijų erdvės, žaliosios zonos, rekreaciniai takai ir tvaraus judumo infrastruktūra kuria patogią, šiuolaikišką ir kokybišką darbo aplinką.",
+      image: parkBioImage,
+      icon: Trees,
     },
   ],
 };
