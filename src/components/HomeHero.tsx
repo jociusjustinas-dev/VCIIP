@@ -3,6 +3,7 @@ import { ArrowUpRight, Award } from "lucide-react";
 import { CtaArrow } from "./CtaArrow";
 
 import homeHeroImage from "../assets/images/home-hero.jpg";
+import realFdiLogo from "../assets/logos/partners/real-fdi.png";
 import { homeContent } from "../content/home";
 
 export function HomeHero() {
@@ -90,7 +91,10 @@ export function HomeHero() {
               </span>
               <span className="font-display text-4xl font-bold leading-none tracking-tight">{award.rank}</span>
               <span className="text-base font-semibold leading-snug text-white/92">{award.title}</span>
-              <span className="border-t border-dashed border-white/28 pt-4 text-sm leading-snug text-white/68">
+              <span className="flex items-center gap-3 border-t border-dashed border-white/28 pt-4 text-sm leading-snug text-white/68">
+                <span className="inline-flex shrink-0 bg-white px-2 py-1">
+                  <img src={realFdiLogo} alt="Real FDI" className="h-6 w-auto" width="102" height="45" />
+                </span>
                 {award.source}
               </span>
             </a>

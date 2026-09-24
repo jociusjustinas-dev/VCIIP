@@ -7,7 +7,7 @@ export const homeContent = {
       label: "Tarptautinis įvertinimas",
       rank: "TOP 10",
       title: "Investicijoms patraukliausių projektų Vidurio ir Rytų Europoje 2026",
-      source: "Real FDI · Real Asset Insight",
+      source: "Real Asset Insight",
       href: "https://realassetinsight.com/feature/top-cee-investable-projects-2026-vciip-vilnius-lithuania/",
     },
   },
