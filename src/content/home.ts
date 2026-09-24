@@ -3,7 +3,13 @@ export const homeContent = {
     eyebrow: "Vilniaus miesto inovacijų pramonės parkas",
     title: "Aukštųjų technologijų plėtrai Vilniuje",
     description: "Šiandien VCIIP jungia dvi teritorijias – VCIIP Bio Antakalnyje, skirtą gyvybės mokslų industrijos plėtrai ir VCIIP Tech Liepkalnyje, skirtą technologijų bei pažangios gamybos įmonių augimui",
-    audienceLine: "Investuotojams — Miestui — Valstybei",
+    award: {
+      label: "Tarptautinis įvertinimas",
+      rank: "TOP 10",
+      title: "Investicijoms patraukliausių projektų Vidurio ir Rytų Europoje 2026",
+      source: "Real FDI · Real Asset Insight",
+      href: "https://realassetinsight.com/feature/top-cee-investable-projects-2026-vciip-vilnius-lithuania/",
+    },
   },
   about: {
     title: "Pirmasis ir vienintelis inovacijų pramonės parkas Vilniuje",

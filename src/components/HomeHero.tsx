@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ArrowUpRight, Award } from "lucide-react";
 import { CtaArrow } from "./CtaArrow";
 
 import homeHeroImage from "../assets/images/home-hero.jpg";
@@ -7,7 +8,7 @@ import { homeContent } from "../content/home";
 export function HomeHero() {
   const { hero } = homeContent;
   const [primaryHovered, setPrimaryHovered] = useState(false);
-  const audienceItems = hero.audienceLine.split("—").map((item) => item.trim());
+  const { award } = hero;
 
   return (
     <section id="titulinis" className="relative bg-white text-white">
@@ -70,21 +71,29 @@ export function HomeHero() {
               </div>
             </div>
 
-            <ul
-              className="reveal-item m-0 flex w-full list-none flex-col border-t border-dashed border-white/28 p-0 max-[991px]:max-w-md lg:max-w-[16rem] lg:justify-self-end"
-              aria-label="VCIIP auditorijos"
+            <a
+              href={award.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="reveal-item group flex w-full flex-col gap-4 border border-white/24 bg-[color-mix(in_srgb,var(--color-primary)_42%,transparent)] p-6 text-white backdrop-blur-md transition-colors duration-300 hover:border-accent max-[991px]:max-w-md lg:max-w-[20rem] lg:justify-self-end max-[479px]:p-5"
             >
-              {audienceItems.map((item) => (
-                <li
-                  key={item}
-                  className="border-b border-dashed border-white/28 py-4"
-                >
-                  <span className="font-display text-sm font-bold uppercase leading-tight tracking-wide text-white/88">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
+              <span className="flex items-center justify-between gap-3">
+                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em] text-accent">
+                  <Award size={16} strokeWidth={2} aria-hidden="true" />
+                  {award.label}
+                </span>
+                <ArrowUpRight
+                  size={18}
+                  aria-hidden="true"
+                  className="shrink-0 text-white/60 transition-colors duration-300 group-hover:text-accent"
+                />
+              </span>
+              <span className="font-display text-4xl font-bold leading-none tracking-tight">{award.rank}</span>
+              <span className="text-base font-semibold leading-snug text-white/92">{award.title}</span>
+              <span className="border-t border-dashed border-white/28 pt-4 text-sm leading-snug text-white/68">
+                {award.source}
+              </span>
+            </a>
           </div>
         </div>
       </div>
