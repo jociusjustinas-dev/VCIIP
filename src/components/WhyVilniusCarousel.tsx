@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, type LucideIcon } from "lucide-react";
 
 import { CtaArrow } from "./CtaArrow";
 
@@ -8,6 +8,8 @@ type WhyItem = {
   body: string;
   href?: string;
   ctaLabel?: string;
+  image?: string;
+  icon?: LucideIcon;
 };
 
 function NavButtons({
@@ -65,7 +67,9 @@ export function WhyVilniusCarousel({
   const [slide, setSlide] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const [stepPx, setStepPx] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(1);
   const isGradient = tone === "gradient";
+  const hasMedia = items.some((item) => item.image);
 
   useEffect(() => {
     const measure = () => {
@@ -73,15 +77,22 @@ export function WhyVilniusCarousel({
       const card = trackRef.current.firstElementChild as HTMLElement | null;
       if (!card) return;
       const gap = Number.parseFloat(getComputedStyle(trackRef.current).gap) || 0;
-      setStepPx(card.offsetWidth + gap);
+      const step = card.offsetWidth + gap;
+      setStepPx(step);
+      const viewportWidth = trackRef.current.parentElement?.clientWidth ?? 0;
+      setVisibleCount(hasMedia && step ? Math.max(1, Math.round((viewportWidth + gap) / step)) : 1);
     };
 
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
-  }, [items.length]);
+  }, [items.length, hasMedia]);
 
-  const maxSlide = Math.max(0, items.length - 1);
+  const maxSlide = Math.max(0, items.length - visibleCount);
+
+  useEffect(() => {
+    setSlide((current) => Math.min(current, maxSlide));
+  }, [maxSlide]);
 
   const handlePrev = () => {
     setSlide((current) => Math.max(0, current - 1));
@@ -118,13 +129,50 @@ export function WhyVilniusCarousel({
         <div className="why-vilnius-carousel__viewport reveal-item" data-reveal="fade">
           <div
             ref={trackRef}
-            className="why-vilnius-carousel__track"
+            className={`why-vilnius-carousel__track ${hasMedia ? "why-vilnius-carousel__track--media" : ""}`}
             style={{
               transform: stepPx ? `translateX(-${slide * stepPx}px)` : undefined,
             }}
           >
             {items.map((item, index) => {
               const hasCta = Boolean(item.href);
+              const number = String(index + 1).padStart(2, "0");
+
+              if (item.image) {
+                const Icon = item.icon;
+
+                return (
+                  <article key={item.title} className="why-vilnius-carousel__card why-vilnius-carousel__card--media">
+                    <div className="why-vilnius-carousel__media">
+                      <img
+                        src={item.image}
+                        alt=""
+                        className="why-vilnius-carousel__media-image"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      {Icon || showNumbers ? (
+                        <span className="why-vilnius-carousel__badge" aria-hidden="true">
+                          {Icon ? <Icon size={26} strokeWidth={1.75} /> : number}
+                        </span>
+                      ) : null}
+                    </div>
+                    <div className="why-vilnius-carousel__media-body">
+                      <h3 className="why-vilnius-carousel__card-title">{item.title}</h3>
+                      <p className="why-vilnius-carousel__card-body">{item.body}</p>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="mt-auto inline-flex items-center gap-2 text-base font-semibold text-primary transition hover:text-accent"
+                        >
+                          {item.ctaLabel ?? "Skaityti daugiau"}
+                          <CtaArrow href={item.href} />
+                        </a>
+                      ) : null}
+                    </div>
+                  </article>
+                );
+              }
 
               return (
               <article
@@ -137,7 +185,7 @@ export function WhyVilniusCarousel({
                   <div className="flex flex-col gap-6">
                     {showNumbers ? (
                       <span className="font-display text-sm font-bold uppercase tracking-wide text-accent">
-                        {String(index + 1).padStart(2, "0")}
+                        {number}
                       </span>
                     ) : null}
                     <h3 className="why-vilnius-carousel__card-title">{item.title}</h3>

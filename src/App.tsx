@@ -2,6 +2,8 @@ import { useEffect } from "react";
 
 import { ApieVciipPage } from "./components/ApieVciipPage";
 import { EcosystemPage } from "./components/EcosystemPage";
+import { AnnouncementBar } from "./components/AnnouncementBar";
+import { getAwardVariant } from "./lib/awardVariant";
 import { Footer } from "./components/Footer";
 import { HashScroll } from "./components/HashScroll";
 import { HomePage } from "./components/HomePage";
@@ -98,7 +100,12 @@ function App() {
       <SmoothScroll />
       <HashScroll pathname={currentPath} />
       <ScrollReveal />
-      <Navigation variant={brandVariant} hubHref={hubHref} tealLogo={useTealLogo} />
+      <Navigation
+        variant={brandVariant}
+        hubHref={hubHref}
+        tealLogo={useTealLogo}
+        announcement={currentPath === "/" && getAwardVariant() === "b" ? <AnnouncementBar /> : undefined}
+      />
       {isKodelVilniusPage ? (
         <Redirect to="/#kodel-vilnius" />
       ) : shouldRedirectBio ? (

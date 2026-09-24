@@ -41,10 +41,12 @@ export function Navigation({
   variant = "vciip",
   hubHref = "/",
   tealLogo = false,
+  announcement,
 }: {
   variant?: BrandVariant;
   hubHref?: string;
   tealLogo?: boolean;
+  announcement?: ReactNode;
 }) {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
   const [stickyVisible, setStickyVisible] = useState(false);
@@ -281,6 +283,17 @@ export function Navigation({
           : ""
       }`}
     >
+      {announcement ? (
+        <div
+          className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            stickyVisible ? "grid-rows-[0fr]" : "grid-rows-[1fr]"
+          }`}
+          aria-hidden={stickyVisible || undefined}
+          inert={stickyVisible || undefined}
+        >
+          <div className="overflow-hidden">{announcement}</div>
+        </div>
+      ) : null}
       <div
         className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           stickyVisible ? "translate-y-0" : "translate-y-2 max-[479px]:translate-y-3"
