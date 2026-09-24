@@ -67,7 +67,9 @@ export function WhyVilniusCarousel({
   const [slide, setSlide] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const [stepPx, setStepPx] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(1);
   const isGradient = tone === "gradient";
+  const hasMedia = items.some((item) => item.image);
 
   useEffect(() => {
     const measure = () => {
@@ -75,15 +77,22 @@ export function WhyVilniusCarousel({
       const card = trackRef.current.firstElementChild as HTMLElement | null;
       if (!card) return;
       const gap = Number.parseFloat(getComputedStyle(trackRef.current).gap) || 0;
-      setStepPx(card.offsetWidth + gap);
+      const step = card.offsetWidth + gap;
+      setStepPx(step);
+      const viewportWidth = trackRef.current.parentElement?.clientWidth ?? 0;
+      setVisibleCount(hasMedia && step ? Math.max(1, Math.round((viewportWidth + gap) / step)) : 1);
     };
 
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
-  }, [items.length]);
+  }, [items.length, hasMedia]);
 
-  const maxSlide = Math.max(0, items.length - 1);
+  const maxSlide = Math.max(0, items.length - visibleCount);
+
+  useEffect(() => {
+    setSlide((current) => Math.min(current, maxSlide));
+  }, [maxSlide]);
 
   const handlePrev = () => {
     setSlide((current) => Math.max(0, current - 1));
@@ -120,7 +129,7 @@ export function WhyVilniusCarousel({
         <div className="why-vilnius-carousel__viewport reveal-item" data-reveal="fade">
           <div
             ref={trackRef}
-            className="why-vilnius-carousel__track"
+            className={`why-vilnius-carousel__track ${hasMedia ? "why-vilnius-carousel__track--media" : ""}`}
             style={{
               transform: stepPx ? `translateX(-${slide * stepPx}px)` : undefined,
             }}

@@ -1293,6 +1293,33 @@
     box-shadow: 0 18px 40px color-mix(in srgb, var(--color-primary) 6%, transparent);
   }
 
+  .why-vilnius-carousel__track--media {
+    --media-cards-visible: 3;
+    gap: 1.5rem;
+  }
+
+  .why-vilnius-carousel__track--media .why-vilnius-carousel__card {
+    flex-basis: calc(
+      (100% - (var(--media-cards-visible) - 1) * 1.5rem) / var(--media-cards-visible)
+    );
+  }
+
+  .why-vilnius-carousel__track--media .why-vilnius-carousel__card-title {
+    font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+  }
+
+  @media (max-width: 991px) {
+    .why-vilnius-carousel__track--media {
+      --media-cards-visible: 2;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .why-vilnius-carousel__track--media {
+      --media-cards-visible: 1;
+    }
+  }
+
   .why-vilnius-carousel__card--media {
     justify-content: flex-start;
     gap: 0;
@@ -1319,7 +1346,7 @@
   .why-vilnius-carousel__badge {
     position: absolute;
     bottom: 0;
-    left: 2.5rem;
+    left: 2rem;
     display: flex;
     width: 3.5rem;
     height: 3.5rem;
@@ -1338,8 +1365,8 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    gap: 1.25rem;
-    padding: 3.25rem 2.5rem 2.5rem;
+    gap: 1rem;
+    padding: 3rem 2rem 2rem;
   }
 
   .why-vilnius-carousel__card-title {
